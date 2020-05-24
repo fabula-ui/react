@@ -1,21 +1,28 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, { useState } from "react"
+import { Helmet } from 'react-helmet';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+// Fabula related
+import { ThemeProvider } from '@fabula/react-dev';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+// Examples
+import AvatarExample from '../Examples/avatar';
+import ButtonExample from '../Examples/button';
+import ButtonGroupExample from '../Examples/buttonGroup';
+
+const IndexPage = () => {
+  return (
+    <>
+      <Helmet>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <style type="text/css">{`body, html { font-size: 15px; }`}</style>
+      </Helmet>
+      <ThemeProvider>
+        <AvatarExample />
+        <ButtonExample />
+        <ButtonGroupExample />
+      </ThemeProvider>
+    </>
+  )
+}
 
 export default IndexPage

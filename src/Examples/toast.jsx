@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 
-import { ToastService } from '@fabula/react-dev';
+import { Button, ToastService } from '@fabula/react-dev';
 
 const ToastExample = props => {
     const { test } = props;
@@ -20,7 +20,10 @@ const ToastExample = props => {
     }
 
     return (
-        <button onClick={addToast}>{toastService.test}</button>
+        <>
+            <Button color="primary" mb={8} onClick={addToast}>Add Toast</Button>
+            <div>Teste...</div>
+        </>
     )
 }
 

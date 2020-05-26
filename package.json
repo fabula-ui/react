@@ -5,7 +5,6 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@fabula/react": "file:../../libs/react",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-manifest": "^2.2.39",
@@ -22,6 +21,7 @@
     "react-helmet": "^6.0.0"
   },
   "devDependencies": {
+    "@babel/compat-data": "7.9.0",
     "prettier": "^1.19.1"
   },
   "keywords": [

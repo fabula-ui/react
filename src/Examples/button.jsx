@@ -3,7 +3,7 @@ import React from 'react';
 import { 
     Button,
     ButtonGroup
-} from '@fabula/react';
+} from '@fabula/react-dev';
 
 import Example from '../components/Example/Example';
 

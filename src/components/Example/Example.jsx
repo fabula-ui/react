@@ -17,7 +17,9 @@ const Example = props => {
                 {visible ? '- ' : '+ '}
                 {title}
             </h1>
-            {visible && children}
+            <div className="example-children" data-visible={visible}>
+                {children}
+            </div>
         </div>
     )
 }

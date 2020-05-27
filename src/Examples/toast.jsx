@@ -28,6 +28,18 @@ const ToastExample = props => {
 
     const handleStack = name => {
         const placements = {
+            bottomCenter: {
+                x: 'center',
+                y: 'bottom'
+            },
+            bottomLeft: {
+                x: 'left',
+                y: 'bottom'
+            },
+            bottomRight: {
+                x: 'right',
+                y: 'bottom'
+            },
             topCenter: {
                 x: 'center',
                 y: 'top'
@@ -65,6 +77,19 @@ const ToastExample = props => {
                 <ButtonGroup>
                     <Button color="primary" onClick={() => handleStack('topRight')}>Create Top-Right Stack</Button>
                     <Button border={true} clear={true} color="primary" onClick={() => addToast('topRight')}>Add Toast</Button>
+                </ButtonGroup>
+
+                <ButtonGroup>
+                    <Button color="primary" onClick={() => handleStack('bottomCenter')}>Create Bottom-Center Stack</Button>
+                    <Button border={true} clear={true} color="primary" onClick={() => addToast('bottomCenter')}>Add Toast</Button>
+                </ButtonGroup>
+                <ButtonGroup>
+                    <Button color="primary" onClick={() => handleStack('bottomLeft')}>Create Bottom-Left Stack</Button>
+                    <Button border={true} clear={true} color="primary" onClick={() => addToast('bottomLeft')}>Add Toast</Button>
+                </ButtonGroup>
+                <ButtonGroup>
+                    <Button color="primary" onClick={() => handleStack('bottomRight')}>Create Bottom-Right Stack</Button>
+                    <Button border={true} clear={true} color="primary" onClick={() => addToast('bottomRight')}>Add Toast</Button>
                 </ButtonGroup>
             </div>
             <Toast closeButton={{ color: 'danger', label: 'Go there' }} hide={false} message="Here is an example of a toast component working..." />

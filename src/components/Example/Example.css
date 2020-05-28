@@ -1,7 +1,0 @@
-.example h1 {
-    cursor: pointer;
-}
-
-.example-children[data-visible='false'] {
-    display: none;
-}

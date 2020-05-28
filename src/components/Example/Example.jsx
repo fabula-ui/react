@@ -5,7 +5,7 @@ import './Example.css';
 
 const Example = props => {
     const { children, title } = props;
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(!!props.visible);
 
     const handleClick = () => {
         setVisible(!visible);

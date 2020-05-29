@@ -4,8 +4,7 @@ import { action } from '@storybook/addon-actions';
 import {
   Button,
   ButtonGroup,
-  FabulaProvider,
-  UtilsProvider
+  FabulaProvider
 } from '../lib';
 
 export default {
@@ -216,6 +215,38 @@ export const Faded = () => (
   </FabulaProvider>
 )
 
+export const Glow = () => (
+  <FabulaProvider utils={true}>
+    <ButtonGroup mb="1">
+      <Button>With</Button>
+      <Button color="primary">With</Button>
+      <Button color="secondary">With</Button>
+      <Button color="success">With</Button>
+      <Button color="danger">With</Button>
+      <Button color="warning">With</Button>
+      <Button color="hot">With</Button>
+      <Button color="cold">With</Button>
+      <Button color="dark">With</Button>
+      <Button color="light">With</Button>
+      <Button color="aux">With</Button>
+    </ButtonGroup>
+
+    <ButtonGroup>
+      <Button glow={false}>Without</Button>
+      <Button color="primary" glow={false}>Without</Button>
+      <Button color="secondary" glow={false}>Without</Button>
+      <Button color="success" glow={false}>Without</Button>
+      <Button color="danger" glow={false}>Without</Button>
+      <Button color="warning" glow={false}>Without</Button>
+      <Button color="hot" glow={false}>Without</Button>
+      <Button color="cold" glow={false}>Without</Button>
+      <Button color="dark" glow={false}>Without</Button>
+      <Button color="light" glow={false}>Without</Button>
+      <Button color="aux" glow={false}>Without</Button>
+    </ButtonGroup>
+  </FabulaProvider>
+)
+
 export const Gradient = () => (
   <FabulaProvider utils={true}>
     <ButtonGroup>
@@ -230,6 +261,63 @@ export const Gradient = () => (
       <Button color="dark" gradient>Gradient</Button>
       <Button color="light" gradient>Gradient</Button>
       <Button color="aux" gradient>Gradient</Button>
+    </ButtonGroup>
+  </FabulaProvider>
+)
+
+export const Invert = () => (
+  <FabulaProvider utils={true}>
+    <ButtonGroup>
+      <Button invert>Invert</Button>
+      <Button color="primary" invert>Invert</Button>
+      <Button color="secondary" invert>Invert</Button>
+      <Button color="success" invert>Invert</Button>
+      <Button color="danger" invert>Invert</Button>
+      <Button color="warning" invert>Invert</Button>
+      <Button color="hot" invert>Invert</Button>
+      <Button color="cold" invert>Invert</Button>
+      <Button color="dark" invert>Invert</Button>
+      <Button color="light" invert>Invert</Button>
+      <Button color="aux" invert>Invert</Button>
+    </ButtonGroup>
+  </FabulaProvider>
+)
+
+export const Outline = () => (
+  <FabulaProvider utils={true}>
+    <ButtonGroup>
+      <Button outline>Outline</Button>
+      <Button color="primary" outline>Outline</Button>
+      <Button color="secondary" outline>Outline</Button>
+      <Button color="success" outline>Outline</Button>
+      <Button color="danger" outline>Outline</Button>
+      <Button color="warning" outline>Outline</Button>
+      <Button color="hot" outline>Outline</Button>
+      <Button color="cold" outline>Outline</Button>
+      <Button color="dark" outline>Outline</Button>
+      <Button color="light" outline>Outline</Button>
+      <Button color="aux" outline>Outline</Button>
+    </ButtonGroup>
+  </FabulaProvider>
+)
+
+export const Rounded = () => (
+  <FabulaProvider utils={true}>
+    <ButtonGroup>
+      <Button color="primary">Normal</Button>
+      <Button color="primary" rounded>Rounded</Button>
+    </ButtonGroup>
+  </FabulaProvider>
+)
+
+export const Size = () => (
+  <FabulaProvider utils={true}>
+    <ButtonGroup>
+      <Button color="primary" size="xl">Button XLarge</Button>
+      <Button color="primary" size="lg">Button Large</Button>
+      <Button color="primary">Button</Button>
+      <Button color="primary" size="sm">Button Small</Button>
+      <Button color="primary" size="xs">Button XSmall</Button>
     </ButtonGroup>
   </FabulaProvider>
 )

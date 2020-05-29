@@ -8,8 +8,10 @@
     "@testing-library/user-event": "^7.1.2",
     "emotion": "^10.0.27",
     "react": "^16.13.1",
+    "react-app-rewire-svg-react-loader": "codebandits/react-app-rewire-svg-react-loader",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "svg-inline-loader": "^0.8.2"
   },
   "scripts": {
     "start": "react-app-rewired start",

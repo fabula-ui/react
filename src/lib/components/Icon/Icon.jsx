@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 import { css } from 'emotion';
 
 // Context
@@ -10,7 +10,26 @@ import IconStyles from '@fabula/core/theme/styles/Icon';
 const Icon = props => {
     const { children, name } = props;
     const { utils } = useContext(FabulaProviderContext);
+    const iconRef = useRef(null);
+    const svgRef = useRef(null);
+    const wrapperRef = useRef(null);
     let svg;
+
+    useEffect(() => {
+        console.log(svgRef);
+
+        if (iconRef.current && svgRef.current && wrapperRef.current) {
+            svgRef.current.addEventListener('load', () => {
+                const svgDocument = svgRef.current.contentDocument;
+                const svg = svgDocument.querySelector('svg');
+                
+                iconRef.current.appendChild(svg);
+                console.log(wrapperRef.current);
+
+                svg.style.color = 'inherit';
+            });
+        }
+    }, [iconRef, svgRef, wrapperRef]);
 
     try {
         svg = require(`@fabula/core/icons/${name}.svg`);
@@ -18,10 +37,13 @@ const Icon = props => {
         svg = null;
     }
 
+    console.log('svg', svg);
+
     if (svg) {
         return (
-            <span className={`fab-icon ${css(IconStyles({ framework: 'react', props, utils }))}`}>
-                <i className="fab-icon__svg" dangerouslySetInnerHTML={{ __html: atob(svg.substring(26)) }} />
+            <span className={`fab-icon ${css(IconStyles({ framework: 'react', props, utils }))}`} ref={wrapperRef}>
+                <i className="fab-icon__svg" ref={iconRef} />
+                <object className="fab-icon__object" xmlns="http://www.w3.org/2000/svg" data={svg} type="image/svg+xml" ref={svgRef}/>
                 {children}
             </span>
         );

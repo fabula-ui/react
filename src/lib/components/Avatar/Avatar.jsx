@@ -1,6 +1,10 @@
 import React from 'react';
 import { css } from 'emotion';
 
+// Components
+import Icon from '../Icon/Icon';
+
+// Styles
 import AvatarStyles from '@fabula/core/theme/styles/Avatar';
 
 const Avatar = props => {
@@ -17,6 +21,7 @@ const Avatar = props => {
     return (
         <div className={`fab-avatar-wrapper ${css(AvatarStyles({ framework: 'react', props }))}`} data-fab-wrapper="avatar" data-rounded={rounded}>
             <div className="fab-avatar" data-color={color} data-rounded={rounded} data-size={size}>
+                <Icon name="image" />
                 <div className="fab-avatar__image" style={{ backgroundImage: `url(${image})` }}></div>
                 {showInitials && <span className="fab-avatar__initials">{initials}</span>}
             </div>

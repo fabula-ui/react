@@ -1,30 +1,35 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import logo from './logo.svg';
 import './App.css';
 
-import { Avatar, FabulaProvider } from './lib';
+import {
+  Avatar,
+  FabulaProvider,
+  FileInput,
+  Tag
+} from './lib';
 
 function App() {
   return (
-    <FabulaProvider>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-        </p>
-          <Avatar />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-        </a>
-        </header>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Fabula UI</title>
+        <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,900" rel="stylesheet" />
+        <style>{`html { font-size: 15px; }`}</style>
+      </Helmet>
+      <div style={{ padding: 20 }}>
+        <FileInput expand={true} multiple={true} />
+        <Tag>
+          <span>Tag</span>
+        </Tag>
       </div>
-    </FabulaProvider>
+    </>
   );
 }
 

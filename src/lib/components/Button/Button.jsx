@@ -10,14 +10,45 @@ import ButtonStyles from '@fabula/core/theme/styles/Button';
 
 const Button = props => {
     const {
+        border,
         children,
+        clear,
+        color,
+        compact,
         disabled,
+        expand,
+        faded,
+        glow,
+        gradient,
+        invert,
+        outline,
+        rounded,
+        size,
+        smashed,
+        wide,
         ...rest
     } = props;
+    const buttonProps = {
+        border,
+        clear,
+        color,
+        compact,
+        disabled,
+        expand,
+        faded,
+        glow,
+        gradient,
+        invert,
+        outline,
+        rounded,
+        size,
+        smashed,
+        wide
+    };
     const { utils } = useContext(FabulaProviderContext);
 
     return (
-        <div className={`fab-button-wrapper ${css(ButtonStyles({ framework: 'react', props, utils }))}`} data-fab-wrapper="button">
+        <div className={`fab-button-wrapper ${css(ButtonStyles({ framework: 'react', props: buttonProps, utils }))}`} data-fab-wrapper="button">
             <button className="fab-button" data-fab-component="button" disabled={disabled} {...rest}>
                 {children}
             </button>

@@ -9,12 +9,3 @@
 //         'react': path.resolve(__dirname, 'node_modules/react')
 //     })
 // );
-
-const rewireSvgReactLoader = require('react-app-rewire-svg-react-loader');
-
-module.exports = function override(config, env) {
-    // ...
-    // config = rewireSvgReactLoader(config, env);
-    // ... 
-    return config;
-}

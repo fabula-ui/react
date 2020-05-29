@@ -11,6 +11,22 @@ export default {
     component: Avatar,
 };
 
+export const AdaptColor = () => (
+    <FabulaProvider utils={true}>
+        <Avatar adaptColor={true} mb="1" />
+        <Avatar adaptColor={true} color="primary" mb="1" />
+        <Avatar adaptColor={true} color="secondary" mb="1" />
+        <Avatar adaptColor={true} color="success" mb="1" />
+        <Avatar adaptColor={true} color="danger" mb="1" />
+        <Avatar adaptColor={true} color="warning" mb="1" />
+        <Avatar adaptColor={true} color="hot" mb="1" />
+        <Avatar adaptColor={true} color="cold" mb="1" />
+        <Avatar adaptColor={true} color="dark" mb="1" />
+        <Avatar adaptColor={true} color="light" mb="1" />
+        <Avatar adaptColor={true} color="aux" mb="1" />
+    </FabulaProvider>
+)
+
 export const Color = () => (
     <FabulaProvider utils={true}>
         <Avatar mb="1" />

@@ -5,6 +5,7 @@ import ButtonGroup from './components/ButtonGroup/ButtonGroup';
 import FileInput from './components/FileInput/FileInput';
 import Icon from './components/Icon/Icon';
 import Toast from './components/Toast/Toast';
+import Tag from './components/Tag/Tag';
 
 // Providers
 import FabulaProvider from './providers/FabulaProvider';
@@ -23,6 +24,7 @@ export {
     ButtonGroup,
     FileInput,
     Icon,
+    Tag,
     Toast,
 
     // Providers

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from 'react';
+import React, { useContext, useRef, useEffect, useState } from 'react';
 import { css } from 'emotion';
 
 // Context
@@ -10,6 +10,7 @@ import IconStyles from '@fabula/core/theme/styles/Icon';
 const Icon = props => {
     const { children, name } = props;
     const { utils } = useContext(FabulaProviderContext);
+    const [appended, setAppended] = useState(false);
     const iconRef = useRef(null);
     const svgRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -24,9 +25,9 @@ const Icon = props => {
                 const svg = svgDocument.querySelector('svg');
                 
                 iconRef.current.appendChild(svg);
-                console.log(wrapperRef.current);
 
                 svg.style.color = 'inherit';
+                setAppended(true);
             });
         }
     }, [iconRef, svgRef, wrapperRef]);
@@ -43,7 +44,7 @@ const Icon = props => {
         return (
             <span className={`fab-icon ${css(IconStyles({ framework: 'react', props, utils }))}`} ref={wrapperRef}>
                 <i className="fab-icon__svg" ref={iconRef} />
-                <object className="fab-icon__object" xmlns="http://www.w3.org/2000/svg" data={svg} type="image/svg+xml" ref={svgRef}/>
+                {!appended && <object className="fab-icon__object" xmlns="http://www.w3.org/2000/svg" data={svg} type="image/svg+xml" ref={svgRef}>Unsupported by browser</object>}
                 {children}
             </span>
         );

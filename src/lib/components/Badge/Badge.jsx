@@ -8,16 +8,21 @@ import { FabulaProviderContext } from '../../providers/FabulaProvider';
 import BadgeStyles from '@fabula/core/theme/styles/Badge';
 
 const Badge = props => {
-    const { children } = props;
+    const { children, label, placement } = props;
     const { utils } = useContext(FabulaProviderContext);
 
     return (
         <div className={`fab-badge-wrapper ${css(BadgeStyles({ framework: 'react', props, utils }))}`} data-fab-wrapper="badge">
-            <div className="fab-badge" data-fab-component="badge">
+            <div className="fab-badge" data-fab-component="badge" data-has-placement={!!placement}>
+                {label}
                 {children}
             </div>
         </div>
     )
+}
+
+Badge.defaultProps = {
+    glow: false
 }
 
 export default Badge;

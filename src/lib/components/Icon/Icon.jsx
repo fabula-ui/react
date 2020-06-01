@@ -38,8 +38,6 @@ const Icon = props => {
         svg = null;
     }
 
-    console.log('svg', svg);
-
     if (svg) {
         return (
             <span className={`fab-icon ${css(IconStyles({ framework: 'react', props, utils }))}`} ref={wrapperRef}>

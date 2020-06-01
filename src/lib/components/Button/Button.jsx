@@ -1,9 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
-
-// Context
-import { FabulaProviderContext } from '../../providers/FabulaProvider';
 
 // Styles
 import ButtonStyles from '@fabula/core/theme/styles/Button';
@@ -12,6 +9,7 @@ const Button = props => {
     const {
         border,
         children,
+        className,
         clear,
         color,
         compact,
@@ -45,10 +43,9 @@ const Button = props => {
         smashed,
         wide
     };
-    const { utils } = useContext(FabulaProviderContext);
 
     return (
-        <div className={`fab-button-wrapper ${css(ButtonStyles({ framework: 'react', props: buttonProps, utils }))}`} data-fab-wrapper="button">
+        <div className={`${className} fab-button-wrapper ${css(ButtonStyles({ framework: 'react', props: buttonProps }))}`} data-fab-wrapper="button" data-border={border} data-outline={outline}>
             <button className="fab-button" data-fab-component="button" disabled={disabled} {...rest}>
                 {children}
             </button>

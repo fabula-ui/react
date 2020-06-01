@@ -2,9 +2,10 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 
 import {
+  Badge,
   Button,
   ButtonGroup,
-  FabulaProvider
+  FabulaProvider,
 } from '../lib';
 
 export default {
@@ -318,6 +319,158 @@ export const Size = () => (
       <Button color="primary">Button</Button>
       <Button color="primary" size="sm">Button Small</Button>
       <Button color="primary" size="xs">Button XSmall</Button>
+    </ButtonGroup>
+  </FabulaProvider>
+)
+
+export const ExternalBadge = () => (
+  <FabulaProvider utils={true}>
+    <ButtonGroup mb="1">
+      <Button compact={true}>
+        <span>Button</span>
+        <Badge invert={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true}>
+        <span>Button</span>
+        <Badge color="primary" invert={true}>99+</Badge>
+      </Button>
+      <Button color="secondary" compact={true}>
+        <span>Button</span>
+        <Badge color="secondary" invert={true}>99+</Badge>
+      </Button>
+      <Button color="success" compact={true}>
+        <span>Button</span>
+        <Badge color="success" invert={true}>99+</Badge>
+      </Button>
+      <Button color="danger" compact={true}>
+        <span>Button</span>
+        <Badge color="danger" invert={true}>99+</Badge>
+      </Button>
+      <Button color="warning" compact={true}>
+        <span>Button</span>
+        <Badge color="warning" invert={true}>99+</Badge>
+      </Button>
+      <Button color="hot" compact={true}>
+        <span>Button</span>
+        <Badge color="hot" invert={true}>99+</Badge>
+      </Button>
+      <Button color="cold" compact={true}>
+        <span>Button</span>
+        <Badge color="cold" invert={true}>99+</Badge>
+      </Button>
+      <Button color="dark" compact={true}>
+        <span>Button</span>
+        <Badge color="dark" invert={true}>99+</Badge>
+      </Button>
+      <Button color="light" compact={true}>
+        <span>Button</span>
+        <Badge color="light" invert={true}>99+</Badge>
+      </Button>
+      <Button color="aux" compact={true}>
+        <span>Button</span>
+        <Badge color="aux" invert={true}>99+</Badge>
+      </Button>
+    </ButtonGroup>
+
+    <ButtonGroup mb="1">
+      <Button compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="primary" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="secondary" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="secondary" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="success" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="success" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="danger" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="danger" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="warning" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="warning" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="hot" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="hot" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="cold" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="cold" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="dark" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="dark" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="light" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="light" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="aux" compact={true} rounded={true}>
+        <span>Button</span>
+        <Badge color="aux" invert={true} rounded={true}>99+</Badge>
+      </Button>
+    </ButtonGroup>
+
+    <ButtonGroup mb="1">
+      <Button color="primary" compact={true} size="xxl">
+        <span>Button</span>
+        <Badge color="primary" invert={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} size="xl">
+        <span>Button</span>
+        <Badge color="primary" invert={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} size="lg">
+        <span>Button</span>
+        <Badge color="primary" invert={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} size="md">
+        <span>Button</span>
+        <Badge color="primary" invert={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} size="sm">
+        <span>Button</span>
+        <Badge color="primary" invert={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} size="xs">
+        <span>Button</span>
+        <Badge color="primary" invert={true}>99+</Badge>
+      </Button>
+    </ButtonGroup>
+
+    <ButtonGroup mb="1">
+      <Button color="primary" compact={true} rounded={true} size="xxl">
+        <span>Button</span>
+        <Badge color="primary" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} rounded={true} size="xl">
+        <span>Button</span>
+        <Badge color="primary" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} rounded={true} size="lg">
+        <span>Button</span>
+        <Badge color="primary" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} rounded={true} size="md">
+        <span>Button</span>
+        <Badge color="primary" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} rounded={true} size="sm">
+        <span>Button</span>
+        <Badge color="primary" invert={true} rounded={true}>99+</Badge>
+      </Button>
+      <Button color="primary" compact={true} rounded={true} size="xs">
+        <span>Button</span>
+        <Badge color="primary" invert={true} rounded={true}>99+</Badge>
+      </Button>
     </ButtonGroup>
   </FabulaProvider>
 )

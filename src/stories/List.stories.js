@@ -11,6 +11,7 @@ import {
     TagGroup,
     Text,
     UtilsProvider,
+    Avatar,
 } from '../lib';
 
 export default {
@@ -129,6 +130,41 @@ export const Examples = () => (
                     </List>
                 </Card>
             </div>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const Test = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <List>
+                <ListItem flex>
+                    <Avatar icon="file" mr={1} />
+                    <div grow={1}>
+                        <Text block weight={600}>
+                            <Text>Teste 1</Text>
+                            <Badge color="#FF00CC" ml=".5">New</Badge>
+                        </Text>
+                        <Text aux block size="sm">Este é um subtitle</Text>
+                    </div>
+
+                    <div>
+                        <Text>Teste...</Text>
+                    </div>
+                </ListItem>
+                <ListItem>
+                    <Text block weight={600}>Teste 2</Text>
+                    <Text aux block size="sm">Este é um subtitle</Text>
+                </ListItem>
+                <ListItem>
+                    <Text block weight={600}>Teste 3</Text>
+                    <Text aux block size="sm">Este é um subtitle</Text>
+                </ListItem>
+                <ListItem>
+                    <Text block weight={600}>Teste 4</Text>
+                    <Text aux block size="sm">Este é um subtitle</Text>
+                </ListItem>
+            </List>
         </UtilsProvider>
     </FabulaProvider>
 )

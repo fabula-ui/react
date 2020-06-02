@@ -16,15 +16,17 @@ import Tag from './components/Tag/Tag';
 import TagGroup from './components/TagGroup/TagGroup';
 import Text from './components/Text/Text';
 
+// Controllers
+import ToastController from './controllers/ToastController';
+
 // Providers
 import FabulaProvider from './providers/FabulaProvider';
 import ThemeProvider from './providers/ThemeProvider';
+import ToastProvider from './providers/ToastProvider';
 import UtilsProvider from './providers/UtilsProvider';
 
 // Services
 import ToastService from './services/ToastService';
-
-const testing = './libs/fabula-react/index.js';
 
 export {
     // Components
@@ -38,19 +40,22 @@ export {
     CardSection,
     FileInput,
     Icon,
-    List, 
+    List,
     ListItem,
     Tag,
     TagGroup,
     Text,
     Toast,
 
+    // Controllers
+    ToastController,
+
     // Providers
     FabulaProvider,
     ThemeProvider,
+    ToastProvider,
     UtilsProvider,
 
     // Services
     ToastService,
-    testing
 };

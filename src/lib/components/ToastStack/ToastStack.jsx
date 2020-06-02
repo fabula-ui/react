@@ -4,11 +4,10 @@ import { css } from 'emotion';
 // Components
 import Toast from '../Toast/Toast';
 
+import ToastController from '../../controllers/ToastController';
+
 // Context
 import { FabulaProviderContext } from '../../providers/FabulaProvider';
-
-// Services
-import ToastService from '../../services/ToastService';
 
 // Styles
 import ToastStackStyles from '@fabula/core/theme/styles/ToastStack';
@@ -16,7 +15,7 @@ import ToastStackStyles from '@fabula/core/theme/styles/ToastStack';
 const ToastStack = props => {
     const { name, placement } = props;
     const { utils } = useContext(FabulaProviderContext);
-    const { stacks } = useContext(ToastService);
+    const { stacks } = useContext(ToastController);
     const [toasts, setToasts] = useState(<></>);
 
     const toastsCallback = useCallback(() => {
@@ -32,12 +31,6 @@ const ToastStack = props => {
     useEffect(() => {
         toastsCallback();
     }, [stacks, stacks[name]]);
-
-    const handleClick = () => {
-        // toastService.refresher = new Date();
-
-        // console.log(toastService);
-    }
 
     return (
         <div className={`fab-toast-stack ${css(ToastStackStyles({ framework: 'react', props, utils }))}`} data-placement-x={placement.x} data-placement-y={placement.y}>

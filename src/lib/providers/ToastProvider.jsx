@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Controller
+import ToastController from '../controllers/ToastController';
+
 // Service
 import ToastService from '../services/ToastService';
 
@@ -47,10 +50,10 @@ const ToastProvider = props => {
     };
 
     return (
-        <ToastService.Provider value={initialState}>
+        <ToastController.Provider value={initialState}>
             {children}
             <ToastPortal />
-        </ToastService.Provider>
+        </ToastController.Provider>
     )
 }
 

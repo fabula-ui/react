@@ -1,5 +1,8 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 
+// Controller
+import ToastController from '../controllers/ToastController';
+
 // Components
 import ToastStack from '../components/ToastStack/ToastStack';
 
@@ -7,7 +10,7 @@ import ToastStack from '../components/ToastStack/ToastStack';
 import ToastService from '../services/ToastService';
 
 const ToastPortal = props => {
-    const { stacks } = useContext(ToastService);
+    const { stacks } = useContext(ToastController);
     const [stacksEl, setStacksEl] = useState(<></>);
 
     const stacksCallback = useCallback(() => {
@@ -27,35 +30,5 @@ const ToastPortal = props => {
 
     return stacksEl;
 }
-
-// const ToastPortal = () => {
-//     const toastService = useContext(ToastService);
-//     const [stacks, setStacks] = useState(<></>);
-
-//     // Callbacks
-//     const stacksCallback = useCallback(() => {
-//         const stacks = Object.keys(toastService.stacks).map((name, i) => {
-//             const toastProps = toastService.stacks[name];
-
-//             return <ToastStack key={i} name={name} {...toastProps} />;
-//         });
-
-//         setStacks(stacks);
-//     }, [toastService.stacks]);
-
-//     useEffect(() => {
-//         stacksCallback();
-//     }, [stacksCallback, toastService.stacks]);
-
-//     useEffect(() => {
-//         console.log('refresher...');
-//     }, [toastService.refresher]);
-
-//     return (
-//         <div>
-//             {stacks}
-//         </div>
-//     )
-// }
 
 export default ToastPortal;

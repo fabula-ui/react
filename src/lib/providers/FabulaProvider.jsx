@@ -2,7 +2,6 @@ import React, { createContext } from 'react';
 
 // Providers
 import ThemeProvider from './ThemeProvider';
-import ToastProvider from './ToastProvider';
 
 const InitialState = {
     test: 'Testing'
@@ -11,7 +10,7 @@ const InitialState = {
 const FabulaProviderContext = createContext(InitialState);
 
 const FabulaProvider = props => {
-    const { children, settings, theme, utils } = props
+    const { children, theme, utils } = props
     let initialState = {
         utils
     };
@@ -19,9 +18,7 @@ const FabulaProvider = props => {
     return (
         <FabulaProviderContext.Provider value={initialState}>
             <ThemeProvider theme={theme}>
-                <ToastProvider>
-                    {children}
-                </ToastProvider>
+                {children}
             </ThemeProvider>
         </FabulaProviderContext.Provider>
     )

@@ -33,13 +33,17 @@ const Dropdown = props => {
     }, [handleClick]);
 
     // Children with props
-    const childrenWithProps = Children.map(children, child => cloneElement(child, { toggle }));
+    const childrenWithProps = Children.map(children, child => cloneElement(child, { open, toggle }));
 
     return (
         <div className={`fab-dropdown-wrapper ${styles} ${dropdownClass}`} ref={ref}>
             <div className="fab-dropdown" data-open={open}>{childrenWithProps}</div>
         </div>
     )
+}
+
+Dropdown.defaultProps = {
+    direction: 'down'
 }
 
 export default Dropdown;

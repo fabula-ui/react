@@ -3,16 +3,16 @@ import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 
 const DropdownToggle = props => {
-    const { children, icon, label, onClick, toggle, ...rest } = props;
+    const { align, children, icon, label, onClick, toggle, ...rest } = props;
 
     const handleClick = () => {
         if (onClick) { onClick(); }
-        
+
         toggle();
     }
 
     return (
-        <>
+        <div className="fab-dropdown-toggle">
             {label &&
                 <Button onClick={handleClick} {...rest}>
                     {!!icon && typeof icon === 'object' && <Icon {...icon} />}
@@ -21,7 +21,7 @@ const DropdownToggle = props => {
                     <Icon data-toggle-icon name="chevron-down" />
                 </Button>}
             {children}
-        </>
+        </div>
     )
 }
 

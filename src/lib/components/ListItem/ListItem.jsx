@@ -1,15 +1,23 @@
 import React from 'react';
 import { css } from 'emotion';
 
+// Components
+import Button from '../Button/Button';
+
 // Styles
 import ListItemStyles from '@fabula/core/theme/styles/List';
 
 const ListItem = props => {
-    const { children, className, utils } = props;
-    
+    const { children, className, onClick, ...rest } = props;
+    const styles = css(ListItemStyles({ framework: 'react', props }));
+
     return (
-        <div className={`${className} fab-list-item ${css(ListItemStyles({ framework: 'react', props, utils }))}`} data-fab-wrapper="list-item">
-            {children}
+        <div className={`fab-list-item ${className} ${styles}`} data-button={!!onClick} data-fab-wrapper="list-item" {...rest}>
+            {!onClick && children}
+
+            {!!onClick && <Button data-button={!!onClick} onClick={onClick} {...rest}>
+                {children}
+            </Button>}
         </div>
     )
 }

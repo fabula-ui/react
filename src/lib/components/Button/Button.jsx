@@ -7,6 +7,7 @@ import ButtonStyles from '@fabula/core/theme/styles/Button';
 
 const Button = props => {
     const {
+        align,
         border,
         children,
         className,
@@ -27,6 +28,7 @@ const Button = props => {
         ...rest
     } = props;
     const buttonProps = {
+        align,
         border,
         clear,
         color,
@@ -54,6 +56,7 @@ const Button = props => {
 }
 
 Button.defaultProps = {
+    align: 'center',
     color: null,
     compact: false,
     expand: false,

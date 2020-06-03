@@ -6,6 +6,7 @@ import {
     Badge,
     FabulaProvider,
     Icon,
+    UtilsProvider,
 } from '../lib';
 
 export default {
@@ -133,64 +134,36 @@ export const Size = () => (
 export const ExternalBadge = () => (
     <>
         <div>
-            <FabulaProvider utils={true}>
-                <Avatar mr="1"><Badge rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1"><Badge color="primary" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1"><Badge color="secondary" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1"><Badge color="success" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1"><Badge color="danger" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1"><Badge color="hot" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1"><Badge color="cold" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1"><Badge color="dark" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1"><Badge color="light" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1"><Badge color="aux" rounded={true}><Icon name="user" /></Badge></Avatar>
+            <FabulaProvider>
+                <UtilsProvider>
+                    <Avatar mr="1"><Badge rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1"><Badge color="primary" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1"><Badge color="secondary" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1"><Badge color="success" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1"><Badge color="danger" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1"><Badge color="hot" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1"><Badge color="cold" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1"><Badge color="dark" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1"><Badge color="light" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1"><Badge color="aux" rounded={true}><Icon name="user" /></Badge></Avatar>
+                </UtilsProvider>
             </FabulaProvider>
         </div>
 
         <div>
-            <FabulaProvider utils={true}>
-                <Avatar mr="1" rounded={true}><Badge rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="primary" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="secondary" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="success" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="danger" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="hot" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="cold" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="dark" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="light" rounded={true}><Icon name="user" /></Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="aux" rounded={true}><Icon name="user" /></Badge></Avatar>
-            </FabulaProvider>
-        </div>
-
-        <hr />
-
-        <div>
-            <FabulaProvider utils={true}>
-                <Avatar mr="1"><Badge rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1"><Badge color="primary" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1"><Badge color="secondary" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1"><Badge color="success" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1"><Badge color="danger" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1"><Badge color="hot" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1"><Badge color="cold" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1"><Badge color="dark" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1"><Badge color="light" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1"><Badge color="aux" rounded={true}>1</Badge></Avatar>
-            </FabulaProvider>
-        </div>
-
-        <div>
-            <FabulaProvider utils={true}>
-                <Avatar mr="1" rounded={true}><Badge rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="primary" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="secondary" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="success" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="danger" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="hot" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="cold" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="dark" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="light" rounded={true}>1</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="aux" rounded={true}>1</Badge></Avatar>
+            <FabulaProvider>
+                <UtilsProvider>
+                    <Avatar mr="1" rounded={true}><Badge rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="primary" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="secondary" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="success" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="danger" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="hot" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="cold" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="dark" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="light" rounded={true}><Icon name="user" /></Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="aux" rounded={true}><Icon name="user" /></Badge></Avatar>
+                </UtilsProvider>
             </FabulaProvider>
         </div>
 
@@ -198,63 +171,35 @@ export const ExternalBadge = () => (
 
         <div>
             <FabulaProvider utils={true}>
-                <Avatar mr="1"><Badge rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1"><Badge color="primary" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1"><Badge color="secondary" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1"><Badge color="success" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1"><Badge color="danger" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1"><Badge color="hot" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1"><Badge color="cold" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1"><Badge color="dark" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1"><Badge color="light" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1"><Badge color="aux" rounded={true}>99+</Badge></Avatar>
+                <UtilsProvider>
+                    <Avatar mr="1"><Badge rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="primary" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="secondary" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="success" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="danger" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="hot" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="cold" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="dark" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="light" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="aux" rounded={true}>1</Badge></Avatar>
+                </UtilsProvider>
             </FabulaProvider>
         </div>
 
         <div>
             <FabulaProvider utils={true}>
-                <Avatar mr="1" rounded={true}><Badge rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="primary" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="secondary" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="success" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="danger" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="hot" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="cold" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="dark" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="light" rounded={true}>99+</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="aux" rounded={true}>99+</Badge></Avatar>
-            </FabulaProvider>
-        </div>
-
-        <hr />
-
-        <div>
-            <FabulaProvider utils={true}>
-                <Avatar mr="1"><Badge circle={true}>8</Badge></Avatar>
-                <Avatar mr="1"><Badge color="primary" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1"><Badge color="secondary" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1"><Badge color="success" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1"><Badge color="danger" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1"><Badge color="hot" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1"><Badge color="cold" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1"><Badge color="dark" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1"><Badge color="light" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1"><Badge color="aux" circle={true}>8</Badge></Avatar>
-            </FabulaProvider>
-        </div>
-
-        <div>
-            <FabulaProvider utils={true}>
-                <Avatar mr="1" rounded={true}><Badge circle={true}>8</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="primary" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="secondary" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="success" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="danger" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="hot" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="cold" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="dark" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="light" circle={true}>8</Badge></Avatar>
-                <Avatar mr="1" rounded={true}><Badge color="aux" circle={true}>8</Badge></Avatar>
+                <UtilsProvider>
+                    <Avatar mr="1" rounded={true}><Badge rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="primary" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="secondary" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="success" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="danger" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="hot" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="cold" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="dark" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="light" rounded={true}>1</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="aux" rounded={true}>1</Badge></Avatar>
+                </UtilsProvider>
             </FabulaProvider>
         </div>
 
@@ -262,35 +207,35 @@ export const ExternalBadge = () => (
 
         <div>
             <FabulaProvider utils={true}>
-                <Avatar mr="1">
-                    <Badge color="primary" placement={{x: 'right', y: 'bottom'}} rounded={true}>8</Badge>
-                </Avatar>
-                <Avatar mr="1">
-                    <Badge color="primary" placement={{x: 'right', y: 'top'}} rounded={true}>8</Badge>
-                </Avatar>
-                <Avatar mr="1">
-                    <Badge color="primary" placement={{x: 'left', y: 'top'}} rounded={true}>8</Badge>
-                </Avatar>
-                <Avatar mr="1">
-                    <Badge color="primary" placement={{x: 'left', y: 'bottom'}} rounded={true}>8</Badge>
-                </Avatar>
+                <UtilsProvider>
+                    <Avatar mr="1"><Badge rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="primary" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="secondary" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="success" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="danger" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="hot" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="cold" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="dark" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="light" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="aux" rounded={true}>99+</Badge></Avatar>
+                </UtilsProvider>
             </FabulaProvider>
         </div>
 
         <div>
             <FabulaProvider utils={true}>
-                <Avatar mr="1" rounded={true}>
-                    <Badge color="primary" placement={{x: 'right', y: 'bottom'}} rounded={true}>8</Badge>
-                </Avatar>
-                <Avatar mr="1" rounded={true}>
-                    <Badge color="primary" placement={{x: 'right', y: 'top'}} rounded={true}>8</Badge>
-                </Avatar>
-                <Avatar mr="1" rounded={true}>
-                    <Badge color="primary" placement={{x: 'left', y: 'top'}} rounded={true}>8</Badge>
-                </Avatar>
-                <Avatar mr="1" rounded={true}>
-                    <Badge color="primary" placement={{x: 'left', y: 'bottom'}} rounded={true}>8</Badge>
-                </Avatar>
+                <UtilsProvider>
+                    <Avatar mr="1" rounded={true}><Badge rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="primary" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="secondary" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="success" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="danger" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="hot" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="cold" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="dark" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="light" rounded={true}>99+</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="aux" rounded={true}>99+</Badge></Avatar>
+                </UtilsProvider>
             </FabulaProvider>
         </div>
 
@@ -298,12 +243,90 @@ export const ExternalBadge = () => (
 
         <div>
             <FabulaProvider utils={true}>
-                <Avatar mr="1"><Badge circle={true} color="primary" size="xs">1</Badge></Avatar>
-                <Avatar mr="1"><Badge circle={true} color="primary" size="sm">1</Badge></Avatar>
-                <Avatar mr="1"><Badge circle={true} color="primary" size="md">1</Badge></Avatar>
-                <Avatar mr="1"><Badge circle={true} color="primary" size="lg">1</Badge></Avatar>
-                <Avatar mr="1"><Badge circle={true} color="primary" size="xl">1</Badge></Avatar>
-                <Avatar mr="1"><Badge circle={true} color="primary" size="xxl">1</Badge></Avatar>
+                <UtilsProvider>
+                    <Avatar mr="1"><Badge circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="primary" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="secondary" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="success" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="danger" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="hot" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="cold" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="dark" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="light" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1"><Badge color="aux" circle={true}>8</Badge></Avatar>
+                </UtilsProvider>
+            </FabulaProvider>
+        </div>
+
+        <div>
+            <FabulaProvider utils={true}>
+                <UtilsProvider>
+                    <Avatar mr="1" rounded={true}><Badge circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="primary" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="secondary" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="success" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="danger" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="hot" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="cold" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="dark" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="light" circle={true}>8</Badge></Avatar>
+                    <Avatar mr="1" rounded={true}><Badge color="aux" circle={true}>8</Badge></Avatar>
+                </UtilsProvider>
+            </FabulaProvider>
+        </div>
+
+        <hr />
+
+        <div>
+            <FabulaProvider utils={true}>
+                <UtilsProvider>
+                    <Avatar mr="1">
+                        <Badge color="primary" placement={{ x: 'right', y: 'bottom' }} rounded={true}>8</Badge>
+                    </Avatar>
+                    <Avatar mr="1">
+                        <Badge color="primary" placement={{ x: 'right', y: 'top' }} rounded={true}>8</Badge>
+                    </Avatar>
+                    <Avatar mr="1">
+                        <Badge color="primary" placement={{ x: 'left', y: 'top' }} rounded={true}>8</Badge>
+                    </Avatar>
+                    <Avatar mr="1">
+                        <Badge color="primary" placement={{ x: 'left', y: 'bottom' }} rounded={true}>8</Badge>
+                    </Avatar>
+                </UtilsProvider>
+            </FabulaProvider>
+        </div>
+
+        <div>
+            <FabulaProvider utils={true}>
+                <UtilsProvider>
+                    <Avatar mr="1" rounded={true}>
+                        <Badge color="primary" placement={{ x: 'right', y: 'bottom' }} rounded={true}>8</Badge>
+                    </Avatar>
+                    <Avatar mr="1" rounded={true}>
+                        <Badge color="primary" placement={{ x: 'right', y: 'top' }} rounded={true}>8</Badge>
+                    </Avatar>
+                    <Avatar mr="1" rounded={true}>
+                        <Badge color="primary" placement={{ x: 'left', y: 'top' }} rounded={true}>8</Badge>
+                    </Avatar>
+                    <Avatar mr="1" rounded={true}>
+                        <Badge color="primary" placement={{ x: 'left', y: 'bottom' }} rounded={true}>8</Badge>
+                    </Avatar>
+                </UtilsProvider>
+            </FabulaProvider>
+        </div>
+
+        <hr />
+
+        <div>
+            <FabulaProvider utils={true}>
+                <UtilsProvider>
+                    <Avatar mr="1"><Badge circle={true} color="primary" size="xs">1</Badge></Avatar>
+                    <Avatar mr="1"><Badge circle={true} color="primary" size="sm">1</Badge></Avatar>
+                    <Avatar mr="1"><Badge circle={true} color="primary" size="md">1</Badge></Avatar>
+                    <Avatar mr="1"><Badge circle={true} color="primary" size="lg">1</Badge></Avatar>
+                    <Avatar mr="1"><Badge circle={true} color="primary" size="xl">1</Badge></Avatar>
+                    <Avatar mr="1"><Badge circle={true} color="primary" size="xxl">1</Badge></Avatar>
+                </UtilsProvider>
             </FabulaProvider>
         </div>
     </>

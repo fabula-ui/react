@@ -5,10 +5,11 @@ import { css } from 'emotion';
 import ListStyles from '@fabula/core/theme/styles/List';
 
 const List = props => {
-    const { children, className, utils } = props;
+    const { children, className } = props;
+    const listClass = className || '';
 
     return (
-        <div className={`${className} fab-list ${css(ListStyles({ framework: 'react', props, utils }))}`}>
+        <div className={`fab-list ${css(ListStyles({ framework: 'react', props }))} ${listClass}`}>
             {children}
         </div>
     )

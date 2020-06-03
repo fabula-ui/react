@@ -33,6 +33,22 @@ const ToastProvider = props => {
         setStacks(tempStacks);
     }
 
+    const createStacks = newStacks => {
+        const tempStacks = { ...stacks };
+
+        for (let i = 0; i < newStacks.length; i++) {
+            const newStack = newStacks[i];
+            const { name, placement } = newStack;
+
+            tempStacks[name] = {
+                elements: [],
+                placement
+            };
+        }
+
+        setStacks(tempStacks);
+    }
+
     const showToast = params => {
         const { stack, ...rest } = params;
         const tempStacks = { ...stacks };
@@ -45,6 +61,7 @@ const ToastProvider = props => {
 
     const initialState = {
         createStack,
+        createStacks,
         showToast,
         stacks
     };

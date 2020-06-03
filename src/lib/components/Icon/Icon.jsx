@@ -5,8 +5,9 @@ import { css } from 'emotion';
 import IconStyles from '@fabula/core/theme/styles/Icon';
 
 const Icon = props => {
-    const { children, className, name, utils } = props;
+    const { children, className, name, ...rest } = props;
     const [appended, setAppended] = useState(false);
+    const iconClass = className || '';
     const iconRef = useRef(null);
     const svgRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -34,7 +35,7 @@ const Icon = props => {
 
     if (svg) {
         return (
-            <span className={`${className} fab-icon ${css(IconStyles({ framework: 'react', props, utils }))}`} ref={wrapperRef}>
+            <span className={`fab-icon ${css(IconStyles({ framework: 'react', props }))} ${iconClass}`} data-name={name} ref={wrapperRef} {...rest}>
                 <i className="fab-icon__svg" ref={iconRef} />
                 {!appended && <object className="fab-icon__object" xmlns="http://www.w3.org/2000/svg" data={svg} type="image/svg+xml" ref={svgRef}>Unsupported by browser</object>}
                 {children}

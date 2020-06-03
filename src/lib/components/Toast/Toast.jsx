@@ -4,22 +4,22 @@ import { css } from 'emotion';
 // Components
 import Button from '../Button/Button';
 
-// Context
-import { FabulaProviderContext } from '../../providers/FabulaProvider';
-
 // Styles
 import ToastStyles from '@fabula/core/theme/styles/Toast';
 
 const Toast = props => {
-    const { closeButton, hide, hideDelay, message, stacked } = props;
-    const { utils } = useContext(FabulaProviderContext);
+    const { children, className, closeButton, hide, hideDelay, icon, link, message, stacked } = props;
     const [height, setHeight] = useState();
     const [hidden, setHidden] = useState(false);
     const [hiding, setHiding] = useState(false);
     const toastRef = useRef(null);
 
+    // Dynamic requires
+    const Icon = icon ? require('../Icon/Icon').default : null;
+    const Link = link ? require('../Link/Link').default : null;
+
     useEffect(() => {
-        if (hide) { handleHide(); }
+        if (stacked) { handleHide(); }
     }, []);
 
     useEffect(() => {
@@ -37,23 +37,28 @@ const Toast = props => {
             setHidden(true);
         }, hideDelay + 400);
     }
-    
-    const hideToast = () => {
-        setHiding(true);
 
-        setTimeout(() => {
+    const hideToast = () => {
+        if (!stacked) {
             setHidden(true);
-        }, hideDelay + 400);
+        } else {
+            setHiding(true);
+
+            setTimeout(() => {
+                setHidden(true);
+            }, hideDelay + 400);
+        }
     }
 
     if (!hidden) {
         return (
-            <div className={`fab-toast-wrapper ${css(ToastStyles({ framework: 'react', props: { ...props, height, stacked }, utils }))}`} data-fab-wrapper="toast" data-hiding={hiding} ref={toastRef} style={{ height }}>
+            <div className={`fab-toast-wrapper ${css(ToastStyles({ framework: 'react', props: { ...props, height, stacked } }))} ${className || ''}`} data-fab-wrapper="toast" data-hiding={hiding} ref={toastRef} style={{ height }}>
                 <div className="fab-toast">
-                    <span className="fab-toast__message">
-                        {message}
-                    </span>
+                    {!!Icon && <Icon {...icon} />}
+                    {!!message && <span className="fab-toast__message">{message}</span>}
+                    {children}
                     {!!closeButton && <Button size="sm" {...closeButton} data-close-button onClick={hideToast}>{closeButton.label}</Button>}
+                    {!!link && <Link {...link} />}
                 </div>
             </div>
         )
@@ -63,7 +68,7 @@ const Toast = props => {
 }
 
 Toast.defaultProps = {
-    glow: true,
+    glow: false,
     hide: true,
     hideDelay: 2000,
     stacked: false

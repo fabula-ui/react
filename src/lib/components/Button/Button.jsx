@@ -54,6 +54,7 @@ const Button = props => {
 }
 
 Button.defaultProps = {
+    color: null,
     compact: false,
     expand: false,
     faded: false,

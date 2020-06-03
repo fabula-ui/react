@@ -39,23 +39,23 @@ export const Clear = () => (
     <FabulaProvider>
         <UtilsProvider>
             <div mb="1" row>
-                <Alert col="3" clear icon={{ color: 'primary', name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="3" clear color="primary" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="3" clear color="secondary" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="3" clear color="success" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} icon={{ color: 'primary', name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="primary" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="secondary" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="success" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
             </div>
 
             <div mb="1" row>
-                <Alert col="3" clear color="danger" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="3" clear color="warning" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="3" clear color="hot" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="3" clear color="cold" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="danger" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="warning" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="hot" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="cold" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
             </div>
 
             <div mb="1" row>
-                <Alert col="3" clear color="dark" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="3" clear color="light" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="3" clear color="aux" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="dark" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="light" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="3" clear={true} color="aux" icon={{ name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" />
             </div>
         </UtilsProvider>
     </FabulaProvider>

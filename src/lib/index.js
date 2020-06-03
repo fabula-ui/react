@@ -7,6 +7,9 @@ import ButtonGroup from './components/ButtonGroup/ButtonGroup';
 import Card from './components/Card/Card';
 import CardImage from './components/CardImage/CardImage';
 import CardSection from './components/CardSection/CardSection';
+import Dropdown from './components/Dropdown/Dropdown';
+import DropdownMenu from './components/DropdownMenu/DropdownMenu';
+import DropdownToggle from './components/DropdownToggle/DropdownToggle';
 import FileInput from './components/FileInput/FileInput';
 import Icon from './components/Icon/Icon';
 import List from './components/List/List';
@@ -38,6 +41,9 @@ export {
     Card,
     CardImage,
     CardSection,
+    Dropdown,
+    DropdownMenu,
+    DropdownToggle,
     FileInput,
     Icon,
     List,

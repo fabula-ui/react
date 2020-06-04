@@ -9,8 +9,10 @@ const List = props => {
     const listClass = className || '';
 
     return (
-        <div className={`fab-list ${css(ListStyles({ framework: 'react', props }))} ${listClass}`}>
-            {children}
+        <div className={`fab-list-wrapper ${css(ListStyles({ framework: 'react', props }))} ${listClass}`}>
+            <div className="">
+                {children}
+            </div>
         </div>
     )
 }

@@ -8,8 +8,8 @@ const Card = props => {
     const { className, children, utils } = props;
 
     return (
-        <div className={`${className} fab-card-wrapper ${css(CardStyles({ framework: 'react', props, utils }))}`}>
-            <div className="fab-card">
+        <div className={`${className} fab-card-wrapper ${css(CardStyles({ framework: 'react', props, utils }))}`} data-fab-wrapper="card">
+            <div className="fab-card" data-fab-component="card">
                 {children}
             </div>
         </div>

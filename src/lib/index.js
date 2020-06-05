@@ -17,6 +17,8 @@ import Input from './components/Input/Input';
 import InputGroup from './components/InputGroup/InputGroup';
 import List from './components/List/List';
 import ListItem from './components/ListItem/ListItem';
+import Segment from './components/Segment/Segment';
+import Segments from './components/Segments/Segments';
 import Toast from './components/Toast/Toast';
 import Tag from './components/Tag/Tag';
 import TagGroup from './components/TagGroup/TagGroup';
@@ -54,6 +56,8 @@ export {
     InputGroup,
     List,
     ListItem,
+    Segment,
+    Segments,
     Tag,
     TagGroup,
     Text,

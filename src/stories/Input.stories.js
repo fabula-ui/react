@@ -114,6 +114,32 @@ export const Has = () => (
     </FabulaProvider>
 )
 
+export const Password = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <div mb="1" row>
+                <Input col="4" icon={{ name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+                <Input col="4" color="primary" icon={{ color: 'primary', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+                <Input col="4" color="secondary" icon={{ color: 'secondary', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+            </div>
+            <div mb="1" row>
+                <Input col="4" color="success" icon={{ color: 'success', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+                <Input col="4" color="danger" icon={{ color: 'danger', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+                <Input col="4" color="warning" icon={{ color: 'warning', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+            </div>
+            <div mb="1" row>
+                <Input col="4" color="hot" icon={{ color: 'hot', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+                <Input col="4" color="cold" icon={{ color: 'cold', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+                <Input col="4" color="dark" icon={{ color: 'dark', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+            </div>
+            <div row>
+                <Input col="4" color="light" icon={{ color: 'light', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+                <Input col="4" color="aux" icon={{ color: 'aux', name: 'lock' }} iconEnd={{ name: 'x' }} passwordToggle={true} placeholder="Type your password" size="md" type="password" />
+            </div>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
 export const Size = () => (
     <FabulaProvider>
         <UtilsProvider>

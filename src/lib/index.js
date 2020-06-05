@@ -14,6 +14,7 @@ import DropdownToggle from './components/DropdownToggle/DropdownToggle';
 import FileInput from './components/FileInput/FileInput';
 import Icon from './components/Icon/Icon';
 import Input from './components/Input/Input';
+import InputGroup from './components/InputGroup/InputGroup';
 import List from './components/List/List';
 import ListItem from './components/ListItem/ListItem';
 import Toast from './components/Toast/Toast';
@@ -50,6 +51,7 @@ export {
     FileInput,
     Icon,
     Input,
+    InputGroup,
     List,
     ListItem,
     Tag,

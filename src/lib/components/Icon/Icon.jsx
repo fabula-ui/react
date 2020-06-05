@@ -7,31 +7,46 @@ import IconStyles from '@fabula/core/theme/styles/Icon';
 const Icon = props => {
     const { children, className, color, name, ...rest } = props;
     const [appended, setAppended] = useState(false);
+    const [currentSvg, setCurrentSvg] = useState();
+    const [svg, setSvg] = useState(null);
     const iconClass = className || '';
     const iconRef = useRef(null);
     const svgRef = useRef(null);
     const wrapperRef = useRef(null);
-    let svg;
 
     useEffect(() => {
-        if (iconRef.current && svgRef.current && wrapperRef.current) {
+        let svg;
+
+        if (name) {  
+            setAppended(false);
+
+            try {
+                svg = require(`@fabula/core/icons/${name}.svg`);
+            } catch (err) {
+                svg = null;
+            }
+
+            setSvg(svg);
+        }
+    }, [name]);
+
+    useEffect(() => {
+        if (iconRef.current && svg && !appended && svgRef.current && wrapperRef.current) {
             svgRef.current.addEventListener('load', () => {
                 const svgDocument = svgRef.current.contentDocument;
-                const svg = svgDocument.querySelector('svg');
-                
-                iconRef.current.appendChild(svg);
+                const svgObject = svgDocument.querySelector('svg');
 
-                svg.style.color = 'inherit';
+                
+                iconRef.current.innerHTML = '';
+                iconRef.current.appendChild(svgObject);
+
+                svgObject.style.color = 'inherit';
+
                 setAppended(true);
+                setCurrentSvg(svg);
             });
         }
-    }, [iconRef, svgRef, wrapperRef]);
-
-    try {
-        svg = require(`@fabula/core/icons/${name}.svg`);
-    } catch (err) {
-        svg = null;
-    }
+    }, [currentSvg, iconRef, svg, svgRef, wrapperRef]);
 
     if (svg) {
         return (

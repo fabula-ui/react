@@ -5,12 +5,20 @@ import { css } from 'emotion';
 import InputStyles from '@fabula/core/theme/styles/Input';
 
 const Input = props => {
-    const { className, disabled, icon, iconEnd, iconStart, message, placeholder, type } = props;
+    const { className, disabled, icon, iconEnd, iconStart, message, placeholder, passwordToggle, type, ...rest } = props;
     const [focus, setFocus] = useState(false);
+    const [inputType, setInputType] = useState(type || 'text');
     const classes = ['fab-input-wrapper', className || '', css(InputStyles({ framework: 'react', props }))];
 
     // Dynamic requires
-    const Icon = icon || iconEnd || iconStart ? require('../Icon/Icon').default : null;
+    const Icon = icon || iconEnd || iconStart || passwordToggle ? require('../Icon/Icon').default : null;
+    const Text = message ? require('../Text/Text').default : null;
+
+    const toggleType = () => {
+        const type = inputType === 'password' ? 'text' : 'password';
+
+        setInputType(type);
+    }
 
     return (
         <div className={classes.join(' ')} data-fab-wrapper="input">
@@ -22,14 +30,22 @@ const Input = props => {
                     data-fab-component="input"
                     disabled={disabled}
                     placeholder={placeholder}
-                    type={type || 'text'}
+                    type={inputType}
                     onBlur={() => setFocus(false)}
-                    onFocus={() => setFocus(true)} />
+                    onFocus={() => setFocus(true)}
+                    {...rest} />
 
-                {!!iconEnd && <Icon {...iconEnd} data-placement="end" />}
+                {!!iconEnd && !passwordToggle && <Icon {...iconEnd} data-placement="end" />}
+
+                {passwordToggle &&
+                    <button className="fab-input__password-toggle" onClick={toggleType}>
+                        <Icon name={inputType === 'password' ? 'eye' : 'eye-off'} />
+                    </button>
+                }
             </div>
 
-            {!!message && <span class="fab-input__message">{message}</span>}
+            {!!message && typeof message === 'object' && <Text size="sm" {...message}>{message.text}</Text>}
+            {!!message && typeof message === 'string' && <Text size="sm">{message}</Text>}
         </div>
 
     )

@@ -20,6 +20,8 @@ import ListItem from './components/ListItem/ListItem';
 import Segment from './components/Segment/Segment';
 import Segments from './components/Segments/Segments';
 import Toast from './components/Toast/Toast';
+import Tab from './components/Tab/Tab';
+import Tabs from './components/Tabs/Tabs';
 import Tag from './components/Tag/Tag';
 import TagGroup from './components/TagGroup/TagGroup';
 import Text from './components/Text/Text';
@@ -58,6 +60,8 @@ export {
     ListItem,
     Segment,
     Segments,
+    Tab,
+    Tabs,
     Tag,
     TagGroup,
     Text,

@@ -7,6 +7,7 @@ import ButtonGroup from './components/ButtonGroup/ButtonGroup';
 import Card from './components/Card/Card';
 import CardImage from './components/CardImage/CardImage';
 import CardSection from './components/CardSection/CardSection';
+import Checkbox from './components/Checkbox/Checkbox';
 import Dropdown from './components/Dropdown/Dropdown';
 import DropdownItem from './components/DropdownItem/DropdownItem';
 import DropdownMenu from './components/DropdownMenu/DropdownMenu';
@@ -17,6 +18,9 @@ import Input from './components/Input/Input';
 import InputGroup from './components/InputGroup/InputGroup';
 import List from './components/List/List';
 import ListItem from './components/ListItem/ListItem';
+import Navbar from './components/Navbar/Navbar';
+import NavbarLogo from './components/NavbarLogo/NavbarLogo';
+import NavbarSection from './components/NavbarSection/NavbarSection';
 import Segment from './components/Segment/Segment';
 import Segments from './components/Segments/Segments';
 import Toast from './components/Toast/Toast';
@@ -48,6 +52,7 @@ export {
     Card,
     CardImage,
     CardSection,
+    Checkbox,
     Dropdown,
     DropdownItem,
     DropdownMenu,
@@ -58,6 +63,9 @@ export {
     InputGroup,
     List,
     ListItem,
+    Navbar,
+    NavbarLogo,
+    NavbarSection,
     Segment,
     Segments,
     Tab,

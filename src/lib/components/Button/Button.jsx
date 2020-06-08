@@ -61,7 +61,7 @@ Button.defaultProps = {
     compact: false,
     expand: false,
     faded: false,
-    glow: true,
+    glow: false,
     gradient: false,
     invert: false,
     outline: false,

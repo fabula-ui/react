@@ -395,69 +395,159 @@ export const Icons = () => (
                 </Tabs>
 
                 <Tabs alH="center" col="4" color="primary" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
 
                 <Tabs alH="center" col="4" color="secondary" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
             </div>
 
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="success">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
 
                 <Tabs alH="center" col="4" color="danger" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
 
                 <Tabs alH="center" col="4" color="warning" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
             </div>
 
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="hot">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
 
                 <Tabs alH="center" col="4" color="cold" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
 
                 <Tabs alH="center" col="4" color="dark" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
             </div>
 
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="light">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
 
                 <Tabs alH="center" col="4" color="aux" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
             </div>
         </UtilsProvider>
@@ -538,6 +628,185 @@ export const Invert = () => (
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
+                </Tabs>
+            </div>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const Layout = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <div mb={1} row>
+                <Tabs alH="center" flex={true} layout="vertical" col="4">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+
+                <Tabs alH="center" col="4" color="primary" flex={true} layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+
+                <Tabs alH="center" col="4" color="secondary" flex={true} layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+            </div>
+
+            <div mb={1} row>
+                <Tabs alH="center" flex={true} col="4" color="success" layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+
+                <Tabs alH="center" col="4" color="danger" flex={true} layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+
+                <Tabs alH="center" col="4" color="warning" flex={true} layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+            </div>
+
+            <div mb={1} row>
+                <Tabs alH="center" flex={true} col="4" color="hot" layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+
+                <Tabs alH="center" col="4" color="cold" flex={true} layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+
+                <Tabs alH="center" col="4" color="dark" flex={true} layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+            </div>
+
+            <div mb={1} row>
+                <Tabs alH="center" flex={true} col="4" color="light" layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
+                </Tabs>
+
+                <Tabs alH="center" col="4" color="aux" flex={true} layout="vertical">
+                    <Tab active={true} name="docs">
+                        <Icon name="file-text" />
+                        <span>Docs</span>
+                    </Tab>
+                    <Tab name="components">
+                        <Icon name="tool" />
+                        <span>Components</span>
+                    </Tab>
+                    <Tab name="showcase">
+                        <Icon name="camera" />
+                        <span>Showcase</span>
+                    </Tab>
                 </Tabs>
             </div>
         </UtilsProvider>

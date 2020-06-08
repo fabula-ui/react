@@ -11,10 +11,12 @@ const ButtonGroup = props => {
         divider,
         glued
     } = props;
-    
+
     return (
-        <div className={`${className} fab-button-group ${css(ButtonGroupStyles({ framework: 'react', props }))}`}>
-            {children}
+        <div className={`${className} fab-button-group-wrapper ${css(ButtonGroupStyles({ framework: 'react', props }))}`}>
+            <div className="fab-button-group">
+                {children}
+            </div>
         </div>
     )
 }

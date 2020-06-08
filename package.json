@@ -19,6 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "jest:integration": "jest -c integration/jest.config.js",
+    "test:integration": "start-server-and-test storybook http-get://localhost:9009 jest:integration",
+    "test:update": "start-server-and-test storybook http-get://localhost:9009 jest:integration -- -u",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
@@ -44,7 +47,13 @@
     "@storybook/preset-create-react-app": "^3.0.0",
     "@storybook/react": "^5.3.19",
     "customize-cra": "^0.9.1",
+    "jest": "^26.0.1",
+    "jest-dashboard": "^0.3.1",
+    "jest-image-snapshot": "^4.0.2",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^3.3.0",
     "react-app-rewire-aliases": "^0.2.0",
-    "react-app-rewired": "^2.1.5"
+    "react-app-rewired": "^2.1.5",
+    "start-server-and-test": "^1.11.0"
   }
 }

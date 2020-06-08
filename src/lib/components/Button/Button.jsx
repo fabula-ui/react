@@ -47,7 +47,12 @@ const Button = props => {
     };
 
     return (
-        <div className={`${className} fab-button-wrapper ${css(ButtonStyles({ framework: 'react', props: buttonProps }))}`} data-fab-wrapper="button" data-border={border} data-outline={outline}>
+        <div
+            className={`${className} fab-button-wrapper ${css(ButtonStyles({ framework: 'react', props: buttonProps }))}`}
+            data-fab-wrapper="button"
+            data-border={border}
+            data-color={color}
+            data-outline={outline}>
             <button className="fab-button" data-fab-component="button" disabled={disabled} {...rest}>
                 {children}
             </button>

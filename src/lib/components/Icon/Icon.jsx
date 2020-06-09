@@ -36,7 +36,6 @@ const Icon = props => {
                 const svgDocument = svgRef.current.contentDocument;
                 const svgObject = svgDocument.querySelector('svg');
 
-                
                 iconRef.current.innerHTML = '';
                 iconRef.current.appendChild(svgObject);
 

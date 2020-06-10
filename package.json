@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "jest:integration": "jest -c integration/jest.config.js",
     "test:integration": "start-server-and-test storybook http-get://localhost:9009 jest:integration",
-    "test:update": "start-server-and-test storybook http-get://localhost:9009 jest:integration -- -u",
+    "test:integration:update": "start-server-and-test storybook http-get://localhost:9009 jest:integration -- -u",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },

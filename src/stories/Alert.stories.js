@@ -189,7 +189,7 @@ export const Icons = () => (
     </FabulaProvider>
 )
 
-export const IconsColors = () => (
+export const IconColors = () => (
     <FabulaProvider>
         <UtilsProvider>
             <div mb="1" row>

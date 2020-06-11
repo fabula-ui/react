@@ -236,17 +236,17 @@ export const Glow = () => (
     </ButtonGroup>
 
     <ButtonGroup>
-      <Button glow={false}>Without</Button>
-      <Button color="primary" glow={false}>Without</Button>
-      <Button color="secondary" glow={false}>Without</Button>
-      <Button color="success" glow={false}>Without</Button>
-      <Button color="danger" glow={false}>Without</Button>
-      <Button color="warning" glow={false}>Without</Button>
-      <Button color="hot" glow={false}>Without</Button>
-      <Button color="cold" glow={false}>Without</Button>
-      <Button color="dark" glow={false}>Without</Button>
-      <Button color="light" glow={false}>Without</Button>
-      <Button color="aux" glow={false}>Without</Button>
+      <Button glow={true}>Without</Button>
+      <Button color="primary" glow={true}>Without</Button>
+      <Button color="secondary" glow={true}>Without</Button>
+      <Button color="success" glow={true}>Without</Button>
+      <Button color="danger" glow={true}>Without</Button>
+      <Button color="warning" glow={true}>Without</Button>
+      <Button color="hot" glow={true}>Without</Button>
+      <Button color="cold" glow={true}>Without</Button>
+      <Button color="dark" glow={true}>Without</Button>
+      <Button color="light" glow={true}>Without</Button>
+      <Button color="aux" glow={true}>Without</Button>
     </ButtonGroup>
   </FabulaProvider>
 )

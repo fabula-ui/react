@@ -92,11 +92,11 @@ export const Examples = () => (
 export const Colors = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <NavbarBase px={2} />
+            <NavbarBase px={2} socialProps={{ color: 'dark' }} />
             <NavbarBase color="primary" logo="fabula-logo-white.svg" px={2} socialProps={{ color: 'white' }} signInProps={{ invert: true }} signUpProps={{ color: 'white' }} />
             <NavbarBase color="secondary" logo="fabula-logo-white.svg" px={2} socialProps={{ color: 'white' }} signInProps={{ color: 'secondary', invert: true }} signUpProps={{ color: 'white' }} />
             <NavbarBase color="dark" logo="fabula-logo-white.svg" px={2} socialProps={{ color: 'white' }} signInProps={{ color: 'primary' }} signUpProps={{ color: 'white' }} tabsProps={{ activeBorderColor: 'primary' }} />
-            <NavbarBase color="light" px={2} signInProps={{ color: 'primary' }} signUpProps={{ color: '' }} tabsProps={{ activeBorderColor: 'primary' }} />
+            <NavbarBase color="light" px={2} signInProps={{ color: 'primary' }} signUpProps={{ color: 'dark' }} socialProps={{ color: 'dark' }} tabsProps={{ activeBorderColor: 'primary' }} />
             <NavbarBase color="#674C88" logo="fabula-logo-white.svg" px={2} socialProps={{ color: 'white' }} signInProps={{ color: '#6FD367' }} signUpProps={{ color: 'white' }} tabsProps={{ activeBorderColor: '#6FD367' }} />
         </UtilsProvider>
     </FabulaProvider>

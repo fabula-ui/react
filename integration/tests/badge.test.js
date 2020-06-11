@@ -1,0 +1,1 @@
+require('@fabula/core/tests/components/badge.test');

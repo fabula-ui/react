@@ -22,7 +22,7 @@
     "jest:integration": "jest -c integration/jest.config.js",
     "test:integration": "PORT=9009 start-server-and-test storybook:ci http-get://localhost:9009 jest:integration",
     "test:integration:update": "PORT=9009 start-server-and-test storybook:ci http-get://localhost:9009 jest:integration -- -u",
-    "storybook": "start-storybook -p 9009 -s public --ci",
+    "storybook": "start-storybook -p 9009 -s public",
     "storybook:ci": "start-storybook -p 9009 -s public --ci",
     "build-storybook": "build-storybook -s public"
   },

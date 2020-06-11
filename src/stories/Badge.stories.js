@@ -4,7 +4,8 @@ import { action } from '@storybook/addon-actions';
 import {
     Badge,
     Icon,
-    FabulaProvider
+    FabulaProvider,
+    UtilsProvider
 } from '../lib';
 
 export default {
@@ -13,9 +14,9 @@ export default {
 };
 
 export const Circle = () => (
-    <>
-        <div>
-            <FabulaProvider>
+    <FabulaProvider>
+        <UtilsProvider>
+            <div mb="1">
                 <Badge circle><Icon name="user-check" /></Badge>
                 <Badge color="primary" circle><Icon name="user-check" /></Badge>
                 <Badge color="secondary" circle><Icon name="user-check" /></Badge>
@@ -27,11 +28,9 @@ export const Circle = () => (
                 <Badge color="dark" circle><Icon name="user-check" /></Badge>
                 <Badge color="light" circle><Icon name="user-check" /></Badge>
                 <Badge color="aux" circle><Icon name="user-check" /></Badge>
-            </FabulaProvider>
-        </div>
+            </div>
 
-        <div>
-            <FabulaProvider>
+            <div>
                 <Badge circle>1</Badge>
                 <Badge color="primary" circle>1</Badge>
                 <Badge color="secondary" circle>1</Badge>
@@ -43,15 +42,15 @@ export const Circle = () => (
                 <Badge color="dark" circle>1</Badge>
                 <Badge color="light" circle>1</Badge>
                 <Badge color="aux" circle>1</Badge>
-            </FabulaProvider>
-        </div>
-    </>
+            </div>
+        </UtilsProvider>
+    </FabulaProvider>
 )
 
 export const Clear = () => (
-    <>
-        <div>
-            <FabulaProvider>
+    <FabulaProvider>
+        <UtilsProvider>
+            <div mb="1">
                 <Badge clear><Icon name="user-check" /></Badge>
                 <Badge color="primary" clear><Icon name="user-check" /></Badge>
                 <Badge color="secondary" clear><Icon name="user-check" /></Badge>
@@ -63,10 +62,8 @@ export const Clear = () => (
                 <Badge color="dark" clear><Icon name="user-check" /></Badge>
                 <Badge color="light" clear><Icon name="user-check" /></Badge>
                 <Badge color="aux" clear><Icon name="user-check" /></Badge>
-            </FabulaProvider>
-        </div>
-        <div>
-            <FabulaProvider>
+            </div>
+            <div>
                 <Badge clear>123</Badge>
                 <Badge color="primary" clear>123</Badge>
                 <Badge color="secondary" clear>123</Badge>
@@ -78,33 +75,29 @@ export const Clear = () => (
                 <Badge color="dark" clear>123</Badge>
                 <Badge color="light" clear>123</Badge>
                 <Badge color="aux" clear>123</Badge>
-            </FabulaProvider>
-        </div>
-    </>
+            </div>
+        </UtilsProvider>
+    </FabulaProvider>
 )
 
 export const Color = () => (
-    <>
-        <div>
-            <FabulaProvider utils={true}>
-                <div mb="1">
-                    <Badge><Icon name="user-check" /></Badge>
-                    <Badge color="primary"><Icon name="user-check" /></Badge>
-                    <Badge color="secondary"><Icon name="user-check" /></Badge>
-                    <Badge color="success"><Icon name="user-check" /></Badge>
-                    <Badge color="danger"><Icon name="user-check" /></Badge>
-                    <Badge color="warning"><Icon name="user-check" /></Badge>
-                    <Badge color="hot"><Icon name="user-check" /></Badge>
-                    <Badge color="cold"><Icon name="user-check" /></Badge>
-                    <Badge color="dark"><Icon name="user-check" /></Badge>
-                    <Badge color="light"><Icon name="user-check" /></Badge>
-                    <Badge color="aux"><Icon name="user-check" /></Badge>
-                </div>
-            </FabulaProvider>
-        </div>
+    <FabulaProvider>
+        <UtilsProvider>
+            <div mb="1">
+                <Badge><Icon name="user-check" /></Badge>
+                <Badge color="primary"><Icon name="user-check" /></Badge>
+                <Badge color="secondary"><Icon name="user-check" /></Badge>
+                <Badge color="success"><Icon name="user-check" /></Badge>
+                <Badge color="danger"><Icon name="user-check" /></Badge>
+                <Badge color="warning"><Icon name="user-check" /></Badge>
+                <Badge color="hot"><Icon name="user-check" /></Badge>
+                <Badge color="cold"><Icon name="user-check" /></Badge>
+                <Badge color="dark"><Icon name="user-check" /></Badge>
+                <Badge color="light"><Icon name="user-check" /></Badge>
+                <Badge color="aux"><Icon name="user-check" /></Badge>
+            </div>
 
-        <div>
-            <FabulaProvider>
+            <div>
                 <Badge>123</Badge>
                 <Badge color="primary">123</Badge>
                 <Badge color="secondary">123</Badge>
@@ -116,9 +109,9 @@ export const Color = () => (
                 <Badge color="dark">123</Badge>
                 <Badge color="light">123</Badge>
                 <Badge color="aux">123</Badge>
-            </FabulaProvider>
-        </div>
-    </>
+            </div>
+        </UtilsProvider>
+    </FabulaProvider>
 )
 
 export const Faded = () => (
@@ -170,9 +163,9 @@ export const Outline = () => (
 )
 
 export const Rounded = () => (
-    <>
-        <div>
-            <FabulaProvider>
+    <FabulaProvider>
+        <UtilsProvider>
+            <div mb="1">
                 <Badge rounded><Icon name="user-check" /></Badge>
                 <Badge color="primary" rounded><Icon name="user-check" /></Badge>
                 <Badge color="secondary" rounded><Icon name="user-check" /></Badge>
@@ -184,11 +177,9 @@ export const Rounded = () => (
                 <Badge color="dark" rounded><Icon name="user-check" /></Badge>
                 <Badge color="light" rounded><Icon name="user-check" /></Badge>
                 <Badge color="aux" rounded><Icon name="user-check" /></Badge>
-            </FabulaProvider>
-        </div>
+            </div>
 
-        <div>
-            <FabulaProvider>
+            <div mb="1">
                 <Badge rounded>1</Badge>
                 <Badge color="primary" rounded>1</Badge>
                 <Badge color="secondary" rounded>1</Badge>
@@ -200,11 +191,9 @@ export const Rounded = () => (
                 <Badge color="dark" rounded>1</Badge>
                 <Badge color="light" rounded>1</Badge>
                 <Badge color="aux" rounded>1</Badge>
-            </FabulaProvider>
-        </div>
+            </div>
 
-        <div>
-            <FabulaProvider>
+            <div>
                 <Badge rounded>123</Badge>
                 <Badge color="primary" rounded>123</Badge>
                 <Badge color="secondary" rounded>123</Badge>
@@ -216,7 +205,7 @@ export const Rounded = () => (
                 <Badge color="dark" rounded>123</Badge>
                 <Badge color="light" rounded>123</Badge>
                 <Badge color="aux" rounded>123</Badge>
-            </FabulaProvider>
-        </div>
-    </>
+            </div>
+        </UtilsProvider>
+    </FabulaProvider>
 )

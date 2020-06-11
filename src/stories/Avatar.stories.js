@@ -15,119 +15,127 @@ export default {
 };
 
 export const AdaptColor = () => (
-    <FabulaProvider utils={true}>
-        <Avatar adaptColor={true} mb="1" />
-        <Avatar adaptColor={true} color="primary" mb="1" />
-        <Avatar adaptColor={true} color="secondary" mb="1" />
-        <Avatar adaptColor={true} color="success" mb="1" />
-        <Avatar adaptColor={true} color="danger" mb="1" />
-        <Avatar adaptColor={true} color="warning" mb="1" />
-        <Avatar adaptColor={true} color="hot" mb="1" />
-        <Avatar adaptColor={true} color="cold" mb="1" />
-        <Avatar adaptColor={true} color="dark" mb="1" />
-        <Avatar adaptColor={true} color="light" mb="1" />
-        <Avatar adaptColor={true} color="aux" mb="1" />
+    <FabulaProvider>
+        <UtilsProvider>
+            <Avatar adaptColor={true} mr="1" />
+            <Avatar adaptColor={true} color="primary" mr="1" />
+            <Avatar adaptColor={true} color="secondary" mr="1" />
+            <Avatar adaptColor={true} color="success" mr="1" />
+            <Avatar adaptColor={true} color="danger" mr="1" />
+            <Avatar adaptColor={true} color="warning" mr="1" />
+            <Avatar adaptColor={true} color="hot" mr="1" />
+            <Avatar adaptColor={true} color="cold" mr="1" />
+            <Avatar adaptColor={true} color="dark" mr="1" />
+            <Avatar adaptColor={true} color="light" mr="1" />
+            <Avatar adaptColor={true} color="aux" mr="1" />
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Color = () => (
-    <FabulaProvider utils={true}>
-        <Avatar mb="1" />
-        <Avatar color="primary" mb="1" />
-        <Avatar color="secondary" mb="1" />
-        <Avatar color="success" mb="1" />
-        <Avatar color="danger" mb="1" />
-        <Avatar color="warning" mb="1" />
-        <Avatar color="hot" mb="1" />
-        <Avatar color="cold" mb="1" />
-        <Avatar color="dark" mb="1" />
-        <Avatar color="light" mb="1" />
-        <Avatar color="aux" mb="1" />
+    <FabulaProvider>
+        <UtilsProvider>
+            <Avatar mr="1" />
+            <Avatar color="primary" mr="1" />
+            <Avatar color="secondary" mr="1" />
+            <Avatar color="success" mr="1" />
+            <Avatar color="danger" mr="1" />
+            <Avatar color="warning" mr="1" />
+            <Avatar color="hot" mr="1" />
+            <Avatar color="cold" mr="1" />
+            <Avatar color="dark" mr="1" />
+            <Avatar color="light" mr="1" />
+            <Avatar color="aux" mr="1" />
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const CustomIcon = () => (
-    <FabulaProvider utils={true}>
-        <Avatar mb="1" />
-        <Avatar icon="file" mb="1" />
+    <FabulaProvider>
+        <UtilsProvider>
+            <Avatar mr="1" />
+            <Avatar icon="file" mr="1" />
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Rounded = () => (
-    <FabulaProvider utils={true}>
-        <Avatar mb="1" rounded />
-        <Avatar color="primary" mb="1" rounded />
-        <Avatar color="secondary" mb="1" rounded />
-        <Avatar color="success" mb="1" rounded />
-        <Avatar color="danger" mb="1" rounded />
-        <Avatar color="warning" mb="1" rounded />
-        <Avatar color="hot" mb="1" rounded />
-        <Avatar color="cold" mb="1" rounded />
-        <Avatar color="dark" mb="1" rounded />
-        <Avatar color="light" mb="1" rounded />
-        <Avatar color="aux" mb="1" rounded />
+    <FabulaProvider>
+        <UtilsProvider>
+            <Avatar mr="1" rounded />
+            <Avatar color="primary" mr="1" rounded />
+            <Avatar color="secondary" mr="1" rounded />
+            <Avatar color="success" mr="1" rounded />
+            <Avatar color="danger" mr="1" rounded />
+            <Avatar color="warning" mr="1" rounded />
+            <Avatar color="hot" mr="1" rounded />
+            <Avatar color="cold" mr="1" rounded />
+            <Avatar color="dark" mr="1" rounded />
+            <Avatar color="light" mr="1" rounded />
+            <Avatar color="aux" mr="1" rounded />
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const ShowInitials = () => (
     <>
-        <div>
-            <FabulaProvider utils={true}>
-                <Avatar showInitials="Default" />
-                <Avatar color="primary" showInitials="primary" />
-                <Avatar color="secondary" showInitials="secondary" />
-                <Avatar color="success" showInitials="success" />
-                <Avatar color="danger" showInitials="danger" />
-                <Avatar color="warning" showInitials="warning" />
-                <Avatar color="hot" showInitials="hot" />
-                <Avatar color="cold" showInitials="cold" />
-                <Avatar color="dark" showInitials="dark" />
-                <Avatar color="light" showInitials="light" />
-                <Avatar color="aux" showInitials="aux" />
-            </FabulaProvider>
-        </div>
+        <FabulaProvider>
+            <UtilsProvider>
+                <div mb="1">
+                    <Avatar mr="1" showInitials="Default" />
+                    <Avatar color="primary" mr="1" showInitials="primary" />
+                    <Avatar color="secondary" mr="1" showInitials="secondary" />
+                    <Avatar color="success" mr="1" showInitials="success" />
+                    <Avatar color="danger" mr="1" showInitials="danger" />
+                    <Avatar color="warning" mr="1" showInitials="warning" />
+                    <Avatar color="hot" mr="1" showInitials="hot" />
+                    <Avatar color="cold" mr="1" showInitials="cold" />
+                    <Avatar color="dark" mr="1" showInitials="dark" />
+                    <Avatar color="light" mr="1" showInitials="light" />
+                    <Avatar color="aux" mr="1" showInitials="aux" />
+                </div>
 
-        <div>
-            <FabulaProvider utils={true}>
-                <Avatar showInitials="Default" rounded />
-                <Avatar color="primary" showInitials="primary" rounded />
-                <Avatar color="secondary" showInitials="secondary" rounded />
-                <Avatar color="success" showInitials="success" rounded />
-                <Avatar color="danger" showInitials="danger" rounded />
-                <Avatar color="warning" showInitials="warning" rounded />
-                <Avatar color="hot" showInitials="hot" rounded />
-                <Avatar color="cold" showInitials="cold" rounded />
-                <Avatar color="dark" showInitials="dark" rounded />
-                <Avatar color="light" showInitials="light" rounded />
-                <Avatar color="aux" showInitials="aux" rounded />
-            </FabulaProvider>
-        </div>
+                <div>
+                    <Avatar mr="1" showInitials="Default" rounded />
+                    <Avatar color="primary" mr="1" showInitials="primary" rounded />
+                    <Avatar color="secondary" mr="1" showInitials="secondary" rounded />
+                    <Avatar color="success" mr="1" showInitials="success" rounded />
+                    <Avatar color="danger" mr="1" showInitials="danger" rounded />
+                    <Avatar color="warning" mr="1" showInitials="warning" rounded />
+                    <Avatar color="hot" mr="1" showInitials="hot" rounded />
+                    <Avatar color="cold" mr="1" showInitials="cold" rounded />
+                    <Avatar color="dark" mr="1" showInitials="dark" rounded />
+                    <Avatar color="light" mr="1" showInitials="light" rounded />
+                    <Avatar color="aux" mr="1" showInitials="aux" rounded />
+                </div>
+            </UtilsProvider>
+        </FabulaProvider>
     </>
 )
 
 export const Size = () => (
     <>
-        <div>
-            <FabulaProvider utils={true}>
-                <Avatar size="xxl" />
-                <Avatar size="xl" />
-                <Avatar size="lg" />
-                <Avatar size="md" />
-                <Avatar size="sm" />
-                <Avatar size="xs" />
-            </FabulaProvider>
-        </div>
+        <FabulaProvider>
+            <UtilsProvider>
+                <div mb="1">
+                    <Avatar mr="1" size="xxl" />
+                    <Avatar mr="1" size="xl" />
+                    <Avatar mr="1" size="lg" />
+                    <Avatar mr="1" size="md" />
+                    <Avatar mr="1" size="sm" />
+                    <Avatar mr="1" size="xs" />
+                </div>
 
-        <div>
-            <FabulaProvider utils={true}>
-                <Avatar size="xxl" color="dark" />
-                <Avatar size="xl" color="dark" />
-                <Avatar size="lg" color="dark" />
-                <Avatar size="md" color="dark" />
-                <Avatar size="sm" color="dark" />
-                <Avatar size="xs" color="dark" />
-            </FabulaProvider>
-        </div>
+                <div>
+                    <Avatar mr="1" size="xxl" color="dark" />
+                    <Avatar mr="1" size="xl" color="dark" />
+                    <Avatar mr="1" size="lg" color="dark" />
+                    <Avatar mr="1" size="md" color="dark" />
+                    <Avatar mr="1" size="sm" color="dark" />
+                    <Avatar mr="1" size="xs" color="dark" />
+                </div>
+            </UtilsProvider>
+        </FabulaProvider>
     </>
 )
 

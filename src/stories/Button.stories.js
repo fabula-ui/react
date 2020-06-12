@@ -15,34 +15,36 @@ export default {
 };
 
 export const Clear = () => (
-  <FabulaProvider utils={true}>
-    <ButtonGroup mb="1">
-      <Button clear>Button</Button>
-      <Button clear color="primary">Button</Button>
-      <Button clear color="secondary">Button</Button>
-      <Button clear color="success">Button</Button>
-      <Button clear color="danger">Button</Button>
-      <Button clear color="warning">Button</Button>
-      <Button clear color="hot">Button</Button>
-      <Button clear color="cold">Button</Button>
-      <Button clear color="dark">Button</Button>
-      <Button clear color="light">Button</Button>
-      <Button clear color="aux">Button</Button>
-    </ButtonGroup>
+  <FabulaProvider>
+    <UtilsProvider>
+      <ButtonGroup mb="1">
+        <Button clear>Button</Button>
+        <Button clear color="primary">Button</Button>
+        <Button clear color="secondary">Button</Button>
+        <Button clear color="success">Button</Button>
+        <Button clear color="danger">Button</Button>
+        <Button clear color="warning">Button</Button>
+        <Button clear color="hot">Button</Button>
+        <Button clear color="cold">Button</Button>
+        <Button clear color="dark">Button</Button>
+        <Button clear color="light">Button</Button>
+        <Button clear color="aux">Button</Button>
+      </ButtonGroup>
 
-    <ButtonGroup>
-      <Button border clear>Border</Button>
-      <Button border clear color="primary">Border</Button>
-      <Button border clear color="secondary">Border</Button>
-      <Button border clear color="success">Border</Button>
-      <Button border clear color="danger">Border</Button>
-      <Button border clear color="warning">Border</Button>
-      <Button border clear color="hot">Border</Button>
-      <Button border clear color="cold">Border</Button>
-      <Button border clear color="dark">Border</Button>
-      <Button border clear color="light">Border</Button>
-      <Button border clear color="aux">Border</Button>
-    </ButtonGroup>
+      <ButtonGroup>
+        <Button border clear>Border</Button>
+        <Button border clear color="primary">Border</Button>
+        <Button border clear color="secondary">Border</Button>
+        <Button border clear color="success">Border</Button>
+        <Button border clear color="danger">Border</Button>
+        <Button border clear color="warning">Border</Button>
+        <Button border clear color="hot">Border</Button>
+        <Button border clear color="cold">Border</Button>
+        <Button border clear color="dark">Border</Button>
+        <Button border clear color="light">Border</Button>
+        <Button border clear color="aux">Border</Button>
+      </ButtonGroup>
+    </UtilsProvider>
   </FabulaProvider>
 )
 
@@ -81,7 +83,7 @@ export const Color = () => (
 )
 
 export const CompactVsWide = () => (
-  <FabulaProvider utils={true}>
+  <FabulaProvider>
     <ButtonGroup>
       <Button color="primary">Normal</Button>
       <Button color="primary" compact>Compact</Button>
@@ -188,34 +190,36 @@ export const Expand = () => (
 )
 
 export const Faded = () => (
-  <FabulaProvider utils={true}>
-    <ButtonGroup mb="1">
-      <Button faded>Button</Button>
-      <Button color="primary" faded>Button</Button>
-      <Button color="secondary" faded>Button</Button>
-      <Button color="success" faded>Button</Button>
-      <Button color="danger" faded>Button</Button>
-      <Button color="warning" faded>Button</Button>
-      <Button color="hot" faded>Button</Button>
-      <Button color="cold" faded>Button</Button>
-      <Button color="dark" faded>Button</Button>
-      <Button color="light" faded>Button</Button>
-      <Button color="aux" faded>Button</Button>
-    </ButtonGroup>
+  <FabulaProvider>
+    <UtilsProvider>
+      <ButtonGroup mb="1">
+        <Button faded>Button</Button>
+        <Button color="primary" faded>Button</Button>
+        <Button color="secondary" faded>Button</Button>
+        <Button color="success" faded>Button</Button>
+        <Button color="danger" faded>Button</Button>
+        <Button color="warning" faded>Button</Button>
+        <Button color="hot" faded>Button</Button>
+        <Button color="cold" faded>Button</Button>
+        <Button color="dark" faded>Button</Button>
+        <Button color="light" faded>Button</Button>
+        <Button color="aux" faded>Button</Button>
+      </ButtonGroup>
 
-    <ButtonGroup>
-      <Button border faded>Border</Button>
-      <Button border color="primary" faded>Border</Button>
-      <Button border color="secondary" faded>Border</Button>
-      <Button border color="success" faded>Border</Button>
-      <Button border color="danger" faded>Border</Button>
-      <Button border color="warning" faded>Border</Button>
-      <Button border color="hot" faded>Border</Button>
-      <Button border color="cold" faded>Border</Button>
-      <Button border color="dark" faded>Border</Button>
-      <Button border color="light" faded>Border</Button>
-      <Button border color="aux" faded>Border</Button>
-    </ButtonGroup>
+      <ButtonGroup>
+        <Button border faded>Border</Button>
+        <Button border color="primary" faded>Border</Button>
+        <Button border color="secondary" faded>Border</Button>
+        <Button border color="success" faded>Border</Button>
+        <Button border color="danger" faded>Border</Button>
+        <Button border color="warning" faded>Border</Button>
+        <Button border color="hot" faded>Border</Button>
+        <Button border color="cold" faded>Border</Button>
+        <Button border color="dark" faded>Border</Button>
+        <Button border color="light" faded>Border</Button>
+        <Button border color="aux" faded>Border</Button>
+      </ButtonGroup>
+    </UtilsProvider>
   </FabulaProvider>
 )
 

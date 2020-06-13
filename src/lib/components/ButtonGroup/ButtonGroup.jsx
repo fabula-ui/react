@@ -5,15 +5,11 @@ import { css } from 'emotion';
 import ButtonGroupStyles from '@fabula/core/theme/styles/ButtonGroup';
 
 const ButtonGroup = props => {
-    const {
-        children,
-        className,
-        divider,
-        glued
-    } = props;
+    const { children, className } = props;
+    const classes = ['fab-button-group-wrapper', className || '', css(ButtonGroupStyles({ framework: 'react', props }))];
 
     return (
-        <div className={`${className} fab-button-group-wrapper ${css(ButtonGroupStyles({ framework: 'react', props }))}`}>
+        <div className={classes.join(' ')}>
             <div className="fab-button-group">
                 {children}
             </div>
@@ -24,6 +20,7 @@ const ButtonGroup = props => {
 ButtonGroup.defaultProps = {
     divider: true,
     flow: 'horizontal',
+    wrap: true
 }
 
 export default ButtonGroup;

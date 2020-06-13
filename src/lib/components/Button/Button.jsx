@@ -45,10 +45,11 @@ const Button = props => {
         smashed,
         wide
     };
+    const classes = ['fab-button-wrapper', className || '', css(ButtonStyles({ framework: 'react', props }))];
 
     return (
         <div
-            className={`${className} fab-button-wrapper ${css(ButtonStyles({ framework: 'react', props: buttonProps }))}`}
+            className={classes.join(' ')}
             data-fab-wrapper="button"
             data-border={border}
             data-color={color}

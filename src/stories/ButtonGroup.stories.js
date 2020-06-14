@@ -8,7 +8,7 @@ import {
 } from '../lib';
 
 export default {
-    title: 'ButtonGroup',
+    title: 'Button Group',
     component: ButtonGroup,
 };
 

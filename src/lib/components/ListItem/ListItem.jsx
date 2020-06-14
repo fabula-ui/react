@@ -12,7 +12,7 @@ const ListItem = props => {
     const styles = css(ListItemStyles({ framework: 'react', props }));
 
     return (
-        <div className={`fab-list-item ${className} ${styles}`} data-button={!!onClick} data-fab-wrapper="list-item" {...rest}>
+        <div className={`fab-list-item ${className} ${styles}`} data-button={!!onClick} data-fab-component="list-item" {...rest}>
             {!onClick && children}
 
             {!!onClick && <Button data-button={!!onClick} onClick={onClick} {...rest}>

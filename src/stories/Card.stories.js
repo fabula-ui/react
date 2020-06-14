@@ -1,5 +1,4 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import {
   Badge,
@@ -77,7 +76,7 @@ export const Examples = () => (
                     <Text mr={.5}>Frontend Developer</Text>
                     <Badge color="#FFECD9">Part-time</Badge>
                   </Text>
-                  <Text aux>Amazon</Text>
+                  <Text aux={true}>Amazon</Text>
                 </div>
                 <div alItems="end" justContent="start" flex flow="v">
                   <TagGroup mb={.5}>

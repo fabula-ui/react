@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 // Styles
-import CardStyles from '@fabula/core/theme/styles/Card';
+import CardStyles from '@fabula/core/styles/components/card/card';
 
 const Card = props => {
     const { className, children, utils } = props;

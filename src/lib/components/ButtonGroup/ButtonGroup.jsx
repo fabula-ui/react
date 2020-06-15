@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 // Styles
-import ButtonGroupStyles from '@fabula/core/theme/styles/ButtonGroup';
+import ButtonGroupStyles from '@fabula/core/styles/components/button-group/button-group';
 
 const ButtonGroup = props => {
     const { children, className } = props;

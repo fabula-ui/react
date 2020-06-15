@@ -6,7 +6,7 @@ import DropdownStyles from '@fabula/core/theme/styles/Dropdown';
 
 const Dropdown = props => {
     const { children, className } = props;
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(props.open);
     const dropdownClass = className || '';
     const styles = css(DropdownStyles({ framework: 'react', props }));
     const ref = useRef(null);

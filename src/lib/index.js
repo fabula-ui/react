@@ -21,6 +21,7 @@ import ListItem from './components/ListItem/ListItem';
 import Navbar from './components/Navbar/Navbar';
 import NavbarLogo from './components/NavbarLogo/NavbarLogo';
 import NavbarSection from './components/NavbarSection/NavbarSection';
+import SearchInput from './components/SearchInput/SearchInput';
 import Segment from './components/Segment/Segment';
 import Segments from './components/Segments/Segments';
 import Toast from './components/Toast/Toast';
@@ -66,6 +67,7 @@ export {
     Navbar,
     NavbarLogo,
     NavbarSection,
+    SearchInput,
     Segment,
     Segments,
     Tab,

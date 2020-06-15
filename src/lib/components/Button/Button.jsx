@@ -10,6 +10,7 @@ const Button = props => {
         align,
         border,
         children,
+        circle,
         className,
         clear,
         color,
@@ -19,6 +20,7 @@ const Button = props => {
         faded,
         glow,
         gradient,
+        icon,
         invert,
         outline,
         rounded,
@@ -30,6 +32,7 @@ const Button = props => {
     const buttonProps = {
         align,
         border,
+        circle,
         clear,
         color,
         compact,
@@ -46,15 +49,20 @@ const Button = props => {
         wide
     };
     const classes = ['fab-button-wrapper', className || '', css(ButtonStyles({ framework: 'react', props }))];
+    // Dynamic requires
+    const Icon = icon ? require('../Icon/Icon').default : null;
 
     return (
         <div
             className={classes.join(' ')}
             data-fab-wrapper="button"
             data-border={border}
+            data-circle={circle}
             data-color={color}
-            data-outline={outline}>
+            data-outline={outline}
+            data-rounded={rounded}>
             <button className="fab-button" data-fab-component="button" disabled={disabled} {...rest}>
+                {!!Icon && <Icon {...icon} />}
                 {children}
             </button>
         </div>

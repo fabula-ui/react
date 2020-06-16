@@ -162,3 +162,17 @@ export const Rounded = () => (
         </UtilsProvider>
     </FabulaProvider>
 )
+
+export const Size = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <div mb={1} flex>
+                <Checkbox checked={true} color="primary" label="Extra-Large Checkbox" mr={1} size="xl" />
+                <Checkbox checked={true} color="primary" label="Large Checkbox" mr={1} size="lg" />
+                <Checkbox checked={true} color="primary" label="Medium Checkbox" mr={1} size="md" />
+                <Checkbox checked={true} color="primary" label="Small Checkbox" mr={1} size="sm" />
+                <Checkbox checked={true} color="primary" label="Extra-small Checkbox" mr={1} size="xs" />
+            </div>
+        </UtilsProvider>
+    </FabulaProvider>
+)

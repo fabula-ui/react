@@ -1,5 +1,4 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import {
     FabulaProvider,
@@ -151,6 +150,32 @@ export const Size = () => (
             <div row>
                 <Input col="4" icon={{ name: 'user' }} iconEnd={{ name: 'x' }} message="This input field is small" placeholder="Medium input field" size="sm" />
                 <Input col="4" icon={{ name: 'user' }} iconEnd={{ name: 'x' }} message="This input field is extra small" placeholder="Medium input field" size="xs" />
+            </div>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const Textarea = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <div mb={1} row>
+                <Input col="3" icon={{ name: 'user' }} placeholder="Type something..." textarea={true} />
+                <Input col="3" color="primary" icon={{ color: 'primary', name: 'user' }} placeholder="Type something..." textarea={true} />
+                <Input col="3" color="secondary" icon={{ color: 'secondary', name: 'user' }} placeholder="Type something..." textarea={true} />
+                <Input col="3" color="success" icon={{ color: 'success', name: 'user' }} placeholder="Type something..." textarea={true} />
+            </div>
+
+            <div mb={1} row>
+                <Input col="3" color="danger" icon={{ color: 'danger', name: 'user' }} placeholder="Type something..." textarea={true} />
+                <Input col="3" color="warning" icon={{ color: 'warning', name: 'user' }} placeholder="Type something..." textarea={true} />
+                <Input col="3" color="hot" icon={{ color: 'hot', name: 'user' }} placeholder="Type something..." textarea={true} />
+                <Input col="3" color="cold" icon={{ color: 'cold', name: 'user' }} placeholder="Type something..." textarea={true} />
+            </div>
+
+            <div mb={1} row>
+                <Input col="3" color="dark" icon={{ color: 'dark', name: 'user' }} placeholder="Type something..." textarea={true} />
+                <Input col="3" color="light" icon={{ color: 'light', name: 'user' }} placeholder="Type something..." textarea={true} />
+                <Input col="3" color="aux" icon={{ color: 'aux', name: 'user' }} placeholder="Type something..." textarea={true} />
             </div>
         </UtilsProvider>
     </FabulaProvider>

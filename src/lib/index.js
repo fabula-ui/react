@@ -24,12 +24,13 @@ import NavbarSection from './components/NavbarSection/NavbarSection';
 import SearchInput from './components/SearchInput/SearchInput';
 import Segment from './components/Segment/Segment';
 import Segments from './components/Segments/Segments';
-import Toast from './components/Toast/Toast';
 import Tab from './components/Tab/Tab';
 import Tabs from './components/Tabs/Tabs';
 import Tag from './components/Tag/Tag';
 import TagGroup from './components/TagGroup/TagGroup';
 import Text from './components/Text/Text';
+import Toast from './components/Toast/Toast';
+import Toggle from './components/Toggle/Toggle';
 
 // Controllers
 import ToastController from './controllers/ToastController';
@@ -76,6 +77,7 @@ export {
     TagGroup,
     Text,
     Toast,
+    Toggle,
 
     // Controllers
     ToastController,

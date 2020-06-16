@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import InputStyles from '@fabula/core/theme/styles/Input';
 
 const Input = props => {
-    const { children, className, disabled, icon, iconEnd, iconStart, message, onBlur, onFocus, placeholder, passwordToggle, type, ...rest } = props;
+    const { children, className, disabled, icon, iconEnd, iconStart, message, onBlur, onFocus, placeholder, passwordToggle, textarea, type, ...rest } = props;
     const [focus, setFocus] = useState(false);
     const [inputType, setInputType] = useState(type || 'text');
     const classes = ['fab-input-wrapper', className || '', css(InputStyles({ framework: 'react', props }))];
@@ -38,14 +38,27 @@ const Input = props => {
                 {!!icon && <Icon {...icon} data-placement="start" />}
                 {!!iconStart && <Icon {...iconStart} data-placement="start" />}
 
-                <input class="fab-input__field"
-                    data-fab-component="input"
-                    disabled={disabled}
-                    placeholder={placeholder}
-                    type={inputType}
-                    onBlur={handleBlur}
-                    onFocus={handleFocus}
-                    {...rest} />
+                {!textarea &&
+                    <input class="fab-input__field"
+                        data-fab-component="input"
+                        disabled={disabled}
+                        placeholder={placeholder}
+                        type={inputType}
+                        onBlur={handleBlur}
+                        onFocus={handleFocus}
+                        {...rest} />
+                }
+
+                {textarea &&
+                    <textarea class="fab-input__field"
+                        data-fab-component="input"
+                        disabled={disabled}
+                        placeholder={placeholder}
+                        type={inputType}
+                        onBlur={handleBlur}
+                        onFocus={handleFocus}
+                        {...rest}></textarea>
+                }
 
                 {!!iconEnd && !passwordToggle && <Icon {...iconEnd} data-placement="end" />}
 

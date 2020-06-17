@@ -6,7 +6,7 @@ import {
   FabulaProvider,
   Segment,
   Segments,
-  UtilsProvider
+  FabulaUtils
 } from '../lib';
 
 export default {
@@ -40,7 +40,7 @@ export const Examples = () => (
 
 export const ActiveFillColor = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" col="4">
           <Segment name="docs">Docs</Segment>
@@ -114,13 +114,13 @@ export const ActiveFillColor = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const ActiveTextColor = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" col="4">
           <Segment name="docs">Docs</Segment>
@@ -194,13 +194,13 @@ export const ActiveTextColor = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Clear = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" clear={true} col="4">
           <Segment name="docs">Docs</Segment>
@@ -274,13 +274,13 @@ export const Clear = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Color = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" col="4">
           <Segment name="docs">Docs</Segment>
@@ -354,13 +354,13 @@ export const Color = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Faded = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" faded={true} col="4">
           <Segment name="docs">Docs</Segment>
@@ -434,13 +434,13 @@ export const Faded = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const InactiveFillColor = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" col="4">
           <Segment name="docs">Docs</Segment>
@@ -514,13 +514,13 @@ export const InactiveFillColor = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const InactiveTextColor = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" col="4">
           <Segment name="docs">Docs</Segment>
@@ -594,13 +594,13 @@ export const InactiveTextColor = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Invert = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" invert={true} col="4">
           <Segment name="docs">Docs</Segment>
@@ -674,13 +674,13 @@ export const Invert = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Outline = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" outline={true} col="4">
           <Segment name="docs">Docs</Segment>
@@ -754,13 +754,13 @@ export const Outline = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Rounded = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="1" row>
         <Segments activeSegment="docs" rounded={true} col="4">
           <Segment name="docs">Docs</Segment>
@@ -834,6 +834,6 @@ export const Rounded = () => (
           <Segment name="showcase">Showcase</Segment>
         </Segments>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )

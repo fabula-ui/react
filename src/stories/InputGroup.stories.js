@@ -11,7 +11,7 @@ import {
     Input,
     InputGroup,
     Text,
-    UtilsProvider,
+    FabulaUtils,
 } from '../lib';
 
 export default {
@@ -21,7 +21,7 @@ export default {
 
 export const Examples = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
 
             <InputGroup mb="1">
                 <Input iconStart={{ color: 'primary', name: 'battery-charging' }} message={{ color: 'primary', text: 'Example of an input message' }} placeholder="Type something..." />
@@ -43,13 +43,13 @@ export const Examples = () => (
                 </Button>
             </InputGroup>
 
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Glued = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <InputGroup col="4" glued>
                     <Input iconStart={{ color: 'primary', name: 'battery-charging' }} placeholder="Type something..." />
@@ -146,14 +146,14 @@ export const Glued = () => (
                 </InputGroup>
             </div>
 
-        </UtilsProvider>
+        </FabulaUtils>
 
     </FabulaProvider>
 )
 
 export const Sizes = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <InputGroup col={4} glued={true}>
                     <Input placeholder="Type something..." size="xxl" />
@@ -205,13 +205,13 @@ export const Sizes = () => (
                     </Button>
                 </InputGroup>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Spacing = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div row>
                 <InputGroup col={4}>
                     <Input placeholder="Type something..." />
@@ -237,6 +237,6 @@ export const Spacing = () => (
                     </Button>
                 </InputGroup>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )

@@ -4,7 +4,7 @@ import {
     Button,
     ButtonGroup,
     FabulaProvider,
-    UtilsProvider
+    FabulaUtils
 } from '../lib';
 
 export default {
@@ -14,7 +14,7 @@ export default {
 
 export const Flow = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <ButtonGroup mb="1">
                 <Button color="primary">Button 1</Button>
                 <Button color="primary">Button 2</Button>
@@ -26,13 +26,13 @@ export const Flow = () => (
                 <Button color="primary">Button 2</Button>
                 <Button color="primary">Button 3</Button>
             </ButtonGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Glued = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <ButtonGroup glued={true} mb={1}>
                 <Button color="primary">Button 1</Button>
                 <Button color="primary">Button 2</Button>
@@ -98,7 +98,7 @@ export const Glued = () => (
                 <Button color="secondary" outline={true}>Button 2</Button>
                 <Button color="danger" outline={true}>Button 3</Button>
             </ButtonGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 );
 

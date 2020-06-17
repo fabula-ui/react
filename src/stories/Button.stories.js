@@ -6,7 +6,7 @@ import {
   Button,
   ButtonGroup,
   FabulaProvider,
-  UtilsProvider,
+  FabulaUtils,
 } from '../lib';
 
 export default {
@@ -16,7 +16,7 @@ export default {
 
 export const Clear = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <ButtonGroup mb="1">
         <Button clear>Button</Button>
         <Button clear color="primary">Button</Button>
@@ -44,13 +44,13 @@ export const Clear = () => (
         <Button border clear color="light">Border</Button>
         <Button border clear color="aux">Border</Button>
       </ButtonGroup>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Color = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <ButtonGroup mb="1">
         <Button>Button</Button>
         <Button color="primary">Button</Button>
@@ -78,7 +78,7 @@ export const Color = () => (
         <Button border color="light">Border</Button>
         <Button border color="aux">Border</Button>
       </ButtonGroup>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
@@ -191,7 +191,7 @@ export const Expand = () => (
 
 export const Faded = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <ButtonGroup mb="1">
         <Button faded>Button</Button>
         <Button color="primary" faded>Button</Button>
@@ -219,13 +219,13 @@ export const Faded = () => (
         <Button border color="light" faded>Border</Button>
         <Button border color="aux" faded>Border</Button>
       </ButtonGroup>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Glow = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <ButtonGroup mb="1">
         <Button glow={true}>With</Button>
         <Button color="primary" glow={true}>With</Button>
@@ -253,13 +253,13 @@ export const Glow = () => (
         <Button color="light">Without</Button>
         <Button color="aux">Without</Button>
       </ButtonGroup>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Gradient = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <ButtonGroup mb="1">
         <Button gradient>Button</Button>
         <Button color="primary" gradient>Button</Button>
@@ -287,13 +287,13 @@ export const Gradient = () => (
         <Button border={true} color="light" gradient>Border</Button>
         <Button border={true} color="aux" gradient>Border</Button>
       </ButtonGroup>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Invert = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <ButtonGroup mb="1">
         <Button invert>Button</Button>
         <Button color="primary" invert>Button</Button>
@@ -321,7 +321,7 @@ export const Invert = () => (
         <Button border={true} color="light" invert>Border</Button>
         <Button border={true} color="aux" invert>Border</Button>
       </ButtonGroup>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
@@ -345,7 +345,7 @@ export const Outline = () => (
 
 export const Rounded = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <ButtonGroup mb="1">
         <Button rounded>Button</Button>
         <Button color="primary" rounded>Button</Button>
@@ -373,7 +373,7 @@ export const Rounded = () => (
         <Button border={true} color="light" rounded>Border</Button>
         <Button color="aux" rounded>Button</Button>
       </ButtonGroup>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
@@ -391,7 +391,7 @@ export const Size = () => (
 
 export const ExternalBadge = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <ButtonGroup mb="1">
         <Button compact={true}>
           <span>Button</span>
@@ -539,7 +539,7 @@ export const ExternalBadge = () => (
           <Badge color="primary" invert={true} rounded={true}>99+</Badge>
         </Button>
       </ButtonGroup>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 

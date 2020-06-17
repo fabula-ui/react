@@ -11,7 +11,7 @@ import {
   Icon,
   List,
   ListItem,
-  UtilsProvider,
+  FabulaUtils,
   Tag,
   TagGroup,
   Text,
@@ -24,7 +24,7 @@ export default {
 
 export const Examples = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div row>
         <Card col="3">
           <CardImage height={200} />
@@ -124,13 +124,13 @@ export const Examples = () => (
           </CardSection>
         </Card>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Color = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="2" row>
         <Card col="3">
           <CardImage height="120" />
@@ -257,14 +257,14 @@ export const Color = () => (
           </CardSection>
         </Card>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
 
   </FabulaProvider>
 )
 
 export const Glow = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="2" row>
         <Card col="3" glow={true}>
           <CardImage height="120" />
@@ -391,7 +391,7 @@ export const Glow = () => (
           </CardSection>
         </Card>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
 
   </FabulaProvider>
 )

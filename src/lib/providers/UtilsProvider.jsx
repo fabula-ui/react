@@ -1,10 +1,11 @@
 import React, { Children, createContext, isValidElement } from 'react';
 import { css } from 'emotion';
 import UtilsStyles from '@fabula/core/theme/utils';
+import { useEffect } from 'react';
 
 const UtilsProviderContext = createContext(null);
 
-const UtilsProvider = props => {
+const FabulaUtils = props => {
     const { children } = props;
     const initialState = {
         utilStyles: UtilsStyles
@@ -14,34 +15,20 @@ const UtilsProvider = props => {
         return Children.map(children, child => {
             let childProps;
 
-            console.log(typeof child);
-
             if (!isValidElement(child)) {
                 return child;
             }
 
             childProps = { className: css(UtilsStyles({ framework: 'react', props: child.props, utils: true })), ...child.props };
 
-            if (child.props?.children) {
+            if (Children.count(child)) {
+                console.log('has child', child);
                 return React.cloneElement(child, {...childProps}, childrenWithProps(child.props.children));
             }
 
             return React.cloneElement(child, {...childProps});
         })
     }
-
-    // mapRecursive();
-
-    // const mapRecursive = (children, callback) => (
-    //     Children.map(
-    //         children,
-    //         child => (
-    //             child.props.children
-    //                 ? [callback(child), mapRecursive(child.props.children, callback)]
-    //                 : callback(child)
-    //         ),
-    //     )
-    // );
 
 
     return (
@@ -52,4 +39,4 @@ const UtilsProvider = props => {
 }
 
 export { UtilsProviderContext };
-export default UtilsProvider;
+export default FabulaUtils;

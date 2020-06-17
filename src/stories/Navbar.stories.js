@@ -10,7 +10,7 @@ import {
     Icon,
     NavbarSection,
     ButtonGroup,
-    UtilsProvider
+    FabulaUtils
 } from '../lib';
 
 export default {
@@ -23,7 +23,7 @@ const NavbarBase = props => {
     const logo = props.logo || 'fabula-logo.svg';
 
     return (
-        <UtilsProvider>
+        <FabulaUtils>
             <Navbar color={color} {...rest}>
                 <NavbarLogo src={logo} />
                 <NavbarSection alignment="center" expand={true}>
@@ -50,13 +50,13 @@ const NavbarBase = props => {
                     </ButtonGroup>
                 </NavbarSection>
             </Navbar>
-        </UtilsProvider>
+        </FabulaUtils>
     )
 }
 
 export const Examples = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <Navbar>
                 <NavbarLogo src="fabula-logo.svg" />
                 <NavbarSection alignment="center" expand={true}>
@@ -83,29 +83,29 @@ export const Examples = () => (
                     </ButtonGroup>
                 </NavbarSection>
             </Navbar>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Colors = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <NavbarBase px={2} socialProps={{ color: 'dark' }} />
             <NavbarBase color="primary" logo="fabula-logo-white.svg" px={2} socialProps={{ color: 'white' }} signInProps={{ invert: true }} signUpProps={{ color: 'white' }} />
             <NavbarBase color="secondary" logo="fabula-logo-white.svg" px={2} socialProps={{ color: 'white' }} signInProps={{ color: 'secondary', invert: true }} signUpProps={{ color: 'white' }} />
             <NavbarBase color="dark" logo="fabula-logo-white.svg" px={2} socialProps={{ color: 'white' }} signInProps={{ color: 'primary' }} signUpProps={{ color: 'white' }} tabsProps={{ activeBorderColor: 'primary' }} />
             <NavbarBase color="light" px={2} signInProps={{ color: 'primary' }} signUpProps={{ color: 'dark' }} socialProps={{ color: 'dark' }} tabsProps={{ activeBorderColor: 'primary' }} />
             <NavbarBase color="#674C88" logo="fabula-logo-white.svg" px={2} socialProps={{ color: 'white' }} signInProps={{ color: '#6FD367' }} signUpProps={{ color: 'white' }} tabsProps={{ activeBorderColor: '#6FD367' }} />
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Height = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <NavbarBase color="light" height={48} mb={1} px={2} signInProps={{ color: 'primary' }} signUpProps={{ color: '' }} tabsProps={{ activeBorderColor: 'primary' }} />
             <NavbarBase color="light" height="5rem" mb={1} px={2} signInProps={{ color: 'primary' }} signUpProps={{ color: '' }} tabsProps={{ activeBorderColor: 'primary' }} />
             <NavbarBase color="light" height={100} mb={1} px={2} signInProps={{ color: 'primary' }} signUpProps={{ color: '' }} tabsProps={{ activeBorderColor: 'primary' }} />
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 );

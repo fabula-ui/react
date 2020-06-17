@@ -3,7 +3,7 @@ import React from 'react';
 import {
     FabulaProvider,
     Toggle,
-    UtilsProvider
+    FabulaUtils
 } from '../lib';
 
 export default {
@@ -13,18 +13,18 @@ export default {
 
 export const Examples = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div row>
                 <Toggle col="4" />
                 <Toggle col="4" rounded={false} />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const ActiveColor = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <Toggle active={true} col="2" />
                 <Toggle active={true} col="2" activeColor="primary" />
@@ -41,13 +41,13 @@ export const ActiveColor = () => (
                 <Toggle active={true} col="2" activeColor="light" />
                 <Toggle active={true} col="2" activeColor="aux" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Color = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <Toggle active={true} col="2" />
                 <Toggle active={true} col="2" color="primary" />
@@ -81,13 +81,13 @@ export const Color = () => (
                 <Toggle col="2" color="light" />
                 <Toggle col="2" color="aux" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Disabled = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <Toggle active={true} col="2" disabled={true} />
                 <Toggle active={true} col="2" color="primary" disabled={true} />
@@ -121,13 +121,13 @@ export const Disabled = () => (
                 <Toggle col="2" color="light" disabled={true} />
                 <Toggle col="2" color="aux" disabled={true} />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const InactiveColor = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <Toggle col="2" />
                 <Toggle col="2" inactiveColor="primary" />
@@ -144,13 +144,13 @@ export const InactiveColor = () => (
                 <Toggle col="2" inactiveColor="light" />
                 <Toggle col="2" inactiveColor="aux" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Size = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <Toggle active={true} col="3" size="xl" />
                 <Toggle active={true} col="3" size="lg" />
@@ -160,6 +160,6 @@ export const Size = () => (
             <div mb="1" row>
                 <Toggle active={true} col="3" size="xs" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )

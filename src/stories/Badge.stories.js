@@ -5,7 +5,7 @@ import {
     Badge,
     Icon,
     FabulaProvider,
-    UtilsProvider
+    FabulaUtils
 } from '../lib';
 
 export default {
@@ -15,7 +15,7 @@ export default {
 
 export const Circle = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1">
                 <Badge circle><Icon name="user-check" /></Badge>
                 <Badge color="primary" circle><Icon name="user-check" /></Badge>
@@ -43,13 +43,13 @@ export const Circle = () => (
                 <Badge color="light" circle>1</Badge>
                 <Badge color="aux" circle>1</Badge>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Clear = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1">
                 <Badge clear><Icon name="user-check" /></Badge>
                 <Badge color="primary" clear><Icon name="user-check" /></Badge>
@@ -76,13 +76,13 @@ export const Clear = () => (
                 <Badge color="light" clear>123</Badge>
                 <Badge color="aux" clear>123</Badge>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Color = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1">
                 <Badge><Icon name="user-check" /></Badge>
                 <Badge color="primary"><Icon name="user-check" /></Badge>
@@ -110,7 +110,7 @@ export const Color = () => (
                 <Badge color="light">123</Badge>
                 <Badge color="aux">123</Badge>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
@@ -164,7 +164,7 @@ export const Outline = () => (
 
 export const Rounded = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1">
                 <Badge rounded><Icon name="user-check" /></Badge>
                 <Badge color="primary" rounded><Icon name="user-check" /></Badge>
@@ -206,6 +206,6 @@ export const Rounded = () => (
                 <Badge color="light" rounded>123</Badge>
                 <Badge color="aux" rounded>123</Badge>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )

@@ -12,7 +12,7 @@ import {
     ListItem,
     Tag,
     Text,
-    UtilsProvider,
+    FabulaUtils,
     Icon
 } from '../lib';
 
@@ -23,18 +23,18 @@ export default {
 
 export const Examples = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <Dropdown>
                 <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
                 <DropdownMenu clickToClose={true} items={[{ label: 'Item 1' }, { label: 'Item 2' }, { label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
             </Dropdown>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Colors = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <Dropdown col="3">
                     <DropdownToggle expand={true} icon="map-pin" label="Dropdown Toggle" />
@@ -96,13 +96,13 @@ export const Colors = () => (
                 </Dropdown>
             </div>
 
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const CustomContent = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <Dropdown mr="1">
                 <DropdownToggle color="primary" icon="map-pin" label="Dropdown Toggle" wide={true} />
                 <DropdownMenu>
@@ -177,14 +177,14 @@ export const CustomContent = () => (
                     </DropdownItem>
                 </DropdownMenu>
             </Dropdown>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider >
 )
 
 
 export const Direction = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mt="10">
                 <Dropdown mr="1">
                     <DropdownToggle color="primary" icon="arrow-down" compact={true} label="Going Down" />
@@ -196,13 +196,13 @@ export const Direction = () => (
                     <DropdownMenu clickToClose={true} items={[{ label: 'Item 1' }, { label: 'Item 2' }, { label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Expand = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div>
                 <Dropdown mb="1">
                     <DropdownToggle align="left" color="primary" icon="map-pin" compact={true} label="Normal" />
@@ -214,13 +214,13 @@ export const Expand = () => (
                     <DropdownMenu clickToClose={true} items={[{ label: 'Item 1' }, { label: 'Item 2' }, { label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Glow = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <Dropdown mr="1">
                 <DropdownToggle icon={{ color: 'hot', name: 'sun' }} compact={true} label="With Glow" />
                 <DropdownMenu clickToClose={true} items={[{ label: 'Item 1' }, { label: 'Item 2' }, { label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
@@ -230,6 +230,6 @@ export const Glow = () => (
                 <DropdownToggle glow={false} icon={{ color: 'cold', name: 'moon' }} compact={true} label="Without Glow" />
                 <DropdownMenu clickToClose={true} glow={false} items={[{ label: 'Item 1' }, { label: 'Item 2' }, { label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
             </Dropdown>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )

@@ -37,13 +37,15 @@ import Toast from './components/Toast/Toast';
 import Toggle from './components/Toggle/Toggle';
 
 // Controllers
+import ModalController from './controllers/ModalController';
 import ToastController from './controllers/ToastController';
 
 // Providers
 import FabulaProvider from './providers/FabulaProvider';
+import FabulaUtils from './providers/UtilsProvider';
+import ModalProvider from './providers/ModalProvider';
 import ThemeProvider from './providers/ThemeProvider';
 import ToastProvider from './providers/ToastProvider';
-import UtilsProvider from './providers/UtilsProvider';
 
 // Services
 import ToastService from './services/ToastService';
@@ -88,13 +90,16 @@ export {
     Toggle,
 
     // Controllers
+    ModalController,
     ToastController,
 
     // Providers
     FabulaProvider,
+    FabulaUtils,
+    ModalProvider,
     ThemeProvider,
     ToastProvider,
-    UtilsProvider,
+    
 
     // Services
     ToastService,

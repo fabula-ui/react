@@ -6,7 +6,7 @@ import {
     FabulaProvider,
     Tag,
     TagGroup,
-    UtilsProvider
+    FabulaUtils
 } from '../lib';
 
 export default {
@@ -16,7 +16,7 @@ export default {
 
 export const AnchorAndButton = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <TagGroup mb="1">
                 <Tag rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
                 <Tag color="primary" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
@@ -44,13 +44,13 @@ export const AnchorAndButton = () => (
                 <Tag color="light" rounded={true}><button onClick={() => alert('Hey! It works...')}>Fabula</button></Tag>
                 <Tag color="aux" rounded={true}><button onClick={() => alert('Hey! It works...')}>Fabula</button></Tag>
             </TagGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Clear = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <TagGroup>
                 <Tag clear={true}>Fabula</Tag>
                 <Tag color="primary" clear={true}>Fabula</Tag>
@@ -64,13 +64,13 @@ export const Clear = () => (
                 <Tag color="light" clear={true}>Fabula</Tag>
                 <Tag color="aux" clear={true}>Fabula</Tag>
             </TagGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Colors = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <TagGroup>
                 <Tag>Fabula</Tag>
                 <Tag color="primary">Fabula</Tag>
@@ -84,13 +84,13 @@ export const Colors = () => (
                 <Tag color="light">Fabula</Tag>
                 <Tag color="aux">Fabula</Tag>
             </TagGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Faded = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <TagGroup>
                 <Tag faded={true}>Fabula</Tag>
                 <Tag color="primary" faded={true}>Fabula</Tag>
@@ -104,13 +104,13 @@ export const Faded = () => (
                 <Tag color="light" faded={true}>Fabula</Tag>
                 <Tag color="aux" faded={true}>Fabula</Tag>
             </TagGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Glow = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
         <TagGroup mb="1">
                 <Tag clear={true} glow={true}>Fabula</Tag>
                 <Tag color="primary" clear={true} glow={true}>Fabula</Tag>
@@ -180,13 +180,13 @@ export const Glow = () => (
                 <Tag color="light" outline={true} glow={true}>Fabula</Tag>
                 <Tag color="aux" outline={true} glow={true}>Fabula</Tag>
             </TagGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Invert = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <TagGroup>
                 <Tag invert={true}>Fabula</Tag>
                 <Tag color="primary" invert={true}>Fabula</Tag>
@@ -200,13 +200,13 @@ export const Invert = () => (
                 <Tag color="light" invert={true}>Fabula</Tag>
                 <Tag color="aux" invert={true}>Fabula</Tag>
             </TagGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Outline = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <TagGroup mb={1}>
                 <Tag outline={true}>Fabula</Tag>
                 <Tag color="primary" outline={true}>Fabula</Tag>
@@ -234,13 +234,13 @@ export const Outline = () => (
                 <Tag color="light" faded={true} outline={true}>Fabula</Tag>
                 <Tag color="aux" faded={true} outline={true}>Fabula</Tag>
             </TagGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Rounded = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <TagGroup>
                 <Tag rounded={true}>Fabula</Tag>
                 <Tag color="primary" rounded={true}>Fabula</Tag>
@@ -254,6 +254,6 @@ export const Rounded = () => (
                 <Tag color="light" rounded={true}>Fabula</Tag>
                 <Tag color="aux" rounded={true}>Fabula</Tag>
             </TagGroup>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )

@@ -6,7 +6,7 @@ import {
     FabulaProvider,
     ToastProvider,
     Toast,
-    UtilsProvider,
+    FabulaUtils,
 } from '../lib';
 
 import { ToastExamples } from '../examples/Toast/Toast';
@@ -18,7 +18,7 @@ export default {
 
 export const Clear = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <div col="4">
                     <Toast clear={true} closeButton={{ label: 'Close' }} icon={{ color: 'primary', name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
@@ -70,13 +70,13 @@ export const Clear = () => (
                     <Toast clear={true} closeButton={{ color: 'aux', label: 'Close', invert: true }} color="aux" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
                 </div>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Colors = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <div col="4">
                     <Toast closeButton={{ label: 'Close' }} icon={{ color: 'primary', name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
@@ -128,13 +128,13 @@ export const Colors = () => (
                     <Toast closeButton={{ color: 'aux', label: 'Close', invert: true }} color="aux" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
                 </div>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Faded = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <div col="4">
                     <Toast closeButton={{ label: 'Close' }} faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
@@ -186,14 +186,14 @@ export const Faded = () => (
                     <Toast closeButton={{ color: 'aux', label: 'Close', invert: true }} color="aux" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
                 </div>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
 
     </FabulaProvider>
 )
 
 export const Glow = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <div col="4">
                     <Toast closeButton={{ label: 'Close' }} glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
@@ -245,7 +245,7 @@ export const Glow = () => (
                     <Toast closeButton={{ color: 'aux', label: 'Close', invert: true }} color="aux" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
                 </div>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
 
     </FabulaProvider>
 
@@ -253,7 +253,7 @@ export const Glow = () => (
 
 export const Icons = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <div col="3">
                     <Toast closeButton={{ label: 'Close' }} icon={{ name: 'compass' }} message="Here is a toast with an icon..." width="100%" />
@@ -271,13 +271,13 @@ export const Icons = () => (
                     <Toast closeButton={{ color: 'success', label: 'Close' }} icon={{ color: 'success', name: 'database' }} message="Here is a toast with an icon..." width="100%" />
                 </div>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Links = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <div col="3">
                     <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
@@ -357,13 +357,13 @@ export const Links = () => (
                     <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'aux', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
                 </div>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Outline = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <div col="4">
                     <Toast closeButton={{ label: 'Close', outline: true }} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
@@ -415,7 +415,7 @@ export const Outline = () => (
                     <Toast closeButton={{ color: 'aux', label: 'Close', outline: true }} color="aux" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
                 </div>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
 
     </FabulaProvider>
 )

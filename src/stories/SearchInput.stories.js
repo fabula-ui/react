@@ -11,7 +11,7 @@ import {
     Icon,
     NavbarSection,
     ButtonGroup,
-    UtilsProvider
+    FabulaUtils
 } from '../lib';
 
 export default {
@@ -21,30 +21,30 @@ export default {
 
 export const Examples = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div row>
                 <SearchInput col="4" />
                 <SearchInput button={true} col="4" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Autocomplete = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div row>
                 <SearchInput autocomplete={true} col="4" />
                 <SearchInput autocomplete={true} button={{ color: 'primary' }} col="4" />
                 <SearchInput autocomplete={true} button={{ color: 'primary', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const ButtonColor = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <SearchInput button={{ color: '' }} col="4" />
                 <SearchInput button={{ color: 'primary' }} col="4" />
@@ -67,13 +67,13 @@ export const ButtonColor = () => (
                 <SearchInput button={{ color: 'light' }} col="4" />
                 <SearchInput button={{ color: 'aux' }} col="4" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const ButtonLabel = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <SearchInput button={{ color: '', label: 'Go' }} col="4" />
                 <SearchInput button={{ color: 'primary', label: 'Go' }} col="4" />
@@ -96,13 +96,13 @@ export const ButtonLabel = () => (
                 <SearchInput button={{ color: 'light', label: 'Go' }} col="4" />
                 <SearchInput button={{ color: 'aux', label: 'Go' }} col="4" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const ButtonTypes = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div row>
                 <SearchInput col="4" />
                 <SearchInput button={true} col="4" />
@@ -112,13 +112,13 @@ export const ButtonTypes = () => (
                     </Button>
                 </SearchInput>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const InputColor = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <SearchInput button={true} col="4" />
                 <SearchInput button={true} col="4" color="primary" />
@@ -141,13 +141,13 @@ export const InputColor = () => (
                 <SearchInput button={{ color: 'light' }} col="4" color="light" />
                 <SearchInput button={{ color: 'aux' }} col="4" color="aux" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Rounded = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <SearchInput button={{ color: '', rounded: true }} col="4" rounded={true} />
                 <SearchInput button={{ color: 'primary', rounded: true }} col="4" rounded={true} />
@@ -193,13 +193,13 @@ export const Rounded = () => (
                 <SearchInput button={{ color: 'light', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
                 <SearchInput button={{ color: 'aux', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Size = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <SearchInput button={{ color: 'primary' }} col="4" placeholder="Extra-large input field" size="xl" />
                 <SearchInput button={{ color: 'primary' }} col="4" placeholder="Large input field" size="lg" />
@@ -232,6 +232,6 @@ export const Size = () => (
                 <SearchInput button={{ color: 'primary', icon: { name: 'search' }, circle: true }} col="4" placeholder="Small input field" rounded={true} size="sm" />
                 <SearchInput button={{ color: 'primary', icon: { name: 'search' }, circle: true }} col="4" placeholder="Extra-small input field" rounded={true} size="xs" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )

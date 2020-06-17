@@ -5,7 +5,7 @@ import {
     Checkbox,
     FabulaProvider,
     FileInput,
-    UtilsProvider
+    FabulaUtils
 } from '../lib';
 
 export default {
@@ -21,7 +21,7 @@ export const Test = () => (
 
 export const Colors = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} flex>
                 <Checkbox label="Label" mr={1} />
                 <Checkbox color="primary" label="Label" mr={1} />
@@ -63,13 +63,13 @@ export const Colors = () => (
                 <Checkbox color="light" indeterminate={true} label="Label" mr={1} />
                 <Checkbox color="aux" indeterminate={true} label="Label" mr={1} />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Disabled = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} flex>
                 <Checkbox disabled={true} label="Label" mr={1} />
                 <Checkbox color="primary" disabled={true} label="Label" mr={1} />
@@ -111,13 +111,13 @@ export const Disabled = () => (
                 <Checkbox color="light" disabled={true} indeterminate={true} label="Label" mr={1} />
                 <Checkbox color="aux" disabled={true} indeterminate={true} label="Label" mr={1} />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Rounded = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} flex>
                 <Checkbox label="Label" mr={1} rounded={true} />
                 <Checkbox color="primary" label="Label" mr={1} rounded={true} />
@@ -159,13 +159,13 @@ export const Rounded = () => (
                 <Checkbox color="light" indeterminate={true} label="Label" mr={1} rounded={true} />
                 <Checkbox color="aux" indeterminate={true} label="Label" mr={1} rounded={true} />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Size = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} flex>
                 <Checkbox checked={true} color="primary" label="Extra-Large Checkbox" mr={1} size="xl" />
                 <Checkbox checked={true} color="primary" label="Large Checkbox" mr={1} size="lg" />
@@ -173,6 +173,6 @@ export const Size = () => (
                 <Checkbox checked={true} color="primary" label="Small Checkbox" mr={1} size="sm" />
                 <Checkbox checked={true} color="primary" label="Extra-small Checkbox" mr={1} size="xs" />
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )

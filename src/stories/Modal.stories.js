@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import {
     Modal,
     ModalBody,
+    ModalController,
     ModalFooter,
     ModalHeader,
+    ModalProvider,
     Text,
-    UtilsProvider,
+    FabulaUtils,
     FabulaProvider,
     Button,
     ButtonGroup,
 } from '../lib';
+
+// Examples
+import ModalExample from '../examples/Modal/Modal';
+import ModalColorExample from '../examples/Modal/ModalColor';
 
 export default {
     title: 'Modal',
@@ -18,35 +24,23 @@ export default {
 };
 
 export const Examples = () => {
-    const [open, setOpen] = useState(false);
-
-    const openModal = () => {
-        setOpen(true);
-    }
-
     return (
         <FabulaProvider>
-            <UtilsProvider>
-                <Button color="primary" onClick={openModal}>Open Modal</Button>
-                <Modal open={open} onClose={setOpen}>
-                    <ModalHeader divider="bottom">
-                        <Text block={true} size="lg" weight={700}>Deactivate account</Text>
-                        <Text aux={true} size="sm">Modal Subtitle</Text>
-                    </ModalHeader>
-                    <ModalBody>
-                        <Text block={true} mb={.25}>
-                            Are you sure you want to <Text color="danger">deactivate</Text> your account?
-                    </Text>
-                        <Text mb="1">All of your data will be permanantly <Text color="danger" weight={600}>removed</Text>.</Text>
-                    </ModalBody>
-                    <ModalFooter alH="end" color="light" flex={true}>
-                        <ButtonGroup>
-                            <Button border={true} glow={true}>Cancel</Button>
-                            <Button border={true} color="danger" glow={true}>Deactivate</Button>
-                        </ButtonGroup>
-                    </ModalFooter>
-                </Modal>
-            </UtilsProvider>
+            <FabulaUtils>
+                <ModalProvider>
+                    <ModalExample />
+                </ModalProvider>
+            </FabulaUtils>
+        </FabulaProvider>
+    )
+};
+
+export const Color = () => {
+    return (
+        <FabulaProvider>
+            <ModalProvider>
+                <ModalColorExample />
+            </ModalProvider>
         </FabulaProvider>
     )
 };

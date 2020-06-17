@@ -9,7 +9,7 @@ import {
   Icon,
   Tag,
   Text,
-  UtilsProvider
+  FabulaUtils
 } from '../lib';
 
 export default {
@@ -19,7 +19,7 @@ export default {
 
 export const AdaptColor = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="2" row>
         <Card col="3" glow={true}>
           <CardImage adaptColor={true} height="120" />
@@ -113,13 +113,13 @@ export const AdaptColor = () => (
           </CardSection>
         </Card>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Color = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="2" row>
         <Card col="3" glow={true}>
           <CardImage height="120" />
@@ -213,13 +213,13 @@ export const Color = () => (
           </CardSection>
         </Card>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const CustomIcon = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="2" row>
         <Card col="3">
           <CardImage height={160} />
@@ -245,13 +245,13 @@ export const CustomIcon = () => (
           </CardSection>
         </Card>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const Height = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="2" row>
         <Card col="3">
           <CardImage src="https://placehold.it/800x300" />
@@ -285,13 +285,13 @@ export const Height = () => (
           </CardSection>
         </Card>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )
 
 export const ExternalTag = () => (
   <FabulaProvider>
-    <UtilsProvider>
+    <FabulaUtils>
       <div mb="2" row>
         <Card col="4">
           <CardImage src="https://placehold.it/800x300">
@@ -414,6 +414,6 @@ export const ExternalTag = () => (
           </CardSection>
         </Card>
       </div>
-    </UtilsProvider>
+    </FabulaUtils>
   </FabulaProvider>
 )

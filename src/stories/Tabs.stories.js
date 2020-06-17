@@ -6,7 +6,7 @@ import {
     FabulaProvider,
     Tab,
     Tabs,
-    UtilsProvider,
+    FabulaUtils,
     Icon
 } from '../lib';
 
@@ -27,7 +27,7 @@ export const Examples = () => (
 
 export const Block = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" type="block">
                     <Tab active={true} name="docs">Docs</Tab>
@@ -101,13 +101,13 @@ export const Block = () => (
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Colors = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4">
                     <Tab active={true} name="docs">Docs</Tab>
@@ -181,13 +181,13 @@ export const Colors = () => (
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Expand = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <Tabs expand={true} mb={1}>
                 <Tab active={true} name="docs">Docs</Tab>
                 <Tab name="components">Components</Tab>
@@ -211,13 +211,13 @@ export const Expand = () => (
                 <Tab name="components">Components</Tab>
                 <Tab name="showcase">Showcase</Tab>
             </Tabs>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Faded = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" faded={true}>
                     <Tab active={true} name="docs">Docs</Tab>
@@ -291,13 +291,13 @@ export const Faded = () => (
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Float = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" type="float">
                     <Tab active={true} name="docs">Docs</Tab>
@@ -371,13 +371,13 @@ export const Float = () => (
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Icons = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4">
                     <Tab active={true} name="docs">
@@ -550,13 +550,13 @@ export const Icons = () => (
                     </Tab>
                 </Tabs>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Invert = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" invert={true}>
                     <Tab active={true} name="docs">Docs</Tab>
@@ -630,13 +630,13 @@ export const Invert = () => (
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Layout = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} row>
                 <Tabs alH="center" flex={true} layout="vertical" col="4">
                     <Tab active={true} name="docs">
@@ -809,13 +809,13 @@ export const Layout = () => (
                     </Tab>
                 </Tabs>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Pill = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" type="pill">
                     <Tab active={true} name="docs">Docs</Tab>
@@ -889,13 +889,13 @@ export const Pill = () => (
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Stacked = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb={1} row>
                 <Card col="4" ov="hidden">
                     <Tabs stacked={true} type="float">
@@ -991,6 +991,6 @@ export const Stacked = () => (
                     </Tabs>
                 </Card>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )

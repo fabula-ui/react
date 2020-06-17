@@ -10,7 +10,7 @@ import {
     Tag,
     TagGroup,
     Text,
-    UtilsProvider,
+    FabulaUtils,
     Avatar,
 } from '../lib';
 
@@ -21,7 +21,7 @@ export default {
 
 export const Examples = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div row>
                 <Card col="8">
                     <List padding>
@@ -130,13 +130,13 @@ export const Examples = () => (
                     </List>
                 </Card>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Colors = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <Card col="3">
                     <List padding>
@@ -549,13 +549,13 @@ export const Colors = () => (
                     </List>
                 </Card>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Padding = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <Card col="3">
                     <List>
@@ -631,13 +631,13 @@ export const Padding = () => (
                     </List>
                 </Card>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Striped = () => (
     <FabulaProvider>
-        <UtilsProvider>
+        <FabulaUtils>
             <div mb="1" row>
                 <Card col="3" ov="hidden">
                     <List padding striped={true}>
@@ -1050,6 +1050,6 @@ export const Striped = () => (
                     </List>
                 </Card>
             </div>
-        </UtilsProvider>
+        </FabulaUtils>
     </FabulaProvider>
 )

@@ -18,6 +18,10 @@ import Input from './components/Input/Input';
 import InputGroup from './components/InputGroup/InputGroup';
 import List from './components/List/List';
 import ListItem from './components/ListItem/ListItem';
+import Modal from './components/Modal/Modal';
+import ModalBody from './components/ModalBody/ModalBody';
+import ModalFooter from './components/ModalFooter/ModalFooter';
+import ModalHeader from './components/ModalHeader/ModalHeader';
 import Navbar from './components/Navbar/Navbar';
 import NavbarLogo from './components/NavbarLogo/NavbarLogo';
 import NavbarSection from './components/NavbarSection/NavbarSection';
@@ -65,6 +69,10 @@ export {
     InputGroup,
     List,
     ListItem,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader,
     Navbar,
     NavbarLogo,
     NavbarSection,

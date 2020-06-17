@@ -17,6 +17,7 @@ import {
 // Examples
 import ModalExample from '../examples/Modal/Modal';
 import ModalColorExample from '../examples/Modal/ModalColor';
+import ModalSizeExample from '../examples/Modal/ModalSize';
 
 export default {
     title: 'Modal',
@@ -40,6 +41,16 @@ export const Color = () => {
         <FabulaProvider>
             <ModalProvider>
                 <ModalColorExample />
+            </ModalProvider>
+        </FabulaProvider>
+    )
+};
+
+export const Size = () => {
+    return (
+        <FabulaProvider>
+            <ModalProvider>
+                <ModalSizeExample />
             </ModalProvider>
         </FabulaProvider>
     )

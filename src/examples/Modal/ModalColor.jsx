@@ -61,7 +61,7 @@ const TargetModal = props => {
                 </ModalBody>
                 <ModalFooter alH="end" color={!color ? 'light' : ''} adaptColor={!!color} flex={true}>
                     <ButtonGroup>
-                        <Button border={!color} clear={!!color} color={!!color && 'white'} glow={true} onClick={handleClose}>Cancel</Button>
+                        <Button border={!color}  color={color} glow={true} onClick={handleClose} lighten={true}>Cancel</Button>
                         <Button border={true} color={!color ? 'danger' : color} glow={true} invert={!!color} onClick={handleClose}>Deactivate</Button>
                     </ButtonGroup>
                 </ModalFooter>

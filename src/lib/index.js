@@ -32,6 +32,7 @@ import Tab from './components/Tab/Tab';
 import Tabs from './components/Tabs/Tabs';
 import Tag from './components/Tag/Tag';
 import TagGroup from './components/TagGroup/TagGroup';
+import TagInput from './components/TagInput/TagInput';
 import Text from './components/Text/Text';
 import Toast from './components/Toast/Toast';
 import Toggle from './components/Toggle/Toggle';
@@ -85,6 +86,7 @@ export {
     Tabs,
     Tag,
     TagGroup,
+    TagInput,
     Text,
     Toast,
     Toggle,

@@ -13,12 +13,19 @@ import { FabulaProviderContext } from '../../providers/FabulaProvider';
 
 // Styles
 import FileInputStyles from '@fabula/core/theme/styles/FileInput';
+import InputStyles from '@fabula/core/theme/styles/Input';
 
 const FileInput = props => {
-    const { onChange, multiple } = props;
+    const { className, icon, onChange, multiple, tagColor } = props;
     const { utils } = useContext(FabulaProviderContext);
     const [files, setFiles] = useState([]);
     const [focus, setFocus] = useState(false);
+
+    // CSS
+    const inputCss = css(InputStyles({ framework: 'react', props }));
+    const tagInputCss = css(FileInputStyles({ framework: 'react', props }));
+    const classes = ['fab-file-input-wrapper', className || '', inputCss, tagInputCss];
+
     let fileInput;
 
     // Methods
@@ -59,15 +66,30 @@ const FileInput = props => {
     }
 
     return (
-        <div className={`fab-file-input-wrapper ${css(FileInputStyles({ framework: 'react', props, utils }))}`} data-fab-wrapper="file-input">
-            <div className="fab-file-input">
+        <div className={classes.join(' ')} data-fab-wrapper="file-input">
+            <div className="fab-file-input fab-input">
+                <div className="fab-file-input__icon">
+                    <Icon name="file"></Icon>
+                    <Badge color="primary" circle={true}>{files.length}</Badge>
+                </div>
+
+                <div className="fab-file-input__stage fab-input__field">
+                    {!files.length && <span className="fab-file-input__placeholder">Select file...</span>}
+                </div>
+
+                <div className="fab-input__elements">
+                    <div className="fab-file-input__button">
+                        <input onChange={handleChange} multiple={true} ref={input => fileInput = input} type="file" />
+                        <Button color="primary" onClick={handleClick} smashed={true}>Select File</Button>
+                    </div>
+                </div>
+            </div>
+            {/* <div className="fab-file-input">
                 <div className="fab-file-input__field fab-input" data-focus={focus}>
                     <div className="fab-file-input__icon">
                         <Icon name="file"></Icon>
                         <Badge color="primary" rounded={true}>{files.length}</Badge>
                     </div>
-
-                    {/* <FileStage files={files} /> */}
                     {!files.length && <span className="fab-file-input__placeholder">Select file...</span>}
                     {!!files.length && <FileStage files={files} />}
                     <div className="fab-file-input__button">
@@ -83,7 +105,7 @@ const FileInput = props => {
                 <div className="fab-file-input__list">
                     <input type="text" />
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

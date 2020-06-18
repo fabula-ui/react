@@ -4,7 +4,8 @@ import { action } from '@storybook/addon-actions';
 import {
   Button,
   FabulaProvider,
-  FileInput
+  FileInput,
+  FabulaUtils
 } from '../lib';
 
 export default {
@@ -13,7 +14,11 @@ export default {
 };
 
 export const Test = () => (
-    <FabulaProvider>
-        <FileInput />
-    </FabulaProvider>
+  <FabulaProvider>
+    <FabulaUtils>
+      <div row>
+        <FileInput col="4" />
+      </div>
+    </FabulaUtils>
+  </FabulaProvider>
 )

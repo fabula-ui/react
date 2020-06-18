@@ -7,18 +7,21 @@ import Tag from '../Tag/Tag';
 // Styles
 import InputStyles from '@fabula/core/theme/styles/Input';
 import TagInputStyles from '@fabula/core/theme/styles/TagInput';
-import TagGroup from '../TagGroup/TagGroup';
 
 const TagInput = props => {
     const { className, icon, tagColor } = props;
+    // State vars
     const [currentTag, setCurrentTag] = useState('');
     const [focus, setFocus] = useState(false);
     const [inputStatus, setInputStatus] = useState('clean');
     const [items, setItems] = useState(<></>);
     const [tags, setTags] = useState([]);
+    // Refs
     const inputRef = useRef(null);
     const ref = useRef(null);
+    // Vars
     const placeholder = props.placeholder || 'Type something...';
+    // CSS
     const inputCss = css(InputStyles({ framework: 'react', props }));
     const tagInputCss = css(TagInputStyles({ framework: 'react', props: { ...props, placeholder } }));
     const classes = ['fab-tag-input-wrapper', className || '', inputCss, tagInputCss];

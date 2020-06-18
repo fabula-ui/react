@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { css } from 'emotion';
 
 // Components
@@ -10,15 +10,21 @@ import TagInputStyles from '@fabula/core/theme/styles/TagInput';
 import TagGroup from '../TagGroup/TagGroup';
 
 const TagInput = props => {
-    const { className, placeholder, tagColor } = props;
+    const { className, icon, tagColor } = props;
     const [currentTag, setCurrentTag] = useState('');
     const [focus, setFocus] = useState(false);
-    const [inputStatus, setInputStatus] = useState('clear');
+    const [inputStatus, setInputStatus] = useState('clean');
     const [items, setItems] = useState(<></>);
     const [tags, setTags] = useState([]);
+    const inputRef = useRef(null);
+    const ref = useRef(null);
+    const placeholder = props.placeholder || 'Type something...';
     const inputCss = css(InputStyles({ framework: 'react', props }));
-    const tagInputCss = css(TagInputStyles({ framework: 'react', props }));
+    const tagInputCss = css(TagInputStyles({ framework: 'react', props: { ...props, placeholder } }));
     const classes = ['fab-tag-input-wrapper', className || '', inputCss, tagInputCss];
+
+    // Dynamic requires
+    const Icon = icon ? require('../Icon/Icon').default : null;
 
     const tagsCallback = useCallback(() => {
         const items = tags.map((tag, i) => <Tag color={tagColor} key={i}><span>{tag}</span></Tag>);
@@ -41,24 +47,40 @@ const TagInput = props => {
 
         tempTags.push(tag);
 
+        inputRef.current.innerHTML = '';
         setCurrentTag('');
-        setInputStatus('clear');
+        setInputStatus('clean');
         setTags(tempTags);
     }
 
-    const handleChange = e => {
-        setCurrentTag(e.target.value);
+    const handleChange = () => {
+        setCurrentTag(inputRef.current.innerText);
         setInputStatus('dirty');
+    }
+
+    const handleFocus = e => {
+        e.stopPropagation();
+
+        if (inputStatus === 'clean') {
+            inputRef.current.innerHTML = '';
+        }
+
+
+        setFocus(true);
+    }
+
+    const handleParentFocus = () => {
+        if (!focus) { inputRef.current.focus(); }
     }
 
     const handleKeypress = e => {
         if (e.keyCode === 13) {
             addTag(currentTag);
         } else if (!currentTag && e.keyCode === 8) {
-            if (inputStatus === 'clear') {
+            if (inputStatus === 'clean') {
                 removeLastTag();
             } else {
-                setInputStatus('clear');
+                setInputStatus('clean');
             }
         }
     }
@@ -73,12 +95,13 @@ const TagInput = props => {
 
     return (
         <div className={classes.join(' ')}>
-            <div className="fab-tag-input fab-input" data-focus={focus}>
+            <div className="fab-tag-input fab-input" data-focus={focus} onClick={handleParentFocus}>
                 <div className="fab-tag-input__stage">
+                    {!!icon && typeof icon === 'object' && <Icon {...icon} />}
+                    {!!icon && typeof icon === 'string' && <Icon name={icon} />}
                     {items}
-                    <div className="fab-tag-input__field-wrapper">
-                        <input className="fab-input__field fab-tag-input__field" onBlur={() => setFocus(false)} onFocus={() => setFocus(true)} onChange={handleChange} onKeyUp={handleKeypress} placeholder={placeholder || 'Type something...'} value={currentTag} />
-                    </div>
+                    <div className="fab-tag-input__fake-input" contentEditable={true} data-show-placeholder={inputStatus === 'clean'} onBlur={() => setFocus(false)} onFocus={handleFocus} onInput={handleChange} onKeyUp={handleKeypress} ref={inputRef} style={{ position: 'relative' }} suppressContentEditableWarning={true}></div>
+                    <div className="fab-tag-input__click-area"><wbr /></div>
                 </div>
             </div>
         </div>

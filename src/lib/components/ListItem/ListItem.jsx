@@ -15,9 +15,13 @@ const ListItem = props => {
         <div className={`fab-list-item ${className} ${styles}`} data-button={!!onClick} data-fab-component="list-item" {...rest}>
             {!onClick && children}
 
-            {!!onClick && <Button data-button={!!onClick} onClick={onClick} {...rest}>
-                {children}
-            </Button>}
+            {!!onClick &&
+                <div className="fab-list-item__button">
+                    <Button data-button={!!onClick} onClick={onClick} {...rest}>
+                        {children}
+                    </Button>
+                </div>
+            }
         </div>
     )
 }

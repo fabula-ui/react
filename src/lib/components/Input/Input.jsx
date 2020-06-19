@@ -69,8 +69,13 @@ const Input = props => {
                 }
             </div>
 
-            {!!message && typeof message === 'object' && <Text size="sm" {...message}>{message.text}</Text>}
-            {!!message && typeof message === 'string' && <Text size="sm">{message}</Text>}
+            {!!message &&
+                <div className="fab-input__message">
+                    {typeof message === 'object' && <Text size="sm" {...message}>{message.text}</Text>}
+                    {typeof message === 'string' && <Text size="sm">{message}</Text>}
+                </div>
+
+            }
 
             <div className="fab-input__elements">
                 {children}

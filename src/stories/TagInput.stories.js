@@ -5,6 +5,7 @@ import {
     FabulaProvider,
     FabulaUtils,
     TagInput,
+    Input,
 } from '../lib';
 
 export default {
@@ -16,7 +17,8 @@ export const Examples = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div row>
-                <TagInput col="4" />
+                <TagInput col="6" />
+                <Input col="6" placeholder="Normal Input" />
             </div>
         </FabulaUtils>
     </FabulaProvider>

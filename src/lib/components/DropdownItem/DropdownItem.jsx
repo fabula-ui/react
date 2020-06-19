@@ -3,7 +3,7 @@ import Button from '../Button/Button';
 import ListItem from '../ListItem/ListItem';
 
 const DropdownItem = props => {
-    const { children, clickToClose, color, label, onClick, open, parentOnClick, toggle } = props;
+    const { button, children, clickToClose, color, label, onClick, open, parentOnClick, toggle } = props;
 
     const handleClick = () => {
         if (onClick) { onClick(); }
@@ -12,11 +12,16 @@ const DropdownItem = props => {
     }
 
     return (
-        <ListItem data-button={!!onClick || !!parentOnClick} data-dropdown-item>
-            <Button color={color} compact={true} onClick={handleClick} size="sm" disabled={!open} data-dropdown-item>
-                {label && <span className="fab-dropdown-item__label">{label}</span>}
-                {children}
-            </Button>
+        <ListItem data-dropdown-item>
+            {(!!button || !!onClick || !!parentOnClick) &&
+                <div className="fab-list-item__button">
+                    <Button color={color} compact={true} onClick={handleClick} size="sm" disabled={!open} data-dropdown-item>
+                        {label && <span className="fab-dropdown-item__label">{label}</span>}
+                        {children}
+                    </Button>
+                </div>
+            }
+            {!button && !onClick && !parentOnClick && children}
         </ListItem>
     )
 }

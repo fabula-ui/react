@@ -17,7 +17,7 @@ export const Test = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div row>
-        <FileInput col="4" />
+        <FileInput col="6" />
       </div>
     </FabulaUtils>
   </FabulaProvider>

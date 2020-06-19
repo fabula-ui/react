@@ -36,6 +36,7 @@ import TagInput from './components/TagInput/TagInput';
 import Text from './components/Text/Text';
 import Toast from './components/Toast/Toast';
 import Toggle from './components/Toggle/Toggle';
+import TooltipWrapper from './components/TooltipWrapper/TooltipWrapper';
 
 // Controllers
 import ModalController from './controllers/ModalController';
@@ -47,6 +48,7 @@ import FabulaUtils from './providers/UtilsProvider';
 import ModalProvider from './providers/ModalProvider';
 import ThemeProvider from './providers/ThemeProvider';
 import ToastProvider from './providers/ToastProvider';
+import TooltipProvider from './providers/TooltipProvider';
 
 // Services
 import ToastService from './services/ToastService';
@@ -90,6 +92,7 @@ export {
     Text,
     Toast,
     Toggle,
+    TooltipWrapper,
 
     // Controllers
     ModalController,
@@ -101,6 +104,7 @@ export {
     ModalProvider,
     ThemeProvider,
     ToastProvider,
+    TooltipProvider,
     
 
     // Services

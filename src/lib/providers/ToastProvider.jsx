@@ -3,9 +3,6 @@ import React, { useState } from 'react';
 // Controller
 import ToastController from '../controllers/ToastController';
 
-// Service
-import ToastService from '../services/ToastService';
-
 // Portals
 import ToastPortal from '../portals/ToastPortal';
 

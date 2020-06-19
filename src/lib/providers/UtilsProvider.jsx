@@ -22,7 +22,6 @@ const FabulaUtils = props => {
             childProps = { className: css(UtilsStyles({ framework: 'react', props: child.props, utils: true })), ...child.props };
 
             if (Children.count(child)) {
-                console.log('has child', child);
                 return React.cloneElement(child, {...childProps}, childrenWithProps(child.props.children));
             }
 

@@ -22,8 +22,7 @@ const DropdownItem = props => {
     }
 
     return (
-        // <div>{label}</div>
-        <div className={classes.join(' ')}>
+        <div className={classes.join(' ')} data-button={!!button || !!onClick || !!parentOnClick}>
             {(!!button || !!onClick || !!parentOnClick) &&
                 <div className="fab-dropdown-item__button">
                     <Button color={color} compact={true} onClick={handleClick} size="sm" disabled={!open} data-dropdown-item>
@@ -32,19 +31,9 @@ const DropdownItem = props => {
                     </Button>
                 </div>
             }
+            {!button && !onClick && !parentOnClick && !!label && <span className="fab-dropdown-item__label">{label}</span>}
             {!button && !onClick && !parentOnClick && children}
         </div>
-        // <ListItem data-dropdown-item>
-        //     {(!!button || !!onClick || !!parentOnClick) &&
-        //         <div className="fab-list-item__button">
-        //             <Button color={color} compact={true} onClick={handleClick} size="sm" disabled={!open} data-dropdown-item>
-        //                 {label && <span className="fab-dropdown-item__label">{label}</span>}
-        //                 {children}
-        //             </Button>
-        //         </div>
-        //     }
-        //     {!button && !onClick && !parentOnClick && children}
-        // </ListItem>
     )
 }
 

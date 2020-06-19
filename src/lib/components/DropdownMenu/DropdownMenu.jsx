@@ -8,12 +8,17 @@ import { Children } from 'react';
 
 // Styles
 import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
+import ListStyles from '@fabula/core/theme/styles/List';
 
 const DropdownMenu = props => {
     const { children, className, clickToClose, color, items, list, onChange, onClick, toggle, ...rest } = props;
     const [open, setOpen] = useState(false);
     const childrenWithProps = Children.map(children, child => cloneElement(child, { open }));
-    const classes = ['fab-dropdown-menu-wrapper', className || '', css(DropdownMenuStyles({ framework: 'react', props }))];
+    // CSS
+    const dropdownMenuCss = css(DropdownMenuStyles({ framework: 'react', props }));
+    const listCss = css(ListStyles({ framework: 'react', props: {...props, padding: true} }));
+    // Classes
+    const classes = ['fab-dropdown-menu-wrapper', className || '', listCss, dropdownMenuCss];
 
     useEffect(() => {
         if (onChange) { onChange(open); }
@@ -36,9 +41,9 @@ const DropdownMenu = props => {
 
     return (
         <div className={classes.join(' ')}>
-            <div className="fab-dropdown-menu" data-open={open}>
-                {items && <List color={color} {...rest}>{renderItems()}</List>}
-                {list && <List color={color} {...rest}>{childrenWithProps}</List>}
+            <div className="fab-dropdown-menu fab-list" data-open={open}>
+                {items && renderItems()}
+                {list && childrenWithProps}
                 {!list && childrenWithProps}
             </div>
         </div>

@@ -5,14 +5,9 @@ import { useEffect } from 'react';
 import TooltipController from '../../controllers/TooltipController';
 
 const TooltipWrapper = props => {
-    const { children } = props;
+    const { children, placement } = props;
     const { setActiveTooltip } = useContext(TooltipController);
-    const [target, setTarget] = useState(null);
     const ref = useRef();
-
-    useEffect(() => {
-        console.log('target', target);
-    }, [target]);
 
     useEffect(() => {
         if (ref.current) {
@@ -32,6 +27,7 @@ const TooltipWrapper = props => {
     const handleMouseOver = e => {
         setActiveTooltip({
             height: e.target.offsetHeight,
+            placement,
             x: e.target.offsetLeft,
             width: e.target.offsetWidth,
             y: e.target.offsetTop
@@ -43,6 +39,10 @@ const TooltipWrapper = props => {
             {children}
         </div>
     )
+}
+
+TooltipWrapper.defaultProps = {
+    placement: 'top'
 }
 
 export default TooltipWrapper;

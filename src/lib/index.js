@@ -36,7 +36,8 @@ import TagInput from './components/TagInput/TagInput';
 import Text from './components/Text/Text';
 import Toast from './components/Toast/Toast';
 import Toggle from './components/Toggle/Toggle';
-import TooltipWrapper from './components/TooltipWrapper/TooltipWrapper';
+import Tooltip from './components/TooltipWrapper/TooltipWrapper';
+// import TooltipWrapper from './components/TooltipWrapper/TooltipWrapper';
 
 // Controllers
 import ModalController from './controllers/ModalController';
@@ -92,7 +93,7 @@ export {
     Text,
     Toast,
     Toggle,
-    TooltipWrapper,
+    Tooltip,
 
     // Controllers
     ModalController,

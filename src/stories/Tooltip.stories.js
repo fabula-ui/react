@@ -6,6 +6,7 @@ import {
     FabulaProvider,
     FileInput,
     FabulaUtils,
+    Tooltip,
     TooltipWrapper,
     ButtonGroup,
     TooltipProvider
@@ -13,7 +14,7 @@ import {
 
 export default {
     title: 'Tooltip',
-    component: TooltipWrapper,
+    component: Tooltip,
 };
 
 export const Test = () => {
@@ -21,13 +22,19 @@ export const Test = () => {
         <FabulaProvider>
             <TooltipProvider>
                 <FabulaUtils>
-                    <ButtonGroup>
-                        <TooltipWrapper>
-                            <Button color="primary" mt="5">Button</Button>
-                        </TooltipWrapper>
-                        <TooltipWrapper>
-                            <div>Teste</div>
-                        </TooltipWrapper>
+                    <ButtonGroup mt="3">
+                        <Tooltip placement="top">
+                            <Button color="primary">Top</Button>
+                        </Tooltip>
+                        <Tooltip placement="right">
+                            <Button color="primary">Right</Button>
+                        </Tooltip>
+                        <Tooltip placement="bottom">
+                            <Button color="primary">Bottom</Button>
+                        </Tooltip>
+                        <Tooltip placement="left">
+                            <Button color="primary">Left</Button>
+                        </Tooltip>
                     </ButtonGroup>
                 </FabulaUtils>
             </TooltipProvider>

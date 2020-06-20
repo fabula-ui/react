@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import TooltipController from '../../controllers/TooltipController';
 
 const TooltipWrapper = props => {
-    const { children, placement } = props;
+    const { children, color, offset, placement } = props;
     const { setActiveTooltip } = useContext(TooltipController);
     const ref = useRef();
 
@@ -26,7 +26,9 @@ const TooltipWrapper = props => {
 
     const handleMouseOver = e => {
         setActiveTooltip({
+            color,
             height: e.target.offsetHeight,
+            offset,
             placement,
             x: e.target.offsetLeft,
             width: e.target.offsetWidth,

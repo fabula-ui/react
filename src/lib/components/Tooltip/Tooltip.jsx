@@ -1,15 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { css } from 'emotion';
-
-// Controllers
-import TooltipController from '../../controllers/TooltipController';
 
 // Styles
 import TooltipStyles from '@fabula/core/styles/components/tooltip/tooltip';
 
 const Tooltip = props => {
     const { height, placement, x, width, y } = props;
-    // const { activeTooltip } = useContext(TooltipController);
     const [ready, setReady] = useState(false);
     const [style, setStyle] = useState(null);
 

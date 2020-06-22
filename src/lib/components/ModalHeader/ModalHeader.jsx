@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { css } from 'emotion';
 
+// Components
+import CloseButton from '../CloseButton/CloseButton';
+
 // Controller
 import ModalController from '../../controllers/ModalController';
 
@@ -9,7 +12,7 @@ import ModalHeaderStyles from '@fabula/core/theme/styles/ModalHeader';
 import ModalSectionStyles from '@fabula/core/theme/styles/ModalSection';
 
 const ModalHeader = props => {
-    const { children, className } = props;
+    const { color, children, className, parentColor } = props;
     const { closeModal } = useContext(ModalController);
     const headerCss = css(ModalHeaderStyles({ framework: 'react', props }));
     const sectionCss = css(ModalSectionStyles({ framework: 'react', props }));
@@ -20,7 +23,8 @@ const ModalHeader = props => {
             <div className="fab-modal-header__content">
                 {children}
             </div>
-            <button className="fab-modal-header__close" onClick={closeModal}></button>
+            <CloseButton onClick={closeModal} parentColor={color || parentColor} size="md" />
+            {/* <button className="fab-modal-header__close" onClick={closeModal}></button> */}
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 // Components
+import CloseButton from '../CloseButton/CloseButton';
 import Icon from '../Icon/Icon';
 import Text from '../Text/Text';
 
@@ -9,7 +10,11 @@ import Text from '../Text/Text';
 import AlertStyles from '@fabula/core/theme/styles/Alert';
 
 const Alert = props => {
-    const { children, className, icon, text, title } = props;
+    const { children, className, closeButton, color, icon, onClose, text, title } = props;
+
+    const handleClose = () => {
+        if (onClose) { onClose() }
+    }
 
     return (
         <div className={`${className} fab-alert-wrapper ${css(AlertStyles({ framework: 'react', props }))}`}>
@@ -17,12 +22,23 @@ const Alert = props => {
                 {!!icon && typeof icon === 'object' && <Icon {...icon} />}
                 {!!icon && typeof icon === 'string' && <Icon name={icon} />}
                 <div className="fab-alert__stage">
-                    {!!title && typeof title === 'object' && <Text {...title} />}
-                    {!!title && typeof title === 'string' && <strong className="fab-alert__title">{title}</strong>}
-                    {!!text && typeof text === 'object' && <Text {...text} />}
-                    {!!text && typeof text === 'string' && <span className="fab-alert__text">{text}</span>}
+                    {!!title &&
+                        <div className="fab-alert__title">
+                            {typeof title === 'object' && <Text color="inherit" {...title} />}
+                            {typeof title === 'string' && <Text color="inherit">{title}</Text>}
+                        </div>
+                    }
+                    {!!text &&
+                        <div className="fab-alert__text">
+                            {typeof text === 'object' && <Text color="inherit" {...text} />}
+                            {typeof text === 'string' && <Text color="inherit">{text}</Text>}
+                        </div>
+                    }
                     {children}
                 </div>
+
+                {!!closeButton && typeof closeButton === 'object' && <CloseButton circle={true} onClick={handleClose} parentColor={color} size="sm" {...closeButton} />}
+                {!!closeButton && typeof closeButton === 'string' && <CloseButton circle={true} onClick={handleClose} parentColor={color} size="sm">{closeButton}</CloseButton>}
             </div>
         </div>
     )

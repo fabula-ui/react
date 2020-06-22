@@ -22,6 +22,7 @@ const Button = props => {
         gradient,
         icon,
         invert,
+        label,
         outline,
         rounded,
         size,
@@ -63,6 +64,7 @@ const Button = props => {
             data-rounded={rounded}>
             <button className="fab-button" data-fab-component="button" disabled={disabled} {...rest}>
                 {!!Icon && <Icon {...icon} />}
+                {!!label && label}
                 {children}
             </button>
         </div>

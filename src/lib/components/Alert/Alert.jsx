@@ -11,7 +11,7 @@ import AlertStyles from '@fabula/core/styles/components/alert/alert';
 
 const Alert = props => {
     const { children, className, closeButton, color, icon, onClose, text, title } = props;
-
+    const [test, setTest] = useState(2);
     const handleClose = () => {
         if (onClose) { onClose() }
     }

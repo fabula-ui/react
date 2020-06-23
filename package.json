@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@afabula/core": "file:../../core",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -12,6 +13,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-scripts": "3.4.1",
+    "react-test-renderer": "^16.13.1",
     "svg-inline-loader": "^0.8.2"
   },
   "scripts": {
@@ -19,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:unit": "jest -c tests/unit/jest.config.js",
+    "test:unit": "react-scripts test",
     "jest:ui": "jest -c tests/ui/jest.config.js",
     "test:ui": "PORT=9009 start-server-and-test storybook:ci http-get://localhost:9009 jest:ui",
     "test:ui:update": "PORT=9009 start-server-and-test storybook:ci http-get://localhost:9009 jest:ui -- -u",
@@ -49,13 +51,22 @@
     "@storybook/preset-create-react-app": "^3.0.0",
     "@storybook/react": "^5.3.19",
     "customize-cra": "^0.9.1",
-    "jest": "^26.0.1",
+    "jest": "^24.9.0",
     "jest-dashboard": "^0.3.1",
     "jest-image-snapshot": "^4.0.2",
     "jest-puppeteer": "^4.4.0",
+    "jest-svg-transformer": "^1.0.0",
     "puppeteer": "^3.3.0",
     "react-app-rewire-aliases": "^0.2.0",
     "react-app-rewired": "^2.1.5",
     "start-server-and-test": "^1.11.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(svg)$": "<rootDir>/svgMock.js"
+    },
+    "transform": {
+      "^.+\\.svg$": "jest-svg-transformer"
+    }
   }
 }

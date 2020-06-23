@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { css } from 'emotion';
 
 // Components
@@ -13,6 +13,7 @@ const Alert = props => {
     const { children, className, closeButton, color, icon, onClose, text, title } = props;
     const [test, setTest] = useState(2);
     const handleClose = () => {
+        console.log('Handle Close');
         if (onClose) { onClose() }
     }
 

@@ -7,7 +7,7 @@ import Icon from '../Icon/Icon';
 import Text from '../Text/Text';
 
 // Styles
-import AlertStyles from '@fabula/core/theme/styles/Alert';
+import AlertStyles from '@fabula/core/styles/components/alert/alert';
 
 const Alert = props => {
     const { children, className, closeButton, color, icon, onClose, text, title } = props;

@@ -37,8 +37,7 @@ const Alert = props => {
                     {children}
                 </div>
 
-                {!!closeButton && typeof closeButton === 'object' && <CloseButton circle={true} onClick={handleClose} parentColor={color} size="sm" {...closeButton} />}
-                {!!closeButton && typeof closeButton === 'string' && <CloseButton circle={true} onClick={handleClose} parentColor={color} size="sm">{closeButton}</CloseButton>}
+                {!!closeButton && <CloseButton circle={true} onClick={handleClose} parentColor={color} size="sm"  />}
             </div>
         </div>
     )

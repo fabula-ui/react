@@ -40,17 +40,24 @@ describe('Alert Component', () => {
         expect(element.textContent).toBe('This is a title');
     });
 
-    it('Should have a text as a string', () => {
+    it('Should have a title as a string', () => {
         const { container } = render(<Alert title="This is a title" />);
         const element = container.querySelector('.fab-alert__title');
 
         expect(element.textContent).toBe('This is a title');
     });
 
+    it('Should have a close button', () => {
+        const { container } = render(<Alert closeButton={true} />);
+        const element = container.querySelector('.fab-close-button');
+
+        expect(element).toBeTruthy();
+    });
+
     it('Should call onClose', () => {
         let output = '';
         const closeFn = () => { output = 'called' };
-        const { container } = render(<Alert closeButton="Close" onClose={closeFn} />);
+        const { container } = render(<Alert closeButton={true} onClose={closeFn} />);
 
         fireEvent.click(container.querySelector('.fab-close-button'), new MouseEvent('click', {
             bubbles: true,

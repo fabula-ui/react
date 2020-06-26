@@ -7,49 +7,20 @@ import ButtonStyles from '@fabula/core/theme/styles/Button';
 
 const Button = props => {
     const {
-        align,
         border,
         children,
         circle,
         className,
-        clear,
         color,
-        compact,
         disabled,
-        expand,
-        faded,
-        glow,
-        gradient,
         icon,
-        invert,
         label,
         outline,
         rounded,
-        size,
-        smashed,
-        wide,
         ...rest
     } = props;
-    const buttonProps = {
-        align,
-        border,
-        circle,
-        clear,
-        color,
-        compact,
-        disabled,
-        expand,
-        faded,
-        glow,
-        gradient,
-        invert,
-        outline,
-        rounded,
-        size,
-        smashed,
-        wide
-    };
     const classes = ['fab-button-wrapper', className || '', css(ButtonStyles({ framework: 'react', props }))];
+
     // Dynamic requires
     const Icon = icon ? require('../Icon/Icon').default : null;
 
@@ -62,7 +33,11 @@ const Button = props => {
             data-color={color}
             data-outline={outline}
             data-rounded={rounded}>
-            <button className="fab-button" data-fab-component="button" disabled={disabled} {...rest}>
+            <button
+                className="fab-button"
+                data-fab-component="button"
+                disabled={disabled}
+                {...rest}>
                 {!!Icon && <Icon {...icon} />}
                 {!!label && label}
                 {children}

@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { css } from 'emotion';
 
-// Context
-import { FabulaProviderContext } from '../../providers/FabulaProvider';
-
 // Styles
-import BadgeStyles from '@fabula/core/theme/styles/Badge';
+import BadgeStyles from '@fabula/core/styles/components/badge/badge';
 
 const Badge = props => {
     const { children, className, label, placement } = props;

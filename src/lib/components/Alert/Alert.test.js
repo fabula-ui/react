@@ -5,6 +5,12 @@ import { render, fireEvent, getByTestId } from '@testing-library/react';
 import Alert from './Alert';
 
 describe('Alert Component', () => {
+    it('Should create', () => {
+        const { container } = render(<Alert />);
+
+        expect(container).toBeTruthy();
+    });
+
     it('Should have an icon as an object', () => {
         const { container } = render(<Alert icon={{name: 'icon'}} />);
         const element = container.querySelector('.fab-icon');

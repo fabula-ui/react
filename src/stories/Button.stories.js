@@ -7,12 +7,40 @@ import {
   ButtonGroup,
   FabulaProvider,
   FabulaUtils,
+  Icon,
 } from '../lib';
 
 export default {
   title: 'Button',
   component: Button,
 };
+
+export const Circle = () => (
+  <FabulaProvider>
+    <FabulaUtils>
+      <ButtonGroup mb="1">
+        <Button color="primary" circle={true} size="xs">
+          <Icon name="file" />
+        </Button>
+        <Button color="primary" circle={true} size="sm">
+          <Icon name="file" />
+        </Button>
+        <Button color="primary" circle={true} size="md">
+          <Icon name="file" />
+        </Button>
+        <Button color="primary" circle={true} size="lg">
+          <Icon name="file" />
+        </Button>
+        <Button color="primary" circle={true} size="xl">
+          <Icon name="file" />
+        </Button>
+        <Button color="primary" circle={true} size="xxl">
+          <Icon name="file" />
+        </Button>
+      </ButtonGroup>
+    </FabulaUtils>
+  </FabulaProvider>
+)
 
 export const Clear = () => (
   <FabulaProvider>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
 // Styles
-import ButtonStyles from '@fabula/core/theme/styles/Button';
+import ButtonStyles from '@fabula/core/styles/components/button/button';
 
 const Button = props => {
     const {

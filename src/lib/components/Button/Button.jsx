@@ -12,11 +12,18 @@ const Button = props => {
         circle,
         className,
         color,
+        compact,
         disabled,
+        expand,
+        faded,
+        glow,
+        gradient,
         icon,
+        invert,
         label,
         outline,
         rounded,
+        wide,
         ...rest
     } = props;
     const classes = ['fab-button-wrapper', className || '', css(ButtonStyles({ framework: 'react', props }))];
@@ -38,7 +45,8 @@ const Button = props => {
                 data-fab-component="button"
                 disabled={disabled}
                 {...rest}>
-                {!!Icon && <Icon {...icon} />}
+                {!!Icon && typeof icon === 'object' && <Icon {...icon} />}
+                {!!Icon && typeof icon === 'string' && <Icon name={icon} />}
                 {!!label && label}
                 {children}
             </button>

@@ -57,7 +57,7 @@ const Toast = props => {
                     {!!Icon && <Icon {...icon} />}
                     {!!message && <span className="fab-toast__message">{message}</span>}
                     {children}
-                    {!!closeButton && <Button size="sm" {...closeButton} data-close-button onClick={hideToast}>{closeButton.label}</Button>}
+                    {!!closeButton && <Button size="sm" {...closeButton} data-close-button onClick={hideToast} />}
                     {!!link && <Link {...link} />}
                 </div>
             </div>

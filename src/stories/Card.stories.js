@@ -395,3 +395,59 @@ export const Glow = () => (
 
   </FabulaProvider>
 )
+
+export const Layout = () => (
+  <FabulaProvider>
+    <FabulaUtils>
+      <div row>
+        <Card col="3">
+          <CardImage height={200} />
+          <CardSection divider="top" padding>
+            <Text block size="lg" strong>
+              <Text mr=".5">Card Title</Text>
+              <Badge color="primary">New</Badge>
+            </Text>
+            <Text aux block mb="1" size="sm" span>Card subtitle</Text>
+            <Text mb="1">This is some text inside this card. You can add whatever content in here.</Text>
+          </CardSection>
+          <CardSection divider="top" padding>
+            <Button color="primary" expand>Card Button</Button>
+          </CardSection>
+        </Card>
+
+        <div col="9">
+          <Card layout="h" mb={1}>
+            <CardImage />
+            <CardSection grow={1} padding>
+              <Text block size="lg" strong>
+                <Text mr=".5">Card Title</Text>
+                <Badge color="primary">New</Badge>
+              </Text>
+              <Text aux block mb="1" size="sm" span>Card subtitle</Text>
+              <Text>This is some text inside this card. You can add whatever content in here.</Text>
+            </CardSection>
+            <CardSection padding>
+              <Button color="primary" expand>Card Button</Button>
+            </CardSection>
+          </Card>
+
+          <Card layout="h">
+            <CardSection grow={1} padding>
+              <Text block size="lg" strong>
+                <Text mr=".5">Card Title</Text>
+                <Badge color="primary">New</Badge>
+              </Text>
+              <Text aux block mb="1" size="sm" span>Card subtitle</Text>
+              <Text>This is some text inside this card. You can add whatever content in here.</Text>
+            </CardSection>
+            <CardSection padding>
+              <Button color="primary" expand>Card Button</Button>
+            </CardSection>
+
+            <CardImage />
+          </Card>
+        </div>
+      </div>
+    </FabulaUtils>
+  </FabulaProvider>
+)

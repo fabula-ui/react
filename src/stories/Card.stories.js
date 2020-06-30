@@ -417,7 +417,7 @@ export const Layout = () => (
 
         <div col="9">
           <Card layout="h" mb={1}>
-            <CardImage width={200}/>
+            <CardImage width={200} />
             <CardSection grow={1} padding>
               <Text block size="lg" strong>
                 <Text mr=".5">Card Title</Text>
@@ -429,6 +429,25 @@ export const Layout = () => (
             <CardSection padding>
               <Button color="primary" expand>Card Button</Button>
             </CardSection>
+          </Card>
+
+          <Card layout="h" mb={1}>
+            <CardImage height={300} width={200} />
+            <CardSection expand={true}>
+              <CardSection expand={true} padding>
+                <Text block size="lg" strong>
+                  <Text mr=".5">Card Title</Text>
+                  <Badge color="primary">New</Badge>
+                </Text>
+                <Text aux block mb="1" size="sm" span>Card subtitle</Text>
+                <Text>This is some text inside this card. You can add whatever content in here.</Text>
+              </CardSection>
+
+              <CardSection divider="top" padding>
+                <Button color="primary" expand>Card Button</Button>
+              </CardSection>
+            </CardSection>
+
           </Card>
 
           <Card layout="h">

@@ -417,7 +417,7 @@ export const Layout = () => (
 
         <div col="9">
           <Card layout="h" mb={1}>
-            <CardImage />
+            <CardImage width={200}/>
             <CardSection grow={1} padding>
               <Text block size="lg" strong>
                 <Text mr=".5">Card Title</Text>

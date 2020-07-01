@@ -116,49 +116,103 @@ export const Color = () => (
 
 export const Faded = () => (
     <FabulaProvider>
-        <Badge faded><Icon name="user-check" /></Badge>
-        <Badge color="primary" faded><Icon name="user-check" /></Badge>
-        <Badge color="secondary" faded><Icon name="user-check" /></Badge>
-        <Badge color="success" faded><Icon name="user-check" /></Badge>
-        <Badge color="danger" faded><Icon name="user-check" /></Badge>
-        <Badge color="warning" faded><Icon name="user-check" /></Badge>
-        <Badge color="hot" faded><Icon name="user-check" /></Badge>
-        <Badge color="cold" faded><Icon name="user-check" /></Badge>
-        <Badge color="dark" faded><Icon name="user-check" /></Badge>
-        <Badge color="light" faded><Icon name="user-check" /></Badge>
-        <Badge color="aux" faded><Icon name="user-check" /></Badge>
+        <FabulaUtils>
+            <div mb={1}>
+                <Badge faded><Icon name="user-check" /></Badge>
+                <Badge color="primary" faded><Icon name="user-check" /></Badge>
+                <Badge color="secondary" faded><Icon name="user-check" /></Badge>
+                <Badge color="success" faded><Icon name="user-check" /></Badge>
+                <Badge color="danger" faded><Icon name="user-check" /></Badge>
+                <Badge color="warning" faded><Icon name="user-check" /></Badge>
+                <Badge color="hot" faded><Icon name="user-check" /></Badge>
+                <Badge color="cold" faded><Icon name="user-check" /></Badge>
+                <Badge color="dark" faded><Icon name="user-check" /></Badge>
+                <Badge color="light" faded><Icon name="user-check" /></Badge>
+                <Badge color="aux" faded><Icon name="user-check" /></Badge>
+            </div>
+
+            <div>
+                <Badge faded>123</Badge>
+                <Badge color="primary" faded>123</Badge>
+                <Badge color="secondary" faded>123</Badge>
+                <Badge color="success" faded>123</Badge>
+                <Badge color="danger" faded>123</Badge>
+                <Badge color="warning" faded>123</Badge>
+                <Badge color="hot" faded>123</Badge>
+                <Badge color="cold" faded>123</Badge>
+                <Badge color="dark" faded>123</Badge>
+                <Badge color="light" faded>123</Badge>
+                <Badge color="aux" faded>123</Badge>
+            </div>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Invert = () => (
     <FabulaProvider>
-        <Badge invert><Icon name="user-check" /></Badge>
-        <Badge color="primary" invert><Icon name="user-check" /></Badge>
-        <Badge color="secondary" invert><Icon name="user-check" /></Badge>
-        <Badge color="success" invert><Icon name="user-check" /></Badge>
-        <Badge color="danger" invert><Icon name="user-check" /></Badge>
-        <Badge color="warning" invert><Icon name="user-check" /></Badge>
-        <Badge color="hot" invert><Icon name="user-check" /></Badge>
-        <Badge color="cold" invert><Icon name="user-check" /></Badge>
-        <Badge color="dark" invert><Icon name="user-check" /></Badge>
-        <Badge color="light" invert><Icon name="user-check" /></Badge>
-        <Badge color="aux" invert><Icon name="user-check" /></Badge>
+        <FabulaUtils>
+            <div mb={1}>
+                <Badge invert><Icon name="user-check" /></Badge>
+                <Badge color="primary" invert><Icon name="user-check" /></Badge>
+                <Badge color="secondary" invert><Icon name="user-check" /></Badge>
+                <Badge color="success" invert><Icon name="user-check" /></Badge>
+                <Badge color="danger" invert><Icon name="user-check" /></Badge>
+                <Badge color="warning" invert><Icon name="user-check" /></Badge>
+                <Badge color="hot" invert><Icon name="user-check" /></Badge>
+                <Badge color="cold" invert><Icon name="user-check" /></Badge>
+                <Badge color="dark" invert><Icon name="user-check" /></Badge>
+                <Badge color="light" invert><Icon name="user-check" /></Badge>
+                <Badge color="aux" invert><Icon name="user-check" /></Badge>
+            </div>
+
+            <div>
+                <Badge invert>123</Badge>
+                <Badge color="primary" invert>123</Badge>
+                <Badge color="secondary" invert>123</Badge>
+                <Badge color="success" invert>123</Badge>
+                <Badge color="danger" invert>123</Badge>
+                <Badge color="warning" invert>123</Badge>
+                <Badge color="hot" invert>123</Badge>
+                <Badge color="cold" invert>123</Badge>
+                <Badge color="dark" invert>123</Badge>
+                <Badge color="light" invert>123</Badge>
+                <Badge color="aux" invert>123</Badge>
+            </div>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
 export const Outline = () => (
     <FabulaProvider>
-        <Badge outline><Icon name="user-check" /></Badge>
-        <Badge color="primary" outline><Icon name="user-check" /></Badge>
-        <Badge color="secondary" outline><Icon name="user-check" /></Badge>
-        <Badge color="success" outline><Icon name="user-check" /></Badge>
-        <Badge color="danger" outline><Icon name="user-check" /></Badge>
-        <Badge color="warning" outline><Icon name="user-check" /></Badge>
-        <Badge color="hot" outline><Icon name="user-check" /></Badge>
-        <Badge color="cold" outline><Icon name="user-check" /></Badge>
-        <Badge color="dark" outline><Icon name="user-check" /></Badge>
-        <Badge color="light" outline><Icon name="user-check" /></Badge>
-        <Badge color="aux" outline><Icon name="user-check" /></Badge>
+        <FabulaUtils>
+            <div mb={1}>
+                <Badge outline><Icon name="user-check" /></Badge>
+                <Badge color="primary" outline><Icon name="user-check" /></Badge>
+                <Badge color="secondary" outline><Icon name="user-check" /></Badge>
+                <Badge color="success" outline><Icon name="user-check" /></Badge>
+                <Badge color="danger" outline><Icon name="user-check" /></Badge>
+                <Badge color="warning" outline><Icon name="user-check" /></Badge>
+                <Badge color="hot" outline><Icon name="user-check" /></Badge>
+                <Badge color="cold" outline><Icon name="user-check" /></Badge>
+                <Badge color="dark" outline><Icon name="user-check" /></Badge>
+                <Badge color="light" outline><Icon name="user-check" /></Badge>
+                <Badge color="aux" outline><Icon name="user-check" /></Badge>
+            </div>
+
+            <div>
+                <Badge outline>123</Badge>
+                <Badge color="primary" outline>123</Badge>
+                <Badge color="secondary" outline>123</Badge>
+                <Badge color="success" outline>123</Badge>
+                <Badge color="danger" outline>123</Badge>
+                <Badge color="warning" outline>123</Badge>
+                <Badge color="hot" outline>123</Badge>
+                <Badge color="cold" outline>123</Badge>
+                <Badge color="dark" outline>123</Badge>
+                <Badge color="light" outline>123</Badge>
+                <Badge color="aux" outline>123</Badge>
+            </div>
+        </FabulaUtils>
     </FabulaProvider>
 )
 

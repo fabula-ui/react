@@ -22,7 +22,7 @@
     "eject": "react-scripts eject",
     "test:unit": "react-scripts test",
     "jest:ui": "jest -c tests/ui/jest.config.js",
-    "jest:ui:update": "jest -c tests/ui/jest.config.js",
+    "jest:ui:update": "jest -c tests/ui/jest.config.js --updateSnapshot",
     "test:ui": "PORT=9009 start-server-and-test storybook:ci http-get://localhost:9009 jest:ui",
     "test:ui:update": "PORT=9009 start-server-and-test storybook:ci http-get://localhost:9009 jest:ui:update",
     "storybook": "start-storybook -p 9009 -s public",

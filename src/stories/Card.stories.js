@@ -460,7 +460,7 @@ export const Layout = () => (
               <Text>This is some text inside this card. You can add whatever content in here.</Text>
             </CardSection>
             <CardSection padding>
-              <Button color="primary" expand>Card Button</Button>
+              <Button color="primary">Card Button</Button>
             </CardSection>
 
             <CardImage />

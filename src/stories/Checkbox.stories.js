@@ -1,10 +1,8 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import {
     Checkbox,
     FabulaProvider,
-    FileInput,
     FabulaUtils
 } from '../lib';
 
@@ -15,7 +13,7 @@ export default {
 
 export const Test = () => (
     <FabulaProvider>
-        <Checkbox />
+        <Checkbox onChange={() => alert('Changed')}/>
     </FabulaProvider>
 )
 

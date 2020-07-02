@@ -13,7 +13,21 @@ export default {
 
 export const Test = () => (
     <FabulaProvider>
-        <Checkbox onChange={() => alert('Changed')} />
+        <FabulaUtils>
+            <div row>
+                <div col="4">
+                    <Checkbox label="Change Event" onChange={() => alert('Changed')} />
+                </div>
+
+                <div col="4">
+                    <Checkbox label="Check Event" onCheck={() => alert('Checked')} />
+                </div>
+
+                <div col="4">
+                    <Checkbox onUncheck={() => alert('Unchecked')}>Uncheck Event</Checkbox>
+                </div>
+            </div>
+        </FabulaUtils>
     </FabulaProvider>
 )
 
@@ -232,7 +246,7 @@ export const Rounded = () => (
 export const Size = () => (
     <FabulaProvider>
         <FabulaUtils>
-            <div mb={1} flex>
+            <div alV="start" mb={1} flex>
                 <Checkbox checked={true} color="primary" label="Extra-Large Checkbox" mr={1} size="xl" />
                 <Checkbox checked={true} color="primary" label="Large Checkbox" mr={1} size="lg" />
                 <Checkbox checked={true} color="primary" label="Medium Checkbox" mr={1} size="md" />

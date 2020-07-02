@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';
 
 const Checkbox = props => {
-    const { className, disabled, onChange, onCheck, onUncheck, indeterminate, label } = props;
+    const { children, className, disabled, onChange, onCheck, onUncheck, indeterminate, label } = props;
     const [checked, setChecked] = useState(props.checked || false);
     const [focus, setFocus] = useState(false);
     const [isIndeterminate, setIndeterminate] = useState(props.indeterminate || false);
@@ -50,6 +50,7 @@ const Checkbox = props => {
                     onChange={handleChange}
                     type="checkbox" />
                 {label}
+                {children}
             </label>
         </div>
     )

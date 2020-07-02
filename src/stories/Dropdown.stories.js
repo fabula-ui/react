@@ -24,10 +24,17 @@ export default {
 export const Examples = () => (
     <FabulaProvider>
         <FabulaUtils>
-            <Dropdown>
-                <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
-                <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
-            </Dropdown>
+            <div flex>
+                <Dropdown mr={1}>
+                    <DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item with long label 1' }, { button: true, label: 'Item with long label 2' }, { button: true, label: 'Item with long label 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
+                </Dropdown>
+
+                <Dropdown mr={1}>
+                    <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
+                </Dropdown>
+            </div>
         </FabulaUtils>
     </FabulaProvider>
 )
@@ -222,7 +229,7 @@ export const Glow = () => (
     <FabulaProvider>
         <FabulaUtils>
             <Dropdown mr="1">
-                <DropdownToggle icon={{ color: 'hot', name: 'sun' }} compact={true} label="With Glow" />
+                <DropdownToggle icon={{ color: 'hot', name: 'sun' }} compact={true} glow={true} label="With Glow" />
                 <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
             </Dropdown>
 

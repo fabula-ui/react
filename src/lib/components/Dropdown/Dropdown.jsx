@@ -2,7 +2,7 @@ import React, { Children, cloneElement, useCallback, useEffect, useRef, useState
 import { css } from 'emotion';
 
 // Styles
-import DropdownStyles from '@fabula/core/theme/styles/Dropdown';
+import DropdownStyles from '@fabula/core/styles/components/dropdown/dropdown';
 
 const Dropdown = props => {
     const { children, className, direction } = props;

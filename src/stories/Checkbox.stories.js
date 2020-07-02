@@ -13,11 +13,45 @@ export default {
 
 export const Test = () => (
     <FabulaProvider>
-        <Checkbox onChange={() => alert('Changed')}/>
+        <Checkbox onChange={() => alert('Changed')} />
     </FabulaProvider>
 )
 
-export const Colors = () => (
+export const ActiveColor = () => (
+    <FabulaProvider>
+        <FabulaUtils>
+            <div mb={1} flex>
+                <Checkbox label="Label" mr={1} />
+                <Checkbox activeColor="primary" label="Label" mr={1} />
+                <Checkbox activeColor="secondary" label="Label" mr={1} />
+                <Checkbox activeColor="success" label="Label" mr={1} />
+                <Checkbox activeColor="danger" label="Label" mr={1} />
+                <Checkbox activeColor="warning" label="Label" mr={1} />
+                <Checkbox activeColor="hot" label="Label" mr={1} />
+                <Checkbox activeColor="cold" label="Label" mr={1} />
+                <Checkbox activeColor="dark" label="Label" mr={1} />
+                <Checkbox activeColor="light" label="Label" mr={1} />
+                <Checkbox activeColor="aux" label="Label" mr={1} />
+            </div>
+
+            <div flex>
+                <Checkbox checked={true} label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="primary" label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="secondary" label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="success" label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="danger" label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="warning" label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="hot" label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="cold" label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="dark" label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="light" label="Label" mr={1} />
+                <Checkbox checked={true} activeColor="aux" label="Label" mr={1} />
+            </div>
+        </FabulaUtils>
+    </FabulaProvider>
+)
+
+export const Color = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div mb={1} flex>
@@ -108,6 +142,40 @@ export const Disabled = () => (
                 <Checkbox color="dark" disabled={true} indeterminate={true} label="Label" mr={1} />
                 <Checkbox color="light" disabled={true} indeterminate={true} label="Label" mr={1} />
                 <Checkbox color="aux" disabled={true} indeterminate={true} label="Label" mr={1} />
+            </div>
+        </FabulaUtils>
+    </FabulaProvider>
+)
+
+export const InactiveColor = () => (
+    <FabulaProvider>
+        <FabulaUtils>
+            <div mb={1} flex>
+                <Checkbox label="Label" mr={1} />
+                <Checkbox inactiveColor="primary" label="Label" mr={1} />
+                <Checkbox inactiveColor="secondary" label="Label" mr={1} />
+                <Checkbox inactiveColor="success" label="Label" mr={1} />
+                <Checkbox inactiveColor="danger" label="Label" mr={1} />
+                <Checkbox inactiveColor="warning" label="Label" mr={1} />
+                <Checkbox inactiveColor="hot" label="Label" mr={1} />
+                <Checkbox inactiveColor="cold" label="Label" mr={1} />
+                <Checkbox inactiveColor="dark" label="Label" mr={1} />
+                <Checkbox inactiveColor="light" label="Label" mr={1} />
+                <Checkbox inactiveColor="aux" label="Label" mr={1} />
+            </div>
+
+            <div flex>
+                <Checkbox checked={true} label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="primary" label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="secondary" label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="success" label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="danger" label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="warning" label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="hot" label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="cold" label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="dark" label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="light" label="Label" mr={1} />
+                <Checkbox checked={true} inactiveColor="aux" label="Label" mr={1} />
             </div>
         </FabulaUtils>
     </FabulaProvider>

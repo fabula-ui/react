@@ -5,10 +5,10 @@ import { css } from 'emotion';
 import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';
 
 const Checkbox = props => {
-    const { className, disabled, onChange, onCheck, onUncheck, label } = props;
+    const { className, disabled, onChange, onCheck, onUncheck, indeterminate, label } = props;
     const [checked, setChecked] = useState(props.checked || false);
     const [focus, setFocus] = useState(false);
-    const [indeterminate, setIndeterminate] = useState(props.indeterminate || false);
+    const [isIndeterminate, setIndeterminate] = useState(props.indeterminate || false);
     const classes = ['fab-checkbox-wrapper', className || '', css(CheckboxStyles({ framework: 'react', props }))];
 
     const handleChange = e => {
@@ -38,7 +38,7 @@ const Checkbox = props => {
     }
 
     return (
-        <div className={classes.join(' ')} data-checked={checked} data-disabled={disabled} data-focus={focus} data-indeterminate={indeterminate}>
+        <div className={classes.join(' ')} data-checked={checked} data-disabled={disabled} data-focus={focus} data-indeterminate={isIndeterminate}>
             <div className="fab-checkbox" onClick={handleClick} />
             <label className="fab-checkbox__label">
                 <input

@@ -27,12 +27,9 @@ const DropdownToggle = props => {
         <div className={classes.join(' ')}>
             {label &&
                 <button className="fab-button" onClick={handleClick}>
-                    {/* {!!icon && typeof icon === 'object' && <Icon {...icon} />}
-                    {!!icon && typeof icon === 'string' && <Icon name={icon} />} */}
                     {!!icon && <span className="fab-dropdown-toggle__icon" />}
                     <span className="fab-dropdown-toggle__label">{label}</span>
                     <span className="fab-dropdown-toggle__chevron" />
-                    {/* <Icon data-toggle-icon name="chevron-down" /> */}
                 </button>}
             {children}
         </div>

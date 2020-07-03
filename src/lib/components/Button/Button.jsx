@@ -39,7 +39,8 @@ const Button = props => {
             data-circle={circle}
             data-color={color}
             data-outline={outline}
-            data-rounded={rounded}>
+            data-rounded={rounded}
+            {...rest}>
             <button
                 className="fab-button"
                 data-fab-component="button"

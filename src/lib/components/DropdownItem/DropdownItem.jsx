@@ -6,14 +6,12 @@ import ListItem from '../ListItem/ListItem';
 
 // Styles
 import DropdownItemStyles from '@fabula/core/styles/components/dropdown-item/dropdown-item';
-import ListItemStyles from '@fabula/core/theme/styles/List';
 
 const DropdownItem = props => {
-    const { button, children, className, clickToClose, color, label, onClick, open, parentOnClick, toggle } = props;
+    const { button, children, className, clickToClose, color, label, onClick, open, parentOnClick, toggle, ...rest } = props;
     // CSS
     const dropdownItemCss = css(DropdownItemStyles({ framework: 'react', props }));
-    const listItemCss = css(ListItemStyles({ framework: 'react', props }));
-    const classes = ['fab-dropdown-item', 'fab-list-item', className || '', listItemCss, dropdownItemCss];
+    const classes = ['fab-dropdown-item', className || '', dropdownItemCss];
 
     const handleClick = () => {
         if (onClick) { onClick(); }
@@ -22,18 +20,18 @@ const DropdownItem = props => {
     }
 
     return (
-        <div className={classes.join(' ')} data-button={!!button || !!onClick || !!parentOnClick}>
-            {(!!button || !!onClick || !!parentOnClick) &&
-                <div className="fab-dropdown-item__button">
-                    <Button color={color} compact={true} onClick={handleClick} size="sm" disabled={!open} data-dropdown-item>
+        <ListItem data-dropdown-item>
+            <div className={classes.join(' ')} data-button={!!button} onClick={handleClick}>
+                {(!!button) &&
+                    <Button color={color} compact={true} size="sm" disabled={!open} data-dropdown-item {...rest}>
                         {label && <span className="fab-dropdown-item__label">{label}</span>}
                         {children}
                     </Button>
-                </div>
-            }
-            {!button && !onClick && !parentOnClick && !!label && <span className="fab-dropdown-item__label">{label}</span>}
-            {!button && !onClick && !parentOnClick && children}
-        </div>
+                }
+                {!button && !onClick && !parentOnClick && !!label && <span className="fab-dropdown-item__label">{label}</span>}
+                {!button && !onClick && !parentOnClick && children}
+            </div>
+        </ListItem>
     )
 }
 

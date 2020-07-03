@@ -7,7 +7,6 @@ import {
     DropdownMenu,
     DropdownToggle,
     FabulaProvider,
-    Button,
     List,
     ListItem,
     Tag,
@@ -27,12 +26,12 @@ export const Examples = () => (
             <div flex>
                 <Dropdown mr={1}>
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
-                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item with long label 1' }, { button: true, label: 'Item with long label 2' }, { button: true, label: 'Item with long label 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Extra-small label', size: 'xs' }, { button: true, label: 'Small label' }, { button: true, label: 'Medium label', size: 'md' }, { button: true, label: 'Large label', size: 'lg' }, { button: true, label: 'Extra-large label', size: 'xl' }]} onClickItem={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
                 <Dropdown mr={1}>
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
-                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
+                    <DropdownMenu clickToClose={true} divider={false} items={[{ button: true, color: '', label: 'Default' }, { button: true, color: 'primary', label: 'Primary' }, { button: true, color: 'secondary', label: 'Secondary' }, { button: true, color: 'success', label: 'Success' }, { button: true, color: 'danger', label: 'Danger' }]} onClickItem={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
             </div>
         </FabulaUtils>

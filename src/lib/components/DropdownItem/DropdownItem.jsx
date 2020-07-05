@@ -6,33 +6,42 @@ import ListItem from '../ListItem/ListItem';
 
 // Styles
 import DropdownItemStyles from '@fabula/core/styles/components/dropdown-item/dropdown-item';
+import ListItemStyles from '@fabula/core/styles/components/list-item/list-item';
 
 const DropdownItem = props => {
-    const { button, children, className, clickToClose, color, label, list, onClick, open, parentOnClick, toggle, ...rest } = props;
+    const { button, color, children, className, clickToClose, item, label, list, onClick, open, parentOnClick, size, toggle, ...rest } = props;
     // CSS
     const dropdownItemCss = css(DropdownItemStyles({ framework: 'react', props }));
-    const classes = ['fab-dropdown-item', className || '', dropdownItemCss];
+    const listItemCss = css(ListItemStyles({
+        framework: 'react', props: {
+            ...props,
+            ...item
+        }
+    }));
+    const classes = ['fab-dropdown-item', 'fab-list-item', className || '', listItemCss, dropdownItemCss];
 
     const handleClick = () => {
         if (onClick) { onClick(); }
         if (parentOnClick) { parentOnClick(); }
-        if (clickToClose && toggle) { toggle(); }
+        if (button && clickToClose && toggle) { toggle(); }
     }
 
     return (
-        <ListItem data-button={!!button || !!onClick || !!parentOnClick} data-dropdown-item>
-            <div className={classes.join(' ')} data-button={!!button} onClick={handleClick}>
-                {(!!button) &&
-                    <Button color={color} compact={true} size="sm" data-dropdown-item {...rest}>
-                        {label && <span className="fab-dropdown-item__label">{label}</span>}
-                        {children}
-                    </Button>
-                }
-                {!button && !onClick && !parentOnClick && !!label && <span className="fab-dropdown-item__label">{label}</span>}
-                {!button && !onClick && !parentOnClick && children}
-            </div>
-        </ListItem>
+        <div className={classes.join(' ')} data-button={!!button || !!onClick || !!parentOnClick} onClick={handleClick} data-dropdown-item>
+            {(!!button || !!onClick || !!parentOnClick) &&
+                <Button color={item?.color || color} compact={true} expand={true} size={size}>
+                    {label && <span className="fab-dropdown-item__label">{label}</span>}
+                    {children}
+                </Button>
+            }
+            {!button && !onClick && !parentOnClick && !!label && <span className="fab-dropdown-item__label">{label}</span>}
+            {!button && !onClick && !parentOnClick && children}
+        </div>
     )
+}
+
+DropdownItem.defaultProps = {
+    size: 'sm'
 }
 
 export default DropdownItem;

@@ -33,6 +33,11 @@ export const Examples = () => (
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} divider={false} items={[{ button: true, color: '', label: 'Default' }, { button: true, color: 'primary', label: 'Primary' }, { button: true, color: 'secondary', label: 'Secondary' }, { button: true, color: 'success', label: 'Success' }, { button: true, color: 'danger', label: 'Danger' }]} onClickItem={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
+
+                <Dropdown>
+                    <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
+                    <DropdownMenu clickToClose={true} divider={false} items={[{ color: '', label: 'Default' }, { color: 'primary', label: 'Primary' }, { color: 'secondary', label: 'Secondary' }, { color: 'success', label: 'Success' }, { color: 'danger', label: 'Danger' }]}></DropdownMenu>
+                </Dropdown>
             </div>
         </FabulaUtils>
     </FabulaProvider>

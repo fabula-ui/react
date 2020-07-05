@@ -39,14 +39,16 @@ const DropdownMenu = props => {
     }
 
     const renderItems = () => {
-        return items.map((item, i) => <DropdownItem clickToClose={clickToClose || item.clickToClose} color={color} key={i} open={open} parentOnClick={onClickItem} toggle={handleToggle} {...item} />);
+        return items.map((item, i) => {
+            return <DropdownItem clickToClose={clickToClose || item.clickToClose} color={color} item={item} key={i} open={open} parentOnClick={onClickItem} toggle={handleToggle} {...item} />
+        });
     }
 
     return (
         <div className={classes.join(' ')}>
             <div className="fab-dropdown-menu" data-open={open}>
                 {items && !list &&
-                    <List color={color} {...rest}>
+                    <List color={color} padding={true} {...rest}>
                         {renderItems()}
                     </List>
                 }
@@ -62,7 +64,8 @@ const DropdownMenu = props => {
 }
 
 DropdownMenu.defaultProps = {
-    direction: 'down'
+    direction: 'down',
+    divider: true
 }
 
 export default DropdownMenu;

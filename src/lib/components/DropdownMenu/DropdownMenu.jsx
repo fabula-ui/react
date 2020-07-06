@@ -13,7 +13,7 @@ const DropdownMenu = props => {
     const [open, setOpen] = useState(false);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
-            return cloneElement(child, { color, open, size })
+            return cloneElement(child, { color, open, parentOnClick: onClickItem, size })
         } else {
             return child;
         }

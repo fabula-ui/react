@@ -10,7 +10,7 @@ import ButtonStyles from '@fabula/core/styles/components/button/button';
 import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
 
 const DropdownToggle = props => {
-    const { align, children, className, icon, label, onClick, toggle, ...rest } = props;
+    const { align, children, className, direction, icon, label, onClick, open, toggle, ...rest } = props;
     // CSS
     const buttonCss = css(ButtonStyles({ framework: 'react', props }));
     const toggleCss = css(DropdownToggleStyles({ framework: 'react', props: { icon, ...rest } }));
@@ -24,13 +24,14 @@ const DropdownToggle = props => {
     }
 
     return (
-        <div className={classes.join(' ')}>
+        <div className={classes.join(' ')} data-direction={direction} data-open={open}>
             {label &&
-                <button className="fab-button" onClick={handleClick}>
+                <Button onClick={handleClick} {...rest}>
                     {!!icon && <span className="fab-dropdown-toggle__icon" />}
                     <span className="fab-dropdown-toggle__label">{label}</span>
                     <span className="fab-dropdown-toggle__chevron" />
-                </button>}
+                </Button>
+            }
             {children}
         </div>
     )

@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import DropdownStyles from '@fabula/core/styles/components/dropdown/dropdown';
 
 const Dropdown = props => {
-    const { children, className, direction } = props;
+    const { children, className, direction, expand } = props;
     const [open, setOpen] = useState(props.open);
     const dropdownClass = className || '';
     const styles = css(DropdownStyles({ framework: 'react', props }));
@@ -33,7 +33,7 @@ const Dropdown = props => {
     }, [handleClick]);
 
     // Children with props
-    const childrenWithProps = Children.map(children, child => cloneElement(child, { direction, open, toggle }));
+    const childrenWithProps = Children.map(children, child => cloneElement(child, { direction, expand, open, toggle }));
 
     return (
         <div className={`fab-dropdown-wrapper ${styles} ${dropdownClass}`} ref={ref}>

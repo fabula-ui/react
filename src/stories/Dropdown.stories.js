@@ -24,7 +24,7 @@ export const Examples = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div flex>
-                <Dropdown mr={1}>
+                <Dropdown mb={1} mr={1}>
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
                     <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Extra-small label', size: 'xs' }, { button: true, label: 'Small label' }, { button: true, label: 'Medium label', size: 'md' }, { button: true, label: 'Large label', size: 'lg' }, { button: true, label: 'Extra-large label', size: 'xl' }]} onClickItem={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
@@ -47,62 +47,62 @@ export const Colors = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div mb="1" row>
-                <Dropdown col="3">
-                    <DropdownToggle expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
-                <Dropdown col="3">
-                    <DropdownToggle color="primary" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="primary" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="primary" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
-                <Dropdown col="3">
-                    <DropdownToggle color="secondary" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="secondary" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="secondary" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
-                <Dropdown col="3">
-                    <DropdownToggle color="success" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="success" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="success" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
             </div>
 
             <div mb="1" row>
-                <Dropdown col="3">
-                    <DropdownToggle color="danger" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="danger" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="danger" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
-                <Dropdown col="3">
-                    <DropdownToggle color="warning" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="warning" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="warning" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
-                <Dropdown col="3">
-                    <DropdownToggle color="hot" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="hot" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="hot" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
-                <Dropdown col="3">
-                    <DropdownToggle color="cold" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="cold" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="cold" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
             </div>
 
             <div mb="1" row>
-                <Dropdown col="3">
-                    <DropdownToggle color="dark" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="dark" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="dark" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
-                <Dropdown col="3">
-                    <DropdownToggle color="light" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="light" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="light" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
-                <Dropdown col="3">
-                    <DropdownToggle color="aux" expand={true} icon="map-pin" label="Dropdown Toggle" />
+                <Dropdown col="3" expand={true}>
+                    <DropdownToggle color="aux" icon="map-pin" label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} color="aux" items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
             </div>
@@ -214,8 +214,8 @@ export const Direction = () => (
 export const Expand = () => (
     <FabulaProvider>
         <FabulaUtils>
-            <div>
-                <Dropdown mb="1">
+            <div flex>
+                <Dropdown mr="1">
                     <DropdownToggle align="left" color="primary" icon="map-pin" compact={true} label="Normal" />
                     <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
@@ -241,6 +241,39 @@ export const Glow = () => (
                 <DropdownToggle glow={false} icon={{ color: 'cold', name: 'moon' }} compact={true} label="Without Glow" />
                 <DropdownMenu clickToClose={true} glow={false} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
             </Dropdown>
+        </FabulaUtils>
+    </FabulaProvider>
+)
+
+export const Size = () => (
+    <FabulaProvider>
+        <FabulaUtils>
+            <div flex>
+                <Dropdown mr="1">
+                    <DropdownToggle color="aux" icon="map-pin" compact={true} label="Extra-small" size="xs" />
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')} size="xs"></DropdownMenu>
+                </Dropdown>
+
+                <Dropdown mr="1">
+                    <DropdownToggle color="aux" icon="map-pin" compact={true} label="Small" size="sm" />
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')} size="sm"></DropdownMenu>
+                </Dropdown>
+                
+                <Dropdown mr="1">
+                    <DropdownToggle color="aux" icon="map-pin" compact={true} label="Medium" size="md" />
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')} size="md"></DropdownMenu>
+                </Dropdown>
+
+                <Dropdown mr="1">
+                    <DropdownToggle color="aux" icon="map-pin" compact={true} label="Large" size="lg" />
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')} size="lg"></DropdownMenu>
+                </Dropdown>
+
+                <Dropdown mr="1">
+                    <DropdownToggle color="aux" icon="map-pin" compact={true} label="Extra-Large" size="xl" />
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')} size="xl"></DropdownMenu>
+                </Dropdown>
+            </div>
         </FabulaUtils>
     </FabulaProvider>
 )

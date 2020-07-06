@@ -9,11 +9,11 @@ import List from '../List/List';
 import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
 
 const DropdownMenu = props => {
-    const { children, className, clickToClose, color, items, list, onChange, onClickItem, toggle, ...rest } = props;
+    const { children, className, clickToClose, color, items, list, onChange, onClickItem, size, toggle, ...rest } = props;
     const [open, setOpen] = useState(false);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
-            return cloneElement(child, { open })
+            return cloneElement(child, { color, open, size })
         } else {
             return child;
         }
@@ -40,7 +40,7 @@ const DropdownMenu = props => {
 
     const renderItems = () => {
         return items.map((item, i) => {
-            return <DropdownItem clickToClose={clickToClose || item.clickToClose} color={color} item={item} key={i} open={open} parentOnClick={onClickItem} toggle={handleToggle} {...item} />
+            return <DropdownItem clickToClose={clickToClose || item.clickToClose} item={item} key={i} open={open} parentOnClick={onClickItem} size={size} toggle={handleToggle} {...item} />
         });
     }
 

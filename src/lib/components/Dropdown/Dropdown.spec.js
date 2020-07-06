@@ -38,8 +38,11 @@ describe('Dropdown Component', () => {
 
     it('Should pass props to children', () => {
         const { container } = render(<DropdownExample />);
+        const menuElement = container.querySelector('.fab-dropdown-menu');
         const toggleElement = container.querySelector('.fab-dropdown-toggle');
 
+        expect(menuElement.getAttribute('data-direction')).toBe('down');
+        expect(menuElement.getAttribute('data-open')).toBeFalsy();
         expect(toggleElement.getAttribute('data-direction')).toBe('down');
         expect(toggleElement.getAttribute('data-open')).toBeFalsy();
     });

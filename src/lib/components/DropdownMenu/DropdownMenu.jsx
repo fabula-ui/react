@@ -9,7 +9,7 @@ import List from '../List/List';
 import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
 
 const DropdownMenu = props => {
-    const { children, className, clickToClose, color, items, list, onChange, onClickItem, size, toggle, ...rest } = props;
+    const { children, className, clickToClose, color, direction, items, list, onChange, onClickItem, size, toggle, ...rest } = props;
     const [open, setOpen] = useState(false);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
@@ -46,7 +46,7 @@ const DropdownMenu = props => {
 
     return (
         <div className={classes.join(' ')}>
-            <div className="fab-dropdown-menu" data-open={open}>
+            <div className="fab-dropdown-menu" data-direction={direction} data-open={open}>
                 {items && !list &&
                     <List color={color} padding={true} {...rest}>
                         {renderItems()}

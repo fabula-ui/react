@@ -10,8 +10,8 @@ const Text = props => {
 
     return (
         <div className={classes.join(' ')} data-aux={!!aux} data-color={color}>
-            {!content && !p && !small && !strong && <span>{children}</span>}
-            {!!content && <span>{content}</span>}
+            {!content && !p && !small && !strong && children}
+            {!!content && content}
             {!!p && <p>{children}</p>}
             {!!small && <small>{children}</small>}
             {!!strong && <strong>{children}</strong>}

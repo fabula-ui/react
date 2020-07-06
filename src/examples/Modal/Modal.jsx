@@ -43,7 +43,7 @@ const TargetModal = props => {
                     <Text block={true} mb={.25}>
                         Are you sure you want to <Text color="danger">deactivate</Text> your account?
                     </Text>
-                    <Text mb="1">All of your data will be permanantly <Text color="danger" weight={600}>removed</Text>.</Text>
+                    <Text block={true} mb="1">All of your data will be permanently <Text color="danger" weight={600}>removed</Text>.</Text>
                 </ModalBody>
                 <ModalFooter alH="end" color="light" flex={true}>
                     <ButtonGroup>

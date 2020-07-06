@@ -134,7 +134,7 @@ export const Examples = () => (
     </FabulaProvider>
 )
 
-export const Colors = () => (
+export const Color = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div mb="1" row>
@@ -143,7 +143,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -154,7 +154,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -165,7 +165,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -180,7 +180,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="primary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="primary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -191,7 +191,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="primary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="primary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -202,7 +202,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="primary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="primary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -217,7 +217,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="secondary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="secondary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -228,7 +228,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="secondary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="secondary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -239,7 +239,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="secondary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="secondary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -254,7 +254,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="success" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="success" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -265,7 +265,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="success" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="success" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -276,7 +276,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="success" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="success" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -293,7 +293,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="danger" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="danger" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -304,7 +304,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="danger" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="danger" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -315,7 +315,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="danger" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="danger" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -330,7 +330,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="warning" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="warning" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -341,7 +341,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="warning" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="warning" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -352,7 +352,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="warning" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="warning" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -367,7 +367,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="hot" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="hot" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -378,7 +378,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="hot" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="hot" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -389,7 +389,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="hot" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="hot" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -404,7 +404,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="cold" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="cold" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -415,7 +415,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="cold" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="cold" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -426,7 +426,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="cold" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="cold" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -443,7 +443,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="dark" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="dark" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -454,7 +454,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="dark" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="dark" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -465,7 +465,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="dark" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="dark" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -480,7 +480,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="light" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="light" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -491,7 +491,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="light" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="light" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -502,7 +502,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="light" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="light" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -517,7 +517,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="aux" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="aux" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -528,7 +528,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="aux" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="aux" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -539,7 +539,7 @@ export const Colors = () => (
                         <ListItem flex>
                             <Avatar color="aux" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="aux" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -562,7 +562,7 @@ export const Padding = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -573,7 +573,7 @@ export const Padding = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -584,7 +584,7 @@ export const Padding = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -599,7 +599,7 @@ export const Padding = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -610,7 +610,7 @@ export const Padding = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -621,7 +621,7 @@ export const Padding = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -644,7 +644,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -655,7 +655,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -666,7 +666,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="aux" ml=".5">New</Badge>
                                 </Text>
@@ -681,7 +681,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="primary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="primary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -692,7 +692,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="primary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="primary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -703,7 +703,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="primary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="primary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -718,7 +718,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="secondary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="secondary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -729,7 +729,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="secondary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="secondary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -740,7 +740,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="secondary" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="secondary" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -755,7 +755,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="success" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="success" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -766,7 +766,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="success" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="success" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -777,7 +777,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="success" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="success" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -794,7 +794,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="danger" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="danger" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -805,7 +805,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="danger" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="danger" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -816,7 +816,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="danger" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="danger" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -831,7 +831,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="warning" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="warning" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -842,7 +842,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="warning" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="warning" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -853,7 +853,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="warning" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="warning" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -868,7 +868,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="hot" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="hot" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -879,7 +879,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="hot" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="hot" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -890,7 +890,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="hot" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="hot" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -905,7 +905,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="cold" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="cold" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -916,7 +916,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="cold" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="cold" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -927,7 +927,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="cold" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="cold" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -944,7 +944,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="dark" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="dark" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -955,7 +955,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="dark" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="dark" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -966,7 +966,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="dark" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="dark" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -981,7 +981,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="light" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="light" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -992,7 +992,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="light" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="light" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -1003,7 +1003,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="light" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="light" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -1018,7 +1018,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="aux" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 1</Text>
                                     <Badge color="aux" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -1029,7 +1029,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="aux" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 2</Text>
                                     <Badge color="aux" darken={true} ml=".5">New</Badge>
                                 </Text>
@@ -1040,7 +1040,7 @@ export const Striped = () => (
                         <ListItem flex>
                             <Avatar color="aux" darken={true} icon="file" mr={.75} />
                             <div grow={1}>
-                                <Text block weight={600}>
+                                <Text flex weight={600}>
                                     <Text>List Item 3</Text>
                                     <Badge color="aux" darken={true} ml=".5">New</Badge>
                                 </Text>

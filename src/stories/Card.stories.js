@@ -29,8 +29,8 @@ export const Examples = () => (
         <Card col="3">
           <CardImage height={200} />
           <CardSection divider="top" padding>
-            <Text block size="lg" strong>
-              <Text mr=".5">Card Title</Text>
+            <Text flex size="lg">
+              <Text mr=".5" strong>Card Title</Text>
               <Badge color="primary">New</Badge>
             </Text>
             <Text aux block mb="1" size="sm" span>Card subtitle</Text>

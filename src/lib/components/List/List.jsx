@@ -5,11 +5,11 @@ import { css } from 'emotion';
 import ListStyles from '@fabula/core/styles/components/list/list';
 
 const List = props => {
-    const { children, className, color } = props;
+    const { children, className, divider, color, padding, striped } = props;
     const listClass = className || '';
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
-            return cloneElement(child, { color });
+            return cloneElement(child, { color, divider, padding, striped });
         } else {
             return child;
         }

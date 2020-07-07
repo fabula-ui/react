@@ -68,7 +68,7 @@ export const Clear = () => (
     </FabulaProvider>
 )
 
-export const Colors = () => (
+export const Color = () => (
     <FabulaProvider>
         <FabulaUtils>
             <TagGroup>
@@ -253,6 +253,28 @@ export const Rounded = () => (
                 <Tag color="dark" rounded={true}>Fabula</Tag>
                 <Tag color="light" rounded={true}>Fabula</Tag>
                 <Tag color="aux" rounded={true}>Fabula</Tag>
+            </TagGroup>
+        </FabulaUtils>
+    </FabulaProvider>
+)
+
+export const Size = () => (
+    <FabulaProvider>
+        <FabulaUtils>
+            <TagGroup mb="1">
+                <Tag color="primary" size="xs">Extra-small</Tag>
+                <Tag color="primary" size="sm">Small</Tag>
+                <Tag color="primary" size="md">Medium</Tag>
+                <Tag color="primary" size="lg">Large</Tag>
+                <Tag color="primary" size="xl">Extra-large</Tag>
+            </TagGroup>
+
+            <TagGroup>
+                <Tag color="primary" rounded={true} size="xs">Extra-small</Tag>
+                <Tag color="primary" rounded={true} size="sm">Small</Tag>
+                <Tag color="primary" rounded={true} size="md">Medium</Tag>
+                <Tag color="primary" rounded={true} size="lg">Large</Tag>
+                <Tag color="primary" rounded={true} size="xl">Extra-large</Tag>
             </TagGroup>
         </FabulaUtils>
     </FabulaProvider>

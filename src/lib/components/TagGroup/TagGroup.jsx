@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 // Styles
-import TagGroupStyles from '@fabula/core/theme/styles/TagGroup';
+import TagGroupStyles from '@fabula/core/styles/components/tag-group/tag-group';
 
 const TagGroup = props => {
     const { children, className } = props;

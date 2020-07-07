@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 // Styles
-import TagStyles from '@fabula/core/theme/styles/Tag';
+import TagStyles from '@fabula/core/styles/components/tag/tag';
 
 const Tag = props => {
     const { children, className, label, placement } = props;

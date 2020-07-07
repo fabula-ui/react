@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { css } from 'emotion';
 
 // Styles
-import InputStyles from '@fabula/core/theme/styles/Input';
+import InputStyles from '@fabula/core/styles/components/input/input';
 
 const Input = props => {
     const { children, className, disabled, icon, iconEnd, iconStart, message, onBlur, onFocus, placeholder, passwordToggle, textarea, type, ...rest } = props;
@@ -11,7 +11,7 @@ const Input = props => {
     const classes = ['fab-input-wrapper', className || '', css(InputStyles({ framework: 'react', props }))];
 
     // Dynamic requires
-    const Icon = icon || iconEnd || iconStart || passwordToggle ? require('../Icon/Icon').default : null;
+    // const Icon = icon || iconEnd || iconStart || passwordToggle ? require('../Icon/Icon').default : null;
     const Text = message ? require('../Text/Text').default : null;
 
     const handleBlur = () => {
@@ -35,11 +35,10 @@ const Input = props => {
     return (
         <div className={classes.join(' ')} data-fab-wrapper="input">
             <div className="fab-input" data-disabled={disabled} data-focus={focus}>
-                {!!icon && <Icon {...icon} data-placement="start" />}
-                {!!iconStart && <Icon {...iconStart} data-placement="start" />}
+                {(!!icon || !!iconStart) && <div className="fab-input__icon" data-placement="start" />}
 
                 {!textarea &&
-                    <input class="fab-input__field"
+                    <input className="fab-input__field"
                         data-fab-component="input"
                         disabled={disabled}
                         placeholder={placeholder}
@@ -50,7 +49,7 @@ const Input = props => {
                 }
 
                 {textarea &&
-                    <textarea class="fab-input__field"
+                    <textarea className="fab-input__field"
                         data-fab-component="input"
                         disabled={disabled}
                         placeholder={placeholder}
@@ -60,11 +59,11 @@ const Input = props => {
                         {...rest}></textarea>
                 }
 
-                {!!iconEnd && !passwordToggle && <Icon {...iconEnd} data-placement="end" />}
+                {(!!iconEnd && !passwordToggle) && <div className="fab-input__icon" data-placement="end" />}
 
                 {passwordToggle &&
                     <button className="fab-input__password-toggle" onClick={toggleType}>
-                        <Icon name={inputType === 'password' ? 'eye' : 'eye-off'} />
+                        {/* <Icon name={inputType === 'password' ? 'eye' : 'eye-off'} /> */}
                     </button>
                 }
             </div>

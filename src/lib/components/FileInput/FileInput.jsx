@@ -8,14 +8,13 @@ import Button from '../Button/Button';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import Icon from '../Icon/Icon';
 import Tag from '../Tag/Tag';
-import Text from '../Text/Text';
 
 // Context
 import { FabulaProviderContext } from '../../providers/FabulaProvider';
 
 // Styles
 import FileInputStyles from '@fabula/core/theme/styles/FileInput';
-import InputStyles from '@fabula/core/theme/styles/Input';
+import InputStyles from '@fabula/core/styles/components/input/input';
 import DropdownItem from '../DropdownItem/DropdownItem';
 
 const FileInput = props => {

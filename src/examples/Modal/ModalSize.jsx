@@ -22,10 +22,10 @@ const ModalSizeExample = props => {
     return (
         <FabulaUtils>
             <ButtonGroup>
-                <Button color="primary" onClick={() => handleOpen('sm')}>Small Modal</Button>
-                <Button color="primary" onClick={() => handleOpen('md')}>Medium Modal</Button>
-                <Button color="primary" onClick={() => handleOpen('lg')}>Large Modal</Button>
-                <Button color="primary" onClick={() => handleOpen('xl')}>Large Modal</Button>
+                <Button color="primary" onClick={() => handleOpen('sm')} size="sm">Small Modal</Button>
+                <Button color="primary" onClick={() => handleOpen('md')} size="md">Medium Modal</Button>
+                <Button color="primary" onClick={() => handleOpen('lg')} size="lg">Large Modal</Button>
+                <Button color="primary" onClick={() => handleOpen('xl')} size="xl">Extra-Large Modal</Button>
             </ButtonGroup>
         </FabulaUtils>
 

@@ -15,7 +15,7 @@ export const Examples = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div row>
-                <Input col="4" placeholder="Type something..." />
+                <Input faded={true} col="4" message={{ color: 'primary', text: 'This is a message...' }} placeholder="Type something..." />
                 <Input iconEnd={{ color: 'success', name: 'check' }} iconStart={{ color: 'primary', name: 'user' }} col="4" placeholder="Enter your username" />
                 <Input col="4" icon={{ color: 'primary', name: 'search' }} placeholder="Search..." />
             </div>
@@ -23,7 +23,7 @@ export const Examples = () => (
     </FabulaProvider>
 )
 
-export const Colors = () => (
+export const Color = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div mb={1} row>
@@ -101,13 +101,47 @@ export const Glow = () => (
     </FabulaProvider>
 )
 
-export const Has = () => (
+export const MessageColor = () => (
     <FabulaProvider>
         <FabulaUtils>
-            <div row>
-                <Input col="4" has="error" icon={{ name: 'user' }} iconEnd={{ name: 'x' }} message="This input field has error" placeholder="Has error" />
-                <Input col="4" has="success" icon={{ name: 'user' }} iconEnd={{ name: 'check' }} message="This input field has success" placeholder="Has success" />
-                <Input col="4" has="warning" icon={{ name: 'user' }} iconEnd={{ name: 'alert-triangle' }} message="This input field has warning" placeholder="Has warning" />
+            <div mb="1" row>
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'primary', 'text': 'This is a message...' }} placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'secondary', 'text': 'This is a message...' }} placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'success', 'text': 'This is a message...' }} placeholder="Type something..." />
+            </div>
+
+            <div mb="1" row>
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'danger', 'text': 'This is a message...' }} placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'warning', 'text': 'This is a message...' }} placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'hot', 'text': 'This is a message...' }} placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'cold', 'text': 'This is a message...' }} placeholder="Type something..." />
+            </div>
+
+            <div mb="1" row>
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'dark', 'text': 'This is a message...' }} placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'light', 'text': 'This is a message...' }} placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'color': 'aux', 'text': 'This is a message...' }} placeholder="Type something..." />
+            </div>
+
+            <div mb="1" row>
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="" placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="primary" placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="secondary" placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="success" placeholder="Type something..." />
+            </div>
+
+            <div mb="1" row>
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="danger" placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="warning" placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="hot" placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="cold" placeholder="Type something..." />
+            </div>
+
+            <div mb="1" row>
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="dark" placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="light" placeholder="Type something..." />
+                <Input col="3" icon={{ name: 'user' }} message={{ 'text': 'This is a message...' }} messageColor="aux" placeholder="Type something..." />
             </div>
         </FabulaUtils>
     </FabulaProvider>
@@ -150,6 +184,18 @@ export const Size = () => (
             <div row>
                 <Input col="4" icon={{ name: 'user' }} iconEnd={{ name: 'x' }} message="This input field is small" placeholder="Medium input field" size="sm" />
                 <Input col="4" icon={{ name: 'user' }} iconEnd={{ name: 'x' }} message="This input field is extra small" placeholder="Medium input field" size="xs" />
+            </div>
+        </FabulaUtils>
+    </FabulaProvider>
+)
+
+export const Status = () => (
+    <FabulaProvider>
+        <FabulaUtils>
+            <div row>
+                <Input col="4" status="error" icon={{ name: 'user' }} iconEnd={{ name: 'x' }} message="This input field has error" placeholder="Has error" />
+                <Input col="4" status="success" icon={{ name: 'user' }} iconEnd={{ name: 'check' }} message="This input field has success" placeholder="Has success" />
+                <Input col="4" status="warning" icon={{ name: 'user' }} iconEnd={{ name: 'alert-triangle' }} message="This input field has warning" placeholder="Has warning" />
             </div>
         </FabulaUtils>
     </FabulaProvider>

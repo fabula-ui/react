@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 // Styles
-import InputGroupStyles from '@fabula/core/theme/styles/InputGroup';
+import InputGroupStyles from '@fabula/core/styles/components/input-group/input-group';
 
 const InputGroup = props => {
     const { children, className } = props;

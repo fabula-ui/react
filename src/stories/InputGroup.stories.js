@@ -15,7 +15,7 @@ import {
 } from '../lib';
 
 export default {
-    title: 'InputGroup',
+    title: 'Input Group',
     component: InputGroup,
 };
 

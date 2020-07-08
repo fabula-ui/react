@@ -6,7 +6,7 @@ import InputGroupStyles from '@fabula/core/theme/styles/InputGroup';
 
 const InputGroup = props => {
     const { children, className } = props;
-    const classes = ['fab-input-wrapper-wrapper', className || '', css(InputGroupStyles({ framework: 'react', props }))];
+    const classes = ['fab-input-group-wrapper', className || '', css(InputGroupStyles({ framework: 'react', props }))];
 
     return (
         <div className={classes.join(' ')} data-fab-wrapper="inputGroup">

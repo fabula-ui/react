@@ -108,7 +108,7 @@ export const ButtonTypes = () => (
                 <SearchInput col="4" />
                 <SearchInput button={true} col="4" />
                 <SearchInput col="4">
-                    <Button circle={true} color="primary" smashed={true}>
+                    <Button circle={true} color="primary">
                         <Icon name="search" />
                     </Button>
                 </SearchInput>

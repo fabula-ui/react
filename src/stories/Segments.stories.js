@@ -1,8 +1,6 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import {
-  Button,
   FabulaProvider,
   Segment,
   Segments,
@@ -16,25 +14,27 @@ export default {
 
 export const Examples = () => (
   <FabulaProvider>
-    <div row>
-      <Segments activeSegment="docs" col="4">
-        <Segment name="docs">Docs</Segment>
-        <Segment name="components">Components</Segment>
-        <Segment name="showcase">Showcase</Segment>
-      </Segments>
+    <FabulaUtils>
+      <div row>
+        <Segments activeSegment="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
 
-      <Segments activeSegment="docs" col="4" color="primary" faded={true}>
-        <Segment name="docs">Docs</Segment>
-        <Segment name="components">Components</Segment>
-        <Segment name="showcase">Showcase</Segment>
-      </Segments>
+        <Segments activeSegment="docs" col="4" color="primary" faded={true}>
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
 
-      <Segments activeSegment="docs" col="4" color="primary" >
-        <Segment name="docs">Docs</Segment>
-        <Segment name="components">Components</Segment>
-        <Segment name="showcase">Showcase</Segment>
-      </Segments>
-    </div>
+        <Segments activeSegment="docs" col="4" color="primary" >
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+    </FabulaUtils>
   </FabulaProvider>
 )
 

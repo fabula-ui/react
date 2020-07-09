@@ -36,7 +36,7 @@ const Button = props => {
             className={classes.join(' ')}
             data-fab-wrapper="button"
             data-border={border}
-            data-circle={circle}
+            data-circle={!!circle || !!icon}
             data-color={color}
             data-expand={expand}
             data-outline={outline}
@@ -46,9 +46,8 @@ const Button = props => {
                 data-fab-component="button"
                 disabled={disabled}
                 {...rest}>
-                {!!Icon && typeof icon === 'object' && <Icon {...icon} />}
-                {!!Icon && typeof icon === 'string' && <Icon name={icon} />}
-                {!!label && label}
+                {!!icon && <span className="fab-button__icon" />}
+                {!!label && !icon && label}
                 {children}
             </button>
         </div>

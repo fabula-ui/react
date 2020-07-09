@@ -38,6 +38,15 @@ export const Circle = () => (
           <Icon name="file" />
         </Button>
       </ButtonGroup>
+
+      <ButtonGroup>
+        <Button color="primary" icon="file" size="xs" />
+        <Button color="primary" icon="file" size="sm" />
+        <Button color="primary" icon="file" size="md" />
+        <Button color="primary" icon="file" size="lg" />
+        <Button color="primary" icon="file" size="xl" />
+        <Button color="primary" icon="file" size="xxl" />
+      </ButtonGroup>
     </FabulaUtils>
   </FabulaProvider>
 )

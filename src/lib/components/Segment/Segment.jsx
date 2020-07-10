@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { css } from 'emotion';
 
 // Styles
-import SegmentStyles from '@fabula/core/theme/styles/Segment';
+import SegmentStyles from '@fabula/core/styles/components/segment/segment';
 
 const Segment = props => {
     const { activeSegment, children, className, handleActiveSegment, link, name, target } = props;

@@ -2,7 +2,7 @@ import React, { Children, cloneElement, useState } from 'react';
 import { css } from 'emotion';
 
 // Styles
-import SegmentsStyles from '@fabula/core/theme/styles/Segments';
+import SegmentsStyles from '@fabula/core/styles/components/segments/segments';
 
 const Segments = props => {
     const { children, className, scope, ...rest } = props;

@@ -27,6 +27,7 @@ import NavbarLogo from './components/NavbarLogo/NavbarLogo';
 import NavbarSection from './components/NavbarSection/NavbarSection';
 import SearchInput from './components/SearchInput/SearchInput';
 import Segment from './components/Segment/Segment';
+import SegmentContent from './components/SegmentContent/SegmentContent';
 import Segments from './components/Segments/Segments';
 import Tab from './components/Tab/Tab';
 import Tabs from './components/Tabs/Tabs';
@@ -84,6 +85,7 @@ export {
     NavbarSection,
     SearchInput,
     Segment,
+    SegmentContent,
     Segments,
     Tab,
     Tabs,

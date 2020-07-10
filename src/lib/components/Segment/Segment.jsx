@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import SegmentStyles from '@fabula/core/theme/styles/Segment';
 
 const Segment = props => {
-    const { activeSegment, children, className, link, name, setActiveSegment, target } = props;
+    const { activeSegment, children, className, handleActiveSegment, link, name, target } = props;
     const [active, setActive] = useState(props.active);
     const classes = ['fab-segment', className || '', css(SegmentStyles({ framework: 'react', props }))];
 
@@ -18,7 +18,7 @@ const Segment = props => {
     }, [activeSegment]);
 
     const handleClick = () => {
-        setActiveSegment(name);
+        handleActiveSegment(name);
     }
 
     return (

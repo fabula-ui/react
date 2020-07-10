@@ -1,10 +1,13 @@
 import React from 'react';
 
 import {
+  Card,
   FabulaProvider,
+  FabulaUtils,
   Segment,
+  SegmentContent,
   Segments,
-  FabulaUtils
+  Text
 } from '../lib';
 
 export default {
@@ -353,6 +356,101 @@ export const Color = () => (
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
+      </div>
+    </FabulaUtils>
+  </FabulaProvider>
+)
+
+export const Content = () => (
+  <FabulaProvider>
+    <FabulaUtils>
+      <div row>
+        <div col="4">
+          <Segments activeSegment="docs" mb={1} scope="scope1">
+            <Segment name="docs">Docs</Segment>
+            <Segment name="components">Components</Segment>
+            <Segment name="showcase">Showcase</Segment>
+          </Segments>
+
+          <SegmentContent active={true} name="docs" scope="scope1">
+            <Card padding>
+              <Text size="xl" weight="600">Docs</Text>
+              <Text>This content is related to docs</Text>
+            </Card>
+          </SegmentContent>
+
+          <SegmentContent name="components" scope="scope1">
+            <Card padding>
+              <Text size="xl" weight="600">Components</Text>
+              <Text>This content is related to components</Text>
+            </Card>
+          </SegmentContent>
+
+          <SegmentContent name="showcase" scope="scope1">
+            <Card padding>
+              <Text size="xl" weight="600">Showcase</Text>
+              <Text>This content is related to showcase</Text>
+            </Card>
+          </SegmentContent>
+        </div>
+
+        <div col="4">
+          <Segments activeSegment="docs" color="primary" faded={true} mb={1} scope="scope2">
+            <Segment name="docs">Docs</Segment>
+            <Segment name="components">Components</Segment>
+            <Segment name="showcase">Showcase</Segment>
+          </Segments>
+
+          <SegmentContent active={true} name="docs" scope="scope2">
+            <Card padding>
+              <Text size="xl" weight="600">Docs</Text>
+              <Text>This content is related to docs</Text>
+            </Card>
+          </SegmentContent>
+
+          <SegmentContent name="components" scope="scope2">
+            <Card padding>
+              <Text size="xl" weight="600">Components</Text>
+              <Text>This content is related to components</Text>
+            </Card>
+          </SegmentContent>
+
+          <SegmentContent name="showcase" scope="scope2">
+            <Card padding>
+              <Text size="xl" weight="600">Showcase</Text>
+              <Text>This content is related to showcase</Text>
+            </Card>
+          </SegmentContent>
+        </div>
+
+        <div col="4">
+          <Segments activeSegment="docs" color="primary" mb={1} scope="scope3">
+            <Segment name="docs">Docs</Segment>
+            <Segment name="components">Components</Segment>
+            <Segment name="showcase">Showcase</Segment>
+          </Segments>
+
+          <SegmentContent active={true} name="docs" scope="scope3">
+            <Card padding>
+              <Text size="xl" weight="600">Docs</Text>
+              <Text>This content is related to docs</Text>
+            </Card>
+          </SegmentContent>
+
+          <SegmentContent name="components" scope="scope3">
+            <Card padding>
+              <Text size="xl" weight="600">Components</Text>
+              <Text>This content is related to components</Text>
+            </Card>
+          </SegmentContent>
+
+          <SegmentContent name="showcase" scope="scope3">
+            <Card padding>
+              <Text size="xl" weight="600">Showcase</Text>
+              <Text>This content is related to showcase</Text>
+            </Card>
+          </SegmentContent>
+        </div>
       </div>
     </FabulaUtils>
   </FabulaProvider>

@@ -28,9 +28,6 @@ const Button = props => {
     } = props;
     const classes = ['fab-button-wrapper', className || '', css(ButtonStyles({ framework: 'react', props }))];
 
-    // Dynamic requires
-    const Icon = icon ? require('../Icon/Icon').default : null;
-
     return (
         <div
             className={classes.join(' ')}
@@ -52,7 +49,7 @@ const Button = props => {
             </button>
         </div>
     )
-}
+};
 
 Button.defaultProps = {
     align: 'center',

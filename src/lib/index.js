@@ -38,7 +38,6 @@ import Text from './components/Text/Text';
 import Toast from './components/Toast/Toast';
 import Toggle from './components/Toggle/Toggle';
 import Tooltip from './components/TooltipWrapper/TooltipWrapper';
-// import TooltipWrapper from './components/TooltipWrapper/TooltipWrapper';
 
 // Controllers
 import ModalController from './controllers/ModalController';

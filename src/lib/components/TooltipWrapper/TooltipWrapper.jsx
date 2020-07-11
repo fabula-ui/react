@@ -1,27 +1,17 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState, isValidElement, createRef, Children, useImperativeHandle } from 'react';
+import ReactDOM from 'react-dom';
 import { useEffect } from 'react';
 
 // Controllers
 import TooltipController from '../../controllers/TooltipController';
+import { cloneElement } from 'react';
 
 const TooltipWrapper = props => {
     const { children, color, offset, placement } = props;
     const { setActiveTooltip } = useContext(TooltipController);
-    const ref = useRef();
 
-    useEffect(() => {
-        if (ref.current) {
-            getTarget();
-        }
-    }, [ref]);
-
-    const getTarget = () => {
-        const child = ref.current.children[0];
-        const isWrapper = child.hasAttribute('data-fab-wrapper');
-        const element = isWrapper ? child.children[0] : child;
-
-        element.addEventListener('mouseover', handleMouseOver);
-        element.addEventListener('mouseout', () => { setActiveTooltip(null); });
+    const handleMouseOut = () => {
+        setActiveTooltip(null);
     }
 
     const handleMouseOver = e => {
@@ -36,11 +26,11 @@ const TooltipWrapper = props => {
         });
     }
 
-    return (
-        <div className="fab-tooltip-wrapper" ref={ref}>
-            {children}
-        </div>
-    )
+    return cloneElement(children[0], {
+        props: children[0].props,
+        onMouseOver: handleMouseOver,
+        onMouseOut: handleMouseOut
+    });
 }
 
 TooltipWrapper.defaultProps = {

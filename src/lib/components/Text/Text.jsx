@@ -5,11 +5,11 @@ import { css } from 'emotion';
 import TextStyles from '@fabula/core/theme/styles/Text';
 
 const Text = props => {
-    const { aux, children, className, color, content, p, small, strong } = props;
+    const { aux, children, className, color, content, p, small, strong, ...rest } = props;
     const classes = ['fab-text', className || '', css(TextStyles({ framework: 'react', props }))];
 
     return (
-        <div className={classes.join(' ')} data-aux={!!aux} data-color={color}>
+        <div className={classes.join(' ')} data-aux={!!aux} data-color={color} {...rest}>
             {!content && !p && !small && !strong && children}
             {!!content && content}
             {!!p && <p>{children}</p>}

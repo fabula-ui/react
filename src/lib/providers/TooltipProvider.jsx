@@ -10,8 +10,13 @@ const TooltipProvider = props => {
     const { children } = props;
     const [activeTooltip, setActiveTooltip] = useState(null);
 
+    const handleTooltip = tooltip => {
+        setActiveTooltip(tooltip);
+    }
+
     const initialState = {
         activeTooltip,
+        handleTooltip,
         setActiveTooltip
     };
 

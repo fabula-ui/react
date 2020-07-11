@@ -22,74 +22,84 @@ export const Color = () => {
             <TooltipProvider>
                 <FabulaUtils>
                     <ButtonGroup mt={3}>
-                        <Tooltip placement="top">
+                        <Tooltip label="Default" placement="top">
                             <Button border={true}>Default</Button>
                         </Tooltip>
-                        <Tooltip color="primary" placement="top">
+                        <Tooltip color="primary" label="Primary" placement="top">
                             <Button color="primary">Primary</Button>
                         </Tooltip>
-                        <Tooltip color="secondary" placement="top">
+                        <Tooltip color="secondary" label="Secondary" placement="top">
                             <Button color="secondary">Secondary</Button>
                         </Tooltip>
-                        <Tooltip color="success" placement="top">
+                        <Tooltip color="success" label="Success" placement="top">
                             <Button color="success">Success</Button>
                         </Tooltip>
-                        <Tooltip color="danger" placement="top">
+                        <Tooltip color="danger" label="Danger" placement="top">
                             <Button color="danger">Danger</Button>
                         </Tooltip>
-                        <Tooltip color="warning" placement="top">
+                        <Tooltip color="warning" label="Warning" placement="top">
                             <Button color="warning">Warning</Button>
                         </Tooltip>
-                        <Tooltip color="hot" placement="top">
+                        <Tooltip color="hot" label="Hot" placement="top">
                             <Button color="hot">Hot</Button>
                         </Tooltip>
-                        <Tooltip color="cold" placement="top">
+                        <Tooltip color="cold" label="Cold" placement="top">
                             <Button color="cold">Cold</Button>
                         </Tooltip>
-                        <Tooltip color="dark" placement="top">
+                        <Tooltip color="dark" label="Dark" placement="top">
                             <Button color="dark">Dark</Button>
                         </Tooltip>
-                        <Tooltip color="light" placement="top">
+                        <Tooltip color="light" label="Light" placement="top">
                             <Button color="light">Light</Button>
                         </Tooltip>
-                        <Tooltip color="aux" placement="top">
+                        <Tooltip color="aux" label="Aux" placement="top">
                             <Button color="aux">Aux</Button>
                         </Tooltip>
                     </ButtonGroup>
-
-                    <div flex mt={3}>
-                        <Tooltip placement="top">
-                            <Text mx={2}>Text</Text>
-                        </Tooltip>
-
-                        <Tooltip placement="top">
-                            <Text mx={2}>Text</Text>
-                        </Tooltip>
-                    </div>
                 </FabulaUtils>
             </TooltipProvider>
         </FabulaProvider>
     )
 }
 
+export const Label = () => (
+    <FabulaProvider>
+        <TooltipProvider>
+            <FabulaUtils>
+                <ButtonGroup mt="5">
+                    <Tooltip label="Label 1" placement="top">
+                        <Button color="primary">Label 1</Button>
+                    </Tooltip>
+                    <Tooltip label="Label 2" placement="top">
+                        <Button color="primary">Label 2</Button>
+                    </Tooltip>
+                    <Tooltip label="Label 3" placement="top">
+                        <Button color="primary">Label 3</Button>
+                    </Tooltip>
+                </ButtonGroup>
+            </FabulaUtils>
+        </TooltipProvider>
+    </FabulaProvider>
+)
+
 export const Offset = () => (
     <FabulaProvider>
         <TooltipProvider>
             <FabulaUtils>
                 <ButtonGroup mt="5">
-                    <Tooltip placement="top">
+                    <Tooltip label="Default" placement="top">
                         <Button color="primary">Default</Button>
                     </Tooltip>
 
-                    <Tooltip offset={1} placement="top">
+                    <Tooltip offset={1} label="1" placement="top">
                         <Button color="primary">1</Button>
                     </Tooltip>
 
-                    <Tooltip offset="1rem" placement="top">
+                    <Tooltip offset="1rem" label="1rem" placement="top">
                         <Button color="primary">1rem</Button>
                     </Tooltip>
 
-                    <Tooltip offset="30px" placement="top">
+                    <Tooltip offset="30px" label="30px" placement="top">
                         <Button color="primary">30px</Button>
                     </Tooltip>
                 </ButtonGroup>
@@ -104,16 +114,16 @@ export const Placement = () => {
             <TooltipProvider>
                 <FabulaUtils>
                     <ButtonGroup mt="3">
-                        <Tooltip placement="top">
+                        <Tooltip label="Top" placement="top">
                             <Button color="primary">Top</Button>
                         </Tooltip>
-                        <Tooltip placement="right">
+                        <Tooltip label="Right" placement="right">
                             <Button color="primary">Right</Button>
                         </Tooltip>
-                        <Tooltip placement="bottom">
+                        <Tooltip label="Bottom" placement="bottom">
                             <Button color="primary">Bottom</Button>
                         </Tooltip>
-                        <Tooltip placement="left">
+                        <Tooltip label="Left" placement="left">
                             <Button color="primary">Left</Button>
                         </Tooltip>
                     </ButtonGroup>

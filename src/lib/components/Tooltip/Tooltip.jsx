@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import TooltipStyles from '@fabula/core/styles/components/tooltip/tooltip';
 
 const Tooltip = props => {
-    const { height, placement, x, width, y } = props;
+    const { height, label, placement, x, width, y } = props;
     const [ready, setReady] = useState(false);
     const [style, setStyle] = useState(null);
 
@@ -44,7 +44,7 @@ const Tooltip = props => {
 
     return (
         <div className={classes.join(' ')} data-placement={placement} data-ready={ready} style={style}>
-            <span className="fab-tooltip__label">Tooltip</span>
+            <span className="fab-tooltip__label">{label}</span>
         </div>
     )
 }

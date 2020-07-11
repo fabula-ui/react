@@ -7,7 +7,7 @@ import TooltipController from '../../controllers/TooltipController';
 import { cloneElement } from 'react';
 
 const TooltipWrapper = props => {
-    const { children, color, offset, placement } = props;
+    const { children, color, label, offset, placement } = props;
     const { setActiveTooltip } = useContext(TooltipController);
 
     const handleMouseOut = () => {
@@ -18,6 +18,7 @@ const TooltipWrapper = props => {
         setActiveTooltip({
             color,
             height: e.target.offsetHeight,
+            label,
             offset,
             placement,
             x: e.target.offsetLeft,
@@ -34,6 +35,7 @@ const TooltipWrapper = props => {
 }
 
 TooltipWrapper.defaultProps = {
+    label: '',
     placement: 'top'
 }
 

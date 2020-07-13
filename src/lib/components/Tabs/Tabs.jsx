@@ -2,7 +2,7 @@ import React, {Children, cloneElement, useState} from 'react';
 import { css } from 'emotion';
 
 // Styles
-import TabsStyles from '@fabula/core/theme/styles/Tabs';
+import TabsStyles from '@fabula/core/styles/components/tabs/tabs';
 
 const Tabs = props => {
     const { children, className, ...rest } = props;

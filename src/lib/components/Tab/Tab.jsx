@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { css } from 'emotion';
 
 // Styles
-import TabStyles from '@fabula/core/theme/styles/Tab';
+import TabStyles from '@fabula/core/styles/components/tab/tab';
 
 const Tab = props => {
     const { activeTab, children, className, label, link, name, setActiveTab, ...rest } = props;

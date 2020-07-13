@@ -105,7 +105,7 @@ export const Block = () => (
     </FabulaProvider>
 )
 
-export const Colors = () => (
+export const Color = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div mb={1} row>
@@ -319,39 +319,19 @@ export const Float = () => (
             </div>
 
             <div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="success" type="block">
+                <Tabs alH="center" flex={true} col="4" color="success" type="float">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
 
-                <Tabs alH="center" col="4" color="danger" flex={true} type="block">
+                <Tabs alH="center" col="4" color="danger" flex={true} type="float">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
 
-                <Tabs alH="center" col="4" color="warning" flex={true} type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </div>
-
-            <div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="hot" type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="cold" flex={true} type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="dark" flex={true} type="block">
+                <Tabs alH="center" col="4" color="warning" flex={true} type="float">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
@@ -359,13 +339,33 @@ export const Float = () => (
             </div>
 
             <div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="light" type="block">
+                <Tabs alH="center" flex={true} col="4" color="hot" type="float">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
 
-                <Tabs alH="center" col="4" color="aux" flex={true} type="block">
+                <Tabs alH="center" col="4" color="cold" flex={true} type="float">
+                    <Tab active={true} name="docs">Docs</Tab>
+                    <Tab name="components">Components</Tab>
+                    <Tab name="showcase">Showcase</Tab>
+                </Tabs>
+
+                <Tabs alH="center" col="4" color="dark" flex={true} type="float">
+                    <Tab active={true} name="docs">Docs</Tab>
+                    <Tab name="components">Components</Tab>
+                    <Tab name="showcase">Showcase</Tab>
+                </Tabs>
+            </div>
+
+            <div mb={1} row>
+                <Tabs alH="center" flex={true} col="4" color="light" type="float">
+                    <Tab active={true} name="docs">Docs</Tab>
+                    <Tab name="components">Components</Tab>
+                    <Tab name="showcase">Showcase</Tab>
+                </Tabs>
+
+                <Tabs alH="center" col="4" color="aux" flex={true} type="float">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>

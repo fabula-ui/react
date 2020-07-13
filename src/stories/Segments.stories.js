@@ -366,7 +366,7 @@ export const Content = () => (
     <FabulaUtils>
       <div row>
         <div col="4">
-          <Segments activeSegment="docs" mb={1} scope="scope1">
+          <Segments active="docs" mb={1} scope="scope1">
             <Segment name="docs">Docs</Segment>
             <Segment name="components">Components</Segment>
             <Segment name="showcase">Showcase</Segment>
@@ -395,7 +395,7 @@ export const Content = () => (
         </div>
 
         <div col="4">
-          <Segments activeSegment="docs" color="primary" faded={true} mb={1} scope="scope2">
+          <Segments active="docs" color="primary" faded={true} mb={1} scope="scope2">
             <Segment name="docs">Docs</Segment>
             <Segment name="components">Components</Segment>
             <Segment name="showcase">Showcase</Segment>
@@ -424,7 +424,7 @@ export const Content = () => (
         </div>
 
         <div col="4">
-          <Segments activeSegment="docs" color="primary" mb={1} scope="scope3">
+          <Segments active="docs" color="primary" mb={1} scope="scope3">
             <Segment name="docs">Docs</Segment>
             <Segment name="components">Components</Segment>
             <Segment name="showcase">Showcase</Segment>

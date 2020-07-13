@@ -30,6 +30,7 @@ import Segment from './components/Segment/Segment';
 import SegmentContent from './components/SegmentContent/SegmentContent';
 import Segments from './components/Segments/Segments';
 import Tab from './components/Tab/Tab';
+import TabContent from './components/TabContent/TabContent';
 import Tabs from './components/Tabs/Tabs';
 import Tag from './components/Tag/Tag';
 import TagGroup from './components/TagGroup/TagGroup';
@@ -87,6 +88,7 @@ export {
     SegmentContent,
     Segments,
     Tab,
+    TabContent,
     Tabs,
     Tag,
     TagGroup,

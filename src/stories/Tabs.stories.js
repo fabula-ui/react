@@ -5,7 +5,9 @@ import {
     Card,
     FabulaProvider,
     Tab,
+    TabContent,
     Tabs,
+    Text,
     FabulaUtils,
     Icon
 } from '../lib';
@@ -184,6 +186,101 @@ export const Color = () => (
         </FabulaUtils>
     </FabulaProvider>
 )
+
+export const Content = () => (
+    <FabulaProvider>
+      <FabulaUtils>
+        <div row>
+          <div col="4">
+            <Tabs active="docs" mb={1} scope="scope1">
+              <Tab name="docs">Docs</Tab>
+              <Tab name="components">Components</Tab>
+              <Tab name="showcase">Showcase</Tab>
+            </Tabs>
+  
+            <TabContent active={true} name="docs" scope="scope1">
+              <Card padding>
+                <Text size="xl" weight="600">Docs</Text>
+                <Text>This content is related to docs</Text>
+              </Card>
+            </TabContent>
+  
+            <TabContent name="components" scope="scope1">
+              <Card padding>
+                <Text size="xl" weight="600">Components</Text>
+                <Text>This content is related to components</Text>
+              </Card>
+            </TabContent>
+  
+            <TabContent name="showcase" scope="scope1">
+              <Card padding>
+                <Text size="xl" weight="600">Showcase</Text>
+                <Text>This content is related to showcase</Text>
+              </Card>
+            </TabContent>
+          </div>
+  
+          <div col="4">
+            <Tabs active="docs" color="primary" faded={true} mb={1} scope="scope2">
+              <Tab name="docs">Docs</Tab>
+              <Tab name="components">Components</Tab>
+              <Tab name="showcase">Showcase</Tab>
+            </Tabs>
+  
+            <TabContent active={true} name="docs" scope="scope2">
+              <Card padding>
+                <Text size="xl" weight="600">Docs</Text>
+                <Text>This content is related to docs</Text>
+              </Card>
+            </TabContent>
+  
+            <TabContent name="components" scope="scope2">
+              <Card padding>
+                <Text size="xl" weight="600">Components</Text>
+                <Text>This content is related to components</Text>
+              </Card>
+            </TabContent>
+  
+            <TabContent name="showcase" scope="scope2">
+              <Card padding>
+                <Text size="xl" weight="600">Showcase</Text>
+                <Text>This content is related to showcase</Text>
+              </Card>
+            </TabContent>
+          </div>
+  
+          <div col="4">
+            <Tabs active="docs" color="primary" mb={1} scope="scope3">
+              <Tab name="docs">Docs</Tab>
+              <Tab name="components">Components</Tab>
+              <Tab name="showcase">Showcase</Tab>
+            </Tabs>
+  
+            <TabContent active={true} name="docs" scope="scope3">
+              <Card padding>
+                <Text size="xl" weight="600">Docs</Text>
+                <Text>This content is related to docs</Text>
+              </Card>
+            </TabContent>
+  
+            <TabContent name="components" scope="scope3">
+              <Card padding>
+                <Text size="xl" weight="600">Components</Text>
+                <Text>This content is related to components</Text>
+              </Card>
+            </TabContent>
+  
+            <TabContent name="showcase" scope="scope3">
+              <Card padding>
+                <Text size="xl" weight="600">Showcase</Text>
+                <Text>This content is related to showcase</Text>
+              </Card>
+            </TabContent>
+          </div>
+        </div>
+      </FabulaUtils>
+    </FabulaProvider>
+  )
 
 export const Expand = () => (
     <FabulaProvider>

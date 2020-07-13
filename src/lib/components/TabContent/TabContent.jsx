@@ -3,14 +3,14 @@ import React from 'react';
 // Components
 import Content from '../Content/Content';
 
-const SegmentContent = props => {
+const TabContent = props => {
     const { children } = props;
 
     return (
-        <Content contentClassName="fab-segment-content" {...props}>
+        <Content contentClassName="fab-tab-content" {...props}>
             {children}
         </Content>
     )
 }
 
-export default SegmentContent;
+export default TabContent;

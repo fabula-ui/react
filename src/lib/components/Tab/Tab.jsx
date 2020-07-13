@@ -5,16 +5,18 @@ import { css } from 'emotion';
 import TabStyles from '@fabula/core/styles/components/tab/tab';
 
 const Tab = props => {
-    const { activeTab, children, className, label, link, name, setActiveTab, ...rest } = props;
+    const { activeTab, children, className, handleActive, label, link, name, ...rest } = props;
     const [active, setActive] = useState(props.active);
     const classes = ['fab-tab', className || '', css(TabStyles({ framework: 'react', props }))];
 
     useEffect(() => {
-        if (activeTab) { setActive(activeTab === name); }
+        if (activeTab) {
+            setActive(activeTab === name);
+        }
     }, [activeTab]);
 
     const handleClick = () => {
-        setActiveTab(name);
+        handleActive(name);
     }
 
     return (

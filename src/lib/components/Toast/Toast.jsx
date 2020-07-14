@@ -56,7 +56,7 @@ const Toast = props => {
 
     if (!hidden) {
         return (
-            <div className={classes.join(' ')} data-fab-wrapper="toast" data-hiding={hiding} ref={toastRef} style={{ height }}>
+            <div className={classes.join(' ')} data-fab-wrapper="toast" data-hiding={hiding} data-stacked={stacked} ref={toastRef} style={{ height }}>
                 <div className="fab-toast">
                     {!!icon && <InnerIcon color={color} icon={icon} parentProps={props} />}
                     {!!message && <span className="fab-toast__message">{message}</span>}

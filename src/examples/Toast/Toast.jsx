@@ -8,7 +8,6 @@ import { useContext } from 'react';
 
 export const ToastExamples = props => {
     const toastCtrl = useContext(ToastController);
-    // const toastService = useContext(ToastService);
 
     useEffect(() => {
         createStacks();

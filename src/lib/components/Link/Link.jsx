@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 // Styles
-import LinkStyles from '@fabula/core/theme/styles/Link';
+import LinkStyles from '@fabula/core/styles/components/link/link';
 
 const Link = props => {
     const { className, label, url, ...rest } = props;

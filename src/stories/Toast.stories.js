@@ -74,7 +74,7 @@ export const Clear = () => (
     </FabulaProvider>
 )
 
-export const Colors = () => (
+export const Color = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div mb="1" row>

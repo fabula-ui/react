@@ -3,19 +3,23 @@ import { css } from 'emotion';
 
 // Components
 import Button from '../Button/Button';
+import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Styles
-import ToastStyles from '@fabula/core/theme/styles/Toast';
+import ToastStyles from '@fabula/core/styles/components/toast/toast';
 
 const Toast = props => {
-    const { children, className, closeButton, hide, hideDelay, icon, link, message, stacked } = props;
+    const { children, className, closeButton, color, hideDelay, icon, link, message, stacked, ...rest } = props;
     const [height, setHeight] = useState();
     const [hidden, setHidden] = useState(false);
     const [hiding, setHiding] = useState(false);
     const toastRef = useRef(null);
 
+    // Classes
+    const classes = ['fab-toast-wrapper', className || '', css(ToastStyles({ framework: 'react', props: { ...props, height, stacked } }))];
+
+
     // Dynamic requires
-    const Icon = icon ? require('../Icon/Icon').default : null;
     const Link = link ? require('../Link/Link').default : null;
 
     useEffect(() => {
@@ -52,12 +56,16 @@ const Toast = props => {
 
     if (!hidden) {
         return (
-            <div className={`fab-toast-wrapper ${css(ToastStyles({ framework: 'react', props: { ...props, height, stacked } }))} ${className || ''}`} data-fab-wrapper="toast" data-hiding={hiding} ref={toastRef} style={{ height }}>
+            <div className={classes.join(' ')} data-fab-wrapper="toast" data-hiding={hiding} ref={toastRef} style={{ height }}>
                 <div className="fab-toast">
-                    {!!Icon && <Icon {...icon} />}
+                    {!!icon && <InnerIcon color={color} icon={icon} parentProps={props} />}
                     {!!message && <span className="fab-toast__message">{message}</span>}
                     {children}
-                    {!!closeButton && <Button size="sm" {...closeButton} data-close-button onClick={hideToast} />}
+                    {!!closeButton &&
+                        <div className="fab-toast__close-button">
+                            <Button size="sm" {...closeButton} data-close-button onClick={hideToast} />
+                        </div>
+                    }
                     {!!link && <Link {...link} />}
                 </div>
             </div>

@@ -1,9 +1,7 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { css } from 'emotion';
+import React, { cloneElement, useContext } from 'react';
 
 // Controllers
 import ModalController from '../controllers/ModalController';
-import { cloneElement } from 'react';
 
 const ModalPortal = props => {
     const { activeModal, className, ...rest } = useContext(ModalController);

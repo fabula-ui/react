@@ -33,13 +33,17 @@ const Toast = props => {
     }, [toastRef]);
 
     const handleHide = () => {
+        const toastEl = document.querySelector('.fab-toast-wrapper');
+        const duration = window.getComputedStyle(toastEl).transitionDuration;
+        const transitionDuration = (duration.indexOf('ms') > -1) ? parseFloat(duration) : parseFloat(duration) * 1000;
+
         setTimeout(() => {
             setHiding(true);
         }, hideDelay);
 
         setTimeout(() => {
             setHidden(true);
-        }, hideDelay + 400);
+        }, hideDelay + transitionDuration + 1);
     }
 
     const hideToast = () => {

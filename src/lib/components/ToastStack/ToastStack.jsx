@@ -10,7 +10,7 @@ import ToastController from '../../controllers/ToastController';
 import { FabulaProviderContext } from '../../providers/FabulaProvider';
 
 // Styles
-import ToastStackStyles from '@fabula/core/theme/styles/ToastStack';
+import ToastStackStyles from '@fabula/core/styles/components/toast-stack/toast-stack';
 
 const ToastStack = props => {
     const { name, placement } = props;

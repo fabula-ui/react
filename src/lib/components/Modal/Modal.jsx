@@ -1,11 +1,11 @@
-import React, { Children, cloneElement, useContext, useEffect, useState } from 'react';
+import React, { Children, cloneElement, useContext } from 'react';
 import { css } from 'emotion';
 
 // Controller
 import ModalController from '../../controllers/ModalController';
 
 // Styles
-import ModalStyles from '@fabula/core/theme/styles/Modal';
+import ModalStyles from '@fabula/core/styles/components/modal/modal';
 
 const Modal = props => {
     const { children, className, color } = props;

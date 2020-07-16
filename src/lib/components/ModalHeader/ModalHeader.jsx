@@ -8,8 +8,8 @@ import CloseButton from '../CloseButton/CloseButton';
 import ModalController from '../../controllers/ModalController';
 
 // Styles
-import ModalHeaderStyles from '@fabula/core/theme/styles/ModalHeader';
-import ModalSectionStyles from '@fabula/core/theme/styles/ModalSection';
+import ModalHeaderStyles from '@fabula/core/styles/components/modal-header/modal-header';
+import ModalSectionStyles from '@fabula/core/styles/components/modal-section/modal-section';
 
 const ModalHeader = props => {
     const { color, children, className, parentColor } = props;

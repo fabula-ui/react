@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 // Styles
-import ModalSectionStyles from '@fabula/core/theme/styles/ModalSection';
+import ModalSectionStyles from '@fabula/core/styles/components/modal-section/modal-section';
 
 const ModalBody = props => {
     const { children, className } = props;

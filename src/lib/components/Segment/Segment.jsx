@@ -27,4 +27,8 @@ const Segment = props => {
     )
 }
 
+Segment.defaultProps = {
+    active: false
+}
+
 export default Segment;

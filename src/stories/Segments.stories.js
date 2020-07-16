@@ -19,19 +19,19 @@ export const Examples = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div row>
-        <Segments activeSegment="docs" col="4">
+        <Segments active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" col="4" color="primary" faded={true}>
+        <Segments active="docs" col="4" color="primary" faded={true}>
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" col="4" color="primary" >
+        <Segments active="docs" col="4" color="primary" >
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -45,39 +45,19 @@ export const ActiveFillColor = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" col="4">
+        <Segments active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" activeFillColor="primary" col="4">
+        <Segments active="docs" activeFillColor="primary" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" activeFillColor="secondary" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments activeFillColor="success" activeSegment="docs" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeFillColor="danger" activeSegment="docs" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeFillColor="warning" activeSegment="docs" col="4">
+        <Segments active="docs" activeFillColor="secondary" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -85,19 +65,19 @@ export const ActiveFillColor = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeFillColor="hot" activeSegment="docs" col="4">
+        <Segments activeFillColor="success" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeFillColor="cold" activeSegment="docs" col="4">
+        <Segments activeFillColor="danger" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeFillColor="dark" activeSegment="docs" col="4">
+        <Segments activeFillColor="warning" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -105,13 +85,33 @@ export const ActiveFillColor = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeFillColor="light" color="aux" activeSegment="docs" col="4">
+        <Segments activeFillColor="hot" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeFillColor="aux" activeSegment="docs" col="4">
+        <Segments activeFillColor="cold" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments activeFillColor="dark" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments activeFillColor="light" color="aux" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments activeFillColor="aux" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -125,39 +125,19 @@ export const ActiveTextColor = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" col="4">
+        <Segments active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" activeTextColor="primary" col="4">
+        <Segments active="docs" activeTextColor="primary" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" activeTextColor="secondary" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments activeTextColor="success" activeSegment="docs" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeTextColor="danger" activeSegment="docs" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeTextColor="warning" activeSegment="docs" col="4">
+        <Segments active="docs" activeTextColor="secondary" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -165,19 +145,19 @@ export const ActiveTextColor = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeTextColor="hot" activeSegment="docs" col="4">
+        <Segments activeTextColor="success" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeTextColor="cold" activeSegment="docs" col="4">
+        <Segments activeTextColor="danger" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeTextColor="dark" activeSegment="docs" col="4">
+        <Segments activeTextColor="warning" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -185,13 +165,33 @@ export const ActiveTextColor = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeFillColor="dark" activeTextColor="light" color="aux" activeSegment="docs" col="4">
+        <Segments activeTextColor="hot" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeTextColor="aux" activeSegment="docs" col="4">
+        <Segments activeTextColor="cold" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments activeTextColor="dark" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments activeFillColor="dark" activeTextColor="light" color="aux" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments activeTextColor="aux" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -205,39 +205,19 @@ export const Clear = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" clear={true} col="4">
+        <Segments active="docs" clear={true} col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeFillColor="primary" activeSegment="docs" clear={true} col="4" color="primary">
+        <Segments activeFillColor="primary" active="docs" clear={true} col="4" color="primary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeFillColor="secondary" activeSegment="docs" clear={true} col="4" color="secondary">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments activeFillColor="success" activeSegment="docs" clear={true} col="4" color="success">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeFillColor="danger" activeSegment="docs" clear={true} col="4" color="danger">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeFillColor="warning" activeSegment="docs" clear={true} col="4" color="warning">
+        <Segments activeFillColor="secondary" active="docs" clear={true} col="4" color="secondary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -245,19 +225,19 @@ export const Clear = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeFillColor="hot" activeSegment="docs" clear={true} col="4" color="hot">
+        <Segments activeFillColor="success" active="docs" clear={true} col="4" color="success">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeFillColor="cold" activeSegment="docs" clear={true} col="4" color="cold">
+        <Segments activeFillColor="danger" active="docs" clear={true} col="4" color="danger">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeFillColor="dark" activeSegment="docs" clear={true} col="4" color="dark">
+        <Segments activeFillColor="warning" active="docs" clear={true} col="4" color="warning">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -265,13 +245,33 @@ export const Clear = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeFillColor="light" color="aux" activeSegment="docs" clear={true} col="4" color="light">
+        <Segments activeFillColor="hot" active="docs" clear={true} col="4" color="hot">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeFillColor="aux" activeSegment="docs" clear={true} col="4" color="aux">
+        <Segments activeFillColor="cold" active="docs" clear={true} col="4" color="cold">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments activeFillColor="dark" active="docs" clear={true} col="4" color="dark">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments activeFillColor="light" color="aux" active="docs" clear={true} col="4" color="light">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments activeFillColor="aux" active="docs" clear={true} col="4" color="aux">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -285,39 +285,19 @@ export const Color = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" col="4">
+        <Segments active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" col="4" color="primary">
+        <Segments active="docs" col="4" color="primary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" col="4" color="secondary">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments activeSegment="docs" col="4" color="success">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" col="4" color="danger">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" col="4" color="warning">
+        <Segments active="docs" col="4" color="secondary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -325,19 +305,19 @@ export const Color = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeSegment="docs" col="4" color="hot">
+        <Segments active="docs" col="4" color="success">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" col="4" color="cold">
+        <Segments active="docs" col="4" color="danger">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" col="4" color="dark">
+        <Segments active="docs" col="4" color="warning">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -345,13 +325,33 @@ export const Color = () => (
       </div>
 
       <div mb="1" row>
-        <Segments color="aux" activeSegment="docs" col="4" color="light">
+        <Segments active="docs" col="4" color="hot">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" col="4" color="aux">
+        <Segments active="docs" col="4" color="cold">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" col="4" color="dark">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments color="aux" active="docs" col="4" color="light">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" col="4" color="aux">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -460,39 +460,19 @@ export const Faded = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" faded={true} col="4">
+        <Segments active="docs" faded={true} col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" faded={true} col="4" color="primary">
+        <Segments active="docs" faded={true} col="4" color="primary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" faded={true} col="4" color="secondary">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments activeSegment="docs" faded={true} col="4" color="success">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" faded={true} col="4" color="danger">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" faded={true} col="4" color="warning">
+        <Segments active="docs" faded={true} col="4" color="secondary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -500,19 +480,19 @@ export const Faded = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeSegment="docs" faded={true} col="4" color="hot">
+        <Segments active="docs" faded={true} col="4" color="success">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" faded={true} col="4" color="cold">
+        <Segments active="docs" faded={true} col="4" color="danger">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" faded={true} col="4" color="dark">
+        <Segments active="docs" faded={true} col="4" color="warning">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -520,13 +500,33 @@ export const Faded = () => (
       </div>
 
       <div mb="1" row>
-        <Segments color="aux" activeSegment="docs" faded={true} col="4" color="light">
+        <Segments active="docs" faded={true} col="4" color="hot">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" faded={true} col="4" color="aux">
+        <Segments active="docs" faded={true} col="4" color="cold">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" faded={true} col="4" color="dark">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments color="aux" active="docs" faded={true} col="4" color="light">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" faded={true} col="4" color="aux">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -540,39 +540,19 @@ export const InactiveFillColor = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" col="4">
+        <Segments active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" inactiveFillColor="primary" col="4">
+        <Segments active="docs" inactiveFillColor="primary" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" inactiveFillColor="secondary" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments inactiveFillColor="success" activeSegment="docs" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments inactiveFillColor="danger" activeSegment="docs" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments inactiveFillColor="warning" activeSegment="docs" col="4">
+        <Segments active="docs" inactiveFillColor="secondary" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -580,19 +560,19 @@ export const InactiveFillColor = () => (
       </div>
 
       <div mb="1" row>
-        <Segments inactiveFillColor="hot" activeSegment="docs" col="4">
+        <Segments inactiveFillColor="success" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments inactiveFillColor="cold" activeSegment="docs" col="4">
+        <Segments inactiveFillColor="danger" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments inactiveFillColor="dark" activeSegment="docs" col="4">
+        <Segments inactiveFillColor="warning" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -600,13 +580,33 @@ export const InactiveFillColor = () => (
       </div>
 
       <div mb="1" row>
-        <Segments inactiveFillColor="light" activeSegment="docs" col="4">
+        <Segments inactiveFillColor="hot" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments inactiveFillColor="aux" activeSegment="docs" col="4">
+        <Segments inactiveFillColor="cold" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments inactiveFillColor="dark" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments inactiveFillColor="light" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments inactiveFillColor="aux" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -620,39 +620,19 @@ export const InactiveTextColor = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" col="4">
+        <Segments active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" inactiveTextColor="primary" col="4">
+        <Segments active="docs" inactiveTextColor="primary" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" inactiveTextColor="secondary" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments inactiveTextColor="success" activeSegment="docs" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments inactiveTextColor="danger" activeSegment="docs" col="4">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments inactiveTextColor="warning" activeSegment="docs" col="4">
+        <Segments active="docs" inactiveTextColor="secondary" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -660,19 +640,19 @@ export const InactiveTextColor = () => (
       </div>
 
       <div mb="1" row>
-        <Segments inactiveTextColor="hot" activeSegment="docs" col="4">
+        <Segments inactiveTextColor="success" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments inactiveTextColor="cold" activeSegment="docs" col="4">
+        <Segments inactiveTextColor="danger" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments inactiveTextColor="dark" activeSegment="docs" col="4">
+        <Segments inactiveTextColor="warning" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -680,13 +660,33 @@ export const InactiveTextColor = () => (
       </div>
 
       <div mb="1" row>
-        <Segments inactiveTextColor="light" activeSegment="docs" col="4">
+        <Segments inactiveTextColor="hot" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments inactiveTextColor="aux" activeSegment="docs" col="4">
+        <Segments inactiveTextColor="cold" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments inactiveTextColor="dark" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments inactiveTextColor="light" active="docs" col="4">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments inactiveTextColor="aux" active="docs" col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -700,39 +700,19 @@ export const Invert = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" invert={true} col="4">
+        <Segments active="docs" invert={true} col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" invert={true} col="4" color="primary">
+        <Segments active="docs" invert={true} col="4" color="primary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" invert={true} col="4" color="secondary">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments activeSegment="docs" invert={true} col="4" color="success">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" invert={true} col="4" color="danger">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" invert={true} col="4" color="warning">
+        <Segments active="docs" invert={true} col="4" color="secondary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -740,19 +720,19 @@ export const Invert = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeSegment="docs" invert={true} col="4" color="hot">
+        <Segments active="docs" invert={true} col="4" color="success">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" invert={true} col="4" color="cold">
+        <Segments active="docs" invert={true} col="4" color="danger">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" invert={true} col="4" color="dark">
+        <Segments active="docs" invert={true} col="4" color="warning">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -760,13 +740,33 @@ export const Invert = () => (
       </div>
 
       <div mb="1" row>
-        <Segments color="aux" activeSegment="docs" invert={true} col="4" color="light">
+        <Segments active="docs" invert={true} col="4" color="hot">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" invert={true} col="4" color="aux">
+        <Segments active="docs" invert={true} col="4" color="cold">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" invert={true} col="4" color="dark">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments color="aux" active="docs" invert={true} col="4" color="light">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" invert={true} col="4" color="aux">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -780,39 +780,19 @@ export const Outline = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" outline={true} col="4">
+        <Segments active="docs" outline={true} col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" outline={true} col="4" color="primary">
+        <Segments active="docs" outline={true} col="4" color="primary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" outline={true} col="4" color="secondary">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments activeSegment="docs" outline={true} col="4" color="success">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" outline={true} col="4" color="danger">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" outline={true} col="4" color="warning">
+        <Segments active="docs" outline={true} col="4" color="secondary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -820,19 +800,19 @@ export const Outline = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeSegment="docs" outline={true} col="4" color="hot">
+        <Segments active="docs" outline={true} col="4" color="success">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" outline={true} col="4" color="cold">
+        <Segments active="docs" outline={true} col="4" color="danger">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" outline={true} col="4" color="dark">
+        <Segments active="docs" outline={true} col="4" color="warning">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -840,13 +820,33 @@ export const Outline = () => (
       </div>
 
       <div mb="1" row>
-        <Segments color="aux" activeSegment="docs" outline={true} col="4" color="light">
+        <Segments active="docs" outline={true} col="4" color="hot">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" outline={true} col="4" color="aux">
+        <Segments active="docs" outline={true} col="4" color="cold">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" outline={true} col="4" color="dark">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments color="aux" active="docs" outline={true} col="4" color="light">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" outline={true} col="4" color="aux">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -860,39 +860,19 @@ export const Rounded = () => (
   <FabulaProvider>
     <FabulaUtils>
       <div mb="1" row>
-        <Segments activeSegment="docs" rounded={true} col="4">
+        <Segments active="docs" rounded={true} col="4">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" rounded={true} col="4" color="primary">
+        <Segments active="docs" rounded={true} col="4" color="primary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" rounded={true} col="4" color="secondary">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-      </div>
-
-      <div mb="1" row>
-        <Segments activeSegment="docs" rounded={true} col="4" color="success">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" rounded={true} col="4" color="danger">
-          <Segment name="docs">Docs</Segment>
-          <Segment name="components">Components</Segment>
-          <Segment name="showcase">Showcase</Segment>
-        </Segments>
-
-        <Segments activeSegment="docs" rounded={true} col="4" color="warning">
+        <Segments active="docs" rounded={true} col="4" color="secondary">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -900,19 +880,19 @@ export const Rounded = () => (
       </div>
 
       <div mb="1" row>
-        <Segments activeSegment="docs" rounded={true} col="4" color="hot">
+        <Segments active="docs" rounded={true} col="4" color="success">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" rounded={true} col="4" color="cold">
+        <Segments active="docs" rounded={true} col="4" color="danger">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" rounded={true} col="4" color="dark">
+        <Segments active="docs" rounded={true} col="4" color="warning">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -920,13 +900,33 @@ export const Rounded = () => (
       </div>
 
       <div mb="1" row>
-        <Segments color="aux" activeSegment="docs" rounded={true} col="4" color="light">
+        <Segments active="docs" rounded={true} col="4" color="hot">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
         </Segments>
 
-        <Segments activeSegment="docs" rounded={true} col="4" color="aux">
+        <Segments active="docs" rounded={true} col="4" color="cold">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" rounded={true} col="4" color="dark">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+      </div>
+
+      <div mb="1" row>
+        <Segments color="aux" active="docs" rounded={true} col="4" color="light">
+          <Segment name="docs">Docs</Segment>
+          <Segment name="components">Components</Segment>
+          <Segment name="showcase">Showcase</Segment>
+        </Segments>
+
+        <Segments active="docs" rounded={true} col="4" color="aux">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>

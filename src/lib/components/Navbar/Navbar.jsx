@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 
 // Styles
-import NavbarStyles from '@fabula/core/theme/styles/Navbar';
+import NavbarStyles from '@fabula/core/styles/components/navbar/navbar';
 
 const Navbar = props => {
     const { children, className } = props;

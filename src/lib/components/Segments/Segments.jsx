@@ -5,7 +5,21 @@ import { css } from 'emotion';
 import SegmentsStyles from '@fabula/core/styles/components/segments/segments';
 
 const Segments = props => {
-  const { children, className, scope, ...rest } = props;
+  const {
+    activeFillColor,
+    activeTextColor,
+    children,
+    className,
+    clear,
+    color,
+    faded,
+    inactiveFillColor,
+    inactiveTextColor,
+    invert,
+    outline,
+    rounded,
+    scope
+  } = props;
   const [active, setActive] = useState(props.active);
   const classes = ['fab-segments-wrapper', className || '', css(SegmentsStyles({ framework: 'react', props }))];
   let childrenWithProps;
@@ -32,7 +46,20 @@ const Segments = props => {
   }
 
   // Children with props
-  childrenWithProps = Children.map(children, child => cloneElement(child, { ...rest, activeSegment: active, handleActive }));
+  childrenWithProps = Children.map(children, child => cloneElement(child, {
+    activeFillColor,
+    activeTextColor,
+    activeSegment: active,
+    clear,
+    color,
+    faded,
+    handleActive,
+    inactiveFillColor,
+    inactiveTextColor,
+    invert,
+    outline,
+    rounded
+  }));
 
   return (
     <div className={classes.join(' ')}>

@@ -5,6 +5,7 @@ import {
     FabulaProvider,
     Navbar,
     NavbarLogo,
+    NavbarTabs,
     Tab,
     Tabs,
     Icon,
@@ -26,14 +27,14 @@ const NavbarBase = props => {
         <FabulaUtils>
             <Navbar color={color} {...rest}>
                 <NavbarLogo src={logo} />
-                <NavbarSection alignment="center" expand={true}>
+                <NavbarTabs alignment="center" expand={true}>
                     <Tabs color={color} {...tabsProps}>
                         <Tab active={true} name="docs">Docs</Tab>
                         <Tab name="components">Components</Tab>
                         <Tab name="showcase">Showcase</Tab>
                         <Tab name="store">Store</Tab>
                     </Tabs>
-                </NavbarSection>
+                </NavbarTabs>
 
                 <NavbarSection placement="right">
                     <ButtonGroup mr={1}>
@@ -45,8 +46,8 @@ const NavbarBase = props => {
                         </Button>
                     </ButtonGroup>
                     <ButtonGroup spacing={0}>
-                        <Button color="primary" size="sm" {...signInProps}>Sign In</Button>
-                        <Button clear={true} color="primary" size="sm" {...signUpProps}>Sign Up</Button>
+                        <Button color="primary" {...signInProps}>Sign In</Button>
+                        <Button clear={true} color="primary" {...signUpProps}>Sign Up</Button>
                     </ButtonGroup>
                 </NavbarSection>
             </Navbar>
@@ -57,32 +58,7 @@ const NavbarBase = props => {
 export const Examples = () => (
     <FabulaProvider>
         <FabulaUtils>
-            <Navbar>
-                <NavbarLogo src="fabula-logo.svg" />
-                <NavbarSection alignment="center" expand={true}>
-                    <Tabs>
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                        <Tab name="store">Store</Tab>
-                    </Tabs>
-                </NavbarSection>
-
-                <NavbarSection placement="right">
-                    <ButtonGroup mr={1} spacing={.5}>
-                        <Button clear={true} compact={true} glow={false}>
-                            <Icon name="github" />
-                        </Button>
-                        <Button clear={true} compact={true} glow={false}>
-                            <Icon name="twitter" />
-                        </Button>
-                    </ButtonGroup>
-                    <ButtonGroup spacing={.5}>
-                        <Button color="primary" size="sm">Sign In</Button>
-                        <Button clear={true} color="primary" size="sm">Sign Up</Button>
-                    </ButtonGroup>
-                </NavbarSection>
-            </Navbar>
+            <NavbarBase px={2} />
         </FabulaUtils>
     </FabulaProvider>
 )
@@ -103,7 +79,7 @@ export const Colors = () => (
 export const Height = () => (
     <FabulaProvider>
         <FabulaUtils>
-            <NavbarBase color="light" height={48} mb={1} px={2} signInProps={{ color: 'primary' }} signUpProps={{ color: '' }} tabsProps={{ activeBorderColor: 'primary' }} />
+            <NavbarBase color="light" height={48} mb={1} px={2} signInProps={{ color: 'primary', size: 'xs' }} signUpProps={{ color: '', size: 'xs' }} tabsProps={{ activeBorderColor: 'primary' }} />
             <NavbarBase color="light" height="5rem" mb={1} px={2} signInProps={{ color: 'primary' }} signUpProps={{ color: '' }} tabsProps={{ activeBorderColor: 'primary' }} />
             <NavbarBase color="light" height={100} mb={1} px={2} signInProps={{ color: 'primary' }} signUpProps={{ color: '' }} tabsProps={{ activeBorderColor: 'primary' }} />
         </FabulaUtils>

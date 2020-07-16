@@ -25,6 +25,7 @@ import ModalHeader from './components/ModalHeader/ModalHeader';
 import Navbar from './components/Navbar/Navbar';
 import NavbarLogo from './components/NavbarLogo/NavbarLogo';
 import NavbarSection from './components/NavbarSection/NavbarSection';
+import NavbarTabs from './components/NavbarTabs/NavbarTabs';
 import SearchInput from './components/SearchInput/SearchInput';
 import Segment from './components/Segment/Segment';
 import SegmentContent from './components/SegmentContent/SegmentContent';
@@ -83,6 +84,7 @@ export {
     Navbar,
     NavbarLogo,
     NavbarSection,
+    NavbarTabs,
     SearchInput,
     Segment,
     SegmentContent,

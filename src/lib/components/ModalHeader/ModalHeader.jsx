@@ -24,7 +24,6 @@ const ModalHeader = props => {
                 {children}
             </div>
             <CloseButton onClick={closeModal} parentColor={color || parentColor} size="md" />
-            {/* <button className="fab-modal-header__close" onClick={closeModal}></button> */}
         </div>
     )
 }

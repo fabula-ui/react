@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
     Alert,
@@ -95,9 +95,9 @@ export const CloseButton = () => (
     <FabulaProvider>
         <FabulaUtils>
             <div mb="1" row>
-                <Alert col="4" closeButton={true} onClose={() => alert('Closing alert')} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" closeButton={true} onClose={() => alert('Closing alert')} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" closeButton={true} onClose={() => alert('Closing alert')} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
+                <Alert col="4" closeButton={true} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="4" closeButton={true} text="Hey! Just a reminder that this is an alert!" />
+                <Alert col="4" closeButton={true} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
             </div>
         </FabulaUtils>
     </FabulaProvider>
@@ -213,7 +213,7 @@ export const Glow = () => (
 export const Icons = () => (
     <FabulaProvider>
         <FabulaUtils>
-        <div mb="1" row>
+            <div mb="1" row>
                 <Alert col="4" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
                 <Alert col="4" color="primary" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
                 <Alert col="4" color="secondary" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />

@@ -6,8 +6,7 @@ import InnerIconStyles from '@fabula/core/styles/components/inner-icon/inner-ico
 
 const InnerIcon = props => {
     const { className, icon, parentProps } = props;
-    const iconProps = typeof icon === 'object' ? icon : { name: icon };
-    const classes = ['fab-inner-icon', className || '', css(InnerIconStyles({ framework: 'react', props: { parentProps: parentProps, ...iconProps } }))];
+    const classes = ['fab-inner-icon', className || '', css(InnerIconStyles({ framework: 'react', props: { parentProps: parentProps, icon } }))];
 
     return (
         <span className={classes.join(' ')}></span>

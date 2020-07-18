@@ -21,9 +21,10 @@ const Avatar = props => {
         showInitials,
         size
     } = props;
+    const classes = [className, 'fab-avatar-wrapper', css(AvatarStyles({ framework: 'react', props }))];
 
     return (
-        <div className={`${className} fab-avatar-wrapper ${css(AvatarStyles({ framework: 'react', props }))}`} data-fab-wrapper="avatar" data-rounded={rounded}>
+        <div className={classes.join(' ')} data-fab-wrapper="avatar" data-rounded={rounded}>
             <div className="fab-avatar" data-color={color} data-rounded={rounded} data-size={size}>
                 {!showInitials && !!icon && <InnerIcon icon={icon} parentProps={props} />}
                 {showInitials && <span className="fab-avatar__initials">{getInitials(showInitials)}</span>}

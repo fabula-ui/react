@@ -44,14 +44,12 @@ const Alert = props => {
                     <div className="fab-alert__stage">
                         {!!title &&
                             <div className="fab-alert__title">
-                                {typeof title === 'object' && <Text color="inherit" {...title} />}
-                                {typeof title === 'string' && <Text color="inherit">{title}</Text>}
+                                {title}
                             </div>
                         }
                         {!!text &&
                             <div className="fab-alert__text">
-                                {typeof text === 'object' && <Text color="inherit" {...text} />}
-                                {typeof text === 'string' && <Text color="inherit">{text}</Text>}
+                                {text}
                             </div>
                         }
                         {children}

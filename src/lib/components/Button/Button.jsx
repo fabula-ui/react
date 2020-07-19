@@ -1,6 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
+
+// Components
+import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Styles
 import ButtonStyles from '@fabula/core/styles/components/button/button';
@@ -12,18 +15,12 @@ const Button = props => {
         circle,
         className,
         color,
-        compact,
         disabled,
         expand,
-        faded,
-        glow,
-        gradient,
         icon,
-        invert,
         label,
         outline,
         rounded,
-        wide,
         ...rest
     } = props;
     const classes = ['fab-button-wrapper', className || '', css(ButtonStyles({ framework: 'react', props }))];
@@ -43,8 +40,8 @@ const Button = props => {
                 data-fab-component="button"
                 disabled={disabled}
                 {...rest}>
-                {!!icon && <span className="fab-button__icon" />}
-                {!!label && !icon && label}
+                {!!icon && <InnerIcon icon={icon} parentProps={props} />}
+                {!!label && <span>{label}</span>}
                 {children}
             </button>
         </div>
@@ -62,11 +59,24 @@ Button.defaultProps = {
     invert: false,
     outline: false,
     rounded: false,
+    size: 'md',
     wide: false,
 }
 
 Button.propTypes = {
+    align: PropTypes.string,
+    clear: PropTypes.bool,
+    color: PropTypes.string,
+    compact: PropTypes.bool,
+    expand: PropTypes.bool,
+    faded: PropTypes.bool,
+    glow: PropTypes.bool,
+    gradient: PropTypes.bool,
+    icon: PropTypes.any,
+    invert: PropTypes.bool,
+    outline: PropTypes.bool,
     rounded: PropTypes.bool,
+    size: PropTypes.string,
     wide: PropTypes.bool
 }
 

@@ -15,6 +15,20 @@ export default {
   component: Button,
 };
 
+export const Examples = () => (
+  <FabulaProvider>
+    <FabulaUtils>
+      <ButtonGroup mb="1">
+        <Button color="primary" icon="file" label="Button"></Button>
+        <Button color="primary">
+          <Icon name="database" />
+          <span>Button</span>
+        </Button>
+      </ButtonGroup>
+    </FabulaUtils>
+  </FabulaProvider>
+)
+
 export const Circle = () => (
   <FabulaProvider>
     <FabulaUtils>

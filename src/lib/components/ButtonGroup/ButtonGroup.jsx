@@ -9,8 +9,8 @@ const ButtonGroup = props => {
     const classes = ['fab-button-group-wrapper', className || '', css(ButtonGroupStyles({ framework: 'react', props }))];
 
     return (
-        <div className={classes.join(' ')}>
-            <div className="fab-button-group">
+        <div className={classes.join(' ')} data-fab-wrapper="buttonGroup">
+            <div className="fab-button-group" data-fab-component="buttonGroup">
                 {children}
             </div>
         </div>

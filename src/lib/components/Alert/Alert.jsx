@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Components
 import CloseButton from '../CloseButton/CloseButton';
 import InnerIcon from '../InnerIcon/InnerIcon';
-import Text from '../Text/Text';
 
 // Methods
 import getTransitionDuration from '@fabula/core/styles/methods/misc/getTransitionDuration';
@@ -38,8 +38,8 @@ const Alert = props => {
 
     if (isVisible) {
         return (
-            <div className={classes.join(' ')}>
-                <div className="fab-alert" data-closing={isClosing} data-title={!!title} data-visible={isVisible} ref={ref}>
+            <div className={classes.join(' ')} data-fab-wrapper="alert">
+                <div className="fab-alert" data-closing={isClosing} data-fab-component="alert" data-title={!!title} data-visible={isVisible} ref={ref}>
                     {!!icon && <InnerIcon icon={icon} parentProps={props} />}
                     <div className="fab-alert__stage">
                         {!!title &&
@@ -62,6 +62,42 @@ const Alert = props => {
     } else {
         return <></>
     }
+}
+
+Alert.defaultProps = {
+    border: '',
+    clear: false,
+    closeButton: false,
+    color: '',
+    faded: false,
+    glow: false,
+    icon: null,
+    invert: false,
+    marker: '',
+    outline: false,
+    text: '',
+    textColor: '',
+    title: '',
+    titleColor: '',
+    visible: true
+}
+
+Alert.propTypes = {
+    border: PropTypes.string,
+    clear: PropTypes.bool,
+    closeButton: PropTypes.bool,
+    color: PropTypes.string,
+    faded: PropTypes.bool,
+    glow: PropTypes.bool,
+    icon: PropTypes.any,
+    invert: PropTypes.bool,
+    marker: PropTypes.string,
+    outline: PropTypes.bool,
+    text: PropTypes.string,
+    textColor: PropTypes.string,
+    title: PropTypes.string,
+    titleColor: PropTypes.string,
+    visible: PropTypes.bool
 }
 
 export default Alert;

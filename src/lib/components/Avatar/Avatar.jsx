@@ -22,7 +22,7 @@ const Avatar = props => {
         showInitials,
         size
     } = props;
-    const classes = [className, 'fab-avatar-wrapper', css(AvatarStyles({ framework: 'react', props }))];
+    const classes = ['fab-avatar-wrapper', css(AvatarStyles({ framework: 'react', props })), className || ''];
 
     return (
         <div className={classes.join(' ')} data-fab-wrapper="avatar" data-rounded={rounded}>

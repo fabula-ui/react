@@ -7,7 +7,7 @@ import ButtonGroupStyles from '@fabula/core/styles/components/button-group/butto
 
 const ButtonGroup = props => {
     const { children, className } = props;
-    const classes = ['fab-button-group-wrapper', className || '', css(ButtonGroupStyles({ framework: 'react', props }))];
+    const classes = ['fab-button-group-wrapper', css(ButtonGroupStyles({ framework: 'react', props })), className || ''];
 
     return (
         <div className={classes.join(' ')} data-fab-wrapper="buttonGroup">

@@ -7,7 +7,7 @@ import CardStyles from '@fabula/core/styles/components/card/card';
 
 const Card = props => {
     const { className, children, layout } = props;
-    const classes = [className, 'fab-card-wrapper', css(CardStyles({ framework: 'react', props }))];
+    const classes = ['fab-card-wrapper', css(CardStyles({ framework: 'react', props })), className || ''];
 
     // Children with props
     const childrenWithProps = Children.map(children, child => {

@@ -6,9 +6,9 @@ import CardSectionStyles from '@fabula/core/styles/components/card-section/card-
 
 const CardSection = props => {
     const { className, children, layout, utils } = props;
-    
+    const classes = ['fab-card-section', css(CardSectionStyles({ framework: 'react', props })), className || ''];
     return (
-        <div className={`${className} fab-card-section ${css(CardSectionStyles({ framework: 'react', props, utils }))}`} data-fab-component="card-section" data-layout={layout}>
+        <div className={classes.join(' ')} data-fab-component="card-section" data-layout={layout}>
             {children}
         </div>
     )

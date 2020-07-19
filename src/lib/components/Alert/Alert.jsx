@@ -16,7 +16,7 @@ const Alert = props => {
     const { children, className, closeButton, color, icon, onClose, text, visible, title } = props;
     const [isClosing, setIsClosing] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
-    const classes = ['fab-alert-wrapper', className, css(AlertStyles({ framework: 'react', props }))];
+    const classes = ['fab-alert-wrapper', css(AlertStyles({ framework: 'react', props })), className || ''];
     const ref = useRef(null);
 
     // Hooks

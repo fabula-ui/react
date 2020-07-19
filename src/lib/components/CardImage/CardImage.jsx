@@ -6,10 +6,11 @@ import PropTypes from 'prop-types';
 import CardImageStyles from '@fabula/core/styles/components/card-image/card-image';
 
 const CardImage = props => {
-    const { children, src, layout, utils } = props;
+    const { children, className, src, layout } = props;
+    const classes = ['fab-card-image', css(CardImageStyles({ framework: 'react', props })), className || ''];
     
     return (
-        <div className={`fab-card-image ${css(CardImageStyles({ framework: 'react', props, utils }))}`} data-layout={layout}>
+        <div className={classes.join(' ')} data-layout={layout}>
             {!!src && <img src={src} />}
             {children}
         </div>

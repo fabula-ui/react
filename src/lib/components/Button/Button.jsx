@@ -23,7 +23,7 @@ const Button = props => {
         rounded,
         ...rest
     } = props;
-    const classes = ['fab-button-wrapper', className || '', css(ButtonStyles({ framework: 'react', props }))];
+    const classes = ['fab-button-wrapper', css(ButtonStyles({ framework: 'react', props })), className || ''];
 
     return (
         <div

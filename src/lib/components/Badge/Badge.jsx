@@ -12,7 +12,7 @@ const Badge = props => {
         label,
         placement
     } = props;
-    const classes = [className, 'fab-badge-wrapper', css(BadgeStyles({ framework: 'react', props }))];
+    const classes = ['fab-badge-wrapper', css(BadgeStyles({ framework: 'react', props })), className || ''];
 
     return (
         <div className={classes.join(' ')} data-fab-wrapper="badge">

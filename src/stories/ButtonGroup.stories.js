@@ -33,7 +33,7 @@ export const Flow = () => (
 export const Glued = () => (
     <FabulaProvider>
         <FabulaUtils>
-            <ButtonGroup glued={true} mb={1}>
+            <ButtonGroup color="primary" glued={true} mb={1}>
                 <Button color="primary">Button 1</Button>
                 <Button color="primary">Button 2</Button>
                 <Button color="primary">Button 3</Button>
@@ -45,25 +45,25 @@ export const Glued = () => (
                 <Button border={true} color="primary">Button 3</Button>
             </ButtonGroup>
 
-            <ButtonGroup dividerColor="primary" glued={true} mb={1}>
+            <ButtonGroup color="primary" glued={true} mb={1}>
                 <Button color="primary">Button 1</Button>
                 <Button color="primary">Button 2</Button>
                 <Button color="primary">Button 3</Button>
             </ButtonGroup>
 
-            <ButtonGroup dividerColor="secondary" glued={true} mb={1}>
+            <ButtonGroup color="secondary" glued={true} mb={1}>
                 <Button color="secondary">Button 1</Button>
                 <Button color="secondary">Button 2</Button>
                 <Button color="secondary">Button 3</Button>
             </ButtonGroup>
 
-            <ButtonGroup dividerColor="aux" glued={true} mb={1}>
+            <ButtonGroup color="aux" glued={true} mb={1}>
                 <Button color="aux">Button 1</Button>
                 <Button color="aux">Button 2</Button>
                 <Button color="aux">Button 3</Button>
             </ButtonGroup>
 
-            <ButtonGroup dividerColor="#EEE" glued={true} mb={1}>
+            <ButtonGroup color="#EEE" glued={true} mb={1}>
                 <Button color="primary" clear={true}>Button 1</Button>
                 <Button color="secondary" clear={true}>Button 2</Button>
                 <Button color="danger" clear={true}>Button 3</Button>

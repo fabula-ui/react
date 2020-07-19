@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Styles
 import ButtonGroupStyles from '@fabula/core/styles/components/button-group/button-group';
@@ -18,9 +19,23 @@ const ButtonGroup = props => {
 }
 
 ButtonGroup.defaultProps = {
+    color: '',
     divider: true,
+    dividerColor: '',
     flow: 'horizontal',
+    glued: false,
+    spacing: null,
     wrap: true
+}
+
+ButtonGroup.propTypes = {
+    color: PropTypes.string,
+    divider: PropTypes.bool,
+    dividerColor: PropTypes.string,
+    flow: PropTypes.string,
+    glued: PropTypes.bool,
+    spacing: PropTypes.any,
+    wrap: PropTypes.bool
 }
 
 export default ButtonGroup;

@@ -30,10 +30,10 @@ export const Examples = () => (
           <CardImage height={200} />
           <CardSection divider="top" padding>
             <Text flex size="lg">
-              <Text mr=".5" strong>Card Title</Text>
+              <strong mr=".5">Card Title</strong>
               <Badge color="primary">New</Badge>
             </Text>
-            <Text aux block mb="1" size="sm" span>Card subtitle</Text>
+            <Text aux block mb="1" size="sm">Card subtitle</Text>
             <Text mb="1">This is some text inside this card. You can add whatever content in here.</Text>
           </CardSection>
           <CardSection divider="top" padding>
@@ -135,7 +135,7 @@ export const Color = () => (
         <Card col="3">
           <CardImage height="120" />
           <CardSection padding>
-            <Text block size="lg" strong>Card Title</Text>
+            <Text block size="lg"><strong>Card Title</strong></Text>
             <Text aux block size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection divider="top" padding>
@@ -146,7 +146,7 @@ export const Color = () => (
         <Card col="3" color="primary">
           <CardImage adaptColor={true} color="primary" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="primary" divider="top" padding>
@@ -157,7 +157,7 @@ export const Color = () => (
         <Card col="3" color="secondary">
           <CardImage adaptColor={true} color="secondary" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="secondary" divider="top" padding>
@@ -168,7 +168,7 @@ export const Color = () => (
         <Card col="3" color="success">
           <CardImage adaptColor={true} color="success" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="success" divider="top" padding>
@@ -181,7 +181,7 @@ export const Color = () => (
         <Card col="3" color="danger">
           <CardImage adaptColor={true} color="danger" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="danger" divider="top" padding>
@@ -192,7 +192,7 @@ export const Color = () => (
         <Card col="3" color="warning">
           <CardImage adaptColor={true} color="warning" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="warning" divider="top" padding>
@@ -203,7 +203,7 @@ export const Color = () => (
         <Card col="3" color="hot">
           <CardImage adaptColor={true} color="hot" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="hot" divider="top" padding>
@@ -214,7 +214,7 @@ export const Color = () => (
         <Card col="3" color="cold">
           <CardImage adaptColor={true} color="cold" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="cold" divider="top" padding>
@@ -227,7 +227,7 @@ export const Color = () => (
         <Card col="3" color="dark">
           <CardImage adaptColor={true} color="dark" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="dark" divider="top" padding>
@@ -238,7 +238,7 @@ export const Color = () => (
         <Card col="3" color="light">
           <CardImage adaptColor={true} color="light" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="light" divider="top" padding>
@@ -249,7 +249,7 @@ export const Color = () => (
         <Card col="3" color="aux">
           <CardImage adaptColor={true} color="aux" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="aux" divider="top" padding>
@@ -269,7 +269,7 @@ export const Glow = () => (
         <Card col="3" glow={true}>
           <CardImage height="120" />
           <CardSection padding>
-            <Text block size="lg" strong>Card Title</Text>
+            <Text block size="lg" strong><strong>Card Title</strong></Text>
             <Text aux block size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection divider="top" padding>
@@ -280,7 +280,7 @@ export const Glow = () => (
         <Card col="3" color="primary" glow={true}>
           <CardImage adaptColor={true} color="primary" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="primary" divider="top" padding>
@@ -291,7 +291,7 @@ export const Glow = () => (
         <Card col="3" color="secondary" glow={true}>
           <CardImage adaptColor={true} color="secondary" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="secondary" divider="top" padding>
@@ -302,7 +302,7 @@ export const Glow = () => (
         <Card col="3" color="success" glow={true}>
           <CardImage adaptColor={true} color="success" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="success" divider="top" padding>
@@ -315,7 +315,7 @@ export const Glow = () => (
         <Card col="3" color="danger" glow={true}>
           <CardImage adaptColor={true} color="danger" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="danger" divider="top" padding>
@@ -326,7 +326,7 @@ export const Glow = () => (
         <Card col="3" color="warning" glow={true}>
           <CardImage adaptColor={true} color="warning" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="warning" divider="top" padding>
@@ -337,7 +337,7 @@ export const Glow = () => (
         <Card col="3" color="hot" glow={true}>
           <CardImage adaptColor={true} color="hot" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="hot" divider="top" padding>
@@ -348,7 +348,7 @@ export const Glow = () => (
         <Card col="3" color="cold" glow={true}>
           <CardImage adaptColor={true} color="cold" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="cold" divider="top" padding>
@@ -361,7 +361,7 @@ export const Glow = () => (
         <Card col="3" color="dark" glow={true}>
           <CardImage adaptColor={true} color="dark" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="dark" divider="top" padding>
@@ -372,7 +372,7 @@ export const Glow = () => (
         <Card col="3" color="light" glow={true}>
           <CardImage adaptColor={true} color="light" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="light" divider="top" padding>
@@ -383,7 +383,7 @@ export const Glow = () => (
         <Card col="3" color="aux" glow={true}>
           <CardImage adaptColor={true} color="aux" height="120" />
           <CardSection padding>
-            <Text block color="inherit" size="lg" strong>Card Title</Text>
+            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
             <Text aux block color="inherit" size="sm">Card subtitle</Text>
           </CardSection>
           <CardSection color="aux" divider="top" padding>
@@ -403,8 +403,8 @@ export const Layout = () => (
         <Card col="3">
           <CardImage height={200} />
           <CardSection divider="top" padding>
-            <Text block size="lg" strong>
-              <Text mr=".5">Card Title</Text>
+            <Text flex size="lg">
+              <strong mr=".5">Card Title</strong>
               <Badge color="primary">New</Badge>
             </Text>
             <Text aux block mb="1" size="sm" span>Card subtitle</Text>
@@ -419,8 +419,8 @@ export const Layout = () => (
           <Card layout="h" mb={1}>
             <CardImage width={200} />
             <CardSection grow={1} padding>
-              <Text block size="lg" strong>
-                <Text mr=".5">Card Title</Text>
+              <Text flex size="lg">
+                <strong mr=".5">Card Title</strong>
                 <Badge color="primary">New</Badge>
               </Text>
               <Text aux block mb="1" size="sm" span>Card subtitle</Text>
@@ -435,8 +435,8 @@ export const Layout = () => (
             <CardImage height={300} width={200} />
             <CardSection expand={true}>
               <CardSection expand={true} padding>
-                <Text block size="lg" strong>
-                  <Text mr=".5">Card Title</Text>
+                <Text flex size="lg">
+                  <strong mr=".5">Card Title</strong>
                   <Badge color="primary">New</Badge>
                 </Text>
                 <Text aux block mb="1" size="sm" span>Card subtitle</Text>
@@ -452,8 +452,8 @@ export const Layout = () => (
 
           <Card layout="h">
             <CardSection grow={1} padding>
-              <Text block size="lg" strong>
-                <Text mr=".5">Card Title</Text>
+              <Text flex size="lg">
+                <strong mr=".5">Card Title</strong>
                 <Badge color="primary">New</Badge>
               </Text>
               <Text aux block mb="1" size="sm" span>Card subtitle</Text>

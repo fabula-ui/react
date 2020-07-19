@@ -65,7 +65,8 @@ const Alert = props => {
 }
 
 Alert.defaultProps = {
-    border: '',
+    border: true,
+    borderColor: '',
     clear: false,
     closeButton: false,
     color: '',
@@ -83,7 +84,8 @@ Alert.defaultProps = {
 }
 
 Alert.propTypes = {
-    border: PropTypes.string,
+    border: PropTypes.bool,
+    borderColor: PropTypes.string,
     clear: PropTypes.bool,
     closeButton: PropTypes.bool,
     color: PropTypes.string,

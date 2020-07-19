@@ -32,25 +32,25 @@ export const Border = () => (
         <FabulaUtils>
             <div mb="1" row>
                 <Alert col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert border="primary" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert border="secondary" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="primary" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="secondary" col="4" text="Hey! Just a reminder that this is an alert!" />
             </div>
 
             <div mb="1" row>
-                <Alert border="success" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert border="danger" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert border="warning" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="success" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="danger" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="warning" col="4" text="Hey! Just a reminder that this is an alert!" />
             </div>
 
             <div mb="1" row>
-                <Alert border="hot" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert border="cold" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert border="dark" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="hot" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="cold" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="dark" col="4" text="Hey! Just a reminder that this is an alert!" />
             </div>
 
             <div row>
-                <Alert border="light" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert border="aux" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="light" col="4" text="Hey! Just a reminder that this is an alert!" />
+                <Alert borderColor="aux" col="4" text="Hey! Just a reminder that this is an alert!" />
             </div>
         </FabulaUtils>
     </FabulaProvider>

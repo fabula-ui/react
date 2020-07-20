@@ -1,4 +1,11 @@
-import React, { Children, cloneElement, useEffect, useState, isValidElement } from 'react';
+import React, {
+    Children,
+    cloneElement,
+    isValidElement,
+    useEffect,
+    useRef,
+    useState
+} from 'react';
 import { css } from 'emotion';
 
 // Components
@@ -9,19 +16,23 @@ import List from '../List/List';
 import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
 
 const DropdownMenu = props => {
-    const { children, className, clickToClose, color, direction, items, list, onChange, onClickItem, size, toggle, ...rest } = props;
+    const { children, className, clickToClose, color, direction, items, onChange, onClickItem, size, toggle, ...rest } = props;
+    const [height, setHeight] = useState(false);
     const [open, setOpen] = useState(false);
+    const ref = useRef(null);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
-            return cloneElement(child, { color, open, parentOnClick: onClickItem, size })
+            return cloneElement(child, { clickToClose, color, open, parentOnClick: onClickItem, size, toggle })
         } else {
             return child;
         }
     });
-    // CSS
-    const dropdownMenuCss = css(DropdownMenuStyles({ framework: 'react', props }));
-    // Classes
-    const classes = ['fab-dropdown-menu-wrapper', className || '', dropdownMenuCss];
+    const classes = ['fab-dropdown-menu', className || '', css(DropdownMenuStyles({ framework: 'react', props: { ...props, height } }))];
+
+    // Hooks
+    useEffect(() => {
+        if (ref.current) { setHeight(ref.current.offsetHeight); }
+    }, [ref]);
 
     useEffect(() => {
         if (onChange) { onChange(open); }
@@ -45,9 +56,9 @@ const DropdownMenu = props => {
     }
 
     return (
-        <div className={classes.join(' ')}>
-            <div className="fab-dropdown-menu" data-direction={direction} data-open={open}>
-                {items && !list &&
+        <div className={classes.join(' ')} data-direction={direction} data-open={open} ref={ref}>
+            {items && renderItems()}
+            {/* {items && !list &&
                     <List color={color} padding={true} {...rest}>
                         {renderItems()}
                     </List>
@@ -56,9 +67,8 @@ const DropdownMenu = props => {
                     <List color={color} {...rest}>
                         {childrenWithProps}
                     </List>
-                }
-                {!items && !list && childrenWithProps}
-            </div>
+                } */}
+            {!items && childrenWithProps}
         </div>
     )
 }

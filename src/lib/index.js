@@ -8,6 +8,7 @@ import Card from './components/Card/Card';
 import CardImage from './components/CardImage/CardImage';
 import CardSection from './components/CardSection/CardSection';
 import Checkbox from './components/Checkbox/Checkbox';
+import Divider from './components/Divider/Divider';
 import Dropdown from './components/Dropdown/Dropdown';
 import DropdownItem from './components/DropdownItem/DropdownItem';
 import DropdownMenu from './components/DropdownMenu/DropdownMenu';
@@ -67,6 +68,7 @@ export {
     CardImage,
     CardSection,
     Checkbox,
+    Divider,
     Dropdown,
     DropdownItem,
     DropdownMenu,

@@ -1,18 +1,19 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import {
+    Badge,
+    Divider,
     Dropdown,
     DropdownItem,
     DropdownMenu,
     DropdownToggle,
     FabulaProvider,
+    Icon,
     List,
     ListItem,
     Tag,
     Text,
     FabulaUtils,
-    Icon
 } from '../lib';
 
 export default {
@@ -26,12 +27,24 @@ export const Examples = () => (
             <div flex>
                 <Dropdown mb={1} mr={1}>
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
-                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Extra-small label', size: 'xs' }, { button: true, label: 'Small label' }, { button: true, label: 'Medium label', size: 'md' }, { button: true, label: 'Large label', size: 'lg' }, { button: true, label: 'Extra-large label', size: 'xl' }]} onClickItem={() => alert('It works!')}></DropdownMenu>
+                    <DropdownMenu clickToClose={true} onClickItem={() => console.log('Parent onClick')}>
+                        <DropdownItem>Dropdown Item 1</DropdownItem>
+                        <DropdownItem>Dropdown Item 2</DropdownItem>
+                        <DropdownItem>Dropdown Item 3</DropdownItem>
+                        <Divider />
+                        <DropdownItem>
+                            <div flex>
+                                <Icon color="primary" mr=".5" name="database" />
+                                <span grow={1} mr="1">Dropdown Item 4</span>
+                                <Badge color="primary">New</Badge>
+                            </div>
+                        </DropdownItem>
+                    </DropdownMenu>
                 </Dropdown>
 
                 <Dropdown mr={1}>
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
-                    <DropdownMenu clickToClose={true} divider={false} items={[{ button: true, color: '', label: 'Default' }, { button: true, color: 'primary', label: 'Primary' }, { button: true, color: 'secondary', label: 'Secondary' }, { button: true, color: 'success', label: 'Success' }, { button: true, color: 'danger', label: 'Danger' }]} onClickItem={() => alert('It works!')}></DropdownMenu>
+                    <DropdownMenu clickToClose={true} items={[{ button: true, color: '', label: 'Default' }, { button: true, color: 'primary', label: 'Primary' }, { button: true, color: 'secondary', label: 'Secondary' }, { button: true, color: 'success', label: 'Success' }, { button: true, color: 'danger', label: 'Danger' }]} onClickItem={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
 
                 <Dropdown>
@@ -258,7 +271,7 @@ export const Size = () => (
                     <DropdownToggle color="aux" icon="map-pin" compact={true} label="Small" size="sm" />
                     <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')} size="sm"></DropdownMenu>
                 </Dropdown>
-                
+
                 <Dropdown mr="1">
                     <DropdownToggle color="aux" icon="map-pin" compact={true} label="Medium" size="md" />
                     <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onClick={() => alert('It works!')} size="md"></DropdownMenu>

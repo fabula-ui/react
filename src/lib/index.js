@@ -10,6 +10,7 @@ import CardSection from './components/CardSection/CardSection';
 import Checkbox from './components/Checkbox/Checkbox';
 import Divider from './components/Divider/Divider';
 import Dropdown from './components/Dropdown/Dropdown';
+import DropdownHeader from './components/DropdownHeader/DropdownHeader';
 import DropdownItem from './components/DropdownItem/DropdownItem';
 import DropdownMenu from './components/DropdownMenu/DropdownMenu';
 import DropdownToggle from './components/DropdownToggle/DropdownToggle';
@@ -70,6 +71,7 @@ export {
     Checkbox,
     Divider,
     Dropdown,
+    DropdownHeader,
     DropdownItem,
     DropdownMenu,
     DropdownToggle,

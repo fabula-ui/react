@@ -4,6 +4,7 @@ import {
     Badge,
     Divider,
     Dropdown,
+    DropdownHeader,
     DropdownItem,
     DropdownMenu,
     DropdownToggle,
@@ -28,6 +29,10 @@ export const Examples = () => (
                 <Dropdown mb={1} mr={1}>
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
                     <DropdownMenu clickToClose={true} onClickItem={() => console.log('Parent onClick')}>
+                        <DropdownHeader>
+                            <Icon mr={.3} name="database" />
+                            <span>Dropdown Header</span>
+                        </DropdownHeader>
                         <DropdownItem>Dropdown Item 1</DropdownItem>
                         <DropdownItem>Dropdown Item 2</DropdownItem>
                         <DropdownItem>Dropdown Item 3</DropdownItem>
@@ -37,6 +42,14 @@ export const Examples = () => (
                                 <Icon color="primary" mr=".5" name="database" />
                                 <span grow={1} mr="1">Dropdown Item 4</span>
                                 <Badge color="primary">New</Badge>
+                            </div>
+                        </DropdownItem>
+                        <Divider />
+                        <DropdownItem color="primary">
+                            <div flex>
+                                <Icon mr=".5" name="database" />
+                                <span grow={1} mr="1">Dropdown Item 5</span>
+                                <Badge color="primary" invert={true} rounded={true} size="sm">1</Badge>
                             </div>
                         </DropdownItem>
                     </DropdownMenu>
@@ -168,13 +181,15 @@ export const CustomContent = () => (
 
             <Dropdown>
                 <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" wide={true} />
-                <DropdownMenu list={true}>
+                <DropdownMenu>
                     <DropdownItem alV="center" button={true} clickToClose={true} flex>
                         <Text grow={1} weight={600}>List Item 1</Text>
                         <Tag color="success">
                             <strong>Done</strong>
                         </Tag>
                     </DropdownItem>
+
+                    <Divider />
 
                     <DropdownItem alV="center" button={true} clickToClose={true} flex>
                         <Text grow={1} weight={600}>List Item 2</Text>
@@ -184,6 +199,8 @@ export const CustomContent = () => (
                         </Tag>
                     </DropdownItem>
 
+                    <Divider />
+
                     <DropdownItem alV="center" button={true} clickToClose={true} flex>
                         <Text grow={1} weight={600}>List Item 3</Text>
                         <Tag color="hot">
@@ -191,6 +208,8 @@ export const CustomContent = () => (
                             <strong>Hot</strong>
                         </Tag>
                     </DropdownItem>
+
+                    <Divider />
 
                     <DropdownItem alV="center" button={true} clickToClose={true} flex>
                         <Text grow={1} weight={600}>List Item 4</Text>

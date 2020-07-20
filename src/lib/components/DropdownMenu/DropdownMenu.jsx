@@ -10,7 +10,6 @@ import { css } from 'emotion';
 
 // Components
 import DropdownItem from '../DropdownItem/DropdownItem';
-import List from '../List/List';
 
 // Styles
 import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
@@ -22,7 +21,7 @@ const DropdownMenu = props => {
     const ref = useRef(null);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
-            return cloneElement(child, { clickToClose, color, open, parentOnClick: onClickItem, size, toggle })
+            return cloneElement(child, { clickToClose, open, parentColor: color, parentOnClick: onClickItem, size, toggle })
         } else {
             return child;
         }
@@ -58,16 +57,6 @@ const DropdownMenu = props => {
     return (
         <div className={classes.join(' ')} data-direction={direction} data-open={open} ref={ref}>
             {items && renderItems()}
-            {/* {items && !list &&
-                    <List color={color} padding={true} {...rest}>
-                        {renderItems()}
-                    </List>
-                }
-                {!items && list &&
-                    <List color={color} {...rest}>
-                        {childrenWithProps}
-                    </List>
-                } */}
             {!items && childrenWithProps}
         </div>
     )

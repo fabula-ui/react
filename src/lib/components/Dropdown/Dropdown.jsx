@@ -6,7 +6,6 @@ import DropdownStyles from '@fabula/core/styles/components/dropdown/dropdown';
 
 const Dropdown = props => {
     const { children, className, direction, expand } = props;
-    const [height, setHeight] = useState(0);
     const [open, setOpen] = useState(props.open);
     const ref = useRef(null);
     const classes = ['fab-dropdown-wrapper', css(DropdownStyles({ framework: 'react', props })), className || ''];
@@ -25,10 +24,6 @@ const Dropdown = props => {
 
     // Hooks
     useEffect(() => {
-        if (ref.current) { setHeight(ref.current.offsetHeight); }
-    }, [ref]);
-
-    useEffect(() => {
         document.addEventListener('click', handleClick);
 
         return () => {
@@ -37,7 +32,7 @@ const Dropdown = props => {
     }, [handleClick]);
 
     // Children with props
-    const childrenWithProps = Children.map(children, child => cloneElement(child, { direction, dropdownHeight: height, expand, open, toggle }));
+    const childrenWithProps = Children.map(children, child => cloneElement(child, { direction, expand, open, toggle }));
 
     return (
         <div className={classes.join(' ')} ref={ref}>

@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import DropdownItemStyles from '@fabula/core/styles/components/dropdown-item/dropdown-item';
 
 const DropdownItem = props => {
-    const { button, color, children, className, clickToClose, item, label, list, onClick, open, parentOnClick, size, toggle, ...rest } = props;
+    const { button, children, className, clickToClose, label, onClick, parentOnClick, toggle } = props;
     const classes = ['fab-dropdown-item', css(DropdownItemStyles({ framework: 'react', props })), className || ''];
 
     const handleClick = () => {
@@ -14,16 +14,19 @@ const DropdownItem = props => {
         if ((button || onClick || parentOnClick) && clickToClose && toggle) { toggle(); }
     }
 
-    return (
-        <div className={classes.join(' ')} data-button={!!button || !!onClick || !!parentOnClick} onClick={handleClick}>
-            {(!!button || !!onClick || !!parentOnClick) &&
-                <button class="fab-dropdown-item__button">
-                    {label || children}
-                </button>
-            }
-            {!button && !onClick && !parentOnClick && (label || children)}
-        </div>
-    )
+    if (!!button || !!onClick || !!parentOnClick) {
+        return (
+            <button className={classes.join(' ')} data-fab-component="dropdown-item" onClick={handleClick}>
+                {label || children}
+            </button>
+        )
+    } else {
+        return (
+            <div className={classes.join(' ')} data-fab-component="dropdown-item" onClick={handleClick}>
+                {label || children}
+            </div>
+        )
+    }
 }
 
 DropdownItem.defaultProps = {

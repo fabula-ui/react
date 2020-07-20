@@ -1,9 +1,10 @@
 import React from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Components
 import Button from '../Button/Button';
-import Icon from '../Icon/Icon';
+import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Styles
 import ButtonStyles from '@fabula/core/styles/components/button/button';
@@ -25,16 +26,27 @@ const DropdownToggle = props => {
 
     return (
         <div className={classes.join(' ')} data-direction={direction} data-open={open}>
-            {label &&
-                <Button onClick={handleClick} {...rest}>
-                    {!!icon && <span className="fab-dropdown-toggle__icon" />}
-                    <span className="fab-dropdown-toggle__label">{label}</span>
-                    <span className="fab-dropdown-toggle__chevron" />
-                </Button>
-            }
-            {children}
+            <Button onClick={handleClick} {...rest}>
+                {!!icon && <InnerIcon icon={icon} parentProps={props} />}
+                <span className="fab-dropdown-toggle__label">{label || children}</span>
+                <span className="fab-dropdown-toggle__chevron" />
+            </Button>
         </div>
     )
+}
+
+DropdownToggle.defaultProps = {
+    direction: '',
+    icon: '',
+    label: '',
+    open: false
+}
+
+DropdownToggle.propTypes = {
+    direction: PropTypes.string,
+    icon: PropTypes.string,
+    label: PropTypes.string,
+    open: PropTypes.bool 
 }
 
 export default DropdownToggle;

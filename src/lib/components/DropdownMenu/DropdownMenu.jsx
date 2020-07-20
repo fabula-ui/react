@@ -7,6 +7,7 @@ import React, {
     useState
 } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Components
 import DropdownItem from '../DropdownItem/DropdownItem';
@@ -26,7 +27,7 @@ const DropdownMenu = props => {
             return child;
         }
     });
-    const classes = ['fab-dropdown-menu', className || '', css(DropdownMenuStyles({ framework: 'react', props: { ...props, height } }))];
+    const classes = ['fab-dropdown-menu', css(DropdownMenuStyles({ framework: 'react', props: { ...props, height } })), className || ''];
 
     // Hooks
     useEffect(() => {
@@ -50,21 +51,38 @@ const DropdownMenu = props => {
 
     const renderItems = () => {
         return items.map((item, i) => {
-            return <DropdownItem clickToClose={clickToClose || item.clickToClose} item={item} key={i} open={open} parentOnClick={onClickItem} size={size} toggle={handleToggle} {...item} />
+            return <DropdownItem clickToClose={clickToClose || item.clickToClose} item={item} key={i} open={open} parentColor={color} parentOnClick={onClickItem} size={size} toggle={handleToggle} {...item} />
         });
     }
 
     return (
         <div className={classes.join(' ')} data-direction={direction} data-open={open} ref={ref}>
-            {items && renderItems()}
+            {!!items && renderItems()}
             {!items && childrenWithProps}
         </div>
     )
 }
 
 DropdownMenu.defaultProps = {
-    direction: 'down',
-    divider: true
+    alignment: '',
+    clickToClose: false,
+    color: '',
+    direction: '',
+    items: null,
+    divider: true,
+    padding: true,
+    size: '',
+}
+
+DropdownMenu.propTypes = {
+    alignment: PropTypes.string,
+    clickToClose: PropTypes.bool,
+    color: PropTypes.string,
+    direction: PropTypes.string,
+    items: PropTypes.any,
+    divider: PropTypes.bool,
+    padding: PropTypes.bool,
+    size: PropTypes.string,
 }
 
 export default DropdownMenu;

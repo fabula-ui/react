@@ -55,14 +55,56 @@ export const Examples = () => (
                     </DropdownMenu>
                 </Dropdown>
 
-                <Dropdown mr={1}>
-                    <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
-                    <DropdownMenu clickToClose={true} items={[{ button: true, color: '', label: 'Default' }, { button: true, color: 'primary', label: 'Primary' }, { button: true, color: 'secondary', label: 'Secondary' }, { button: true, color: 'success', label: 'Success' }, { button: true, color: 'danger', label: 'Danger' }]} onClickItem={() => alert('It works!')}></DropdownMenu>
+                <Dropdown mb={1} mr={1}>
+                    <DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
+                    <DropdownMenu clickToClose={true} color="primary" onClickItem={() => console.log('Parent onClick')}>
+                        <DropdownHeader>
+                            <Icon mr={.3} name="database" />
+                            <span>Dropdown Header</span>
+                        </DropdownHeader>
+                        <DropdownItem>Dropdown Item 1</DropdownItem>
+                        <DropdownItem>Dropdown Item 2</DropdownItem>
+                        <DropdownItem>Dropdown Item 3</DropdownItem>
+                        <Divider />
+                        <DropdownItem>
+                            <div flex>
+                                <Icon mr=".5" name="database" />
+                                <span grow={1} mr="1">Dropdown Item 4</span>
+                                <Badge color="primary" invert={true}>New</Badge>
+                            </div>
+                        </DropdownItem>
+                        <Divider />
+                        <DropdownItem color="primary" invert={true}>
+                            <div flex>
+                                <Icon mr=".5" name="database" />
+                                <span grow={1} mr="1">Dropdown Item 5</span>
+                                <Badge color="primary" rounded={true} size="sm">1</Badge>
+                            </div>
+                        </DropdownItem>
+                    </DropdownMenu>
                 </Dropdown>
 
                 <Dropdown>
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} divider={false} items={[{ color: '', label: 'Default' }, { color: 'primary', label: 'Primary' }, { color: 'secondary', label: 'Secondary' }, { color: 'success', label: 'Success' }, { color: 'danger', label: 'Danger' }]}></DropdownMenu>
+                </Dropdown>
+            </div>
+        </FabulaUtils>
+    </FabulaProvider>
+)
+
+export const Alignment = () => (
+    <FabulaProvider>
+        <FabulaUtils>
+            <div>
+                <Dropdown alignment="left" mr="5">
+                    <DropdownToggle color="primary" icon="arrow-left" compact={true} label="Left" />
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Dropdown Item 1' }, { button: true, label: 'Dropdown Item 2' }, { button: true, label: 'Dropdown Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
+                </Dropdown>
+
+                <Dropdown alignment="right">
+                    <DropdownToggle color="primary" icon="arrow-right" compact={true} label="Right" />
+                    <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Dropdown Item 1' }, { button: true, label: 'Dropdown Item 2' }, { button: true, label: 'Dropdown Item 3' }]} onClick={() => alert('It works!')}></DropdownMenu>
                 </Dropdown>
             </div>
         </FabulaUtils>
@@ -142,7 +184,7 @@ export const CustomContent = () => (
         <FabulaUtils>
             <Dropdown mr="1">
                 <DropdownToggle color="primary" icon="map-pin" label="Dropdown Toggle" wide={true} />
-                <DropdownMenu>
+                <DropdownMenu padding={false}>
                     <List padding={true} striped={true}>
                         <ListItem alV="center" flex>
                             <Text grow={1} weight={600}>List Item 1</Text>
@@ -181,7 +223,7 @@ export const CustomContent = () => (
 
             <Dropdown>
                 <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" wide={true} />
-                <DropdownMenu>
+                <DropdownMenu padding={false}>
                     <DropdownItem alV="center" button={true} clickToClose={true} flex>
                         <Text grow={1} weight={600}>List Item 1</Text>
                         <Tag color="success">

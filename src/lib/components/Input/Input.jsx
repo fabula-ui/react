@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Styles
 import InputStyles from '@fabula/core/styles/components/input/input';
 
 const Input = props => {
-    const { children, className, disabled, icon, iconEnd, iconStart, message, onBlur, onFocus, placeholder, passwordToggle, textarea, type, ...rest } = props;
+    const {
+        children,
+        className,
+        disabled,
+        icon,
+        iconEnd,
+        iconStart,
+        message,
+        onBlur,
+        onChange,
+        onFocus,
+        onKeyDown,
+        onKeyUp,
+        placeholder,
+        passwordToggle,
+        textarea,
+        type
+    } = props;
     const [focus, setFocus] = useState(false);
     const [inputType, setInputType] = useState(type || 'text');
     const classes = ['fab-input-wrapper', className || '', css(InputStyles({ framework: 'react', props }))];
-
-    // Dynamic requires
-    const Text = message ? require('../Text/Text').default : null;
 
     const handleBlur = () => {
         setFocus(false);
@@ -19,10 +34,22 @@ const Input = props => {
         if (onBlur) { onBlur(); }
     }
 
+    const handleChange = () => {
+        if (onChange) { onChange(); }
+    }
+
     const handleFocus = () => {
         setFocus(true);
 
         if (onFocus) { onFocus(); }
+    }
+
+    const handleKeyDown = () => {
+        if (onKeyDown) { onKeyDown(); }
+    }
+
+    const handleKeyUp = () => {
+        if (onKeyUp) { onKeyUp(); }
     }
 
     const toggleType = () => {
@@ -40,22 +67,26 @@ const Input = props => {
                     <input className="fab-input__field"
                         data-fab-component="input"
                         disabled={disabled}
-                        placeholder={placeholder}
-                        type={inputType}
                         onBlur={handleBlur}
+                        onChange={handleChange}
                         onFocus={handleFocus}
-                        {...rest} />
+                        onKeyDown={handleKeyDown}
+                        onKeyUp={handleKeyUp}
+                        placeholder={placeholder}
+                        type={inputType} />
                 }
 
                 {textarea &&
                     <textarea className="fab-input__field"
                         data-fab-component="input"
                         disabled={disabled}
-                        placeholder={placeholder}
-                        type={inputType}
                         onBlur={handleBlur}
+                        onChange={handleChange}
                         onFocus={handleFocus}
-                        {...rest}></textarea>
+                        onKeyDown={handleKeyDown}
+                        onKeyUp={handleKeyUp}
+                        placeholder={placeholder}
+                        type={inputType} />
                 }
 
                 {(!!iconEnd && !passwordToggle) && <span className="fab-input__icon" data-placement="end" />}
@@ -82,5 +113,45 @@ const Input = props => {
 
     )
 }
+
+Input.defaultProps = {
+    color: '',
+    disabled: false,
+    expand: false,
+    glow: false,
+    has: '',
+    icon: null,
+    iconEnd: null,
+    iconStart: null,
+    message: '',
+    messageColor: '',
+    passwordToggle: false,
+    placeholder: '',
+    rounded: false,
+    size: 'md',
+    status: '',
+    textarea: false,
+    type: 'text'
+};
+
+Input.propTypes = {
+    color: PropTypes.string,
+    disabled: PropTypes.bool,
+    expand: PropTypes.bool,
+    glow: PropTypes.bool,
+    has: PropTypes.string,
+    icon: PropTypes.any,
+    iconEnd: PropTypes.any,
+    iconStart: PropTypes.any,
+    message: PropTypes.string,
+    messageColor: PropTypes.string,
+    passwordToggle: PropTypes.bool,
+    placeholder: PropTypes.string,
+    rounded: PropTypes.bool,
+    size: PropTypes.string,
+    status: PropTypes.string,
+    textarea: PropTypes.bool,
+    type: PropTypes.string
+};
 
 export default Input;

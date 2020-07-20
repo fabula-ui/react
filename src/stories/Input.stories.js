@@ -11,17 +11,47 @@ export default {
     component: Input,
 };
 
-export const Examples = () => (
-    <FabulaProvider>
-        <FabulaUtils>
-            <div row>
-                <Input faded={true} col="4" message={{ color: 'primary', text: 'This is a message...' }} placeholder="Type something..." />
-                <Input iconEnd={{ color: 'success', name: 'check' }} iconStart={{ color: 'primary', name: 'user' }} col="4" placeholder="Enter your username" />
-                <Input col="4" icon={{ color: 'primary', name: 'search' }} placeholder="Search..." />
-            </div>
-        </FabulaUtils>
-    </FabulaProvider>
-)
+export const Examples = () => {
+    const handleBlur = () => {
+        console.log('Blur');
+    }
+
+    const handleChange = () => {
+        console.log('Change');
+    }
+
+    const handleFocus = () => {
+        console.log('Focus');
+    }
+
+    const handleKeyDown = () => {
+        console.log('Key down');
+    }
+
+    const handleKeyUp = () => {
+        console.log('Key up');
+    }
+
+    return (
+        <FabulaProvider>
+            <FabulaUtils>
+                <div row>
+                    <Input faded={true}
+                        col="4"
+                        message={{ color: 'primary', text: 'This is a message...' }}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
+                        onFocus={handleFocus}
+                        onKeyDown={handleKeyDown}
+                        onKeyUp={handleKeyUp}
+                        placeholder="Type something..." />
+                    <Input iconEnd={{ color: 'success', name: 'check' }} iconStart={{ color: 'primary', name: 'user' }} col="4" placeholder="Enter your username" />
+                    <Input col="4" icon={{ color: 'primary', name: 'search' }} placeholder="Search..." />
+                </div>
+            </FabulaUtils>
+        </FabulaProvider>
+    )
+}
 
 export const Color = () => (
     <FabulaProvider>

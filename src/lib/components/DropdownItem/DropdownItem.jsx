@@ -17,13 +17,13 @@ const DropdownItem = props => {
 
     if (!!button || !!onClick || !!parentOnClick) {
         return (
-            <button className={classes.join(' ')} data-fab-component="dropdown-item" onClick={handleClick}>
+            <button className={classes.join(' ')} data-fab-component="dropdownItem" onClick={handleClick}>
                 {label || children}
             </button>
         )
     } else {
         return (
-            <div className={classes.join(' ')} data-fab-component="dropdown-item" onClick={handleClick}>
+            <div className={classes.join(' ')} data-fab-component="dropdownItem" onClick={handleClick}>
                 {label || children}
             </div>
         )

@@ -1,12 +1,13 @@
 import React, { Children, cloneElement, isValidElement } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Styles
 import ListStyles from '@fabula/core/styles/components/list/list';
 
 const List = props => {
     const { children, className, divider, color, padding, striped } = props;
-    const listClass = className || '';
+    const classes = ['fab-list-wrapper', css(ListStyles({ framework: 'react', props })), className || ''];
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
             return cloneElement(child, { color, divider, padding, striped });
@@ -16,7 +17,7 @@ const List = props => {
     });
 
     return (
-        <div className={`fab-list-wrapper ${css(ListStyles({ framework: 'react', props }))} ${listClass}`}>
+        <div className={classes.join(' ')}>
             <div className="fab-list">
                 {childrenWithProps}
             </div>
@@ -25,7 +26,17 @@ const List = props => {
 }
 
 List.defaultProps = {
-    divider: true
+    color: '',
+    divider: true,
+    padding: false,
+    striped: false
+}
+
+List.propTypes = {
+    color: PropTypes.string,
+    divider: PropTypes.bool,
+    padding: PropTypes.bool,
+    striped: PropTypes.bool
 }
 
 export default List;

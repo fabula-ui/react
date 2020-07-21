@@ -1,12 +1,13 @@
 import React from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Styles
 import InputGroupStyles from '@fabula/core/styles/components/input-group/input-group';
 
 const InputGroup = props => {
     const { children, className } = props;
-    const classes = ['fab-input-group-wrapper', className || '', css(InputGroupStyles({ framework: 'react', props }))];
+    const classes = ['fab-input-group-wrapper', css(InputGroupStyles({ framework: 'react', props })), className || ''];
 
     return (
         <div className={classes.join(' ')} data-fab-wrapper="inputGroup">
@@ -18,7 +19,15 @@ const InputGroup = props => {
 }
 
 InputGroup.defaultProps = {
-    flow: 'horizontal'
+    flow: 'horizontal',
+    glued: false,
+    spacing: null,
+}
+
+InputGroup.propTypes = {
+    flow: PropTypes.string,
+    glued: PropTypes.boolean,
+    spacing: PropTypes.any,
 }
 
 export default InputGroup;

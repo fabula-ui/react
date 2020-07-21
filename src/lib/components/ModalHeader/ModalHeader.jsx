@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Components
 import CloseButton from '../CloseButton/CloseButton';
@@ -16,7 +17,7 @@ const ModalHeader = props => {
     const { closeModal } = useContext(ModalController);
     const headerCss = css(ModalHeaderStyles({ framework: 'react', props }));
     const sectionCss = css(ModalSectionStyles({ framework: 'react', props }));
-    const classes = ['fab-modal-header', 'fab-modal-section', className || '', sectionCss, headerCss];
+    const classes = ['fab-modal-header', 'fab-modal-section', className || '', headerCss, sectionCss];
 
     return (
         <div className={classes.join(' ')}>
@@ -27,5 +28,9 @@ const ModalHeader = props => {
         </div>
     )
 }
+
+ModalHeader.defaulProps = {}
+
+ModalHeader.propTypes = {}
 
 export default ModalHeader

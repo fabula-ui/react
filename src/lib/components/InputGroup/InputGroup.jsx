@@ -26,7 +26,7 @@ InputGroup.defaultProps = {
 
 InputGroup.propTypes = {
     flow: PropTypes.string,
-    glued: PropTypes.boolean,
+    glued: PropTypes.bool,
     spacing: PropTypes.any,
 }
 

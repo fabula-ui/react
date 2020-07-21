@@ -1,5 +1,6 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Components
 import Button from '../Button/Button';
@@ -14,14 +15,12 @@ const Toast = props => {
     const [hidden, setHidden] = useState(false);
     const [hiding, setHiding] = useState(false);
     const toastRef = useRef(null);
-
-    // Classes
-    const classes = ['fab-toast-wrapper', className || '', css(ToastStyles({ framework: 'react', props: { ...props, height, stacked } }))];
-
+    const classes = ['fab-toast-wrapper', css(ToastStyles({ framework: 'react', props: { ...props, height, stacked } })), className || ''];
 
     // Dynamic requires
     const Link = link ? require('../Link/Link').default : null;
 
+    // Hooks
     useEffect(() => {
         if (stacked) { handleHide(); }
     }, []);
@@ -32,6 +31,7 @@ const Toast = props => {
         }
     }, [toastRef]);
 
+    // Methods
     const handleHide = () => {
         const toastEl = document.querySelector('.fab-toast-wrapper');
         const duration = window.getComputedStyle(toastEl).transitionDuration;
@@ -80,10 +80,29 @@ const Toast = props => {
 }
 
 Toast.defaultProps = {
+    clear: false,
+    closeButton: null,
+    color: '',
+    faded: false,
     glow: false,
-    hide: true,
     hideDelay: 2000,
+    link: '',
+    message: '',
+    outline: false,
     stacked: false
+}
+
+Toast.propTypes = {
+    clear: PropTypes.bool,
+    closeButton: PropTypes.any,
+    color: PropTypes.string,
+    faded: PropTypes.bool,
+    glow: PropTypes.bool,
+    hideDelay: PropTypes.any,
+    link: PropTypes.string,
+    message: PropTypes.string,
+    outline: PropTypes.bool,
+    stacked: PropTypes.bool
 }
 
 export default Toast;

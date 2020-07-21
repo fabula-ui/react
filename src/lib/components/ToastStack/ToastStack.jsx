@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Components
 import Toast from '../Toast/Toast';
@@ -18,6 +19,7 @@ const ToastStack = props => {
     const { stacks } = useContext(ToastController);
     const [toasts, setToasts] = useState(<></>);
 
+    // Callbacks
     const toastsCallback = useCallback(() => {
         let toasts;
 
@@ -28,6 +30,7 @@ const ToastStack = props => {
         }
     }, [stacks, stacks[name]]);
 
+    // Hooks
     useEffect(() => {
         toastsCallback();
     }, [stacks, stacks[name]]);
@@ -40,10 +43,19 @@ const ToastStack = props => {
 }
 
 ToastStack.defaultProps = {
+    name: '',
     placement: {
         x: 'left',
         y: 'bottom'
     }
 };
+
+ToastStack.propTypes = {
+    name: PropTypes.string,
+    placement: {
+        x: PropTypes.string,
+        y: PropTypes.string
+    }
+}
 
 export default ToastStack;

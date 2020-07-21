@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Input
 import Button from '../Button/Button';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import Input from '../Input/Input';
-import List from '../List/List';
-import ListItem from '../ListItem/ListItem';
-
 
 // Styles
 import SearchInputStyles from '@fabula/core/styles/components/search-input/search-input';
@@ -18,7 +16,7 @@ const SearchInput = props => {
     const classes = ['fab-search-input-wrapper', className || '', css(SearchInputStyles({ framework: 'react', props }))];
 
     const handleFocus = status => {
-        setAutocompleIsOpen(status);
+        // setAutocompleIsOpen(status);
     }
 
     return (
@@ -33,6 +31,16 @@ const SearchInput = props => {
             </div>
         </div>
     )
+}
+
+SearchInput.defaultProps = {
+    button: null,
+    placeholder: ''
+}
+
+SearchInput.propTypes = {
+    button: PropTypes.any,
+    placeholder: PropTypes.string
 }
 
 export default SearchInput;

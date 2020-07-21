@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Styles
 import TagStyles from '@fabula/core/styles/components/tag/tag';
@@ -18,10 +19,33 @@ const Tag = props => {
 }
 
 Tag.defaultProps = {
+    color: '',
+    clear: false,
+    faded: false,
+    glow: false,
+    invert: false,
+    link: '',
     placement: {
         x: 'right',
         y: 'bottom'
-    }
+    },
+    rounded: false,
+    size: 'md'
+}
+
+Tag.propTypes = {
+    color: PropTypes.string,
+    clear: PropTypes.bool,
+    faded: PropTypes.bool,
+    glow: PropTypes.bool,
+    invert: PropTypes.bool,
+    link: PropTypes.string,
+    placement: {
+        x: PropTypes.string,
+        y: PropTypes.string
+    },
+    rounded: PropTypes.bool,
+    size: PropTypes.string
 }
 
 export default Tag;

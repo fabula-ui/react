@@ -1,5 +1,6 @@
 import React, { Children, cloneElement, useState } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Styles
 import SegmentsStyles from '@fabula/core/styles/components/segments/segments';
@@ -21,8 +22,7 @@ const Segments = props => {
     scope
   } = props;
   const [active, setActive] = useState(props.active);
-  const classes = ['fab-segments-wrapper', className || '', css(SegmentsStyles({ framework: 'react', props }))];
-  let childrenWithProps;
+  const classes = ['fab-segments-wrapper', css(SegmentsStyles({ framework: 'react', props })), className || ''];
 
   // Methods
   const handleActive = segment => {
@@ -46,7 +46,7 @@ const Segments = props => {
   }
 
   // Children with props
-  childrenWithProps = Children.map(children, child => cloneElement(child, {
+  const childrenWithProps = Children.map(children, child => cloneElement(child, {
     activeFillColor,
     activeTextColor,
     activeSegment: active,
@@ -68,6 +68,46 @@ const Segments = props => {
       </div>
     </div>
   )
+}
+
+Segments.defaultProps = {
+  active: '',
+  activeColor: '',
+  activeFillColor: '',
+  activeTextColor: '',
+  clear: false,
+  color: '',
+  expand: false,
+  faded: false,
+  inactiveFillColor: '',
+  inactiveTextColor: '',
+  invert: false,
+  layout: 'horizontal',
+  outline: false,
+  rounded: false,
+  scope: '',
+  stacked: false,
+  type: ''
+}
+
+Segments.propTypes = {
+  active: PropTypes.string,
+  activeColor: PropTypes.string,
+  activeFillColor: PropTypes.string,
+  activeTextColor: PropTypes.string,
+  clear: PropTypes.bool,
+  color: PropTypes.string,
+  expand: PropTypes.bool,
+  faded: PropTypes.bool,
+  inactiveFillColor: PropTypes.string,
+  inactiveTextColor: PropTypes.string,
+  invert: PropTypes.bool,
+  layout: PropTypes.string,
+  outline: PropTypes.bool,
+  rounded: PropTypes.bool,
+  scope: PropTypes.string,
+  stacked: PropTypes.bool,
+  type: PropTypes.string,
 }
 
 export default Segments;

@@ -5,12 +5,15 @@ import { css } from 'emotion';
 import CardSectionStyles from '@fabula/core/styles/components/card-section/card-section';
 
 const CardSection = props => {
-    const { className, children, layout, utils } = props;
-    const classes = ['fab-card-section', css(CardSectionStyles({ framework: 'react', props })), className || ''];
+    const { className, children, layout } = props;
+    const classes = ['fab-card-section-wrapper', css(CardSectionStyles({ framework: 'react', props })), className || ''];
     return (
-        <div className={classes.join(' ')} data-fab-component="card-section" data-layout={layout}>
-            {children}
+        <div className={classes.join(' ')} data-fab-wrapper="cardSection" data-layout={layout}>
+            <div className="fab-card-section" data-fab-component="cardSection">
+                {children}
+            </div>
         </div>
+
     )
 }
 

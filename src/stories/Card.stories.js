@@ -434,7 +434,7 @@ export const Layout = () => (
           <Card layout="h" mb={1}>
             <CardImage height={300} width={200} />
             <CardSection expand={true}>
-              <CardSection expand={true} padding>
+              <CardSection expand={true} grow={1} padding>
                 <Text flex size="lg">
                   <strong mr=".5">Card Title</strong>
                   <Badge color="primary">New</Badge>

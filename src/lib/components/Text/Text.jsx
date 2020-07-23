@@ -16,4 +16,8 @@ const Text = props => {
     )
 }
 
+Text.defaultProps = {
+    wrap: true
+}
+
 export default Text;

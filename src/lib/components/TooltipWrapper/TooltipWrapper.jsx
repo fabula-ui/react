@@ -15,22 +15,24 @@ const TooltipWrapper = props => {
     }
 
     const handleMouseOver = e => {
+        const element = e.target.getBoundingClientRect();
+
         setActiveTooltip({
             color,
             height: e.target.offsetHeight,
             label,
             offset,
             placement,
-            x: e.target.offsetLeft,
+            x: element.left,
             width: e.target.offsetWidth,
-            y: e.target.offsetTop
+            y: element.top
         });
     }
 
     return cloneElement(children[0], {
         props: children[0].props,
-        onMouseOver: handleMouseOver,
-        onMouseOut: handleMouseOut
+        onMouseEnter: handleMouseOver,
+        onMouseLeave: handleMouseOut
     });
 }
 

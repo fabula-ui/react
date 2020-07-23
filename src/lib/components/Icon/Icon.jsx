@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import IconStyles from '@fabula/core/theme/styles/Icon';
 
 const Icon = props => {
-    const { children, className, color, name, ...rest } = props;
+    const { children, className, color, file, name, src, ...rest } = props;
     const [appended, setAppended] = useState(false);
     const [currentSvg, setCurrentSvg] = useState();
     const [svg, setSvg] = useState(null);
@@ -27,8 +27,11 @@ const Icon = props => {
             }
 
             setSvg(svg);
+        } else if (file) {
+            setAppended(false);
+            setSvg(file);
         }
-    }, [name]);
+    }, [name, src]);
 
     useEffect(() => {
         if (iconRef.current && svg && !appended && svgRef.current && wrapperRef.current) {

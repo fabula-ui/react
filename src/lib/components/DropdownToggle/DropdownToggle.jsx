@@ -11,7 +11,7 @@ import ButtonStyles from '@fabula/core/styles/components/button/button';
 import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
 
 const DropdownToggle = props => {
-    const { align, children, className, direction, icon, label, onClick, open, toggle, ...rest } = props;
+    const { children, className, direction, icon, label, onClick, open, toggle, ...rest } = props;
     // CSS
     const buttonCss = css(ButtonStyles({ framework: 'react', props }));
     const toggleCss = css(DropdownToggleStyles({ framework: 'react', props: { icon, ...rest } }));

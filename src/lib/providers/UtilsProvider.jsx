@@ -19,7 +19,9 @@ const FabulaUtils = props => {
                 return child;
             }
 
-            childProps = { className: css(UtilsStyles({ framework: 'react', props: child.props, utils: true })), ...child.props };
+            const {className, ...rest} = child.props;
+            const classes = [css(UtilsStyles({ framework: 'react', props: child.props, utils: true })), className];
+            childProps = { className: classes.join(' '), ...rest };
 
             if (Children.count(child)) {
                 return React.cloneElement(child, {...childProps}, childrenWithProps(child.props.children));

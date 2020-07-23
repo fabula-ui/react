@@ -15,6 +15,7 @@ import DropdownItem from './components/DropdownItem/DropdownItem';
 import DropdownMenu from './components/DropdownMenu/DropdownMenu';
 import DropdownToggle from './components/DropdownToggle/DropdownToggle';
 import FileInput from './components/FileInput/FileInput';
+import Heading from './components/Heading/Heading';
 import Icon from './components/Icon/Icon';
 import Input from './components/Input/Input';
 import InputGroup from './components/InputGroup/InputGroup';
@@ -76,6 +77,7 @@ export {
     DropdownMenu,
     DropdownToggle,
     FileInput,
+    Heading,
     Icon,
     Input,
     InputGroup,

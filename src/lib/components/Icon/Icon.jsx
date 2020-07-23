@@ -17,7 +17,7 @@ const Icon = props => {
     useEffect(() => {
         let svg;
 
-        if (name) {  
+        if (name) {
             setAppended(false);
 
             try {
@@ -33,17 +33,26 @@ const Icon = props => {
     useEffect(() => {
         if (iconRef.current && svg && !appended && svgRef.current && wrapperRef.current) {
             svgRef.current.addEventListener('load', () => {
-                const svgDocument = svgRef.current.contentDocument;
-                const svgObject = svgDocument.querySelector('svg');
+                let svg;
+                let svgDocument;
+                let svgObject;
 
-                iconRef.current.innerHTML = '';
-                iconRef.current.appendChild(svgObject);
+                if (svgRef.current.contentDocument) {
+                    svgDocument = svgRef.current.contentDocument;
+                    svgObject = svgDocument.querySelector('svg');
+                    svgObject.style.color = 'inherit';
 
-                svgObject.style.color = 'inherit';
+                    iconRef.current.innerHTML = '';
+                    iconRef.current.appendChild(svgObject);
+                } else {
+                    svg = atob(svgRef.current.data.replace(/data:image\/svg\+xml;base64,/, ''));
+
+                    iconRef.current.innerHTML = svg;
+                }
 
                 setAppended(true);
                 setCurrentSvg(svg);
-            });
+            }, false);
         }
     }, [currentSvg, iconRef, svg, svgRef, wrapperRef]);
 

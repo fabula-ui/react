@@ -19,6 +19,7 @@ import Heading from './components/Heading/Heading';
 import Icon from './components/Icon/Icon';
 import Input from './components/Input/Input';
 import InputGroup from './components/InputGroup/InputGroup';
+import Link from './components/Link/Link';
 import List from './components/List/List';
 import ListItem from './components/ListItem/ListItem';
 import Modal from './components/Modal/Modal';
@@ -81,6 +82,7 @@ export {
     Icon,
     Input,
     InputGroup,
+    Link,
     List,
     ListItem,
     Modal,

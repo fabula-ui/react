@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, useState } from 'react';
+import React, { Children, cloneElement, useState, useEffect } from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
@@ -6,9 +6,14 @@ import PropTypes from 'prop-types';
 import TabsStyles from '@fabula/core/styles/components/tabs/tabs';
 
 const Tabs = props => {
-    const { children, className, scope, ...rest } = props;
+    const { children, className, onChange, scope, ...rest } = props;
     const [active, setActive] = useState(props.active);
     const classes = ['fab-tabs-wrapper', className || '', css(TabsStyles({ framework: 'react', props }))];
+
+    // Hooks
+    useEffect(() => {
+        handleActive(props.active);
+    }, [props.active]);
 
     // Methods
     const handleActive = tab => {
@@ -18,7 +23,7 @@ const Tabs = props => {
 
     const toggleContent = segment => {
         const allOtherContent = document.querySelectorAll(`.fab-content[data-scope='${scope}']:not([data-name='${segment}'])`);
-        const targetContent = document.querySelector(`.fab-content[data-scope='${scope}'][data-name='${segment}']`);
+        const targetContent = document.querySelectorAll(`.fab-content[data-scope='${scope}'][data-name='${segment}']`);
 
         if (allOtherContent.length) {
             allOtherContent.forEach(other => {
@@ -26,13 +31,15 @@ const Tabs = props => {
             });
         }
 
-        if (targetContent) {
-            targetContent.setAttribute('data-active', 'true');
+        if (targetContent.length) {
+            targetContent.forEach(target => {
+                target.setAttribute('data-active', 'true');
+            });
         }
     }
 
     // Children with props
-    const childrenWithProps = Children.map(children, child => cloneElement(child, { ...rest, activeTab: active, handleActive }));
+    const childrenWithProps = Children.map(children, child => cloneElement(child, { ...rest, activeTab: active, handleActive, onChange }));
 
     return (
         <div className={classes.join(' ')}>

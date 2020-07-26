@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import TabStyles from '@fabula/core/styles/components/tab/tab';
 
 const Tab = props => {
-    const { activeTab, children, className, handleActive, label, link, name, ...rest } = props;
+    const { activeTab, children, className, handleActive, label, link, name, onChange, ...rest } = props;
     const [active, setActive] = useState(props.active);
     const classes = ['fab-tab', className || '', css(TabStyles({ framework: 'react', props }))];
 
@@ -18,6 +18,7 @@ const Tab = props => {
 
     const handleClick = () => {
         handleActive(name);
+        onChange(name);
     }
 
     return (

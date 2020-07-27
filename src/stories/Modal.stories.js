@@ -8,7 +8,7 @@ import {
     ModalHeader,
     ModalProvider,
     Text,
-    FabulaUtils,
+    UtilsProvider,
     FabulaProvider,
     Button,
     ButtonGroup,
@@ -27,11 +27,11 @@ export default {
 export const Examples = () => {
     return (
         <FabulaProvider>
-            <FabulaUtils>
+            <UtilsProvider>
                 <ModalProvider>
                     <ModalExample />
                 </ModalProvider>
-            </FabulaUtils>
+            </UtilsProvider>
         </FabulaProvider>
     )
 };
@@ -39,9 +39,11 @@ export const Examples = () => {
 export const Color = () => {
     return (
         <FabulaProvider>
-            <ModalProvider>
-                <ModalColorExample />
-            </ModalProvider>
+            <UtilsProvider>
+                <ModalProvider>
+                    <ModalColorExample />
+                </ModalProvider>
+            </UtilsProvider>
         </FabulaProvider>
     )
 };
@@ -49,9 +51,11 @@ export const Color = () => {
 export const Size = () => {
     return (
         <FabulaProvider>
-            <ModalProvider>
-                <ModalSizeExample />
-            </ModalProvider>
+            <UtilsProvider>
+                <ModalProvider>
+                    <ModalSizeExample />
+                </ModalProvider>
+            </UtilsProvider>
         </FabulaProvider>
     )
 };

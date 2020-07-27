@@ -1,18 +1,26 @@
-import React, { createElement } from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import TextStyles from '@fabula/core/theme/styles/Text';
 
 const Text = props => {
-    const { aux, children, className, color, content, p, small, strong, ...rest } = props;
-    const classes = ['fab-text', className || '', css(TextStyles({ framework: 'react', props }))];
+    const { aux, children, className, color, content } = props;
+    const elRef = useRef(null);
 
     return (
-        <div className={classes.join(' ')} data-aux={!!aux} data-color={color} {...rest}>
-            {!content && children}
-            {!!content && content}
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={TextStyles}
+            wrapper="fab-text">
+            <div data-aux={!!aux} data-color={color} ref={elRef}>
+                {!content && children}
+                {!!content && content}
+            </div>
+        </Component>
     )
 }
 

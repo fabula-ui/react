@@ -1,19 +1,27 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import NavbarLogoStyles from '@fabula/core/styles/components/navbar-logo/navbar-logo';
 
 const NavbarLogo = props => {
-    const {alt, children, className, src} = props;
-    const classes = ['fab-navbar-logo', css(NavbarLogoStyles({ framework: 'react', props })), className || ''];
+    const { alt, children, className, src } = props;
+    const elRef = useRef(null);
 
     return (
-        <div className={classes.join(' ')}>
-            {src && <img alt={alt} src={src} />}
-            {children}
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={NavbarLogoStyles}
+            wrapper="fab-navbar-logo">
+            <div ref={elRef}>
+                {src && <img alt={alt} src={src} />}
+                {children}
+            </div>
+        </Component>
     )
 }
 

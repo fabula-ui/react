@@ -1,13 +1,15 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import DropdownItemStyles from '@fabula/core/styles/components/dropdown-item/dropdown-item';
 
 const DropdownItem = props => {
-    const { button, children, className, clickToClose, label, onClick, parentOnClick, toggle } = props;
-    const classes = ['fab-dropdown-item', css(DropdownItemStyles({ framework: 'react', props })), className || ''];
+    const { button, children, clickToClose, label, onClick, parentOnClick, toggle } = props;
+    const elRef = useRef(null);
 
     const handleClick = () => {
         if (onClick) { onClick(); }
@@ -15,19 +17,24 @@ const DropdownItem = props => {
         if ((button || onClick || parentOnClick) && clickToClose && toggle) { toggle(); }
     }
 
-    if (!!button || !!onClick || !!parentOnClick) {
-        return (
-            <button className={classes.join(' ')} data-fab-component="dropdownItem" onClick={handleClick}>
-                {label || children}
-            </button>
-        )
-    } else {
-        return (
-            <div className={classes.join(' ')} data-fab-component="dropdownItem" onClick={handleClick}>
-                {label || children}
-            </div>
-        )
-    }
+    return (
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={DropdownItemStyles}
+            wrapper="fab-dropdown-item">
+            {(!!button || !!onClick || !!parentOnClick) &&
+                <button data-fab-component="dropdownItem" onClick={handleClick} ref={elRef}>
+                    {label || children}
+                </button>
+            }
+            {!button && !onClick && !parentOnClick &&
+                <div data-fab-component="dropdownItem" onClick={handleClick} ref={elRef}>
+                    {label || children}
+                </div>
+            }
+        </Component>
+    )
 }
 
 DropdownItem.defaultProps = {

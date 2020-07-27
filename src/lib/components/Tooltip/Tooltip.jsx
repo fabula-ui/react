@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { css } from 'emotion';
+import React, { useEffect, useRef, useState } from 'react';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import TooltipStyles from '@fabula/core/styles/components/tooltip/tooltip';
@@ -8,15 +10,14 @@ const Tooltip = props => {
     const { height, label, placement, x, width, y } = props;
     const [ready, setReady] = useState(false);
     const [style, setStyle] = useState(null);
+    const elRef = useRef(null);
 
-    // CSS classes
-    const tooltipCss = css(TooltipStyles({ framework: 'react', props }));
-    const classes = ['fab-tooltip', tooltipCss];
-
+    // Hooks
     useEffect(() => {
         handleTooltip();
     }, []);
 
+    // Methods
     const handleTooltip = () => {
         let left;
         let top;
@@ -43,9 +44,15 @@ const Tooltip = props => {
     }
 
     return (
-        <div className={classes.join(' ')} data-placement={placement} data-ready={ready} style={style}>
-            <span className="fab-tooltip__label">{label}</span>
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={TooltipStyles}
+            wrapper="fab-tooltip">
+            <div data-placement={placement} data-ready={ready} style={style} ref={elRef}>
+                <span className="fab-tooltip__label">{label}</span>
+            </div>
+        </Component>
     )
 }
 

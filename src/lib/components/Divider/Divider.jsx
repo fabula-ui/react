@@ -1,16 +1,23 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import DividerStyles from '@fabula/core/styles/components/divider/divider';
 
 const Divider = props => {
-    const {className} = props;
-    const classes = ['fab-divider', className || '', css(DividerStyles({ framework: 'react', props }))];
+    const elRef = useRef(null);
 
     return (
-        <div className={classes.join(' ')} />
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={DividerStyles}
+            wrapper="fab-divider">
+            <div ref={elRef} />
+        </Component>
     )
 }
 

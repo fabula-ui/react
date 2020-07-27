@@ -1,20 +1,28 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import InputGroupStyles from '@fabula/core/styles/components/input-group/input-group';
 
 const InputGroup = props => {
-    const { children, className } = props;
-    const classes = ['fab-input-group-wrapper', css(InputGroupStyles({ framework: 'react', props })), className || ''];
+    const { children } = props;
+    const elRef = useRef(null);
 
     return (
-        <div className={classes.join(' ')} data-fab-wrapper="inputGroup">
-            <div className="fab-input-group" data-fab-component="inputGroup">
-                {children}
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={InputGroupStyles}
+            wrapper="fab-input-group-wrapper">
+            <div data-fab-wrapper="inputGroup" ref={elRef}>
+                <div className="fab-input-group" data-fab-component="inputGroup">
+                    {children}
+                </div>
             </div>
-        </div>
+        </Component>
     )
 }
 

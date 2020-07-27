@@ -1,14 +1,14 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import {
     Card,
+    Div,
     FabulaProvider,
     Tab,
     TabContent,
     Tabs,
     Text,
-    FabulaUtils,
+    UtilsProvider,
     Icon
 } from '../lib';
 
@@ -29,8 +29,8 @@ export const Examples = () => (
 
 export const Block = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} row>
+        <UtilsProvider>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" type="block">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -48,9 +48,9 @@ export const Block = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="success" type="block">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -68,9 +68,9 @@ export const Block = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="hot" type="block">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -88,9 +88,9 @@ export const Block = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="light" type="block">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -102,15 +102,15 @@ export const Block = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
-        </FabulaUtils>
+            </Div>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Color = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} row>
+        <UtilsProvider>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -128,9 +128,9 @@ export const Color = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="success">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -148,9 +148,9 @@ export const Color = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="hot">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -168,9 +168,9 @@ export const Color = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="light">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -182,16 +182,16 @@ export const Color = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
-        </FabulaUtils>
+            </Div>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Content = () => (
     <FabulaProvider>
-      <FabulaUtils>
-        <div row>
-          <div col="4">
+      <UtilsProvider>
+        <Div row>
+          <Div col="4">
             <Tabs active="docs" mb={1} scope="scope1">
               <Tab name="docs">Docs</Tab>
               <Tab name="components">Components</Tab>
@@ -218,9 +218,9 @@ export const Content = () => (
                 <Text>This content is related to showcase</Text>
               </Card>
             </TabContent>
-          </div>
+          </Div>
   
-          <div col="4">
+          <Div col="4">
             <Tabs active="docs" color="primary" faded={true} mb={1} scope="scope2">
               <Tab name="docs">Docs</Tab>
               <Tab name="components">Components</Tab>
@@ -247,9 +247,9 @@ export const Content = () => (
                 <Text>This content is related to showcase</Text>
               </Card>
             </TabContent>
-          </div>
+          </Div>
   
-          <div col="4">
+          <Div col="4">
             <Tabs active="docs" color="primary" mb={1} scope="scope3">
               <Tab name="docs">Docs</Tab>
               <Tab name="components">Components</Tab>
@@ -276,15 +276,15 @@ export const Content = () => (
                 <Text>This content is related to showcase</Text>
               </Card>
             </TabContent>
-          </div>
-        </div>
-      </FabulaUtils>
+          </Div>
+        </Div>
+      </UtilsProvider>
     </FabulaProvider>
   )
 
 export const Expand = () => (
     <FabulaProvider>
-        <FabulaUtils>
+        <UtilsProvider>
             <Tabs expand={true} mb={1}>
                 <Tab active={true} name="docs">Docs</Tab>
                 <Tab name="components">Components</Tab>
@@ -308,14 +308,14 @@ export const Expand = () => (
                 <Tab name="components">Components</Tab>
                 <Tab name="showcase">Showcase</Tab>
             </Tabs>
-        </FabulaUtils>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Faded = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} row>
+        <UtilsProvider>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" faded={true}>
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -333,9 +333,9 @@ export const Faded = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="success" faded={true}>
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -353,9 +353,9 @@ export const Faded = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="hot" faded={true}>
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -373,9 +373,9 @@ export const Faded = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="light" faded={true}>
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -387,15 +387,15 @@ export const Faded = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
-        </FabulaUtils>
+            </Div>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Float = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} row>
+        <UtilsProvider>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" type="float">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -413,9 +413,9 @@ export const Float = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="success" type="float">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -433,9 +433,9 @@ export const Float = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="hot" type="float">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -453,9 +453,9 @@ export const Float = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="light" type="float">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -467,15 +467,15 @@ export const Float = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
-        </FabulaUtils>
+            </Div>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Icons = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} row>
+        <UtilsProvider>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4">
                     <Tab active={true} name="docs">
                         <Icon name="file-text" />
@@ -520,9 +520,9 @@ export const Icons = () => (
                         <span>Showcase</span>
                     </Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="success">
                     <Tab active={true} name="docs">
                         <Icon name="file-text" />
@@ -567,9 +567,9 @@ export const Icons = () => (
                         <span>Showcase</span>
                     </Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="hot">
                     <Tab active={true} name="docs">
                         <Icon name="file-text" />
@@ -614,9 +614,9 @@ export const Icons = () => (
                         <span>Showcase</span>
                     </Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="light">
                     <Tab active={true} name="docs">
                         <Icon name="file-text" />
@@ -646,15 +646,15 @@ export const Icons = () => (
                         <span>Showcase</span>
                     </Tab>
                 </Tabs>
-            </div>
-        </FabulaUtils>
+            </Div>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Invert = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} row>
+        <UtilsProvider>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" invert={true}>
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -672,9 +672,9 @@ export const Invert = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="success" invert={true}>
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -692,9 +692,9 @@ export const Invert = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="hot" invert={true}>
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -712,9 +712,9 @@ export const Invert = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="light" invert={true}>
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -726,15 +726,15 @@ export const Invert = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
-        </FabulaUtils>
+            </Div>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Layout = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} row>
+        <UtilsProvider>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} layout="horizontal" col="4">
                     <Tab active={true} name="docs">
                         <Icon name="file-text" />
@@ -764,15 +764,15 @@ export const Layout = () => (
                         <span>Showcase</span>
                     </Tab>
                 </Tabs>
-            </div>
-        </FabulaUtils>
+            </Div>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Pill = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} row>
+        <UtilsProvider>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" type="pill">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -790,9 +790,9 @@ export const Pill = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="success" type="pill">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -810,9 +810,9 @@ export const Pill = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="hot" type="pill">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -830,9 +830,9 @@ export const Pill = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Tabs alH="center" flex={true} col="4" color="light" type="pill">
                     <Tab active={true} name="docs">Docs</Tab>
                     <Tab name="components">Components</Tab>
@@ -844,15 +844,15 @@ export const Pill = () => (
                     <Tab name="components">Components</Tab>
                     <Tab name="showcase">Showcase</Tab>
                 </Tabs>
-            </div>
-        </FabulaUtils>
+            </Div>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
 export const Stacked = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} row>
+        <UtilsProvider>
+            <Div mb={1} row>
                 <Card col="4" ov="hidden">
                     <Tabs stacked={true} type="float">
                         <Tab active={true} name="docs">Docs</Tab>
@@ -876,9 +876,9 @@ export const Stacked = () => (
                         <Tab name="showcase">Showcase</Tab>
                     </Tabs>
                 </Card>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Card col="4" ov="hidden">
                     <Tabs color="success" stacked={true} type="float">
                         <Tab active={true} name="docs">Docs</Tab>
@@ -902,9 +902,9 @@ export const Stacked = () => (
                         <Tab name="showcase">Showcase</Tab>
                     </Tabs>
                 </Card>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Card col="4" ov="hidden">
                     <Tabs color="hot" stacked={true} type="float">
                         <Tab active={true} name="docs">Docs</Tab>
@@ -928,9 +928,9 @@ export const Stacked = () => (
                         <Tab name="showcase">Showcase</Tab>
                     </Tabs>
                 </Card>
-            </div>
+            </Div>
 
-            <div mb={1} row>
+            <Div mb={1} row>
                 <Card col="4" ov="hidden">
                     <Tabs color="light" stacked={true} type="float">
                         <Tab active={true} name="docs">Docs</Tab>
@@ -946,7 +946,7 @@ export const Stacked = () => (
                         <Tab name="showcase">Showcase</Tab>
                     </Tabs>
                 </Card>
-            </div>
-        </FabulaUtils>
+            </Div>
+        </UtilsProvider>
     </FabulaProvider>
 )

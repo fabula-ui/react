@@ -1,13 +1,15 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import ListItemStyles from '@fabula/core/styles/components/list-item/list-item';
 
 const ListItem = props => {
-    const { button, children, className, divider, link, onClick, parentOnClick, striped, target } = props;
-    const classes = ['fab-list-item', css(ListItemStyles({ framework: 'react', props })), className || ''];
+    const { button, children, divider, link, onClick, parentColor, parentOnClick, striped, target } = props;
+    const elRef = useRef(null);
 
     // Methods
     const handleClick = () => {
@@ -15,25 +17,32 @@ const ListItem = props => {
         if (parentOnClick) { parentOnClick(); }
     }
 
-    if (!!button || !!onClick || !!parentOnClick) {
-        return (
-            <button className={classes.join(' ')} data-divider={divider} data-fab-component="listItem" data-striped={striped} onClick={handleClick}>
-                {children}
-            </button>
-        )
-    } else if (!!link) {
-        return (
-            <a className={classes.join(' ')} data-divider={divider} data-fab-component="listItem" data-striped={striped} href={link} target={target}>
-                {children}
-            </a>
-        )
-    } else {
-        return (
-            <div className={classes.join(' ')} data-divider={divider} data-fab-component="listItem" data-striped={striped} onClick={handleClick}>
-                {children}
-            </div>
-        )
-    }
+    return (
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={ListItemStyles}
+            wrapper="fab-list-item">
+            {(!!button || !!onClick || !!parentOnClick && !link) &&
+                <button data-divider={divider} data-fab-component="listItem" data-striped={striped} onClick={handleClick} ref={elRef}>
+                    {children}
+                </button>
+            }
+
+            {!!link &&
+                <a data-divider={divider} data-fab-component="listItem" data-striped={striped} href={link} target={target} ref={elRef}>
+                    {children}
+                </a>
+            }
+
+            {(!button && !onClick && !parentOnClick && !link) &&
+                <div data-divider={divider} data-fab-component="listItem" data-striped={striped} onClick={handleClick} ref={elRef}>
+                    {children}
+                </div>
+            }
+        </Component>
+    )
+
 }
 
 ListItem.defaultProps = {

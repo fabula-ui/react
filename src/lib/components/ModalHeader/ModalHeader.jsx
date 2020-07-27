@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import { css } from 'emotion';
-import PropTypes from 'prop-types';
 
 // Components
 import CloseButton from '../CloseButton/CloseButton';
+import Component from '../Component/Component';
 
 // Controller
 import ModalController from '../../controllers/ModalController';
@@ -15,22 +15,27 @@ import ModalSectionStyles from '@fabula/core/styles/components/modal-section/mod
 const ModalHeader = props => {
     const { color, children, className, parentColor } = props;
     const { closeModal } = useContext(ModalController);
-    const headerCss = css(ModalHeaderStyles({ framework: 'react', props }));
     const sectionCss = css(ModalSectionStyles({ framework: 'react', props }));
-    const classes = ['fab-modal-header', 'fab-modal-section', className || '', headerCss, sectionCss];
+    const elRef = useRef(null);
 
     return (
-        <div className={classes.join(' ')}>
-            <div className="fab-modal-header__content">
-                {children}
+        <Component
+            classes={['fab-modal-section', sectionCss]}
+            elRef={elRef}
+            properties={props}
+            styles={ModalHeaderStyles}
+            wrapper="fab-modal-header">
+            <div ref={elRef}>
+                <div className="fab-modal-header__content">
+                    {children}
+                </div>
+                <CloseButton onClick={closeModal} parentColor={color || parentColor} size="md" />
             </div>
-            <CloseButton onClick={closeModal} parentColor={color || parentColor} size="md" />
-        </div>
+        </Component>
     )
 }
 
 ModalHeader.defaulProps = {}
-
 ModalHeader.propTypes = {}
 
 export default ModalHeader

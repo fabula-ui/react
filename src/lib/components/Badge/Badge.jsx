@@ -1,6 +1,8 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import BadgeStyles from '@fabula/core/styles/components/badge/badge';
@@ -8,19 +10,24 @@ import BadgeStyles from '@fabula/core/styles/components/badge/badge';
 const Badge = props => {
     const {
         children,
-        className,
         label,
         placement
     } = props;
-    const classes = ['fab-badge-wrapper', css(BadgeStyles({ framework: 'react', props })), className || ''];
+    const elRef = useRef(null);
 
     return (
-        <div className={classes.join(' ')} data-fab-wrapper="badge">
-            <div className="fab-badge" data-fab-component="badge" data-has-placement={!!placement}>
-                {label}
-                {children}
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={BadgeStyles}
+            wrapper="fab-badge-wrapper">
+            <div data-fab-wrapper="badge" ref={elRef}>
+                <div className="fab-badge" data-fab-component="badge" data-has-placement={!!placement}>
+                    {label}
+                    {children}
+                </div>
             </div>
-        </div>
+        </Component>
     )
 }
 

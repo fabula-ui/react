@@ -6,10 +6,10 @@ import React, {
     useRef,
     useState
 } from 'react';
-import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 // Components
+import Component from '../Component/Component';
 import DropdownItem from '../DropdownItem/DropdownItem';
 
 // Styles
@@ -17,9 +17,8 @@ import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dro
 
 const DropdownMenu = props => {
     const { children, className, clickToClose, color, direction, items, onChange, onClickItem, size, toggle, ...rest } = props;
-    const [height, setHeight] = useState(false);
     const [open, setOpen] = useState(false);
-    const ref = useRef(null);
+    const elRef = useRef(null);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
             return cloneElement(child, { clickToClose, open, parentColor: color, parentOnClick: onClickItem, size, toggle })
@@ -27,13 +26,8 @@ const DropdownMenu = props => {
             return child;
         }
     });
-    const classes = ['fab-dropdown-menu', css(DropdownMenuStyles({ framework: 'react', props: { ...props, height } })), className || ''];
 
     // Hooks
-    useEffect(() => {
-        if (ref.current) { setHeight(ref.current.offsetHeight); }
-    }, [ref]);
-
     useEffect(() => {
         if (onChange) { onChange(open); }
     }, [open]);
@@ -56,10 +50,16 @@ const DropdownMenu = props => {
     }
 
     return (
-        <div className={classes.join(' ')} data-direction={direction} data-open={open} ref={ref}>
-            {!!items && renderItems()}
-            {!items && childrenWithProps}
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={DropdownMenuStyles}
+            wrapper="fab-dropdown-menu">
+            <div data-direction={direction} data-open={open} ref={elRef}>
+                {!!items && renderItems()}
+                {!items && childrenWithProps}
+            </div>
+        </Component>
     )
 }
 

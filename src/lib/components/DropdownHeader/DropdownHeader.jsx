@@ -1,18 +1,26 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import DropdownHeaderStyles from '@fabula/core/styles/components/dropdown-header/dropdown-header';
 
 const DropdownHeader = props => {
-    const { children, className, label } = props;
-    const classes = ['fab-dropdown-header', css(DropdownHeaderStyles({ framework: 'react', props })), className || ''];
+    const { children, label } = props;
+    const elRef = useRef(null);
 
     return (
-        <div className={classes.join(' ')}>
-            {label || children}
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={DropdownHeaderStyles}
+            wrapper="fab-dropdown-wrapper">
+            <div ref={elRef}>
+                {label || children}
+            </div>
+        </Component>
     )
 }
 

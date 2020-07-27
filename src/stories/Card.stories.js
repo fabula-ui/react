@@ -7,11 +7,12 @@ import {
   Card,
   CardImage,
   CardSection,
+  Div,
   FabulaProvider,
   Icon,
   List,
   ListItem,
-  FabulaUtils,
+  UtilsProvider,
   Tag,
   TagGroup,
   Text,
@@ -24,8 +25,8 @@ export default {
 
 export const Examples = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div row>
+    <UtilsProvider>
+      <Div row>
         <Card col="3">
           <CardImage height={200} />
           <CardSection divider="top" padding>
@@ -49,14 +50,14 @@ export const Examples = () => (
           <CardSection>
             <List padding striped>
               <ListItem flex>
-                <div flex flow="v" grow={1}>
+                <Div flex flow="v" grow={1}>
                   <Text size="lg" weight={600}>
                     <Text mr={.5}>Full-stack Engineer</Text>
                     <Badge color="#E3FFD9">Full-time</Badge>
                   </Text>
                   <Text aux>Google</Text>
-                </div>
-                <div alItems="end" justContent="start" flex flow="v">
+                </Div>
+                <Div alItems="end" justContent="start" flex flow="v">
                   <TagGroup mb={.5}>
                     <Tag>Angular</Tag>
                     <Tag>Engineering</Tag>
@@ -67,18 +68,18 @@ export const Examples = () => (
                     <Icon mr=".5" name="clock" />
                     <span>2 hours</span>
                   </Text>
-                </div>
+                </Div>
               </ListItem>
 
               <ListItem flex>
-                <div flex flow="v" grow={1}>
+                <Div flex flow="v" grow={1}>
                   <Text size="lg" weight={600}>
                     <Text mr={.5}>Frontend Developer</Text>
                     <Badge color="#FFECD9">Part-time</Badge>
                   </Text>
                   <Text aux={true}>Amazon</Text>
-                </div>
-                <div alItems="end" justContent="start" flex flow="v">
+                </Div>
+                <Div alItems="end" justContent="start" flex flow="v">
                   <TagGroup mb={.5}>
                     <Tag>Angular</Tag>
                     <Tag>Engineering</Tag>
@@ -89,19 +90,19 @@ export const Examples = () => (
                     <Icon mr=".5" name="clock" />
                     <span>2 hours</span>
                   </Text>
-                </div>
+                </Div>
               </ListItem>
 
               <ListItem flex>
-                <div flex flow="v" grow={1}>
+                <Div flex flow="v" grow={1}>
                   <Text size="lg" weight={600}>
                     <Text mr={.5}>Backend Developer</Text>
                     <Badge color="#FFECD9" mr={.5}>Part-time</Badge>
                     <Badge color="#D9E9FF">Remote</Badge>
                   </Text>
                   <Text aux>Netflix</Text>
-                </div>
-                <div alItems="end" justContent="start" flex flow="v">
+                </Div>
+                <Div alItems="end" justContent="start" flex flow="v">
                   <TagGroup mb={.5}>
                     <Tag>Angular</Tag>
                     <Tag>Engineering</Tag>
@@ -112,7 +113,7 @@ export const Examples = () => (
                     <Icon mr=".5" name="clock" />
                     <span>2 hours</span>
                   </Text>
-                </div>
+                </Div>
               </ListItem>
             </List>
           </CardSection>
@@ -123,15 +124,15 @@ export const Examples = () => (
             </ButtonGroup>
           </CardSection>
         </Card>
-      </div>
-    </FabulaUtils>
+      </Div>
+    </UtilsProvider>
   </FabulaProvider>
 )
 
 export const Color = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div mb="2" row>
+    <UtilsProvider>
+      <Div mb="2" row>
         <Card col="3">
           <CardImage height="120" />
           <CardSection padding>
@@ -175,9 +176,9 @@ export const Color = () => (
             <Button color="success" expand invert>Button</Button>
           </CardSection>
         </Card>
-      </div>
+      </Div>
 
-      <div mb="2" row>
+      <Div mb="2" row>
         <Card col="3" color="danger">
           <CardImage adaptColor={true} color="danger" height="120" />
           <CardSection padding>
@@ -221,9 +222,9 @@ export const Color = () => (
             <Button color="cold" expand invert>Button</Button>
           </CardSection>
         </Card>
-      </div>
+      </Div>
 
-      <div row mb="2">
+      <Div row mb="2">
         <Card col="3" color="dark">
           <CardImage adaptColor={true} color="dark" height="120" />
           <CardSection padding>
@@ -256,16 +257,16 @@ export const Color = () => (
             <Button color="aux" expand invert>Button</Button>
           </CardSection>
         </Card>
-      </div>
-    </FabulaUtils>
+      </Div>
+    </UtilsProvider>
 
   </FabulaProvider>
 )
 
 export const Glow = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div mb="2" row>
+    <UtilsProvider>
+      <Div mb="2" row>
         <Card col="3" glow={true}>
           <CardImage height="120" />
           <CardSection padding>
@@ -309,9 +310,9 @@ export const Glow = () => (
             <Button color="success" expand invert>Button</Button>
           </CardSection>
         </Card>
-      </div>
+      </Div>
 
-      <div mb="2" row>
+      <Div mb="2" row>
         <Card col="3" color="danger" glow={true}>
           <CardImage adaptColor={true} color="danger" height="120" />
           <CardSection padding>
@@ -355,9 +356,9 @@ export const Glow = () => (
             <Button color="cold" expand invert>Button</Button>
           </CardSection>
         </Card>
-      </div>
+      </Div>
 
-      <div row mb="2">
+      <Div row mb="2">
         <Card col="3" color="dark" glow={true}>
           <CardImage adaptColor={true} color="dark" height="120" />
           <CardSection padding>
@@ -390,16 +391,16 @@ export const Glow = () => (
             <Button color="aux" expand invert>Button</Button>
           </CardSection>
         </Card>
-      </div>
-    </FabulaUtils>
+      </Div>
+    </UtilsProvider>
 
   </FabulaProvider>
 )
 
 export const Layout = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div row>
+    <UtilsProvider>
+      <Div row>
         <Card col="3">
           <CardImage height={200} />
           <CardSection divider="top" padding>
@@ -415,7 +416,7 @@ export const Layout = () => (
           </CardSection>
         </Card>
 
-        <div col="9">
+        <Div col="9">
           <Card layout="h" mb={1}>
             <CardImage width={200} />
             <CardSection grow={1} padding>
@@ -465,8 +466,8 @@ export const Layout = () => (
 
             <CardImage />
           </Card>
-        </div>
-      </div>
-    </FabulaUtils>
+        </Div>
+      </Div>
+    </UtilsProvider>
   </FabulaProvider>
 )

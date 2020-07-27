@@ -1,15 +1,16 @@
 import React, { Children, cloneElement, useCallback, useEffect, useRef, useState } from 'react';
-import { css } from 'emotion';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import DropdownStyles from '@fabula/core/styles/components/dropdown/dropdown';
 
 const Dropdown = props => {
-    const { alignment, children, className, direction, expand } = props;
+    const { alignment, children, direction, expand } = props;
     const [open, setOpen] = useState(props.open);
-    const ref = useRef(null);
-    const classes = ['fab-dropdown-wrapper', css(DropdownStyles({ framework: 'react', props })), className || ''];
+    const elRef = useRef(null);
 
     // Methods
     const toggle = () => {
@@ -18,10 +19,10 @@ const Dropdown = props => {
 
     // Callbacks
     const handleClick = useCallback(e => {
-        if (ref.current && !ref.current.contains(e.target) && open) {
+        if (elRef.current && !elRef.current.contains(e.target) && open) {
             toggle();
         }
-    }, [toggle, ref]);
+    }, [toggle, elRef]);
 
     // Hooks
     useEffect(() => {
@@ -36,9 +37,15 @@ const Dropdown = props => {
     const childrenWithProps = Children.map(children, child => cloneElement(child, { alignment, direction, expand, open, toggle }));
 
     return (
-        <div className={classes.join(' ')} ref={ref}>
-            <div className="fab-dropdown" data-open={open}>{childrenWithProps}</div>
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={DropdownStyles}
+            wrapper="fab-dropdown-wrapper">
+            <div ref={elRef}>
+                <div className="fab-dropdown" data-open={open}>{childrenWithProps}</div>
+            </div>
+        </Component>
     )
 }
 

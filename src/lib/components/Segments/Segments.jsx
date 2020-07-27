@@ -1,6 +1,9 @@
-import React, { Children, cloneElement, useState } from 'react';
+import React, { Children, cloneElement, useEffect, useRef, useState } from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import SegmentsStyles from '@fabula/core/styles/components/segments/segments';
@@ -23,6 +26,12 @@ const Segments = props => {
   } = props;
   const [active, setActive] = useState(props.active);
   const classes = ['fab-segments-wrapper', css(SegmentsStyles({ framework: 'react', props })), className || ''];
+  const elRef = useRef(null);
+
+  // Hooks
+  useEffect(() => {
+    if (props.active) { handleActive(props.active); }
+  }, [props.active]);
 
   // Methods
   const handleActive = segment => {
@@ -31,17 +40,23 @@ const Segments = props => {
   }
 
   const toggleContent = segment => {
-    const allOtherContent = document.querySelectorAll(`.fab-segment-content[data-scope='${scope}']:not([data-name='${segment}'])`);
-    const targetContent = document.querySelector(`.fab-segment-content[data-scope='${scope}'][data-name='${segment}']`);
+    const allOtherContent = document.querySelectorAll(`.fab-content[data-scope='${scope}']:not([data-name='${segment}'])`);
+    const targetContent = document.querySelectorAll(`.fab-content[data-scope='${scope}'][data-name='${segment}']`);
 
     if (allOtherContent.length) {
-      allOtherContent.forEach(other => {
+      for (let i = 0; i < allOtherContent.length; i++) {
+        const other = allOtherContent[i];
+
         other.setAttribute('data-active', 'false');
-      });
+      }
     }
 
-    if (targetContent) {
-      targetContent.setAttribute('data-active', 'true');
+    if (targetContent.length) {
+      for (let i = 0; i < targetContent.length; i++) {
+        const target = targetContent[i];
+
+        target.setAttribute('data-active', 'true');
+      }
     }
   }
 
@@ -62,11 +77,17 @@ const Segments = props => {
   }));
 
   return (
-    <div className={classes.join(' ')}>
-      <div className="fab-segments">
-        {childrenWithProps}
+    <Component
+      elRef={elRef}
+      properties={props}
+      styles={SegmentsStyles}
+      wrapper="fab-segments-wrapper">
+      <div ref={elRef}>
+        <div className="fab-segments">
+          {childrenWithProps}
+        </div>
       </div>
-    </div>
+    </Component>
   )
 }
 

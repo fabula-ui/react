@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { css } from 'emotion';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-// Input
+// Components
 import Button from '../Button/Button';
+import Component from '../Component/Component';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import Input from '../Input/Input';
 
@@ -13,23 +13,29 @@ import SearchInputStyles from '@fabula/core/styles/components/search-input/searc
 const SearchInput = props => {
     const { autocomplete, button, children, className, placeholder, ...rest } = props;
     const [autocompleteIsOpen, setAutocompleIsOpen] = useState(false);
-    const classes = ['fab-search-input-wrapper', className || '', css(SearchInputStyles({ framework: 'react', props }))];
+    const elRef = useRef(null);
 
     const handleFocus = status => {
         // setAutocompleIsOpen(status);
     }
 
     return (
-        <div className={classes.join(' ')}>
-            <div className="fab-search-input">
-                <Input iconStart={{ name: 'search' }} onFocus={() => handleFocus(true)} placeholder={placeholder || 'Search...'} {...rest}>
-                    {!!button && <Button color="primary" compact={true} {...button} label="">{button.label || !button.icon && 'Search'}</Button>}
-                    {children}
-                </Input>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={SearchInputStyles}
+            wrapper="fab-search-input-wrapper">
+            <div ref={elRef}>
+                <div className="fab-search-input">
+                    <Input iconStart={{ name: 'search' }} onFocus={() => handleFocus(true)} placeholder={placeholder || 'Search...'} {...rest}>
+                        {!!button && <Button color="primary" compact={true} {...button} label="">{button.label || !button.icon && 'Search'}</Button>}
+                        {children}
+                    </Input>
 
-                {!!autocomplete && <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onChange={setAutocompleIsOpen} open={autocompleteIsOpen}></DropdownMenu>}
+                    {!!autocomplete && <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onChange={setAutocompleIsOpen} open={autocompleteIsOpen}></DropdownMenu>}
+                </div>
             </div>
-        </div>
+        </Component>
     )
 }
 

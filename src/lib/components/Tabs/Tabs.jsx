@@ -1,14 +1,16 @@
-import React, { Children, cloneElement, useState, useEffect } from 'react';
-import { css } from 'emotion';
+import React, { Children, cloneElement, useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import TabsStyles from '@fabula/core/styles/components/tabs/tabs';
 
 const Tabs = props => {
-    const { children, className, onChange, scope, ...rest } = props;
+    const { children, onChange, scope, ...rest } = props;
     const [active, setActive] = useState(props.active);
-    const classes = ['fab-tabs-wrapper', className || '', css(TabsStyles({ framework: 'react', props }))];
+    const elRef = useRef(null);
 
     // Hooks
     useEffect(() => {
@@ -28,7 +30,7 @@ const Tabs = props => {
         if (allOtherContent.length) {
             for (let i = 0; i < allOtherContent.length; i++) {
                 const other = allOtherContent[i];
-                
+
                 other.setAttribute('data-active', 'false');
             }
         }
@@ -36,7 +38,7 @@ const Tabs = props => {
         if (targetContent.length) {
             for (let i = 0; i < targetContent.length; i++) {
                 const target = targetContent[i];
-                
+
                 target.setAttribute('data-active', 'true');
             }
         }
@@ -46,11 +48,17 @@ const Tabs = props => {
     const childrenWithProps = Children.map(children, child => cloneElement(child, { ...rest, activeTab: active, handleActive, onChange }));
 
     return (
-        <div className={classes.join(' ')}>
-            <div className="fab-tabs">
-                {childrenWithProps}
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={TabsStyles}
+            wrapper="fab-tabs-wrapper">
+            <div ref={elRef}>
+                <div className="fab-tabs">
+                    {childrenWithProps}
+                </div>
             </div>
-        </div>
+        </Component>
     )
 }
 

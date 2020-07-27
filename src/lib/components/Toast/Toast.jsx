@@ -1,21 +1,20 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 // Components
 import Button from '../Button/Button';
+import Component from '../Component/Component';
 import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Styles
 import ToastStyles from '@fabula/core/styles/components/toast/toast';
 
 const Toast = props => {
-    const { children, className, closeButton, color, hideDelay, icon, link, message, stacked, ...rest } = props;
+    const { children, closeButton, color, hideDelay, icon, link, message, stacked } = props;
     const [height, setHeight] = useState();
     const [hidden, setHidden] = useState(false);
     const [hiding, setHiding] = useState(false);
     const toastRef = useRef(null);
-    const classes = ['fab-toast-wrapper', css(ToastStyles({ framework: 'react', props: { ...props, height, stacked } })), className || ''];
 
     // Dynamic requires
     const Link = link ? require('../Link/Link').default : null;
@@ -60,19 +59,25 @@ const Toast = props => {
 
     if (!hidden) {
         return (
-            <div className={classes.join(' ')} data-fab-wrapper="toast" data-hiding={hiding} data-stacked={stacked} ref={toastRef} style={{ height }}>
-                <div className="fab-toast">
-                    {!!icon && <InnerIcon color={color} icon={icon} parentProps={props} />}
-                    {!!message && <span className="fab-toast__message">{message}</span>}
-                    {children}
-                    {!!closeButton &&
-                        <div className="fab-toast__close-button">
-                            <Button size="sm" {...closeButton} data-close-button onClick={hideToast} />
-                        </div>
-                    }
-                    {!!link && <Link {...link} />}
+            <Component
+                elRef={toastRef}
+                properties={{ ...props, height, stacked }}
+                styles={ToastStyles}
+                wrapper="fab-toast-wrapper">
+                <div data-fab-wrapper="toast" data-hiding={hiding} data-stacked={stacked} ref={toastRef} style={{ height }}>
+                    <div className="fab-toast">
+                        {!!icon && <InnerIcon color={color} icon={icon} parentProps={props} />}
+                        {!!message && <span className="fab-toast__message">{message}</span>}
+                        {children}
+                        {!!closeButton &&
+                            <div className="fab-toast__close-button">
+                                <Button size="sm" {...closeButton} data-close-button onClick={hideToast} />
+                            </div>
+                        }
+                        {!!link && <Link {...link} />}
+                    </div>
                 </div>
-            </div>
+            </Component>
         )
     } else {
         return <></>

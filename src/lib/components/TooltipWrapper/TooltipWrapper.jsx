@@ -9,6 +9,7 @@ import { cloneElement } from 'react';
 const TooltipWrapper = props => {
     const { children, color, label, offset, placement } = props;
     const { setActiveTooltip } = useContext(TooltipController);
+    const element = children?.props ? children : children[0].props;
 
     const handleMouseOut = () => {
         setActiveTooltip(null);
@@ -29,8 +30,8 @@ const TooltipWrapper = props => {
         });
     }
 
-    return cloneElement(children[0], {
-        props: children[0].props,
+    return cloneElement(element, {
+        props: element.props,
         onMouseEnter: handleMouseOver,
         onMouseLeave: handleMouseOut
     });

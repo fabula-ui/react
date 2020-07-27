@@ -1,8 +1,8 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
+import Component from '../Component/Component';
 import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Styles
@@ -23,28 +23,34 @@ const Button = props => {
         rounded,
         ...rest
     } = props;
-    const classes = ['fab-button-wrapper', css(ButtonStyles({ framework: 'react', props })), className || ''];
+    const elRef = useRef(null);
 
     return (
-        <div
-            className={classes.join(' ')}
-            data-fab-wrapper="button"
-            data-border={border}
-            data-circle={!!circle || !!icon}
-            data-color={color}
-            data-expand={expand}
-            data-outline={outline}
-            data-rounded={rounded}>
-            <button
-                className="fab-button"
-                data-fab-component="button"
-                disabled={disabled}
-                {...rest}>
-                {!!icon && <InnerIcon icon={icon} parentProps={props} />}
-                {!!label && <span>{label}</span>}
-                {children}
-            </button>
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={ButtonStyles}
+            wrapper="fab-button-wrapper">
+            <div
+                data-fab-wrapper="button"
+                data-border={border}
+                data-circle={!!circle || !!icon}
+                data-color={color}
+                data-expand={expand}
+                data-outline={outline}
+                data-rounded={rounded}
+                ref={elRef}>
+                <button
+                    className="fab-button"
+                    data-fab-component="button"
+                    disabled={disabled}
+                    {...rest}>
+                    {!!icon && <InnerIcon icon={icon} parentProps={props} />}
+                    {!!label && <span>{label}</span>}
+                    {children}
+                </button>
+            </div>
+        </Component>
     )
 };
 

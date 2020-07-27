@@ -1,12 +1,15 @@
-import React, { Children, cloneElement, isValidElement } from 'react';
-import { css } from 'emotion';
+import React, { Children, cloneElement, isValidElement, useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import TagGroupStyles from '@fabula/core/styles/components/tag-group/tag-group';
 
 const TagGroup = props => {
-    const { children, className, color } = props;
+    const { children, color } = props;
+    const elRef = useRef(null);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child) && !child.props.color) {
             return cloneElement(child, { color });
@@ -16,11 +19,17 @@ const TagGroup = props => {
     });
 
     return (
-        <div className={`${className} fab-tag-group-wrapper ${css(TagGroupStyles({ framework: 'react', props }))}`}>
-            <div className="fab-tag-group">
-                {childrenWithProps}
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={TagGroupStyles}
+            wrapper="fab-tag-group-wrapper">
+            <div ref={elRef}>
+                <div className="fab-tag-group">
+                    {childrenWithProps}
+                </div>
             </div>
-        </div>
+        </Component>
     )
 }
 

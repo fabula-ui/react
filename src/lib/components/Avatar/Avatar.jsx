@@ -1,8 +1,8 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
+import Component from '../Component/Component';
 import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Methods
@@ -14,7 +14,6 @@ import AvatarStyles from '@fabula/core/styles/components/avatar/avatar';
 const Avatar = props => {
     const {
         children,
-        className,
         color,
         icon,
         image,
@@ -22,17 +21,23 @@ const Avatar = props => {
         showInitials,
         size
     } = props;
-    const classes = ['fab-avatar-wrapper', css(AvatarStyles({ framework: 'react', props })), className || ''];
+    const elRef = useRef(null);
 
     return (
-        <div className={classes.join(' ')} data-fab-wrapper="avatar" data-rounded={rounded}>
-            <div className="fab-avatar" data-color={color} data-fab-component="avatar" data-rounded={rounded} data-size={size}>
-                {!showInitials && !!icon && <InnerIcon icon={icon} parentProps={props} />}
-                {showInitials && <span className="fab-avatar__initials">{getInitials(showInitials)}</span>}
-                {image && <div className="fab-avatar__image" style={{ backgroundImage: `url(${image})` }}></div>}
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={AvatarStyles}
+            wrapper="fab-avatar-wrapper">
+            <div data-fab-wrapper="avatar" data-rounded={rounded} ref={elRef}>
+                <div className="fab-avatar" data-color={color} data-fab-component="avatar" data-rounded={rounded} data-size={size}>
+                    {!showInitials && !!icon && <InnerIcon icon={icon} parentProps={props} />}
+                    {showInitials && <span className="fab-avatar__initials">{getInitials(showInitials)}</span>}
+                    {image && <div className="fab-avatar__image" style={{ backgroundImage: `url(${image})` }}></div>}
+                </div>
+                {children}
             </div>
-            {children}
-        </div>
+        </Component>
     )
 }
 

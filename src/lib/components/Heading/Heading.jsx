@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { css } from 'emotion';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import HeadingStyles from '@fabula/core/styles/components/heading/heading';
 
 const Heading = props => {
     const { children, className, level } = props;
-    const classes = ['fab-heading', css(HeadingStyles({ framework: 'react', props })), className || ''];
     const HTag = `h${level}`;
+    const elRef = useRef(null);
 
     return (
-        <HTag className={classes.join(' ')}>
-            {children}
-        </HTag>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={HeadingStyles}
+            wrapper="fab-heading">
+            <div ref={elRef}>
+                <HTag>
+                    {children}
+                </HTag>
+            </div>
+        </Component>
     )
 }
 

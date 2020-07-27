@@ -1,27 +1,35 @@
-import React, { Children, cloneElement, isValidElement } from 'react';
-import { css } from 'emotion';
+import React, { Children, cloneElement, isValidElement, useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import ListStyles from '@fabula/core/styles/components/list/list';
 
 const List = props => {
-    const { children, className, divider, color, padding, striped } = props;
-    const classes = ['fab-list-wrapper', css(ListStyles({ framework: 'react', props })), className || ''];
+    const { children, divider, color, padding, striped } = props;
+    const elRef = useRef(null);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
-            return cloneElement(child, { color, divider, padding, striped });
+            return cloneElement(child, { divider, padding, parentColor: color, striped });
         } else {
             return child;
         }
     });
 
     return (
-        <div className={classes.join(' ')}>
-            <div className="fab-list">
-                {childrenWithProps}
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={ListStyles}
+            wrapper="fab-list-wrapper">
+            <div ref={elRef}>
+                <div className="fab-list">
+                    {childrenWithProps}
+                </div>
             </div>
-        </div>
+        </Component>
     )
 }
 

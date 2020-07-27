@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { css } from 'emotion';
 
 // Components
+import Component from '../Component/Component';
 import Tag from '../Tag/Tag';
 
 // Styles
@@ -9,7 +10,7 @@ import InputStyles from '@fabula/core/styles/components/input/input';
 import TagInputStyles from '@fabula/core/theme/styles/TagInput';
 
 const TagInput = props => {
-    const { className, icon, tagColor } = props;
+    const { icon, tagColor } = props;
     // State vars
     const [currentTag, setCurrentTag] = useState('');
     const [focus, setFocus] = useState(false);
@@ -17,14 +18,12 @@ const TagInput = props => {
     const [items, setItems] = useState(<></>);
     const [tags, setTags] = useState([]);
     // Refs
+    const elRef = useRef(null);
     const inputRef = useRef(null);
-    const ref = useRef(null);
     // Vars
     const placeholder = props.placeholder || 'Type something...';
     // CSS
     const inputCss = css(InputStyles({ framework: 'react', props }));
-    const tagInputCss = css(TagInputStyles({ framework: 'react', props: { ...props, placeholder } }));
-    const classes = ['fab-tag-input-wrapper', className || '', inputCss, tagInputCss];
 
     // Dynamic requires
     const Icon = icon ? require('../Icon/Icon').default : null;
@@ -97,17 +96,24 @@ const TagInput = props => {
     }
 
     return (
-        <div className={classes.join(' ')}>
-            <div className="fab-tag-input fab-input" data-focus={focus} onClick={handleParentFocus}>
-                <div className="fab-tag-input__stage">
-                    {!!icon && typeof icon === 'object' && <Icon {...icon} />}
-                    {!!icon && typeof icon === 'string' && <Icon name={icon} />}
-                    {items}
-                    <div className="fab-tag-input__fake-input" contentEditable={true} data-show-placeholder={inputStatus === 'clean'} onBlur={() => setFocus(false)} onFocus={handleFocus} onInput={handleChange} onKeyUp={handleKeypress} ref={inputRef} style={{ position: 'relative' }} suppressContentEditableWarning={true}></div>
-                    <div className="fab-tag-input__click-area"><wbr /></div>
+        <Component
+            classes={[inputCss]}
+            elRef={elRef}
+            properties={{ ...props, placeholder }}
+            styles={TagInputStyles}
+            wrapper="fab-tag-input-wrapper">
+            <div ref={elRef}>
+                <div className="fab-tag-input fab-input" data-focus={focus} onClick={handleParentFocus}>
+                    <div className="fab-tag-input__stage">
+                        {!!icon && typeof icon === 'object' && <Icon {...icon} />}
+                        {!!icon && typeof icon === 'string' && <Icon name={icon} />}
+                        {items}
+                        <div className="fab-tag-input__fake-input" contentEditable={true} data-show-placeholder={inputStatus === 'clean'} onBlur={() => setFocus(false)} onFocus={handleFocus} onInput={handleChange} onKeyUp={handleKeypress} ref={inputRef} style={{ position: 'relative' }} suppressContentEditableWarning={true}></div>
+                        <div className="fab-tag-input__click-area"><wbr /></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Component>
     )
 }
 

@@ -1,6 +1,8 @@
-import React, { Children, cloneElement, useContext } from 'react';
-import { css } from 'emotion';
+import React, { Children, cloneElement, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Controller
 import ModalController from '../../controllers/ModalController';
@@ -9,19 +11,24 @@ import ModalController from '../../controllers/ModalController';
 import ModalStyles from '@fabula/core/styles/components/modal/modal';
 
 const Modal = props => {
-    const { children, className, color } = props;
+    const { children, color } = props;
     const { closeModal, modalIsClosing, modalIsOpen } = useContext(ModalController);
     const childrenWithProps = Children.map(children, child => cloneElement(child, { closeModal, parentColor: color }));
-    const classes = ['fab-modal-wrapper', css(ModalStyles({ framework: 'react', props })), className || ''];
-    
-    return (
-        <div className={classes.join(' ')} data-closing={modalIsClosing} data-open={modalIsOpen}>
-            <div class="fab-modal">
-                {childrenWithProps}
-            </div>
+    const elRef = useRef(null);
 
-            <div class="fab-modal__backdrop" onClick={closeModal}></div>
-        </div>
+    return (
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={ModalStyles}
+            wrapper="fab-modal-wrapper">
+            <div data-closing={modalIsClosing} data-open={modalIsOpen} ref={elRef}>
+                <div class="fab-modal">
+                    {childrenWithProps}
+                </div>
+                <div class="fab-modal__backdrop" onClick={closeModal}></div>
+            </div>
+        </Component>
     )
 }
 

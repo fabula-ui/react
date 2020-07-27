@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
-import { css } from 'emotion';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';
 
 const Checkbox = props => {
-    const { children, className, disabled, onChange, onCheck, onUncheck, label } = props;
+    const { children, disabled, onChange, onCheck, onUncheck, label } = props;
     const [checked, setChecked] = useState(props.checked || false);
     const [focus, setFocus] = useState(false);
     const [isIndeterminate, setIndeterminate] = useState(props.indeterminate || false);
-    const classes = ['fab-checkbox-wrapper', className || '', css(CheckboxStyles({ framework: 'react', props }))];
+    const elRef = useRef(null);
 
     const handleChange = e => {
         const tempChecked = e ? e.target.checked : !checked;
@@ -31,19 +33,25 @@ const Checkbox = props => {
     }
 
     return (
-        <div className={classes.join(' ')} data-checked={checked} data-disabled={disabled} data-focus={focus} data-indeterminate={isIndeterminate}>
-            <div className="fab-checkbox" onClick={() => handleChange()} />
-            <label className="fab-checkbox__label">
-                <input
-                    checked={checked}
-                    disabled={disabled}
-                    onBlur={() => setFocus(false)}
-                    onFocus={() => setFocus(true)}
-                    onChange={handleChange}
-                    type="checkbox" />
-                {label || children}
-            </label>
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={CheckboxStyles}
+            wrapper="fab-checkbox-wrapper">
+            <div data-checked={checked} data-disabled={disabled} data-focus={focus} data-indeterminate={isIndeterminate} ref={elRef}>
+                <div className="fab-checkbox" onClick={() => handleChange()} />
+                <label className="fab-checkbox__label">
+                    <input
+                        checked={checked}
+                        disabled={disabled}
+                        onBlur={() => setFocus(false)}
+                        onFocus={() => setFocus(true)}
+                        onChange={handleChange}
+                        type="checkbox" />
+                    {label || children}
+                </label>
+            </div>
+        </Component>
     )
 }
 

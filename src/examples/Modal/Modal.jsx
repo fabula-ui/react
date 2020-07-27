@@ -17,7 +17,6 @@ const ModalExample = props => {
 
     const handleOpen = () => {
         openModal(<TargetModal />);
-        // setOpen(true);
     }
 
     return (

@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import NavbarStyles from '@fabula/core/styles/components/navbar/navbar';
 
 const Navbar = props => {
-    const { children, className } = props;
-    const classes = ['fab-navbar', css(NavbarStyles({ framework: 'react', props })), className || ''];
+    const { children } = props;
+    const elRef = useRef(null);
 
-    return <div className={classes.join(' ')}>{children}</div>
+    return (
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={NavbarStyles}
+            wrapper="fab-navbar">
+            <div ref={elRef}>{children}</div>
+        </Component>
+    );
 }
 
 Navbar.defaultProps = {

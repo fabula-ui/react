@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { css } from 'emotion';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import TabStyles from '@fabula/core/styles/components/tab/tab';
 
 const Tab = props => {
-    const { activeTab, children, className, handleActive, label, link, name, onChange, ...rest } = props;
+    const { activeTab, children, handleActive, label, link, name, onChange, ...rest } = props;
     const [active, setActive] = useState(props.active);
-    const classes = ['fab-tab', className || '', css(TabStyles({ framework: 'react', props }))];
+    const elRef = useRef(null);
 
     useEffect(() => {
         if (activeTab) {
@@ -22,10 +24,16 @@ const Tab = props => {
     }
 
     return (
-        <div className={classes.join(' ')} data-active={active}>
-            {!link && <button onClick={handleClick}>{label || children}</button>}
-            {link && <a className="fab-tab" href={link} {...rest}>{label || children}</a>}
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={TabStyles}
+            wrapper="fab-tab">
+            <div data-active={active} ref={elRef}>
+                {!link && <button onClick={handleClick}>{label || children}</button>}
+                {link && <a className="fab-tab" href={link} {...rest}>{label || children}</a>}
+            </div>
+        </Component>
     )
 }
 

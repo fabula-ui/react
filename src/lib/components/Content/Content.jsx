@@ -1,17 +1,26 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import ContentStyles from '@fabula/core/styles/components/content/content';
 
 const Content = props => {
-    const { active, children, className, contentClassName, name, scope } = props;
-    const classes = ['fab-content', contentClassName, className || '', css(ContentStyles({ framework: 'react', props }))];
+    const { active, children, contentClassName, name, scope } = props;
+    const elRef = useRef(null)
 
     return (
-        <div className={classes.join(' ')} data-active={!!active} data-name={name} data-scope={scope}>
-            {children}
-        </div>
+        <Component
+            classes={[contentClassName]}
+            elRef={elRef}
+            properties={props}
+            styles={ContentStyles}
+            wrapper="fab-content">
+            <div data-active={!!active} data-name={name} data-scope={scope} ref={elRef}>
+                {children}
+            </div>
+        </Component>
     )
 }
 

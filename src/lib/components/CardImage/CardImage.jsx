@@ -1,19 +1,27 @@
-import React from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import CardImageStyles from '@fabula/core/styles/components/card-image/card-image';
 
 const CardImage = props => {
     const { children, className, src, layout } = props;
-    const classes = ['fab-card-image', css(CardImageStyles({ framework: 'react', props })), className || ''];
-    
+    const elRef = useRef(null);
+
     return (
-        <div className={classes.join(' ')} data-layout={layout}>
-            {!!src && <img src={src} />}
-            {children}
-        </div>
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={CardImageStyles}
+            wrapper="fab-card-image">
+            <div data-layout={layout} ref={elRef}>
+                {!!src && <img src={src} />}
+                {children}
+            </div>
+        </Component>
     )
 }
 

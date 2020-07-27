@@ -1,5 +1,8 @@
-import React, { useContext, useRef, useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { css } from 'emotion';
+
+// Components
+import Component from '../Component/Component';
 
 // Styles
 import IconStyles from '@fabula/core/theme/styles/Icon';
@@ -61,11 +64,18 @@ const Icon = props => {
 
     if (svg) {
         return (
-            <span className={`fab-icon ${css(IconStyles({ framework: 'react', props }))} ${iconClass}`} data-color={color} data-name={name} ref={wrapperRef} {...rest}>
-                <i className="fab-icon__svg" ref={iconRef} />
-                {!appended && <object className="fab-icon__object" xmlns="http://www.w3.org/2000/svg" data={svg} type="image/svg+xml" ref={svgRef}>Unsupported by browser</object>}
-                {children}
-            </span>
+            <Component
+                classes={[iconClass]}
+                elRef={wrapperRef}
+                properties={props}
+                styles={IconStyles}
+                wrapper="fab-icon">
+                <span data-color={color} data-name={name} ref={wrapperRef}>
+                    <i className="fab-icon__svg" ref={iconRef} />
+                    {!appended && <object className="fab-icon__object" xmlns="http://www.w3.org/2000/svg" data={svg} type="image/svg+xml" ref={svgRef}>Unsupported by browser</object>}
+                    {children}
+                </span>
+            </Component>
         );
     } else {
         return <></>

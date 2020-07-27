@@ -49,13 +49,20 @@ import Tooltip from './components/TooltipWrapper/TooltipWrapper';
 import ModalController from './controllers/ModalController';
 import ToastController from './controllers/ToastController';
 
+// HTML Elements
+import {
+    Div
+} from './components/HTMLElements/HTMLElements';
+
 // Providers
 import FabulaProvider from './providers/FabulaProvider';
-import FabulaUtils from './providers/UtilsProvider';
+import FabulaUtils from './providers/FabulaUtils';
 import ModalProvider from './providers/ModalProvider';
+import ResponsiveProvider from './providers/ResponsiveProvider';
 import ThemeProvider from './providers/ThemeProvider';
 import ToastProvider from './providers/ToastProvider';
 import TooltipProvider from './providers/TooltipProvider';
+import UtilsProvider from './providers/UtilsProvider';
 
 // Services
 import ToastService from './services/ToastService';
@@ -71,6 +78,7 @@ export {
     CardImage,
     CardSection,
     Checkbox,
+    Div,
     Divider,
     Dropdown,
     DropdownHeader,
@@ -116,9 +124,11 @@ export {
     FabulaProvider,
     FabulaUtils,
     ModalProvider,
+    ResponsiveProvider,
     ThemeProvider,
     ToastProvider,
     TooltipProvider,
+    UtilsProvider,
 
     // Services
     ToastService,

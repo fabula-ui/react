@@ -3,8 +3,9 @@ import { action } from '@storybook/addon-actions';
 
 import {
     Button,
+    Div,
     FabulaProvider,
-    FabulaUtils,
+    UtilsProvider,
     Tooltip,
     ButtonGroup,
     TooltipProvider,
@@ -20,7 +21,7 @@ export const Color = () => {
     return (
         <FabulaProvider>
             <TooltipProvider>
-                <FabulaUtils>
+                <UtilsProvider>
                     <ButtonGroup mt={3}>
                         <Tooltip label="Default" placement="top">
                             <Button border={true}>Default</Button>
@@ -56,7 +57,7 @@ export const Color = () => {
                             <Button color="aux">Aux</Button>
                         </Tooltip>
                     </ButtonGroup>
-                </FabulaUtils>
+                </UtilsProvider>
             </TooltipProvider>
         </FabulaProvider>
     )
@@ -65,7 +66,7 @@ export const Color = () => {
 export const Label = () => (
     <FabulaProvider>
         <TooltipProvider>
-            <FabulaUtils>
+            <UtilsProvider>
                 <ButtonGroup mt="5">
                     <Tooltip label="Label 1" placement="top">
                         <Button color="primary">Label 1</Button>
@@ -77,7 +78,7 @@ export const Label = () => (
                         <Button color="primary">Label 3</Button>
                     </Tooltip>
                 </ButtonGroup>
-            </FabulaUtils>
+            </UtilsProvider>
         </TooltipProvider>
     </FabulaProvider>
 )
@@ -85,7 +86,7 @@ export const Label = () => (
 export const Offset = () => (
     <FabulaProvider>
         <TooltipProvider>
-            <FabulaUtils>
+            <UtilsProvider>
                 <ButtonGroup mt="5">
                     <Tooltip label="Default" placement="top">
                         <Button color="primary">Default</Button>
@@ -103,7 +104,7 @@ export const Offset = () => (
                         <Button color="primary">30px</Button>
                     </Tooltip>
                 </ButtonGroup>
-            </FabulaUtils>
+            </UtilsProvider>
         </TooltipProvider>
     </FabulaProvider>
 )
@@ -112,7 +113,7 @@ export const Placement = () => {
     return (
         <FabulaProvider>
             <TooltipProvider>
-                <FabulaUtils>
+                <UtilsProvider>
                     <ButtonGroup mt="3">
                         <Tooltip label="Top" placement="top">
                             <Button color="primary">Top</Button>
@@ -127,7 +128,7 @@ export const Placement = () => {
                             <Button color="primary">Left</Button>
                         </Tooltip>
                     </ButtonGroup>
-                </FabulaUtils>
+                </UtilsProvider>
             </TooltipProvider>
         </FabulaProvider>
     )

@@ -26,15 +26,19 @@ const Tabs = props => {
         const targetContent = document.querySelectorAll(`.fab-content[data-scope='${scope}'][data-name='${segment}']`);
 
         if (allOtherContent.length) {
-            allOtherContent.forEach(other => {
+            for (let i = 0; i < allOtherContent.length; i++) {
+                const other = allOtherContent[i];
+                
                 other.setAttribute('data-active', 'false');
-            });
+            }
         }
 
         if (targetContent.length) {
-            targetContent.forEach(target => {
+            for (let i = 0; i < targetContent.length; i++) {
+                const target = targetContent[i];
+                
                 target.setAttribute('data-active', 'true');
-            });
+            }
         }
     }
 

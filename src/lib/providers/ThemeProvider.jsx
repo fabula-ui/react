@@ -5,13 +5,13 @@ import { css } from 'emotion';
 import reset from '@fabula/core/styles/common/reset';
 import setBaseTheme from '@fabula/core/styles/methods/misc/setBaseTheme';
 
-const ThemeProvider = props => {
-    const { children, theme = {} } = props;
+const ThemeProvider = (props) => {
+	const { children, theme = {} } = props;
     
-    document.body.classList.add(css(reset));
-    setBaseTheme({ theme });
+	document.body.classList.add(css(reset));
+	setBaseTheme({ theme });
 
-    return children;
-}
+	return children;
+};
 
 export default ThemeProvider;

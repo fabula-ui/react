@@ -20,8 +20,9 @@ const ModalHeader = props => {
 
     return (
         <Component
-            classes={['fab-modal-section', sectionCss]}
+            classes={['fab-modal-section']}
             elRef={elRef}
+            otherStyles={[sectionCss]}
             properties={props}
             styles={ModalHeaderStyles}
             wrapper="fab-modal-header">

@@ -97,8 +97,8 @@ const TagInput = props => {
 
     return (
         <Component
-            classes={[inputCss]}
             elRef={elRef}
+            otherStyles={[inputCss]}
             properties={{ ...props, placeholder }}
             styles={TagInputStyles}
             wrapper="fab-tag-input-wrapper">

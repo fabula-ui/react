@@ -6,7 +6,7 @@ import { ResponsiveProviderContext } from '../../providers/ResponsiveProvider';
 import { UtilsProviderContext } from '../../providers/UtilsProvider';
 
 const Component = props => {
-    const { children, classes, elRef, properties, styles, wrapper } = props;
+    const { children, classes, elRef, otherStyles, properties, styles, wrapper } = props;
     const responsiveContext = useContext(ResponsiveProviderContext);
     const utilsContext = useContext(UtilsProviderContext);
 
@@ -25,7 +25,21 @@ const Component = props => {
 
             if (classes?.length) {
                 for (let i = 0; i < classes.length; i++) {
-                    elRef.current.classList.add(css(classes[i]));
+                    elRef.current.classList.add(classes[i]);
+                }
+            }
+
+            if (otherStyles?.length) {
+                for (let i = 0; i < otherStyles.length; i++) {
+                    elRef.current.classList.add(css(otherStyles[i]));
+                }
+            }
+
+            if (properties.className && typeof properties.className === 'string') {
+                for (let i = 0; i < properties.className.split(' ').length; i++) {
+                    const className = properties.className.split(' ')[i];
+
+                    if (className) { elRef.current.classList.add(className); }
                 }
             }
             

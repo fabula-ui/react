@@ -8,7 +8,26 @@ import Component from '../Component/Component';
 import TabsStyles from '@fabula/core/styles/components/tabs/tabs';
 
 const Tabs = props => {
-    const { children, onChange, scope, ...rest } = props;
+    const {
+        activeColor,
+        activeFillColor,
+        activeTextColor,
+        children,
+        clear,
+        color,
+        expand,
+        faded,
+        inactiveFillColor,
+        inactiveTextColor,
+        invert,
+        layout,
+        onChange,
+        outline,
+        rounded,
+        scope,
+        stacked,
+        type
+    } = props;
     const [active, setActive] = useState(props.active);
     const elRef = useRef(null);
 
@@ -45,7 +64,27 @@ const Tabs = props => {
     }
 
     // Children with props
-    const childrenWithProps = Children.map(children, child => cloneElement(child, { ...rest, activeTab: active, handleActive, onChange }));
+    const childrenWithProps = Children.map(children, child => cloneElement(child, {
+        activeColor,
+        activeFillColor,
+        activeTextColor,
+        activeTab: active,
+        clear,
+        color,
+        expand,
+        faded,
+        handleActive,
+        inactiveFillColor,
+        inactiveTextColor,
+        invert,
+        layout,
+        onChange,
+        outline,
+        rounded,
+        scope,
+        stacked,
+        type
+    }));
 
     return (
         <Component

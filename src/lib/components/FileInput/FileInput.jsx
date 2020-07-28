@@ -9,17 +9,13 @@ import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import Icon from '../Icon/Icon';
 import Tag from '../Tag/Tag';
 
-// Context
-import { FabulaProviderContext } from '../../providers/FabulaProvider';
-
 // Styles
 import FileInputStyles from '@fabula/core/theme/styles/FileInput';
 import InputStyles from '@fabula/core/styles/components/input/input';
 import DropdownItem from '../DropdownItem/DropdownItem';
 
 const FileInput = props => {
-    const { className, icon, onChange, multiple, tagColor } = props;
-    const { utils } = useContext(FabulaProviderContext);
+    const { className, icon, onChange } = props;
     const [fileListIsOpen, setFileListIsOpen] = useState(false);
     const [files, setFiles] = useState([]);
     const [focus, setFocus] = useState(false);

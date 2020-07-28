@@ -31,7 +31,7 @@ const Tab = props => {
             wrapper="fab-tab">
             <div data-active={active} ref={elRef}>
                 {!link && <button onClick={handleClick}>{label || children}</button>}
-                {link && <a className="fab-tab" href={link} {...rest}>{label || children}</a>}
+                {link && <a href={link} {...rest}>{label || children}</a>}
             </div>
         </Component>
     )

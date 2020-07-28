@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { createElement, useRef } from 'react';
 import { css } from 'emotion';
 
 // Components
@@ -8,9 +8,9 @@ import Component from '../Component/Component';
 import HeadingStyles from '@fabula/core/styles/components/heading/heading';
 
 const Heading = props => {
-    const { children, className, level } = props;
-    const HTag = `h${level}`;
+    const { children, level } = props;
     const elRef = useRef(null);
+    const HTag = () => createElement(`h${level}`, { ref: elRef }, children);
 
     return (
         <Component
@@ -18,11 +18,9 @@ const Heading = props => {
             properties={props}
             styles={HeadingStyles}
             wrapper="fab-heading">
-            <div ref={elRef}>
-                <HTag>
-                    {children}
-                </HTag>
-            </div>
+            <HTag>
+                {children}
+            </HTag>
         </Component>
     )
 }

@@ -8,15 +8,11 @@ import Component from '../Component/Component';
 import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Styles
-import ButtonStyles from '@fabula/core/styles/components/button/button';
 import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
 
 const DropdownToggle = props => {
     const { children, className, direction, icon, label, onClick, open, toggle, ...rest } = props;
     const elRef = useRef(null);
-
-    // CSS
-    const buttonCss = css(ButtonStyles({ framework: 'react', props }));
 
     const handleClick = () => {
         if (onClick) { onClick(); }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { css } from 'emotion';
 
 // Components
@@ -17,7 +17,7 @@ const Icon = props => {
     const svgRef = useRef(null);
     const wrapperRef = useRef(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         let svg;
 
         if (name) {
@@ -36,7 +36,7 @@ const Icon = props => {
         }
     }, [name, src]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (iconRef.current && svg && !appended && svgRef.current && wrapperRef.current) {
             svgRef.current.addEventListener('load', () => {
                 let svg;
@@ -65,13 +65,12 @@ const Icon = props => {
     if (svg) {
         return (
             <Component
-                classes={[iconClass]}
                 elRef={wrapperRef}
                 properties={props}
                 styles={IconStyles}
                 wrapper="fab-icon">
                 <span data-color={color} data-name={name} ref={wrapperRef}>
-                    <i className="fab-icon__svg" ref={iconRef} />
+                    <i className="fab-icon__svg" data-appended={appended} ref={iconRef} />
                     {!appended && <object className="fab-icon__object" xmlns="http://www.w3.org/2000/svg" data={svg} type="image/svg+xml" ref={svgRef}>Unsupported by browser</object>}
                     {children}
                 </span>

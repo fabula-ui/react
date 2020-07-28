@@ -51,7 +51,8 @@ import ToastController from './controllers/ToastController';
 
 // HTML Elements
 import {
-    Div
+    Div,
+    Span
 } from './components/HTMLElements/HTMLElements';
 
 // Providers
@@ -78,7 +79,6 @@ export {
     CardImage,
     CardSection,
     Checkbox,
-    Div,
     Divider,
     Dropdown,
     DropdownHeader,
@@ -119,6 +119,10 @@ export {
     // Controllers
     ModalController,
     ToastController,
+
+    // HTML elements
+    Div,
+    Span,
 
     // Providers
     FabulaProvider,

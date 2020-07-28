@@ -38,6 +38,9 @@ export const Responsive = () => (
   <FabulaProvider>
     <UtilsProvider>
       <ResponsiveProvider>
+        <Div on={['lg', null, { mt: '2' }, { opacity: .2 }]}>
+          <Text>Testing HTML Elements</Text>
+        </Div>
         <Button
           border={true}
           color="primary"

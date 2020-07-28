@@ -200,7 +200,7 @@ export const Content = () => (
   
             <TabContent active={true} name="docs" scope="scope1">
               <Card padding>
-                <Text size="xl" weight="600">Docs</Text>
+                <Text block={true} size="xl" weight="600">Docs</Text>
                 <Text>This content is related to docs</Text>
               </Card>
             </TabContent>

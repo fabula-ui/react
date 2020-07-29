@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 
 // Components
 import Component from '../Component/Component';
@@ -13,7 +13,7 @@ const Tooltip = props => {
     const elRef = useRef(null);
 
     // Hooks
-    useEffect(() => {
+    useLayoutEffect(() => {
         handleTooltip();
     }, []);
 

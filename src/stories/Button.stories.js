@@ -10,8 +10,6 @@ import {
   Icon,
 } from '../lib';
 
-import { ReactComponent as DatabaseIcon } from '@fabula/core/icons/database.svg';
-
 export default {
   title: 'Button',
   component: Button,
@@ -20,9 +18,10 @@ export default {
 export const Examples = () => (
   <FabulaProvider>
     <FabulaUtils>
-      <DatabaseIcon />
       <ButtonGroup mb="1">
-        <Button color="primary" icon="file" label="Button"></Button>
+        <Button color="primary" label="Button">
+          <Icon name="file" />
+        </Button>
         <Button color="primary">
           <Icon name="database" />
           <span>Button</span>
@@ -54,15 +53,6 @@ export const Circle = () => (
         <Button color="primary" circle={true} size="xxl">
           <Icon name="file" />
         </Button>
-      </ButtonGroup>
-
-      <ButtonGroup>
-        <Button color="primary" icon="file" size="xs" />
-        <Button color="primary" icon="file" size="sm" />
-        <Button color="primary" icon="file" size="md" />
-        <Button color="primary" icon="file" size="lg" />
-        <Button color="primary" icon="file" size="xl" />
-        <Button color="primary" icon="file" size="xxl" />
       </ButtonGroup>
     </FabulaUtils>
   </FabulaProvider>

@@ -5,49 +5,48 @@ import PropTypes from 'prop-types';
 // Components
 import Button from '../Button/Button';
 import Component from '../Component/Component';
-import InnerIcon from '../InnerIcon/InnerIcon';
+import Icon from '../Icon/Icon';
 
 // Styles
 import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
 
-const DropdownToggle = props => {
-    const { children, className, direction, icon, label, onClick, open, toggle, ...rest } = props;
-    const elRef = useRef(null);
+const DropdownToggle = (props) => {
+	const { children, className, direction, icon, label, onClick, open, toggle, ...rest } = props;
+	const elRef = useRef(null);
 
-    const handleClick = () => {
-        if (onClick) { onClick(); }
-        toggle();
-    }
+	const handleClick = () => {
+		if (onClick) {
+			onClick();
+		}
+		toggle();
+	};
 
-    return (
-        <Component
-            elRef={elRef}
-            properties={props}
-            styles={DropdownToggleStyles}
-            wrapper="fab-dropdown-toggle">
-            <div data-direction={direction} data-open={open} ref={elRef}>
-                <Button onClick={handleClick} {...rest}>
-                    {!!icon && <InnerIcon icon={icon} parentProps={props} />}
-                    <span className="fab-dropdown-toggle__label">{label || children}</span>
-                    <span className="fab-dropdown-toggle__chevron" />
-                </Button>
-            </div>
-        </Component>
-    )
-}
+	return (
+		<Component elRef={elRef} properties={props} styles={DropdownToggleStyles} wrapper="fab-dropdown-toggle">
+			<div data-direction={direction} data-open={open} ref={elRef}>
+				<Button onClick={handleClick} {...rest}>
+					{!!icon && typeof icon === 'object' && <Icon {...icon} />}
+					{!!icon && typeof icon === 'string' && <Icon name={icon} />}
+					<span className="fab-dropdown-toggle__label">{label || children}</span>
+					<span className="fab-dropdown-toggle__chevron" />
+				</Button>
+			</div>
+		</Component>
+	);
+};
 
 DropdownToggle.defaultProps = {
-    direction: '',
-    icon: '',
-    label: '',
-    open: false
-}
+	direction: '',
+	icon: '',
+	label: '',
+	open: false
+};
 
 DropdownToggle.propTypes = {
-    direction: PropTypes.string,
-    icon: PropTypes.string,
-    label: PropTypes.string,
-    open: PropTypes.bool
-}
+	direction: PropTypes.string,
+	icon: PropTypes.string,
+	label: PropTypes.string,
+	open: PropTypes.bool
+};
 
 export default DropdownToggle;

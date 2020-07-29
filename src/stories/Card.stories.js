@@ -12,6 +12,7 @@ import {
   Icon,
   List,
   ListItem,
+  Strong,
   UtilsProvider,
   Tag,
   TagGroup,
@@ -31,7 +32,7 @@ export const Examples = () => (
           <CardImage height={200} />
           <CardSection divider="top" padding>
             <Text flex size="lg">
-              <strong mr=".5">Card Title</strong>
+              <Strong mr=".5">Card Title</Strong>
               <Badge color="primary">New</Badge>
             </Text>
             <Text aux block mb="1" size="sm">Card subtitle</Text>
@@ -405,7 +406,7 @@ export const Layout = () => (
           <CardImage height={200} />
           <CardSection divider="top" padding>
             <Text flex size="lg">
-              <strong mr=".5">Card Title</strong>
+              <Strong mr=".5">Card Title</Strong>
               <Badge color="primary">New</Badge>
             </Text>
             <Text aux block mb="1" size="sm" span>Card subtitle</Text>
@@ -421,7 +422,7 @@ export const Layout = () => (
             <CardImage width={200} />
             <CardSection grow={1} padding>
               <Text flex size="lg">
-                <strong mr=".5">Card Title</strong>
+                <Strong mr=".5">Card Title</Strong>
                 <Badge color="primary">New</Badge>
               </Text>
               <Text aux block mb="1" size="sm" span>Card subtitle</Text>
@@ -437,7 +438,7 @@ export const Layout = () => (
             <CardSection expand={true}>
               <CardSection expand={true} grow={1} padding>
                 <Text flex size="lg">
-                  <strong mr=".5">Card Title</strong>
+                  <Strong mr=".5">Card Title</Strong>
                   <Badge color="primary">New</Badge>
                 </Text>
                 <Text aux block mb="1" size="sm" span>Card subtitle</Text>
@@ -454,7 +455,7 @@ export const Layout = () => (
           <Card layout="h">
             <CardSection grow={1} padding>
               <Text flex size="lg">
-                <strong mr=".5">Card Title</strong>
+                <Strong mr=".5">Card Title</Strong>
                 <Badge color="primary">New</Badge>
               </Text>
               <Text aux block mb="1" size="sm" span>Card subtitle</Text>

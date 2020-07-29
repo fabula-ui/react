@@ -3,14 +3,10 @@ import React, { useRef } from 'react';
 // Components
 import Component from '../Component/Component';
 
-// Icons
-import { ReactComponent as Activity } from '@fabula/icons/assets/activity.svg';
-
 // Styles
-import IconStyles from '@fabula/core/theme/styles/Icon';
+import IconStyles from '@fabula/core/styles/components/icon/icon';
 
 const Icon = props => {
-    const { children } = props;
     const elRef = useRef(null);
 
     return (
@@ -19,13 +15,9 @@ const Icon = props => {
             properties={props}
             styles={IconStyles}
             wrapper="fab-icon">
-            <i ref={elRef}>{children}</i>
+            <i ref={elRef} />
         </Component>
     )
 }
 
-const activity = props => <Icon {...props}><Activity /></Icon>;
-
-export {
-    activity
-}
+export default Icon

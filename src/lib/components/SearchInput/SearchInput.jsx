@@ -28,7 +28,7 @@ const SearchInput = props => {
             <div ref={elRef}>
                 <div className="fab-search-input">
                     <Input iconStart={{ name: 'search' }} onFocus={() => handleFocus(true)} placeholder={placeholder || 'Search...'} {...rest}>
-                        {!!button && <Button color="primary" compact={true} {...button} label="">{button.label || !button.icon && 'Search'}</Button>}
+                        {!!button && <Button color="primary" compact={true} {...button}>{!button.label && !button.icon && 'Search'}</Button>}
                         {children}
                     </Input>
 

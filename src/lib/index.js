@@ -16,7 +16,7 @@ import DropdownMenu from './components/DropdownMenu/DropdownMenu';
 import DropdownToggle from './components/DropdownToggle/DropdownToggle';
 import FileInput from './components/FileInput/FileInput';
 import Heading from './components/Heading/Heading';
-// import Icon from './components/Icon/Icon';
+import Icon from './components/Icon/Icon';
 import Input from './components/Input/Input';
 import InputGroup from './components/InputGroup/InputGroup';
 import Link from './components/Link/Link';
@@ -52,11 +52,9 @@ import ToastController from './controllers/ToastController';
 // HTML Elements
 import {
     Div,
-    Span
+    Span,
+    Strong
 } from './components/HTMLElements/HTMLElements';
-
-// Icons
-import * as Icon from './components/Icon/Icon';
 
 // Providers
 import FabulaProvider from './providers/FabulaProvider';
@@ -126,6 +124,7 @@ export {
     // HTML elements
     Div,
     Span,
+    Strong,
 
     // Providers
     FabulaProvider,

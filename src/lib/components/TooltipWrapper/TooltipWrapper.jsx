@@ -1,10 +1,7 @@
-import React, { useContext, useRef, useState, isValidElement, createRef, Children, useImperativeHandle } from 'react';
-import ReactDOM from 'react-dom';
-import { useEffect } from 'react';
+import React, { cloneElement, useContext } from 'react';
 
 // Controllers
 import TooltipController from '../../controllers/TooltipController';
-import { cloneElement } from 'react';
 
 const TooltipWrapper = props => {
     const { children, color, label, offset, placement } = props;

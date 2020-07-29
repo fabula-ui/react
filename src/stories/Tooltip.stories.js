@@ -5,6 +5,7 @@ import {
     Button,
     Div,
     FabulaProvider,
+    Icon,
     UtilsProvider,
     Tooltip,
     ButtonGroup,
@@ -24,7 +25,10 @@ export const Color = () => {
                 <UtilsProvider>
                     <ButtonGroup mt={3}>
                         <Tooltip label="Default" placement="top">
-                            <Button border={true}>Default</Button>
+                            <Button border={true}>
+                                <Icon name="activity" />
+                                <span>Default</span>
+                            </Button>
                         </Tooltip>
                         <Tooltip color="primary" label="Primary" placement="top">
                             <Button color="primary">Primary</Button>

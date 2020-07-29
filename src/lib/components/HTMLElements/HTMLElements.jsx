@@ -35,7 +35,22 @@ const Span = props => {
     )
 }
 
+const Strong = props => {
+    const { children } = props;
+    const elRef = useRef(null);
+
+    return (
+        <Component
+            elRef={elRef}
+            properties={props}
+            wrapper="fab-strong">
+            <strong ref={elRef}>{children}</strong>
+        </Component>
+    )
+}
+
 export {
     Div,
-    Span
+    Span,
+    Strong
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
-import InnerIcon from '../InnerIcon/InnerIcon';
+import Icon from '../Icon/Icon';
 
 // Styles
 import ButtonStyles from '@fabula/core/styles/components/button/button';
@@ -45,7 +45,8 @@ const Button = props => {
                     data-fab-component="button"
                     disabled={disabled}
                     {...rest}>
-                    {!!icon && <InnerIcon icon={icon} parentProps={props} />}
+                    {!!icon && typeof icon === 'object' && <Icon {...icon} />}
+					{!!icon && typeof icon === 'string' && <Icon name={icon} />}
                     {!!label && <span>{label}</span>}
                     {children}
                 </button>

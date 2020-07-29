@@ -1,84 +1,31 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
-import { css } from 'emotion';
+import React, { useRef } from 'react';
 
 // Components
 import Component from '../Component/Component';
+
+// Icons
+import { ReactComponent as Activity } from '@fabula/icons/assets/activity.svg';
 
 // Styles
 import IconStyles from '@fabula/core/theme/styles/Icon';
 
 const Icon = props => {
-    const { children, className, color, file, name, src, ...rest } = props;
-    const [appended, setAppended] = useState(false);
-    const [currentSvg, setCurrentSvg] = useState();
-    const [svg, setSvg] = useState(null);
-    const iconClass = className || '';
-    const iconRef = useRef(null);
-    const svgRef = useRef(null);
-    const wrapperRef = useRef(null);
+    const { children } = props;
+    const elRef = useRef(null);
 
-    useLayoutEffect(() => {
-        let svg;
-
-        if (name) {
-            setAppended(false);
-
-            try {
-                svg = require(`@fabula/core/icons/${name}.svg`);
-            } catch (err) {
-                svg = null;
-            }
-
-            setSvg(svg);
-        } else if (file) {
-            setAppended(false);
-            setSvg(file);
-        }
-    }, [name, src]);
-
-    useLayoutEffect(() => {
-        if (iconRef.current && svg && !appended && svgRef.current && wrapperRef.current) {
-            svgRef.current.addEventListener('load', () => {
-                let svg;
-                let svgDocument;
-                let svgObject;
-
-                if (svgRef.current.contentDocument) {
-                    svgDocument = svgRef.current.contentDocument;
-                    svgObject = svgDocument.querySelector('svg');
-                    svgObject.style.color = 'inherit';
-
-                    iconRef.current.innerHTML = '';
-                    iconRef.current.appendChild(svgObject);
-                } else {
-                    svg = atob(svgRef.current.data.replace(/data:image\/svg\+xml;base64,/, ''));
-
-                    iconRef.current.innerHTML = svg;
-                }
-
-                setAppended(true);
-                setCurrentSvg(svg);
-            }, false);
-        }
-    }, [currentSvg, iconRef, svg, svgRef, wrapperRef]);
-
-    if (svg) {
-        return (
-            <Component
-                elRef={wrapperRef}
-                properties={props}
-                styles={IconStyles}
-                wrapper="fab-icon">
-                <span data-color={color} data-name={name} ref={wrapperRef}>
-                    <i className="fab-icon__svg" data-appended={appended} ref={iconRef} />
-                    {!appended && <object className="fab-icon__object" xmlns="http://www.w3.org/2000/svg" data={svg} type="image/svg+xml" ref={svgRef}>Unsupported by browser</object>}
-                    {children}
-                </span>
-            </Component>
-        );
-    } else {
-        return <></>
-    }
+    return (
+        <Component
+            elRef={elRef}
+            properties={props}
+            styles={IconStyles}
+            wrapper="fab-icon">
+            <i ref={elRef}>{children}</i>
+        </Component>
+    )
 }
 
-export default Icon;
+const activity = props => <Icon {...props}><Activity /></Icon>;
+
+export {
+    activity
+}

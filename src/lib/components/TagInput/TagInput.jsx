@@ -7,7 +7,7 @@ import Tag from '../Tag/Tag';
 
 // Styles
 import InputStyles from '@fabula/core/styles/components/input/input';
-import TagInputStyles from '@fabula/core/theme/styles/TagInput';
+import TagInputStyles from '@fabula/core/styles/components/tag-input/tag-input';
 
 const TagInput = props => {
     const { icon, tagColor } = props;

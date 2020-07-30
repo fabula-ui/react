@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react';
 import Component from '../Component/Component';
 
 // Styles
-import TextStyles from '@fabula/core/theme/styles/Text';
+import TextStyles from '@fabula/core/styles/components/text/text';
 import { useLayoutEffect } from 'react';
 
 const Text = props => {

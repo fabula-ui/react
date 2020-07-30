@@ -1,18 +1,18 @@
-import React, { useCallback, useContext, useState, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { css } from 'emotion';
 
 // Components
 import Avatar from '../Avatar/Avatar';
 import Badge from '../Badge/Badge';
 import Button from '../Button/Button';
+import DropdownItem from '../DropdownItem/DropdownItem';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import Icon from '../Icon/Icon';
 import Tag from '../Tag/Tag';
 
 // Styles
-import FileInputStyles from '@fabula/core/theme/styles/FileInput';
+import FileInputStyles from '@fabula/core/styles/components/file-input/file-input';
 import InputStyles from '@fabula/core/styles/components/input/input';
-import DropdownItem from '../DropdownItem/DropdownItem';
 
 const FileInput = props => {
     const { className, icon, onChange } = props;

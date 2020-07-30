@@ -53,7 +53,7 @@ const Alert = props => {
                         ref={ref}>
                         {!!icon && <InnerIcon icon={icon} parentProps={props} />}
                         {type === 'danger' && <InnerIcon icon={{ color: 'danger', name: 'alert-triangle' }} parentProps={props} />}
-                        {type === 'info' && <InnerIcon icon={{ name: 'info' }} parentProps={props} />}
+                        {type === 'info' && <InnerIcon icon={{ color: 'info', name: 'info' }} parentProps={props} />}
                         {type === 'success' && <InnerIcon icon={{ color: 'success', name: 'check' }} parentProps={props} />}
                         {type === 'warning' && <InnerIcon icon={{ color: 'warning', name: 'alert-circle' }} parentProps={props} />}
                         <div className="fab-alert__stage">

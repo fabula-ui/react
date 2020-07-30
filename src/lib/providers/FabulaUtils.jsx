@@ -1,7 +1,6 @@
 import React, { Children, createContext, isValidElement } from 'react';
 import { css } from 'emotion';
-import UtilsStyles from '@fabula/core/theme/utils';
-import { useEffect } from 'react';
+import UtilsStyles from '@fabula/core/styles/utils/utils';
 
 const UtilsProviderContext = createContext(null);
 

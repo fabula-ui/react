@@ -1,7 +1,4 @@
 import React, { createContext } from 'react';
-import { css } from 'emotion';
-import UtilsStyles from '@fabula/core/theme/utils';
-import { useEffect } from 'react';
 
 const UtilsProviderContext = createContext(null);
 

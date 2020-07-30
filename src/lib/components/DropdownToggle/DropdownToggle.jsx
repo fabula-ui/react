@@ -1,11 +1,10 @@
 import React, { useRef } from 'react';
-import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 // Components
 import Button from '../Button/Button';
 import Component from '../Component/Component';
-import Icon from '../Icon/Icon';
+import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Styles
 import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
@@ -25,8 +24,8 @@ const DropdownToggle = (props) => {
 		<Component elRef={elRef} properties={props} styles={DropdownToggleStyles} wrapper="fab-dropdown-toggle">
 			<div data-direction={direction} data-open={open} ref={elRef}>
 				<Button onClick={handleClick} {...rest}>
-					{!!icon && typeof icon === 'object' && <Icon {...icon} />}
-					{!!icon && typeof icon === 'string' && <Icon name={icon} />}
+					{!!icon && typeof icon === 'object' && <InnerIcon icon={icon} parentProps={props} />}
+					{!!icon && typeof icon === 'string' && <InnerIcon icon={{ name: icon }} parentProps={props} />}
 					<span className="fab-dropdown-toggle__label">{label || children}</span>
 					<span className="fab-dropdown-toggle__chevron" />
 				</Button>

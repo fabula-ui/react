@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
-import Icon from '../Icon/Icon';
 
 // Styles
 import ButtonStyles from '@fabula/core/styles/components/button/button';
@@ -17,7 +16,6 @@ const Button = props => {
         color,
         disabled,
         expand,
-        icon,
         label,
         outline,
         rounded,
@@ -34,7 +32,7 @@ const Button = props => {
             <div
                 data-fab-wrapper="button"
                 data-border={border}
-                data-circle={!!circle || !!icon}
+                data-circle={!!circle}
                 data-color={color}
                 data-expand={expand}
                 data-outline={outline}
@@ -45,8 +43,6 @@ const Button = props => {
                     data-fab-component="button"
                     disabled={disabled}
                     {...rest}>
-                    {!!icon && typeof icon === 'object' && <Icon {...icon} />}
-					{!!icon && typeof icon === 'string' && <Icon name={icon} />}
                     {!!label && <span>{label}</span>}
                     {children}
                 </button>
@@ -79,7 +75,6 @@ Button.propTypes = {
     faded: PropTypes.bool,
     glow: PropTypes.bool,
     gradient: PropTypes.bool,
-    icon: PropTypes.any,
     invert: PropTypes.bool,
     outline: PropTypes.bool,
     rounded: PropTypes.bool,

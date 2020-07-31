@@ -13,12 +13,19 @@ const Button = props => {
         children,
         circle,
         className,
+        clear,
         color,
+        compact,
         disabled,
         expand,
+        faded,
+        glow,
+        gradient,
+        invert,
         label,
         outline,
         rounded,
+        wide,
         ...rest
     } = props;
     const elRef = useRef(null);

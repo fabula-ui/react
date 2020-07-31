@@ -7,7 +7,16 @@ import Component from '../Component/Component';
 import LinkStyles from '@fabula/core/styles/components/link/link';
 
 const Link = props => {
-    const { children, className, href, label, url, ...rest } = props;
+    const {
+        aux,
+        children,
+        className,
+        href,
+        label,
+        underline,
+        url,
+        ...rest
+    } = props;
     const elRef = useRef(null);
 
     return (

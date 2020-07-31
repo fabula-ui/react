@@ -15,24 +15,6 @@ export default {
     component: Avatar,
 };
 
-export const AdaptColor = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <Avatar adaptColor={true} mr="1" />
-            <Avatar adaptColor={true} color="primary" mr="1" />
-            <Avatar adaptColor={true} color="secondary" mr="1" />
-            <Avatar adaptColor={true} color="success" mr="1" />
-            <Avatar adaptColor={true} color="danger" mr="1" />
-            <Avatar adaptColor={true} color="warning" mr="1" />
-            <Avatar adaptColor={true} color="hot" mr="1" />
-            <Avatar adaptColor={true} color="cold" mr="1" />
-            <Avatar adaptColor={true} color="dark" mr="1" />
-            <Avatar adaptColor={true} color="light" mr="1" />
-            <Avatar adaptColor={true} color="aux" mr="1" />
-        </UtilsProvider>
-    </FabulaProvider>
-)
-
 export const Color = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -56,6 +38,42 @@ export const CustomIcon = () => (
         <UtilsProvider>
             <Avatar mr="1" />
             <Avatar icon="file" mr="1" />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const Darken = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Avatar darken={true} mr="1" />
+            <Avatar darken={true} color="primary" mr="1" />
+            <Avatar darken={true} color="secondary" mr="1" />
+            <Avatar darken={true} color="success" mr="1" />
+            <Avatar darken={true} color="danger" mr="1" />
+            <Avatar darken={true} color="warning" mr="1" />
+            <Avatar darken={true} color="hot" mr="1" />
+            <Avatar darken={true} color="cold" mr="1" />
+            <Avatar darken={true} color="dark" mr="1" />
+            <Avatar darken={true} color="light" mr="1" />
+            <Avatar darken={true} color="aux" mr="1" />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const Lighten = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Avatar lighten={true} mr="1" />
+            <Avatar lighten={true} color="primary" mr="1" />
+            <Avatar lighten={true} color="secondary" mr="1" />
+            <Avatar lighten={true} color="success" mr="1" />
+            <Avatar lighten={true} color="danger" mr="1" />
+            <Avatar lighten={true} color="warning" mr="1" />
+            <Avatar lighten={true} color="hot" mr="1" />
+            <Avatar lighten={true} color="cold" mr="1" />
+            <Avatar lighten={true} color="dark" mr="1" />
+            <Avatar lighten={true} color="light" mr="1" />
+            <Avatar lighten={true} color="aux" mr="1" />
         </UtilsProvider>
     </FabulaProvider>
 )

@@ -30,8 +30,8 @@ ButtonGroup.defaultProps = {
     color: '',
     divider: true,
     dividerColor: '',
-    flow: 'horizontal',
     glued: false,
+    layout: 'horizontal',
     spacing: null,
     wrap: true
 }
@@ -40,8 +40,8 @@ ButtonGroup.propTypes = {
     color: PropTypes.string,
     divider: PropTypes.bool,
     dividerColor: PropTypes.string,
-    flow: PropTypes.string,
     glued: PropTypes.bool,
+    layout: PropTypes.string,
     spacing: PropTypes.any,
     wrap: PropTypes.bool
 }

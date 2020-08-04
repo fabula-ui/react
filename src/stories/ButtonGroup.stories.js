@@ -21,7 +21,7 @@ export const Flow = () => (
                 <Button color="primary">Button 3</Button>
             </ButtonGroup>
 
-            <ButtonGroup flow="vertical" mb="1">
+            <ButtonGroup layout="vertical" mb="1">
                 <Button color="primary">Button 1</Button>
                 <Button color="primary">Button 2</Button>
                 <Button color="primary">Button 3</Button>

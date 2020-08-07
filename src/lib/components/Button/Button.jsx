@@ -7,7 +7,7 @@ import Component from '../Component/Component';
 // Styles
 import ButtonStyles from '@fabula/core/styles/components/button/button';
 
-const Button = props => {
+const Button = (props) => {
     const {
         border,
         children,
@@ -21,6 +21,7 @@ const Button = props => {
         faded,
         glow,
         gradient,
+        href,
         invert,
         label,
         outline,
@@ -31,11 +32,7 @@ const Button = props => {
     const elRef = useRef(null);
 
     return (
-        <Component
-            elRef={elRef}
-            properties={props}
-            styles={ButtonStyles}
-            wrapper="fab-button-wrapper">
+        <Component elRef={elRef} properties={props} styles={ButtonStyles} wrapper="fab-button-wrapper">
             <div
                 data-fab-wrapper="button"
                 data-border={border}
@@ -44,18 +41,27 @@ const Button = props => {
                 data-expand={expand}
                 data-outline={outline}
                 data-rounded={rounded}
-                ref={elRef}>
-                <button
-                    className="fab-button"
-                    data-fab-component="button"
-                    disabled={disabled}
-                    {...rest}>
-                    {!!label && <span>{label}</span>}
-                    {children}
-                </button>
+                ref={elRef}
+            >
+                {
+                    !href && (
+                        <button className="fab-button" data-fab-component="button" disabled={disabled} {...rest}>
+                            {!!label && <span>{label}</span>}
+                            {children}
+                        </button>
+                    )
+                }
+                {
+                    !!href && (
+                        <a className="fab-button" data-fab-component="button" disabled={disabled} href={href} {...rest}>
+                            {!!label && <span>{label}</span>}
+                            {children}
+                        </a>
+                    )
+                }
             </div>
         </Component>
-    )
+    );
 };
 
 Button.defaultProps = {
@@ -70,8 +76,8 @@ Button.defaultProps = {
     outline: false,
     rounded: false,
     size: 'md',
-    wide: false,
-}
+    wide: false
+};
 
 Button.propTypes = {
     align: PropTypes.string,
@@ -87,6 +93,6 @@ Button.propTypes = {
     rounded: PropTypes.bool,
     size: PropTypes.string,
     wide: PropTypes.bool
-}
+};
 
 export default Button;

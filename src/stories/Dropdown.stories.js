@@ -26,7 +26,7 @@ export const Examples = () => (
 	<FabulaProvider>
 		<FabulaUtils>
 			<div flex>
-				<Dropdown mb={1} mr={1}>
+				<Dropdown mb={1} mr={1} onOpen={() => alert('onOpen')}>
 					<DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
 					<DropdownMenu clickToClose={true} onClickItem={() => console.log('Parent onClick')}>
 						<DropdownHeader>
@@ -61,7 +61,7 @@ export const Examples = () => (
 					</DropdownMenu>
 				</Dropdown>
 
-				<Dropdown mb={1} mr={1}>
+				<Dropdown mb={1} mr={1} onClose={() => alert('onClose')}>
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
                     <DropdownMenu clickToClose={true} color="primary" onClickItem={() => console.log('Parent onClick')}>
                         <DropdownHeader>
@@ -90,7 +90,7 @@ export const Examples = () => (
                     </DropdownMenu>
                 </Dropdown>
 
-                <Dropdown>
+                <Dropdown onToggle={() => alert('onToggle')}>
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} divider={false} items={[{ color: '', label: 'Default' }, { color: 'primary', label: 'Primary' }, { color: 'secondary', label: 'Secondary' }, { color: 'success', label: 'Success' }, { color: 'danger', label: 'Danger' }]}></DropdownMenu>
                 </Dropdown>

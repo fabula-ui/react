@@ -8,12 +8,16 @@ import Component from '../Component/Component';
 import DropdownStyles from '@fabula/core/styles/components/dropdown/dropdown';
 
 const Dropdown = props => {
-    const { alignment, children, direction, expand } = props;
+    const { alignment, children, direction, expand, onClose, onOpen, onToggle } = props;
     const [open, setOpen] = useState(props.open);
     const elRef = useRef(null);
 
     // Methods
     const toggle = () => {
+        if (onClose && open) { onClose() }
+        if (onOpen && !open) { onOpen() }
+        if (onToggle) { onToggle(!open) }
+
         setOpen(!open);
     }
 

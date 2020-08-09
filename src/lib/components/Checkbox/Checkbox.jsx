@@ -8,7 +8,7 @@ import Component from '../Component/Component';
 import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';
 
 const Checkbox = props => {
-    const { children, disabled, onChange, onCheck, onUncheck, label } = props;
+    const { children, disabled, label, onChange, onCheck, onUncheck, readOnly } = props;
     const [checked, setChecked] = useState(props.checked || false);
     const [focus, setFocus] = useState(false);
     const [isIndeterminate, setIndeterminate] = useState(props.indeterminate || false);
@@ -18,7 +18,7 @@ const Checkbox = props => {
         const tempChecked = e ? e.target.checked : !checked;
         const indeterminate = e ? e.target.indeterminate : false;
 
-        if (!disabled) {
+        if (!disabled && !readOnly) {
             setChecked(tempChecked);
             setIndeterminate(indeterminate);
 
@@ -38,7 +38,7 @@ const Checkbox = props => {
             properties={props}
             styles={CheckboxStyles}
             wrapper="fab-checkbox-wrapper">
-            <div data-checked={checked} data-disabled={disabled} data-focus={focus} data-indeterminate={isIndeterminate} ref={elRef}>
+            <div data-checked={checked} data-disabled={disabled} data-focus={focus} data-indeterminate={isIndeterminate} data-read-only={readOnly} ref={elRef}>
                 <div className="fab-checkbox" onClick={() => handleChange()} />
                 <label className="fab-checkbox__label">
                     <input
@@ -63,6 +63,7 @@ Checkbox.defaultProps = {
     inactiveColor: '',
     indeterminate: false,
     label: '',
+    readOnly: false,
     rounded: false,
     size: 'md'
 }
@@ -75,6 +76,7 @@ Checkbox.propTypes = {
     inactiveColor: PropTypes.string,
     indeterminate: PropTypes.bool,
     label: PropTypes.string,
+    readOnly: PropTypes.bool,
     rounded: PropTypes.bool,
     size: PropTypes.string
 }

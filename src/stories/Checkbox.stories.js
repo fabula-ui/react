@@ -195,6 +195,54 @@ export const InactiveColor = () => (
     </FabulaProvider>
 )
 
+export const ReadOnly = () => (
+    <FabulaProvider>
+        <FabulaUtils>
+            <div mb={1} flex>
+                <Checkbox readOnly={true} label="Label" mr={1} />
+                <Checkbox color="primary" readOnly={true} label="Label" mr={1} />
+                <Checkbox color="secondary" readOnly={true} label="Label" mr={1} />
+                <Checkbox color="success" readOnly={true} label="Label" mr={1} />
+                <Checkbox color="danger" readOnly={true} label="Label" mr={1} />
+                <Checkbox color="warning" readOnly={true} label="Label" mr={1} />
+                <Checkbox color="hot" readOnly={true} label="Label" mr={1} />
+                <Checkbox color="cold" readOnly={true} label="Label" mr={1} />
+                <Checkbox color="dark" readOnly={true} label="Label" mr={1} />
+                <Checkbox color="light" readOnly={true} label="Label" mr={1} />
+                <Checkbox color="aux" readOnly={true} label="Label" mr={1} />
+            </div>
+
+            <div mb={1} flex>
+                <Checkbox checked={true} readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="primary" readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="secondary" readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="success" readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="danger" readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="warning" readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="hot" readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="cold" readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="dark" readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="light" readOnly={true} label="Label" mr={1} />
+                <Checkbox checked={true} color="aux" readOnly={true} label="Label" mr={1} />
+            </div>
+
+            <div mb={1} flex>
+                <Checkbox readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="primary" readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="secondary" readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="success" readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="danger" readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="warning" readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="hot" readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="cold" readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="dark" readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="light" readOnly={true} indeterminate={true} label="Label" mr={1} />
+                <Checkbox color="aux" readOnly={true} indeterminate={true} label="Label" mr={1} />
+            </div>
+        </FabulaUtils>
+    </FabulaProvider>
+)
+
 export const Rounded = () => (
     <FabulaProvider>
         <FabulaUtils>

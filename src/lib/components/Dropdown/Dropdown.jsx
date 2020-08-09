@@ -57,7 +57,7 @@ Dropdown.defaultProps = {
     alignment: 'left',
     direction: 'down',
     expand: false,
-    open: false,
+    open: false
 }
 
 Dropdown.propTypes = {
@@ -65,6 +65,9 @@ Dropdown.propTypes = {
     direction: PropTypes.string,
     expand: PropTypes.bool,
     open: PropTypes.bool,
+    onClose: PropTypes.func,
+    onOpen: PropTypes.func,
+    onToggle: PropTypes.func
 }
 
 export default Dropdown;

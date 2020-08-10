@@ -14,9 +14,7 @@ const DropdownToggle = (props) => {
 	const elRef = useRef(null);
 
 	const handleClick = () => {
-		if (onClick) {
-			onClick();
-		}
+		if (onClick) { onClick(); }
 		toggle();
 	};
 

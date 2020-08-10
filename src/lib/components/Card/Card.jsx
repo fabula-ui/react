@@ -13,7 +13,7 @@ const Card = props => {
 
     // Children with props
     const childrenWithProps = Children.map(children, child => {
-        if (isValidElement(child)) {
+        if (isValidElement(child) && !child.props.layout) {
             return cloneElement(child, { layout });
         } else {
             return child;

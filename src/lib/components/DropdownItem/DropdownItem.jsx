@@ -42,7 +42,6 @@ DropdownItem.defaultProps = {
     color: '',
     clickToClose: false,
     invert: false,
-    item: null,
     label: '',
     parentColor: '',
     size: 'md'
@@ -53,7 +52,6 @@ DropdownItem.propTypes = {
     color: PropTypes.string,
     clickToClose: PropTypes.bool,
     invert: PropTypes.bool,
-    item: PropTypes.any,
     label: PropTypes.string,
     parentColor: PropTypes.string,
     size: PropTypes.string

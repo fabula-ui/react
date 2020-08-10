@@ -16,7 +16,7 @@ import DropdownItem from '../DropdownItem/DropdownItem';
 import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
 
 const DropdownMenu = props => {
-    const { children, className, clickToClose, color, direction, items, onChange, onClickItem, size, toggle, ...rest } = props;
+    const { children, clickToClose, color, direction, items, onChange, onClickItem, size, toggle } = props;
     const [open, setOpen] = useState(false);
     const elRef = useRef(null);
     const childrenWithProps = Children.map(children, child => {
@@ -64,23 +64,17 @@ const DropdownMenu = props => {
 }
 
 DropdownMenu.defaultProps = {
-    alignment: '',
     clickToClose: false,
     color: '',
-    direction: '',
     items: null,
-    divider: true,
     padding: true,
     size: '',
 }
 
 DropdownMenu.propTypes = {
-    alignment: PropTypes.string,
     clickToClose: PropTypes.bool,
     color: PropTypes.string,
-    direction: PropTypes.string,
     items: PropTypes.any,
-    divider: PropTypes.bool,
     padding: PropTypes.bool,
     size: PropTypes.string,
 }

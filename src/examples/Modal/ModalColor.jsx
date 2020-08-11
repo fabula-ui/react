@@ -39,8 +39,6 @@ const ModalColorExample = props => {
 const TargetModal = props => {
     const { closeModal, color } = props;
 
-    console.log('color', color);
-
     const handleClose = () => {
         closeModal();
     }

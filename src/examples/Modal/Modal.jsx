@@ -1,11 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
     Modal,
     ModalBody,
     ModalController,
     ModalFooter,
     ModalHeader,
-    ModalProvider,
     Text,
     Button,
     ButtonGroup,

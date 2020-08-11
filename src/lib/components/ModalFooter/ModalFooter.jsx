@@ -1,19 +1,14 @@
 import React, { useRef } from 'react';
-
+import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
 // Styles
 import ModalSectionStyles from '@fabula/core/styles/components/modal-section/modal-section';
-import { useEffect } from 'react';
 
 const ModalFooter = props => {
-    const { children, color } = props;
+    const { children } = props;
     const elRef = useRef(null);
-
-    useEffect(() => {
-        console.log('modal footer color', color);
-    }, [color]);
 
     return (
         <Component
@@ -24,6 +19,14 @@ const ModalFooter = props => {
             <div ref={elRef}>{children}</div>
         </Component>
     )
+}
+
+ModalFooter.defaultProps = {
+    padding: true
+}
+
+ModalFooter.propTypes = {
+    padding: PropTypes.bool
 }
 
 export default ModalFooter

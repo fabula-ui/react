@@ -1,5 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { css } from 'emotion';
+import PropTypes from 'prop-types';
 
 // Components
 import CloseButton from '../CloseButton/CloseButton';
@@ -13,7 +14,7 @@ import ModalHeaderStyles from '@fabula/core/styles/components/modal-header/modal
 import ModalSectionStyles from '@fabula/core/styles/components/modal-section/modal-section';
 
 const ModalHeader = props => {
-    const { color, children, className, parentColor } = props;
+    const { color, children, parentColor } = props;
     const { closeModal } = useContext(ModalController);
     const sectionCss = css(ModalSectionStyles({ framework: 'react', props }));
     const elRef = useRef(null);
@@ -36,7 +37,12 @@ const ModalHeader = props => {
     )
 }
 
-ModalHeader.defaulProps = {}
-ModalHeader.propTypes = {}
+ModalHeader.defaultProps = {
+    padding: true
+}
+
+ModalHeader.propTypes = {
+    padding: PropTypes.bool
+}
 
 export default ModalHeader

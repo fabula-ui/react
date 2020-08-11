@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
@@ -21,6 +22,14 @@ const ModalBody = props => {
             </div>
         </Component>
     )
+}
+
+ModalBody.defaultProps = {
+    padding: true
+}
+
+ModalBody.propTypes = {
+    padding: PropTypes.bool
 }
 
 export default ModalBody

@@ -25,7 +25,11 @@ export const Examples = () => (
             <div row>
                 <SearchInput col="4" />
                 <SearchInput button={true} col="4" />
-                <SearchInput button={{ icon: 'search' }} col="4" rounded={true} />
+                <SearchInput col="4" rounded={true}>
+                    <Button color="primary" circle={true}>
+                        <Icon name="search" />
+                    </Button>
+                </SearchInput>
             </div>
         </FabulaUtils>
     </FabulaProvider>

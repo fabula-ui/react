@@ -22,11 +22,11 @@ export default {
 };
 
 const Example = props => {
-    const { buttons, color, divider, link, target } = props;
+    const { buttons, color, divider, link, striped, target } = props;
     return (
         <UtilsProvider>
             <Card {...props}>
-                <List color={color} divider={divider} padding>
+                <List color={color} divider={divider} padding striped={striped}>
                     <ListItem button={buttons} flex link={link} target={target}>
                         <Avatar color={color} darken={!!color} icon="file" mr={.75} />
                         <Div grow={1}>

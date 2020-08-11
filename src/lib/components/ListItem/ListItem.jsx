@@ -8,7 +8,7 @@ import Component from '../Component/Component';
 import ListItemStyles from '@fabula/core/styles/components/list-item/list-item';
 
 const ListItem = props => {
-    const { button, children, divider, link, onClick, parentColor, parentOnClick, striped, target } = props;
+    const { button, children, divider, link, onClick, parentOnClick, striped, target } = props;
     const elRef = useRef(null);
 
     // Methods

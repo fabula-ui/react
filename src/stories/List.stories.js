@@ -27,7 +27,7 @@ const Example = props => {
         <UtilsProvider>
             <Card {...props}>
                 <List color={color} divider={divider} padding striped={striped}>
-                    <ListItem button={buttons} flex link={link} target={target}>
+                    <ListItem button={buttons} flex href={link} target={target}>
                         <Avatar color={color} darken={!!color} icon="file" mr={.75} />
                         <Div grow={1}>
                             <Text color="inherit" flex weight={600}>
@@ -38,7 +38,7 @@ const Example = props => {
                         </Div>
                     </ListItem>
 
-                    <ListItem button={buttons} flex link={link} target={target}>
+                    <ListItem button={buttons} flex href={link} target={target}>
                         <Avatar color={color} darken={!!color} icon="file" mr={.75} />
                         <Div grow={1}>
                             <Text color="inherit" flex weight={600}>
@@ -51,7 +51,7 @@ const Example = props => {
 
                     {!divider && <Divider />}
 
-                    <ListItem button={buttons} flex link={link} target={target}>
+                    <ListItem button={buttons} flex href={link} target={target}>
                         <Avatar color={color} darken={!!color} icon="file" mr={.75} />
                         <Div grow={1}>
                             <Text color="inherit" flex weight={600}>

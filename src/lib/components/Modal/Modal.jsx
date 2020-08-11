@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, useContext, useRef } from 'react';
+import React, { Children, cloneElement, useContext, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
@@ -11,10 +11,15 @@ import ModalController from '../../controllers/ModalController';
 import ModalStyles from '@fabula/core/styles/components/modal/modal';
 
 const Modal = props => {
-    const { children, color } = props;
+    const { children, color, onClose, onOpen } = props;
     const { closeModal, modalIsClosing, modalIsOpen } = useContext(ModalController);
     const childrenWithProps = Children.map(children, child => cloneElement(child, { closeModal, parentColor: color }));
     const elRef = useRef(null);
+
+    useEffect(() => {
+        if (onClose && !modalIsOpen) { onClose() }
+        if (onOpen && modalIsOpen) { onOpen() }
+    }, [modalIsOpen]);
 
     return (
         <Component

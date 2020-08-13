@@ -7,16 +7,16 @@ import Component from '../Component/Component';
 import HTMLElementsStyles from '@fabula/core/styles/components/html-elements/html-elements';
 
 const Div = props => {
-    const { children } = props;
-    const elRef = useRef(null);
+    const { children, elRef } = props;
+    const ref = useRef(null);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={HTMLElementsStyles}
             wrapper="fab-div">
-            <div ref={elRef}>{children}</div>
+            <div ref={elRef || ref}>{children}</div>
         </Component>
     )
 }

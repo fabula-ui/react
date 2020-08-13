@@ -19,7 +19,7 @@ export default {
 
 export const Examples = () => (
     <FabulaProvider>
-        <Tabs>
+        <Tabs inactiveFillColor="red" type="block">
             <Tab active={true} name="docs">Docs</Tab>
             <Tab name="components">Components</Tab>
             <Tab name="showcase">Showcase</Tab>

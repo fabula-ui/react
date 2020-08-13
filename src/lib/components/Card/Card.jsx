@@ -46,7 +46,7 @@ Card.propTypes = {
     color: PropTypes.string,
     glow: PropTypes.bool,
     layout: PropTypes.string,
-    padding: PropTypes.bool
+    padding: PropTypes.any
 }
 
 export default Card;

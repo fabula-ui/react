@@ -17,7 +17,7 @@ const Tag = props => {
             properties={props}
             styles={TagStyles}
             wrapper="fab-tag-wrapper">
-            <div data-placement-x={placement.x} data-placement-y={placement.y} ref={elRef}>
+            <div data-placement-x={placement && placement.x} data-placement-y={placement && placement.y} ref={elRef}>
                 <div className="fab-tag">
                     {label || children}
                 </div>
@@ -48,10 +48,7 @@ Tag.propTypes = {
     glow: PropTypes.bool,
     invert: PropTypes.bool,
     link: PropTypes.string,
-    placement: {
-        x: PropTypes.string,
-        y: PropTypes.string
-    },
+    placement: PropTypes.any,
     rounded: PropTypes.bool,
     size: PropTypes.string
 }

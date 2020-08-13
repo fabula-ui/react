@@ -10,6 +10,7 @@ import TabsStyles from '@fabula/core/styles/components/tabs/tabs';
 const Tabs = props => {
     const {
         activeColor,
+        activeBorderColor,
         activeFillColor,
         activeTextColor,
         children,
@@ -65,6 +66,7 @@ const Tabs = props => {
 
     // Children with props
     const childrenWithProps = Children.map(children, child => cloneElement(child, {
+        activeBorderColor,
         activeColor,
         activeFillColor,
         activeTextColor,

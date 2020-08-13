@@ -40,7 +40,6 @@ const DropdownItem = props => {
 DropdownItem.defaultProps = {
     button: false,
     color: '',
-    clickToClose: false,
     invert: false,
     label: '',
     parentColor: '',

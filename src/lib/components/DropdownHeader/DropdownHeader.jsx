@@ -16,7 +16,7 @@ const DropdownHeader = props => {
             elRef={elRef}
             properties={props}
             styles={DropdownHeaderStyles}
-            wrapper="fab-dropdown-wrapper">
+            wrapper="fab-dropdown-header">
             <div ref={elRef}>
                 {label || children}
             </div>

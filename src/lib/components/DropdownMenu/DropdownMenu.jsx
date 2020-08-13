@@ -21,7 +21,7 @@ const DropdownMenu = props => {
     const elRef = useRef(null);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
-            return cloneElement(child, { clickToClose, open, parentColor: color, parentOnClick: onClickItem, size, toggle })
+            return cloneElement(child, { clickToClose, open, parentColor: color, parentOnClick: onClickItem, size, toggle, ...child.props })
         } else {
             return child;
         }

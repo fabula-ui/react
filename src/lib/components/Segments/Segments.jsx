@@ -10,13 +10,14 @@ import SegmentsStyles from '@fabula/core/styles/components/segments/segments';
 
 const Segments = props => {
   const {
+    activeColor,
     activeFillColor,
     activeTextColor,
     children,
-    className,
     clear,
     color,
     faded,
+    inactiveColor,
     inactiveFillColor,
     inactiveTextColor,
     invert,
@@ -25,7 +26,6 @@ const Segments = props => {
     scope
   } = props;
   const [active, setActive] = useState(props.active);
-  const classes = ['fab-segments-wrapper', css(SegmentsStyles({ framework: 'react', props })), className || ''];
   const elRef = useRef(null);
 
   // Hooks
@@ -62,6 +62,7 @@ const Segments = props => {
 
   // Children with props
   const childrenWithProps = Children.map(children, child => cloneElement(child, {
+    activeColor,
     activeFillColor,
     activeTextColor,
     activeSegment: active,
@@ -69,6 +70,7 @@ const Segments = props => {
     color,
     faded,
     handleActive,
+    inactiveColor,
     inactiveFillColor,
     inactiveTextColor,
     invert,

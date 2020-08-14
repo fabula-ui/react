@@ -14,7 +14,7 @@ const DropdownItem = props => {
     const handleClick = () => {
         if (onClick) { onClick(); }
         if (parentOnClick) { parentOnClick(); }
-        if ((button || onClick || parentOnClick) && clickToClose && toggle) { toggle(); }
+        if ((button || clickToClose || onClick || parentOnClick) && toggle) { toggle(); }
     }
 
     return (
@@ -23,12 +23,12 @@ const DropdownItem = props => {
             properties={props}
             styles={DropdownItemStyles}
             wrapper="fab-dropdown-item">
-            {(!!button || !!onClick || !!parentOnClick) &&
+            {(!!button || !!clickToClose || !!onClick || !!parentOnClick) &&
                 <button data-fab-component="dropdownItem" onClick={handleClick} ref={elRef}>
                     {label || children}
                 </button>
             }
-            {!button && !onClick && !parentOnClick &&
+            {!button && !clickToClose && !onClick && !parentOnClick &&
                 <div data-fab-component="dropdownItem" onClick={handleClick} ref={elRef}>
                     {label || children}
                 </div>
@@ -39,11 +39,9 @@ const DropdownItem = props => {
 
 DropdownItem.defaultProps = {
     button: false,
-    color: '',
     invert: false,
     label: '',
-    parentColor: '',
-    size: 'md'
+    parentColor: ''
 }
 
 DropdownItem.propTypes = {

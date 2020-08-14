@@ -21,7 +21,7 @@ const DropdownMenu = props => {
     const elRef = useRef(null);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
-            return cloneElement(child, { clickToClose, open, parentColor: color, parentOnClick: onClickItem, size, toggle, ...child.props })
+            return cloneElement(child, { color, clickToClose, open, parentOnClick: onClickItem, size, toggle, ...child.props })
         } else {
             return child;
         }
@@ -37,15 +37,13 @@ const DropdownMenu = props => {
     }, [props.open]);
 
     const handleToggle = open => {
-        if (clickToClose) {
-            if (toggle) { toggle(open); }
-            if (clickToClose) { setOpen(open); }
-        }
+        if (toggle) { toggle(open); }
+        if (open) { setOpen(open); }
     }
 
     const renderItems = () => {
         return items.map((item, i) => {
-            return <DropdownItem clickToClose={clickToClose || item.clickToClose} item={item} key={i} open={open} parentColor={color} parentOnClick={onClickItem} size={size} toggle={handleToggle} {...item} />
+            return <DropdownItem clickToClose={clickToClose} color={color} key={i} open={open} parentOnClick={onClickItem} size={size} toggle={handleToggle}  {...item} />
         });
     }
 
@@ -68,7 +66,7 @@ DropdownMenu.defaultProps = {
     color: '',
     items: null,
     padding: true,
-    size: '',
+    size: 'md',
 }
 
 DropdownMenu.propTypes = {

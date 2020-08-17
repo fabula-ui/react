@@ -29,28 +29,28 @@ const Input = props => {
     const [inputType, setInputType] = useState(type || 'text');
     const elRef = useRef(null);
 
-    const handleBlur = () => {
+    const handleBlur = (e) => {
         setFocus(false);
 
-        if (onBlur) { onBlur(); }
+        if (onBlur) { onBlur(e); }
     }
 
-    const handleChange = () => {
-        if (onChange) { onChange(); }
+    const handleChange = e => {
+        if (onChange) { onChange(e); }
     }
 
-    const handleFocus = () => {
+    const handleFocus = e => {
         setFocus(true);
 
-        if (onFocus) { onFocus(); }
+        if (onFocus) { onFocus(e); }
     }
 
-    const handleKeyDown = () => {
-        if (onKeyDown) { onKeyDown(); }
+    const handleKeyDown = e => {
+        if (onKeyDown) { onKeyDown(e); }
     }
 
-    const handleKeyUp = () => {
-        if (onKeyUp) { onKeyUp(); }
+    const handleKeyUp = e => {
+        if (onKeyUp) { onKeyUp(e); }
     }
 
     const toggleType = () => {

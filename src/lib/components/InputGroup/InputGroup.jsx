@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
@@ -8,8 +8,9 @@ import Component from '../Component/Component';
 import InputGroupStyles from '@fabula/core/styles/components/input-group/input-group';
 
 const InputGroup = props => {
-    const { children } = props;
+    const { children, size } = props;
     const elRef = useRef(null);
+    const childrenWithProps = Children.map(children, child => cloneElement(child, { size }));
 
     return (
         <Component
@@ -19,7 +20,7 @@ const InputGroup = props => {
             wrapper="fab-input-group-wrapper">
             <div data-fab-wrapper="inputGroup" ref={elRef}>
                 <div className="fab-input-group" data-fab-component="inputGroup">
-                    {children}
+                    {childrenWithProps}
                 </div>
             </div>
         </Component>

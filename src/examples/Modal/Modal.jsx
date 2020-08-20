@@ -19,7 +19,7 @@ const ModalExample = props => {
     }
 
     return (
-        <Button color="primary" onClick={handleOpen} mt="5">Open Modal</Button>
+        <Button color="primary" onClick={handleOpen}>Open Modal</Button>
     )
 }
 
@@ -39,9 +39,9 @@ const TargetModal = props => {
                 </ModalHeader>
                 <ModalBody>
                     <Text block={true} mb={.25}>
-                        Are you sure you want to <Text color="danger">deactivate</Text> your account?
+                        Are you sure you want to <Text color="danger" inline={true}>deactivate</Text> your account?
                     </Text>
-                    <Text block={true} mb="1">All of your data will be permanently <Text color="danger" weight={600}>removed</Text>.</Text>
+                    <Text block={true} mb="1">All of your data will be permanently <Text color="danger" inline={true} weight={600}>removed</Text>.</Text>
                 </ModalBody>
                 <ModalFooter alH="end" color="light" flex={true}>
                     <ButtonGroup>

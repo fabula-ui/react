@@ -28,10 +28,8 @@ const Modal = props => {
             styles={ModalStyles}
             wrapper="fab-modal-wrapper">
             <div data-closing={modalIsClosing} data-open={modalIsOpen} ref={elRef}>
-                <div class="fab-modal">
-                    {childrenWithProps}
-                </div>
-                <div class="fab-modal__backdrop" onClick={closeModal}></div>
+                <div className="fab-modal">{childrenWithProps}</div>
+                <div className="fab-modal__backdrop" onClick={closeModal}></div>
             </div>
         </Component>
     )

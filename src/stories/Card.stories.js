@@ -52,11 +52,11 @@ export const Examples = () => (
             <List padding striped>
               <ListItem flex>
                 <Div flex flow="v" grow={1}>
-                  <Text size="lg" weight={600}>
+                  <Text inline={true} size="lg" weight={600}>
                     <Text mr={.5}>Full-stack Engineer</Text>
                     <Badge color="#E3FFD9">Full-time</Badge>
                   </Text>
-                  <Text aux>Google</Text>
+                  <Text aux inline={true}>Google</Text>
                 </Div>
                 <Div alItems="end" justContent="start" flex flow="v">
                   <TagGroup mb={.5}>
@@ -74,11 +74,11 @@ export const Examples = () => (
 
               <ListItem flex>
                 <Div flex flow="v" grow={1}>
-                  <Text size="lg" weight={600}>
+                  <Text inline={true} size="lg" weight={600}>
                     <Text mr={.5}>Frontend Developer</Text>
                     <Badge color="#FFECD9">Part-time</Badge>
                   </Text>
-                  <Text aux={true}>Amazon</Text>
+                  <Text inline={true} aux={true}>Amazon</Text>
                 </Div>
                 <Div alItems="end" justContent="start" flex flow="v">
                   <TagGroup mb={.5}>
@@ -96,12 +96,12 @@ export const Examples = () => (
 
               <ListItem flex>
                 <Div flex flow="v" grow={1}>
-                  <Text size="lg" weight={600}>
+                  <Text inline={true} size="lg" weight={600}>
                     <Text mr={.5}>Backend Developer</Text>
                     <Badge color="#FFECD9" mr={.5}>Part-time</Badge>
                     <Badge color="#D9E9FF">Remote</Badge>
                   </Text>
-                  <Text aux>Netflix</Text>
+                  <Text aux inline={true}>Netflix</Text>
                 </Div>
                 <Div alItems="end" justContent="start" flex flow="v">
                   <TagGroup mb={.5}>

@@ -26,6 +26,7 @@ import Modal from './components/Modal/Modal';
 import ModalBody from './components/ModalBody/ModalBody';
 import ModalFooter from './components/ModalFooter/ModalFooter';
 import ModalHeader from './components/ModalHeader/ModalHeader';
+import ModalSection from './components/ModalSection/ModalSection';
 import Navbar from './components/Navbar/Navbar';
 import NavbarLogo from './components/NavbarLogo/NavbarLogo';
 import NavbarSection from './components/NavbarSection/NavbarSection';
@@ -98,6 +99,7 @@ export {
     ModalBody,
     ModalFooter,
     ModalHeader,
+    ModalSection,
     Navbar,
     NavbarLogo,
     NavbarSection,

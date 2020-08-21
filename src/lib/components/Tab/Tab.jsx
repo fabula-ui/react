@@ -20,7 +20,7 @@ const Tab = props => {
 
     const handleClick = () => {
         handleActive(name);
-        onChange(name);
+        if (onChange) { onChange(name); }
     }
 
     return (

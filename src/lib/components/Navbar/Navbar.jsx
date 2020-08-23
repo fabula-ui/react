@@ -1,5 +1,4 @@
-import React, { useRef } from 'react';
-import { css } from 'emotion';
+import React, { Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components

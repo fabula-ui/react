@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
@@ -8,8 +8,11 @@ import Component from '../Component/Component';
 import NavbarTabsStyles from '@fabula/core/styles/components/navbar-tabs/navbar-tabs';
 
 const NavbarTabs = props => {
-    const { children } = props;
+    const { children, color } = props;
     const elRef = useRef(null);
+
+    // Children with props
+    const childrenWithProps = Children.map(children, child => cloneElement(child, { color }));
 
     return (
         <Component
@@ -17,7 +20,7 @@ const NavbarTabs = props => {
             properties={props}
             styles={NavbarTabsStyles}
             wrapper="fab-navbar-tabs">
-            <div ref={elRef}>{children}</div>
+            <div ref={elRef}>{childrenWithProps}</div>
         </Component>
     )
 }

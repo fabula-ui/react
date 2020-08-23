@@ -15,6 +15,7 @@ const Link = props => {
         label,
         underline,
         url,
+        target,
         ...rest
     } = props;
     const elRef = useRef(null);
@@ -25,7 +26,7 @@ const Link = props => {
             properties={props}
             styles={LinkStyles}
             wrapper="fab-link">
-            <a href={href || url} {...rest} ref={elRef}>
+            <a href={href || url} ref={elRef} target={target}>
                 {label || children}
             </a>
         </Component>

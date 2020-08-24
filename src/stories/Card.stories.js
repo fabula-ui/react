@@ -58,14 +58,14 @@ export const Examples = () => (
                   </Text>
                   <Text aux inline={true}>Google</Text>
                 </Div>
-                <Div alItems="end" justContent="start" flex flow="v">
+                <Div alH="end" direction="column" flex>
                   <TagGroup mb={.5}>
                     <Tag>Angular</Tag>
                     <Tag>Engineering</Tag>
                     <Tag>Node</Tag>
                   </TagGroup>
 
-                  <Text aux>
+                  <Text alV="center" aux flex={true}>
                     <Icon mr=".5" name="clock" />
                     <span>2 hours</span>
                   </Text>
@@ -80,14 +80,14 @@ export const Examples = () => (
                   </Text>
                   <Text inline={true} aux={true}>Amazon</Text>
                 </Div>
-                <Div alItems="end" justContent="start" flex flow="v">
+                <Div alH="end" direction="column" flex>
                   <TagGroup mb={.5}>
                     <Tag>Angular</Tag>
                     <Tag>Engineering</Tag>
                     <Tag>Node</Tag>
                   </TagGroup>
 
-                  <Text aux>
+                  <Text alV="center" aux flex={true}>
                     <Icon mr=".5" name="clock" />
                     <span>2 hours</span>
                   </Text>
@@ -103,14 +103,14 @@ export const Examples = () => (
                   </Text>
                   <Text aux inline={true}>Netflix</Text>
                 </Div>
-                <Div alItems="end" justContent="start" flex flow="v">
+                <Div alH="end" direction="column" flex>
                   <TagGroup mb={.5}>
                     <Tag>Angular</Tag>
                     <Tag>Engineering</Tag>
                     <Tag>Node</Tag>
                   </TagGroup>
 
-                  <Text aux>
+                  <Text alV="center" aux flex={true}>
                     <Icon mr=".5" name="clock" />
                     <span>2 hours</span>
                   </Text>

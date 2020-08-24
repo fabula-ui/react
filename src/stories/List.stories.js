@@ -25,13 +25,13 @@ const Example = props => {
     const { buttons, color, divider, link, striped, target } = props;
     return (
         <UtilsProvider>
-            <Card {...props}>
+            <Card {...props} overflow="hidden">
                 <List color={color} divider={divider} padding striped={striped}>
                     <ListItem button={buttons} flex href={link} target={target}>
                         <Avatar color={color} darken={!!color} icon="file" mr={.75} />
                         <Div grow={1}>
                             <Text color="inherit" flex weight={600}>
-                                <Text>List Item 1</Text>
+                                <Text inline={true}>List Item 1</Text>
                                 <Badge color={color || 'aux'} darken={!!color} ml=".5">New</Badge>
                             </Text>
                             <Text aux block color={!!color && 'inherit'} size="sm">List item subtitle</Text>
@@ -42,7 +42,7 @@ const Example = props => {
                         <Avatar color={color} darken={!!color} icon="file" mr={.75} />
                         <Div grow={1}>
                             <Text color="inherit" flex weight={600}>
-                                <Text>List Item 2</Text>
+                                <Text inline={true}>List Item 2</Text>
                                 <Badge color={color || 'aux'} darken={!!color} ml=".5">New</Badge>
                             </Text>
                             <Text aux block color={!!color && 'inherit'} size="sm">List item subtitle</Text>
@@ -55,7 +55,7 @@ const Example = props => {
                         <Avatar color={color} darken={!!color} icon="file" mr={.75} />
                         <Div grow={1}>
                             <Text color="inherit" flex weight={600}>
-                                <Text>List Item 3</Text>
+                                <Text inline={true}>List Item 3</Text>
                                 <Badge color={color || 'aux'} darken={!!color} ml=".5">New</Badge>
                             </Text>
                             <Text aux block color={!!color && 'inherit'} size="sm">List item subtitle</Text>
@@ -80,19 +80,19 @@ export const Examples = () => (
                         <ListItem flex>
                             <Div flex flow="v" grow={1}>
                                 <Text size="lg" weight={600}>
-                                    <Text mr={.5}>Full-stack Engineer</Text>
+                                    <Text inline={true} mr={.5}>Full-stack Engineer</Text>
                                     <Badge color="#E3FFD9">Full-time</Badge>
                                 </Text>
                                 <Text aux>Google</Text>
                             </Div>
-                            <Div alItems="end" justContent="start" flex flow="v">
+                            <Div alH="end" flex direction="column">
                                 <TagGroup mb={.5}>
                                     <Tag>Angular</Tag>
                                     <Tag>Engineering</Tag>
                                     <Tag>Node</Tag>
                                 </TagGroup>
 
-                                <Div flex alItems="center">
+                                <Div flex alV="center">
                                     <Icon mr=".5" name="clock" />
                                     <Text>2 hours</Text>
                                 </Div>
@@ -102,19 +102,19 @@ export const Examples = () => (
                         <ListItem flex>
                             <Div flex flow="v" grow={1}>
                                 <Text size="lg" weight={600}>
-                                    <Text mr={.5}>Frontend Developer</Text>
+                                    <Text inline={true} mr={.5}>Frontend Developer</Text>
                                     <Badge color="#FFECD9">Part-time</Badge>
                                 </Text>
                                 <Text aux>Amazon</Text>
                             </Div>
-                            <Div alItems="end" justContent="start" flex flow="v">
+                            <Div alH="end" flex direction="column">
                                 <TagGroup mb={.5}>
                                     <Tag>Angular</Tag>
                                     <Tag>Engineering</Tag>
                                     <Tag>Node</Tag>
                                 </TagGroup>
 
-                                <Div flex alItems="center">
+                                <Div flex alV="center">
                                     <Icon mr=".5" name="clock" />
                                     <Text>2 hours</Text>
                                 </Div>
@@ -124,20 +124,20 @@ export const Examples = () => (
                         <ListItem flex>
                             <Div flex flow="v" grow={1}>
                                 <Text size="lg" weight={600}>
-                                    <Text mr={.5}>Backend Developer</Text>
+                                    <Text inline={true} mr={.5}>Backend Developer</Text>
                                     <Badge color="#FFECD9" mr={.5}>Part-time</Badge>
                                     <Badge color="#D9E9FF">Remote</Badge>
                                 </Text>
                                 <Text aux>Netflix</Text>
                             </Div>
-                            <Div alItems="end" justContent="start" flex flow="v">
+                            <Div alH="end" flex direction="column">
                                 <TagGroup mb={.5}>
                                     <Tag>Angular</Tag>
                                     <Tag>Engineering</Tag>
                                     <Tag>Node</Tag>
                                 </TagGroup>
 
-                                <Div flex alItems="center">
+                                <Div flex alV="center">
                                     <Icon mr=".5" name="clock" />
                                     <Text>2 hours</Text>
                                 </Div>

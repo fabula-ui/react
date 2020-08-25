@@ -12,12 +12,26 @@ import Input from '../Input/Input';
 import SearchInputStyles from '@fabula/core/styles/components/search-input/search-input';
 
 const SearchInput = props => {
-    const { autocomplete, button, children, className, icon, placeholder, ...rest } = props;
+    const { autocomplete, button, children, className, icon, placeholder, onSearch, ...rest } = props;
     const [autocompleteIsOpen, setAutocompleIsOpen] = useState(false);
     const elRef = useRef(null);
+    const searchRef = useRef(null);
 
     const handleFocus = status => {
         // setAutocompleIsOpen(status);
+    }
+
+    const handleKeyDown = e => {
+        if (e.keyCode === 13 && onSearch) {
+            e.target.blur();
+            onSearch(e.target.value);
+        }
+    }
+
+    const handleSearch = e => {
+        const query = searchRef.current.value;
+
+        if (onSearch) { onSearch(query); }
     }
 
     return (
@@ -28,9 +42,9 @@ const SearchInput = props => {
             wrapper="fab-search-input-wrapper">
             <div ref={elRef}>
                 <div className="fab-search-input">
-                    <Input iconStart={{ name: 'search' }} onFocus={() => handleFocus(true)} placeholder={placeholder || 'Search...'} {...rest}>
+                    <Input elRef={searchRef} iconStart={{ name: 'search' }} onFocus={() => handleFocus(true)} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...rest}>
                         {!!button &&
-                            <Button color="primary" compact={true} {...button}>
+                            <Button color="primary" compact={true} onClick={handleSearch} {...button}>
                                 {!button.label && !button.icon && 'Search'}
                                 {!!button.icon && <InnerIcon icon={button.icon} parentProps={button} />}
                             </Button>

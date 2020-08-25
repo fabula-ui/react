@@ -11,6 +11,7 @@ const Input = props => {
     const {
         children,
         disabled,
+        elRef,
         icon,
         iconEnd,
         iconStart,
@@ -27,7 +28,7 @@ const Input = props => {
     } = props;
     const [focus, setFocus] = useState(false);
     const [inputType, setInputType] = useState(type || 'text');
-    const elRef = useRef(null);
+    const ref = useRef(null);
 
     const handleBlur = (e) => {
         setFocus(false);
@@ -61,11 +62,11 @@ const Input = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={ref}
             properties={props}
             styles={InputStyles}
             wrapper="fab-input-wrapper">
-            <div data-fab-wrapper="input" ref={elRef}>
+            <div data-fab-wrapper="input" ref={ref}>
                 <div className="fab-input" data-disabled={disabled} data-focus={focus} data-textarea={textarea}>
                     {(!!icon || !!iconStart) && <span className="fab-input__icon" data-placement="start" />}
 
@@ -79,6 +80,7 @@ const Input = props => {
                             onKeyDown={handleKeyDown}
                             onKeyUp={handleKeyUp}
                             placeholder={placeholder}
+                            ref={elRef}
                             type={inputType} />
                     }
 
@@ -92,6 +94,7 @@ const Input = props => {
                             onKeyDown={handleKeyDown}
                             onKeyUp={handleKeyUp}
                             placeholder={placeholder}
+                            ref={elRef}
                             type={inputType} />
                     }
 

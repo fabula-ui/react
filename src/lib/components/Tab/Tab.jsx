@@ -8,7 +8,7 @@ import Component from '../Component/Component';
 import TabStyles from '@fabula/core/styles/components/tab/tab';
 
 const Tab = props => {
-    const { activeTab, children, handleActive, label, link, name, onChange, ...rest } = props;
+    const { activeTab, children, handleActive, label, link, name, ...rest } = props;
     const [active, setActive] = useState(props.active);
     const elRef = useRef(null);
 
@@ -20,7 +20,6 @@ const Tab = props => {
 
     const handleClick = () => {
         handleActive(name);
-        if (onChange) { onChange(name); }
     }
 
     return (

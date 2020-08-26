@@ -41,6 +41,12 @@ const Tabs = props => {
     const handleActive = tab => {
         setActive(tab);
         if (tab && scope) { toggleContent(tab); }
+        if (onChange) {
+            onChange({
+                scope,
+                tab
+            });
+        }
     }
 
     const toggleContent = segment => {

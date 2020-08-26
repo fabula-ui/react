@@ -21,6 +21,7 @@ const Segments = props => {
     inactiveFillColor,
     inactiveTextColor,
     invert,
+    onChange,
     outline,
     rounded,
     scope
@@ -37,6 +38,12 @@ const Segments = props => {
   const handleActive = segment => {
     setActive(segment);
     if (segment && scope) { toggleContent(segment); }
+    if (onChange) {
+      onChange({
+        scope,
+        segment
+      });
+    }
   }
 
   const toggleContent = segment => {

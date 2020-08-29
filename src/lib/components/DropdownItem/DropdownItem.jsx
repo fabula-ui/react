@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import DropdownItemStyles from '@fabula/core/styles/components/dropdown-item/dropdown-item';
 
 const DropdownItem = props => {
-    const { button, children, clickToClose, label, onClick, parentOnClick, toggle } = props;
+    const { button, children, clickToClose, href, label, onClick, parentOnClick, toggle, ...rest } = props;
     const elRef = useRef(null);
+    const restProps = getComponentProps(rest);
 
     const handleClick = () => {
         if (onClick) { onClick(); }
@@ -23,15 +27,20 @@ const DropdownItem = props => {
             properties={props}
             styles={DropdownItemStyles}
             wrapper="fab-dropdown-item">
-            {(!!button || !!clickToClose || !!onClick || !!parentOnClick) &&
+            {(!!button || !!clickToClose || !!onClick || !!parentOnClick) && !href &&
                 <button data-fab-component="dropdownItem" onClick={handleClick} ref={elRef}>
                     {label || children}
                 </button>
             }
-            {!button && !clickToClose && !onClick && !parentOnClick &&
+            {!button && !clickToClose && !href && !onClick && !parentOnClick &&
                 <div data-fab-component="dropdownItem" onClick={handleClick} ref={elRef}>
                     {label || children}
                 </div>
+            }
+            {href &&
+                <a data-fab-component="dropdownItem" href={href} ref={elRef} {...restProps}>
+                    {label || children}
+                </a>
             }
         </Component>
     )

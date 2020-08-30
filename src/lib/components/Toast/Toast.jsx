@@ -10,7 +10,20 @@ import InnerIcon from '../InnerIcon/InnerIcon';
 import ToastStyles from '@fabula/core/styles/components/toast/toast';
 
 const Toast = props => {
-    const { button, children, closeButton, color, hideDelay, icon, inline, link, message, stacked } = props;
+    const {
+        button,
+        children,
+        color,
+        hideButton,
+        hideDelay,
+        icon,
+        inline,
+        link,
+        onHide,
+        onShow,
+        message,
+        stacked
+    } = props;
     const [height, setHeight] = useState();
     const [hidden, setHidden] = useState(false);
     const [hiding, setHiding] = useState(false);
@@ -21,6 +34,7 @@ const Toast = props => {
 
     // Hooks
     useEffect(() => {
+        if (onShow) { onShow(); }
         if (stacked && !inline) { handleHide(); }
     }, []);
 
@@ -41,17 +55,20 @@ const Toast = props => {
         }, hideDelay);
 
         setTimeout(() => {
+            if (onHide) { onHide(); }
             setHidden(true);
         }, hideDelay + transitionDuration + 1);
     }
 
     const hideToast = () => {
         if (!stacked) {
+            if (onHide) { onHide(); }
             setHidden(true);
         } else {
             setHiding(true);
 
             setTimeout(() => {
+                if (onHide) { onHide(); }
                 setHidden(true);
             }, hideDelay + 400);
         }
@@ -69,13 +86,13 @@ const Toast = props => {
                         {!!icon && <InnerIcon color={color} icon={icon} parentProps={props} />}
                         {!!message && <span className="fab-toast__message">{message}</span>}
                         {children}
-                        {!!closeButton &&
+                        {(!!button || !!hideButton || !!link) &&
                             <div className="fab-toast__close-button">
-                                <Button size="sm" {...closeButton} data-close-button onClick={hideToast} />
+                                {!!hideButton && <Button size="sm" {...hideButton} data-close-button onClick={hideToast} />}
+                                {!!button && <Button size="sm" {...button} />}
+                                {!!link && !link.button && <Link {...link} />}
                             </div>
                         }
-                        {!!button && <Button size="sm" {...button} />}
-                        {!!link && !link.button && <Link {...link} />}
                     </div>
                 </div>
             </Component>
@@ -87,10 +104,10 @@ const Toast = props => {
 
 Toast.defaultProps = {
     clear: false,
-    closeButton: null,
     color: '',
     faded: false,
     glow: false,
+    hideButton: null,
     hideDelay: 2000,
     link: '',
     message: '',
@@ -100,10 +117,10 @@ Toast.defaultProps = {
 
 Toast.propTypes = {
     clear: PropTypes.bool,
-    closeButton: PropTypes.any,
     color: PropTypes.string,
     faded: PropTypes.bool,
     glow: PropTypes.bool,
+    hideButton: PropTypes.any,
     hideDelay: PropTypes.any,
     link: PropTypes.string,
     message: PropTypes.string,

@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
 	Badge,
+	Div,
 	Divider,
 	Dropdown,
 	DropdownHeader,
@@ -25,7 +26,7 @@ export default {
 export const Examples = () => (
 	<FabulaProvider>
 		<FabulaUtils>
-			<div flex>
+			<Div flex>
 				<Dropdown mb={1} mr={1} onOpen={() => alert('onOpen')}>
 					<DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
 					<DropdownMenu clickToClose={true} onClickItem={() => console.log('Parent onClick')}>
@@ -38,17 +39,17 @@ export const Examples = () => (
 						<DropdownItem>Dropdown Item 3</DropdownItem>
 						<Divider />
 						<DropdownItem>
-							<div flex>
+							<Div flex>
 								<Icon color="primary" mr=".5" name="database" />
 								<span grow={1} mr="1">
 									Dropdown Item 4
 								</span>
 								<Badge color="primary">New</Badge>
-							</div>
+							</Div>
 						</DropdownItem>
 						<Divider />
 						<DropdownItem color="primary">
-							<div flex>
+							<Div flex>
 								<Icon mr=".5" name="database" />
 								<span grow={1} mr="1">
 									Dropdown Item 5
@@ -56,7 +57,7 @@ export const Examples = () => (
 								<Badge color="primary" invert={true} rounded={true} size="sm">
 									1
 								</Badge>
-							</div>
+							</Div>
 						</DropdownItem>
 					</DropdownMenu>
 				</Dropdown>
@@ -73,19 +74,19 @@ export const Examples = () => (
                         <DropdownItem>Dropdown Item 3</DropdownItem>
                         <Divider />
                         <DropdownItem>
-                            <div flex>
+                            <Div flex>
                                 <Icon mr=".5" name="database" />
                                 <span grow={1} mr="1">Dropdown Item 4</span>
                                 <Badge color="primary" invert={true}>New</Badge>
-                            </div>
+                            </Div>
                         </DropdownItem>
                         <Divider />
                         <DropdownItem color="primary" invert={true}>
-                            <div flex>
+                            <Div flex>
                                 <Icon mr=".5" name="database" />
                                 <span grow={1} mr="1">Dropdown Item 5</span>
                                 <Badge color="primary" rounded={true} size="sm">1</Badge>
-                            </div>
+                            </Div>
                         </DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
@@ -94,7 +95,7 @@ export const Examples = () => (
                     <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
                     <DropdownMenu clickToClose={true} divider={false} items={[{ color: '', label: 'Default' }, { color: 'primary', label: 'Primary' }, { color: 'secondary', label: 'Secondary' }, { color: 'success', label: 'Success' }, { color: 'danger', label: 'Danger' }]}></DropdownMenu>
                 </Dropdown>
-			</div>
+			</Div>
 		</FabulaUtils>
 	</FabulaProvider>
 );
@@ -136,7 +137,7 @@ export const Alignment = () => (
 export const Colors = () => (
 	<FabulaProvider>
 		<FabulaUtils>
-			<div mb="1" row>
+			<Div mb="1" row>
 				<Dropdown col="3" expand={true}>
 					<DropdownToggle icon="map-pin" label="Dropdown Toggle" />
 					<DropdownMenu
@@ -191,9 +192,9 @@ export const Colors = () => (
 						onClick={() => alert('It works!')}
 					/>
 				</Dropdown>
-			</div>
+			</Div>
 
-			<div mb="1" row>
+			<Div mb="1" row>
 				<Dropdown col="3" expand={true}>
 					<DropdownToggle color="danger" icon="map-pin" label="Dropdown Toggle" />
 					<DropdownMenu
@@ -249,9 +250,9 @@ export const Colors = () => (
 						onClick={() => alert('It works!')}
 					/>
 				</Dropdown>
-			</div>
+			</Div>
 
-			<div mb="1" row>
+			<Div mb="1" row>
 				<Dropdown col="3" expand={true}>
 					<DropdownToggle color="dark" icon="map-pin" label="Dropdown Toggle" />
 					<DropdownMenu
@@ -293,7 +294,7 @@ export const Colors = () => (
 						onClick={() => alert('It works!')}
 					/>
 				</Dropdown>
-			</div>
+			</Div>
 		</FabulaUtils>
 	</FabulaProvider>
 );

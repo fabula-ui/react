@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useLayoutEffect, useState } from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
@@ -31,7 +31,7 @@ const ToastStack = props => {
     }, [stacks, stacks[name]]);
 
     // Hooks
-    useEffect(() => {
+    useLayoutEffect(() => {
         toastsCallback();
     }, [stacks, stacks[name]]);
 

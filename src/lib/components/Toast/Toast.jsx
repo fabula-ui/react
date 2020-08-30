@@ -10,7 +10,7 @@ import InnerIcon from '../InnerIcon/InnerIcon';
 import ToastStyles from '@fabula/core/styles/components/toast/toast';
 
 const Toast = props => {
-    const { children, closeButton, color, hideDelay, icon, link, message, stacked } = props;
+    const { button, children, closeButton, color, hideDelay, icon, inline, link, message, stacked } = props;
     const [height, setHeight] = useState();
     const [hidden, setHidden] = useState(false);
     const [hiding, setHiding] = useState(false);
@@ -21,18 +21,18 @@ const Toast = props => {
 
     // Hooks
     useEffect(() => {
-        if (stacked) { handleHide(); }
+        if (stacked && !inline) { handleHide(); }
     }, []);
 
     useEffect(() => {
-        if (toastRef.current) {
+        if (toastRef.current && !inline) {
             setHeight(toastRef.current.offsetHeight);
         }
     }, [toastRef]);
 
     // Methods
     const handleHide = () => {
-        const toastEl = document.querySelector('.fab-toast-wrapper');
+        const toastEl = document.querySelector('.fab-toast-stack .fab-toast-wrapper');
         const duration = window.getComputedStyle(toastEl).transitionDuration;
         const transitionDuration = (duration.indexOf('ms') > -1) ? parseFloat(duration) : parseFloat(duration) * 1000;
 
@@ -74,7 +74,8 @@ const Toast = props => {
                                 <Button size="sm" {...closeButton} data-close-button onClick={hideToast} />
                             </div>
                         }
-                        {!!link && <Link {...link} />}
+                        {!!button && <Button size="sm" {...button} />}
+                        {!!link && !link.button && <Link {...link} />}
                     </div>
                 </div>
             </Component>

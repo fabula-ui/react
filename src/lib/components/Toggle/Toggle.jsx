@@ -7,12 +7,13 @@ import Component from '../Component/Component';
 import ToggleStyles from '@fabula/core/styles/components/toggle/toggle';
 
 const Toggle = props => {
-    const { children, disabled, label } = props;
+    const { children, disabled, label, onToggle } = props;
     const [active, setActive] = useState(props.active);
     const elRef = useRef(null);
 
     const handleClick = () => {
         if (!disabled) { setActive(!active); }
+        if (onToggle) { onToggle(!active); }
     }
 
     return (

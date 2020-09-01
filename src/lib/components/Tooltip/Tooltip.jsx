@@ -8,6 +8,7 @@ import TooltipStyles from '@fabula/core/styles/components/tooltip/tooltip';
 
 const Tooltip = props => {
     const { height, label, placement, x, width, y } = props;
+    const componentProps = { ...props, height: null, width: null };
     const [ready, setReady] = useState(false);
     const [style, setStyle] = useState(null);
     const elRef = useRef(null);
@@ -46,7 +47,7 @@ const Tooltip = props => {
     return (
         <Component
             elRef={elRef}
-            properties={props}
+            properties={componentProps}
             styles={TooltipStyles}
             wrapper="fab-tooltip">
             <div data-placement={placement} data-ready={ready} style={style} ref={elRef}>

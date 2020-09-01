@@ -1,23 +1,14 @@
-import React, { Children, cloneElement, useContext, isValidElement } from 'react';
+import React, { Children, cloneElement, useContext, isValidElement, useState } from 'react';
 
 // Controllers
 import TooltipController from '../../controllers/TooltipController';
-
-const clonedElement = (children, element) => {
-    return <span>
-        {cloneElement(children, {
-
-        })}
-    </span>
-
-}
 
 const TooltipWrapper = props => {
     const { children, color, label, offset, placement } = props;
     const { setActiveTooltip } = useContext(TooltipController);
     const element = children?.props ? children : children[0].props;
 
-    const handleMouseOut = () => {
+    const handleMouseOut = e => {
         setActiveTooltip(null);
     }
 
@@ -49,12 +40,6 @@ const TooltipWrapper = props => {
     })
 
     return childrenWithProps;
-
-    // return cloneElement(children, {
-    //     props: element.props,
-    //     onMouseEnter: handleMouseOver,
-    //     onMouseLeave: handleMouseOut
-    // });
 }
 
 TooltipWrapper.defaultProps = {

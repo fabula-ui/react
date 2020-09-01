@@ -1,7 +1,16 @@
-import React, { cloneElement, useContext } from 'react';
+import React, { Children, cloneElement, useContext, isValidElement } from 'react';
 
 // Controllers
 import TooltipController from '../../controllers/TooltipController';
+
+const clonedElement = (children, element) => {
+    return <span>
+        {cloneElement(children, {
+
+        })}
+    </span>
+
+}
 
 const TooltipWrapper = props => {
     const { children, color, label, offset, placement } = props;
@@ -27,11 +36,25 @@ const TooltipWrapper = props => {
         });
     }
 
-    return cloneElement(element, {
-        props: element.props,
-        onMouseEnter: handleMouseOver,
-        onMouseLeave: handleMouseOut
-    });
+    const childrenWithProps = Children.map(children, child => {
+        if (isValidElement(child)) {
+            return cloneElement(child, {
+                props: element.props,
+                onMouseEnter: handleMouseOver,
+                onMouseLeave: handleMouseOut
+            });
+        } else {
+            return child
+        }
+    })
+
+    return childrenWithProps;
+
+    // return cloneElement(children, {
+    //     props: element.props,
+    //     onMouseEnter: handleMouseOver,
+    //     onMouseLeave: handleMouseOut
+    // });
 }
 
 TooltipWrapper.defaultProps = {

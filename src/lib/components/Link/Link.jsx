@@ -26,7 +26,7 @@ const Link = props => {
             properties={props}
             styles={LinkStyles}
             wrapper="fab-link">
-            <a href={href || url} ref={elRef} target={target}>
+            <a href={href || url} ref={elRef} target={target} {...rest}>
                 {label || children}
             </a>
         </Component>

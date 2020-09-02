@@ -16,9 +16,9 @@ const DropdownItem = props => {
     const restProps = getComponentProps(rest);
 
     const handleClick = () => {
+        if ((button || clickToClose || onClick || parentOnClick) && toggle) { toggle(); }
         if (onClick) { onClick(); }
         if (parentOnClick) { parentOnClick(); }
-        if ((button || clickToClose || onClick || parentOnClick) && toggle) { toggle(); }
     }
 
     return (

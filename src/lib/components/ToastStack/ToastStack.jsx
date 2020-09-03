@@ -52,10 +52,7 @@ ToastStack.defaultProps = {
 
 ToastStack.propTypes = {
     name: PropTypes.string,
-    placement: {
-        x: PropTypes.string,
-        y: PropTypes.string
-    }
+    placement: PropTypes.any
 }
 
 export default ToastStack;

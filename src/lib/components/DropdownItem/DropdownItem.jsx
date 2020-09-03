@@ -11,7 +11,19 @@ import getComponentProps from '../../utils/getComponentProps';
 import DropdownItemStyles from '@fabula/core/styles/components/dropdown-item/dropdown-item';
 
 const DropdownItem = props => {
-    const { button, children, clickToClose, href, label, onClick, parentOnClick, toggle, ...rest } = props;
+    const {
+        button,
+        children,
+        clickToClose,
+        href,
+        invert,
+        label,
+        onClick,
+        parentColor,
+        parentOnClick,
+        toggle,
+        ...rest
+    } = props;
     const elRef = useRef(null);
     const restProps = getComponentProps(rest);
 

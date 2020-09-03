@@ -5,6 +5,7 @@ const utilProps = [
     'align',
     'alignH',
     'alignV',
+    'block',
     'col',
     'direction',
     'display',

@@ -3,12 +3,16 @@ import React, { useRef } from 'react';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import HTMLElementsStyles from '@fabula/core/styles/components/html-elements/html-elements';
 
 const Div = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
@@ -16,7 +20,7 @@ const Div = props => {
             properties={props}
             styles={HTMLElementsStyles}
             wrapper="fab-div">
-            <div ref={elRef || ref} {...rest}>{children}</div>
+            <div ref={elRef || ref} {...restProps}>{children}</div>
         </Component>
     )
 }

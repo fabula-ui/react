@@ -14,11 +14,11 @@ const Dropdown = props => {
 
     // Methods
     const toggle = () => {
+        setOpen(!open);
+        
         if (onClose && open) { onClose() }
         if (onOpen && !open) { onOpen() }
         if (onToggle) { onToggle(!open) }
-
-        setOpen(!open);
     }
 
     // Callbacks

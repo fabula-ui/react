@@ -7,7 +7,7 @@ import Component from '../Component/Component';
 import HTMLElementsStyles from '@fabula/core/styles/components/html-elements/html-elements';
 
 const Div = props => {
-    const { children, elRef } = props;
+    const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
     return (
@@ -16,13 +16,13 @@ const Div = props => {
             properties={props}
             styles={HTMLElementsStyles}
             wrapper="fab-div">
-            <div ref={elRef || ref}>{children}</div>
+            <div ref={elRef || ref} {...rest}>{children}</div>
         </Component>
     )
 }
 
 const Span = props => {
-    const { children } = props;
+    const { children, ...rest } = props;
     const elRef = useRef(null);
 
     return (
@@ -30,13 +30,13 @@ const Span = props => {
             elRef={elRef}
             properties={props}
             wrapper="fab-span">
-            <span ref={elRef}>{children}</span>
+            <span ref={elRef} {...rest}>{children}</span>
         </Component>
     )
 }
 
 const Strong = props => {
-    const { children } = props;
+    const { children, ...rest } = props;
     const elRef = useRef(null);
 
     return (
@@ -44,7 +44,7 @@ const Strong = props => {
             elRef={elRef}
             properties={props}
             wrapper="fab-strong">
-            <strong ref={elRef}>{children}</strong>
+            <strong ref={elRef} {...rest}>{children}</strong>
         </Component>
     )
 }

@@ -66,7 +66,7 @@ const Input = props => {
             properties={props}
             styles={InputStyles}
             wrapper="fab-input-wrapper">
-            <div data-fab-wrapper="input" ref={ref}>
+            <div data-focus={focus} data-fab-wrapper="input" ref={ref}>
                 <div className="fab-input" data-disabled={disabled} data-focus={focus} data-textarea={textarea}>
                     {(!!icon || !!iconStart) && <span className="fab-input__icon" data-placement="start" />}
 

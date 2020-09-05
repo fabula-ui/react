@@ -28,13 +28,14 @@ const Div = props => {
 const Span = props => {
     const { children, ...rest } = props;
     const elRef = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
             elRef={elRef}
             properties={props}
             wrapper="fab-span">
-            <span ref={elRef} {...rest}>{children}</span>
+            <span ref={elRef} {...restProps}>{children}</span>
         </Component>
     )
 }
@@ -42,13 +43,14 @@ const Span = props => {
 const Strong = props => {
     const { children, ...rest } = props;
     const elRef = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
             elRef={elRef}
             properties={props}
             wrapper="fab-strong">
-            <strong ref={elRef} {...rest}>{children}</strong>
+            <strong ref={elRef} {...restProps}>{children}</strong>
         </Component>
     )
 }

@@ -6,6 +6,7 @@ const utilProps = [
     'alignH',
     'alignV',
     'block',
+    'className',
     'col',
     'direction',
     'display',
@@ -15,6 +16,7 @@ const utilProps = [
     'grow',
     'height',
     'hidden',
+    'lineHeight',
     'maxHeight',
     'maxWidth',
     'minHeight',
@@ -38,7 +40,8 @@ const utilProps = [
     'padding',
     'row',
     'visible',
-    'width'
+    'width',
+    'wrap'
 ]
 
 const getComponentProps = props => {

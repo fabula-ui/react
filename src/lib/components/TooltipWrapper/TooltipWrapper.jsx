@@ -5,17 +5,17 @@ import TooltipController from '../../controllers/TooltipController';
 
 const TooltipWrapper = props => {
     const { children, color, label, offset, placement } = props;
-    const { setActiveTooltip } = useContext(TooltipController);
+    const { handleTooltip } = useContext(TooltipController);
     const element = children?.props ? children : children[0].props;
 
     const handleMouseOut = e => {
-        setActiveTooltip(null);
+        handleTooltip(null);
     }
 
     const handleMouseOver = e => {
         const element = e.target.getBoundingClientRect();
 
-        setActiveTooltip({
+        handleTooltip({
             color,
             height: e.target.offsetHeight,
             label,

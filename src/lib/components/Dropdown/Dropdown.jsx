@@ -13,20 +13,20 @@ const Dropdown = props => {
     const elRef = useRef(null);
 
     // Methods
-    const toggle = () => {
+    const toggle = useCallback(() => {
         setOpen(!open);
         
         if (onClose && open) { onClose() }
         if (onOpen && !open) { onOpen() }
         if (onToggle) { onToggle(!open) }
-    }
+    }, [onClose, onOpen, onToggle, open, setOpen]);
 
     // Callbacks
     const handleClick = useCallback(e => {
         if (elRef.current && !elRef.current.contains(e.target) && open) {
             toggle();
         }
-    }, [toggle, elRef]);
+    }, [toggle, elRef, open]);
 
     // Hooks
     useEffect(() => {

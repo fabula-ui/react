@@ -1,4 +1,4 @@
-import React, { cloneElement, useState } from 'react';
+import React, { useState } from 'react';
 
 // Controller
 import ModalController from '../controllers/ModalController';
@@ -21,9 +21,7 @@ const ModalProvider = props => {
         }, 300);
     }
 
-    const openModal = (component, props) => {
-        const modal = cloneElement(component, { closeModal });
-
+    const openModal = component => {
         setActiveModal(component);
         setModalIsOpen(true);
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useReducer } from 'react';
 
 // Controller
 import ToastController from '../controllers/ToastController';
@@ -6,9 +6,35 @@ import ToastController from '../controllers/ToastController';
 // Portals
 import ToastPortal from '../portals/ToastPortal';
 
+const reducer = (state, action) => {
+    let targetStack;
+    let tempStacks;
+
+    switch (action.type) {
+        case 'CREATE_STACK':
+            tempStacks = { ...state };
+
+            tempStacks[action.name] = {
+                elements: [],
+                placement: action.placement
+            };
+
+            return tempStacks;
+        case 'SHOW_STACK':
+            tempStacks = { ...state };
+            targetStack = tempStacks[action.stack] || tempStacks.default;
+
+            targetStack.elements.push(action.toast);
+
+            return tempStacks;
+        default:
+            return state;
+    }
+}
+
 const ToastProvider = props => {
     const { children } = props;
-    const [stacks, setStacks] = useState({
+    const [stacks, dispatch] = useReducer(reducer, {
         default: {
             elements: [],
             placement: {
@@ -18,47 +44,24 @@ const ToastProvider = props => {
         }
     });
 
-    const createStack = params => {
-        const tempStacks = { ...stacks };
-        const { name, placement } = params;
+    const createStack = useCallback(params => {
+        dispatch({
+            type: 'CREATE_STACK',
+            ...params
+        })
+    }, []);
 
-        tempStacks[name] = {
-            elements: [],
-            placement
-        };
-
-        setStacks(tempStacks);
-    }
-
-    const createStacks = newStacks => {
-        const tempStacks = { ...stacks };
-
-        for (let i = 0; i < newStacks.length; i++) {
-            const newStack = newStacks[i];
-            const { name, placement } = newStack;
-
-            tempStacks[name] = {
-                elements: [],
-                placement
-            };
-        }
-
-        setStacks(tempStacks);
-    }
-
-    const showToast = params => {
+    const showToast = useCallback(params => {
         const { stack, ...rest } = params;
-        const tempStacks = { ...stacks };
-        const targetStack = stacks[stack] || stacks.default;
-
-        targetStack.elements.push({ ...rest });
-
-        setStacks(tempStacks);
-    }
+        dispatch({
+            type: 'SHOW_STACK',
+            stack,
+            toast: { ...rest }
+        });
+    }, []);
 
     const initialState = {
         createStack,
-        createStacks,
         showToast,
         stacks
     };

@@ -1,4 +1,4 @@
-import React, { Children, cloneElement, useState, useEffect, useRef } from 'react';
+import React, { Children, cloneElement, useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
@@ -9,6 +9,7 @@ import TabsStyles from '@fabula/core/styles/components/tabs/tabs';
 
 const Tabs = props => {
     const {
+        active,
         activeColor,
         activeBorderColor,
         activeFillColor,
@@ -29,27 +30,11 @@ const Tabs = props => {
         stacked,
         type
     } = props;
-    const [active, setActive] = useState(props.active);
+    const [activeTab, setActiveTab] = useState(active);
     const elRef = useRef(null);
 
-    // Hooks
-    useEffect(() => {
-        handleActive(props.active);
-    }, [props.active]);
-
-    // Methods
-    const handleActive = tab => {
-        setActive(tab);
-        if (tab && scope) { toggleContent(tab); }
-        if (onChange) {
-            onChange({
-                scope,
-                tab
-            });
-        }
-    }
-
-    const toggleContent = segment => {
+    // Callbacks
+    const toggleContent = useCallback(segment => {
         const allOtherContent = document.querySelectorAll(`.fab-content[data-scope='${scope}']:not([data-name='${segment}'])`);
         const targetContent = document.querySelectorAll(`.fab-content[data-scope='${scope}'][data-name='${segment}']`);
 
@@ -68,7 +53,23 @@ const Tabs = props => {
                 target.setAttribute('data-active', 'true');
             }
         }
-    }
+    }, [scope]);
+
+    const handleActive = useCallback(tab => {
+        setActiveTab(tab);
+        if (tab && scope) { toggleContent(tab); }
+        if (onChange) {
+            onChange({
+                scope,
+                tab
+            });
+        }
+    }, [onChange, scope, toggleContent]);
+
+    // Hooks
+    useEffect(() => {
+        handleActive(active);
+    }, [active, handleActive]);
 
     // Children with props
     const childrenWithProps = Children.map(children, child => cloneElement(child, {
@@ -76,7 +77,7 @@ const Tabs = props => {
         activeColor,
         activeFillColor,
         activeTextColor,
-        activeTab: active,
+        activeTab,
         clear,
         color,
         expand,

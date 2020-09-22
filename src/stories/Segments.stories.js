@@ -266,7 +266,7 @@ export const Clear = () => (
       </Div>
 
       <Div mb="1" row>
-        <Segments activeFillColor="light" color="aux" active="docs" clear={true} col="4" color="light">
+        <Segments activeFillColor="light" active="docs" clear={true} col="4" color="light">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -346,7 +346,7 @@ export const Color = () => (
       </Div>
 
       <Div mb="1" row>
-        <Segments color="aux" active="docs" col="4" color="light">
+        <Segments active="docs" col="4" color="light">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -521,7 +521,7 @@ export const Faded = () => (
       </Div>
 
       <Div mb="1" row>
-        <Segments color="aux" active="docs" faded={true} col="4" color="light">
+        <Segments active="docs" faded={true} col="4" color="light">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -761,7 +761,7 @@ export const Invert = () => (
       </Div>
 
       <Div mb="1" row>
-        <Segments color="aux" active="docs" invert={true} col="4" color="light">
+        <Segments active="docs" invert={true} col="4" color="light">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -841,7 +841,7 @@ export const Outline = () => (
       </Div>
 
       <Div mb="1" row>
-        <Segments color="aux" active="docs" outline={true} col="4" color="light">
+        <Segments active="docs" outline={true} col="4" color="light">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>
@@ -921,7 +921,7 @@ export const Rounded = () => (
       </Div>
 
       <Div mb="1" row>
-        <Segments color="aux" active="docs" rounded={true} col="4" color="light">
+        <Segments active="docs" rounded={true} col="4" color="light">
           <Segment name="docs">Docs</Segment>
           <Segment name="components">Components</Segment>
           <Segment name="showcase">Showcase</Segment>

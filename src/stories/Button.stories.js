@@ -1,11 +1,8 @@
 import React from 'react';
 
 import {
-  Badge,
   Button,
-  ButtonGroup,
   FabulaProvider,
-  FabulaUtils,
   Icon,
   UtilsProvider,
   Wrapper

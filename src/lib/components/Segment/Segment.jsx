@@ -14,7 +14,7 @@ const Segment = props => {
 
     useEffect(() => {
         if (activeSegment) { setActive(activeSegment === name); }
-    }, [activeSegment]);
+    }, [activeSegment, name]);
 
     const handleClick = () => {
         handleActive(name);

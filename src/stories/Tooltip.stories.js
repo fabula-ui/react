@@ -1,16 +1,13 @@
-import React, { useEffect, forwardRef, useRef, Fragment } from 'react';
-import { action } from '@storybook/addon-actions';
+import React from 'react';
 
 import {
     Button,
-    Div,
     FabulaProvider,
     Icon,
     UtilsProvider,
     Tooltip,
     ButtonGroup,
-    TooltipProvider,
-    Text
+    TooltipProvider
 } from '../lib';
 
 export default {

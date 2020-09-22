@@ -3,6 +3,7 @@ import React, {
     cloneElement,
     isValidElement,
     useEffect,
+    useCallback,
     useRef,
     useState
 } from 'react';
@@ -27,10 +28,15 @@ const DropdownMenu = props => {
         }
     });
 
+    // Callbacks
+    const handleChange = useCallback(open => {
+        if (onChange) { onChange(open); }
+    }, [onChange]);
+
     // Hooks
     useEffect(() => {
-        if (onChange) { onChange(open); }
-    }, [open]);
+        handleChange(open);
+    }, [handleChange, open]);
 
     useEffect(() => {
         setOpen(props.open);

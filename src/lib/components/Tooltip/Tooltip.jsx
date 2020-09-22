@@ -40,12 +40,12 @@ const Tooltip = props => {
             top
         });
         setReady(true);
-    });
+    }, []);
 
     // Hooks
     useLayoutEffect(() => {
         handleTooltip(activeTooltip);
-    }, [activeTooltip]);
+    }, [activeTooltip, handleTooltip]);
 
     return (
         <Component

@@ -70,7 +70,6 @@ const Button = props => {
                         data-outline={outline}
                         data-rounded={rounded}
                         data-fab-component="button"
-                        data-fab-component="button"
                         href={href}
                         {...restProps}
                         ref={elRef || ref}>

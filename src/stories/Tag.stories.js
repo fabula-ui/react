@@ -1,8 +1,6 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import {
-    Button,
     FabulaProvider,
     Tag,
     TagGroup,
@@ -18,17 +16,17 @@ export const AnchorAndButton = () => (
     <FabulaProvider>
         <FabulaUtils>
             <TagGroup mb="1">
-                <Tag rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="primary" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="secondary" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="success" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="danger" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="warning" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="hot" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="cold" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="dark" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="light" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
-                <Tag color="aux" rounded={true}><a href="https://www.google.com" target="_blank">Fabula</a></Tag>
+                <Tag rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="primary" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="secondary" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="success" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="danger" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="warning" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="hot" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="cold" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="dark" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="light" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
+                <Tag color="aux" rounded={true}><a href="https://www.google.com" rel="noopener noreferrer" target="_blank">Fabula</a></Tag>
             </TagGroup>
 
             <TagGroup mb="1">

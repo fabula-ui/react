@@ -16,6 +16,7 @@ const utilProps = [
     'grow',
     'height',
     'hidden',
+    'inline',
     'lineHeight',
     'maxHeight',
     'maxWidth',

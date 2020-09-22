@@ -31,7 +31,7 @@ const Alert = props => {
 
     // Hooks
     useEffect(() => {
-        if (typeof visible !== 'null' && typeof visible !== 'undefined') { setIsVisible(visible); }
+        if (visible != null) { setIsVisible(visible); }
     }, [visible]);
 
     const closeAlert = () => {

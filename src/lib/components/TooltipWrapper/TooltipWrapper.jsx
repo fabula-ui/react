@@ -1,4 +1,9 @@
-import React, { Children, cloneElement, useContext, isValidElement, useState } from 'react';
+import {
+    Children,
+    cloneElement,
+    isValidElement,
+    useContext
+} from 'react';
 
 // Controllers
 import TooltipController from '../../controllers/TooltipController';

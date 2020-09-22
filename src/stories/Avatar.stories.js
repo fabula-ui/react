@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import {
     Avatar,
     Badge,
-    Div,
     FabulaProvider,
     Icon,
     UtilsProvider,

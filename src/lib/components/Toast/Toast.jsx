@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
@@ -32,20 +32,8 @@ const Toast = props => {
     // Dynamic requires
     const Link = link ? require('../Link/Link').default : null;
 
-    // Hooks
-    useEffect(() => {
-        if (onShow) { onShow(); }
-        if (stacked && !inline) { handleHide(); }
-    }, []);
-
-    useEffect(() => {
-        if (toastRef.current && !inline) {
-            setHeight(toastRef.current.offsetHeight);
-        }
-    }, [toastRef]);
-
-    // Methods
-    const handleHide = () => {
+    // Callbacks
+    const handleHide = useCallback(() => {
         const toastEl = document.querySelector('.fab-toast-stack .fab-toast-wrapper');
         const duration = window.getComputedStyle(toastEl).transitionDuration;
         const transitionDuration = (duration.indexOf('ms') > -1) ? parseFloat(duration) : parseFloat(duration) * 1000;
@@ -58,8 +46,25 @@ const Toast = props => {
             if (onHide) { onHide(); }
             setHidden(true);
         }, hideDelay + transitionDuration + 1);
-    }
+    }, [hideDelay, onHide]);
 
+    const handleShow = useCallback(() => {
+        if (onShow) { onShow(); }
+    }, [onShow]);
+
+    // Hooks
+    useEffect(() => {
+        if (stacked && !inline) { handleHide(); }
+        handleShow();
+    }, [handleHide, handleShow, inline, stacked]);
+
+    useEffect(() => {
+        if (toastRef.current && !inline) {
+            setHeight(toastRef.current.offsetHeight);
+        }
+    }, [inline, toastRef]);
+
+    // Methods
     const hideToast = () => {
         if (!stacked) {
             if (onHide) { onHide(); }

@@ -10,7 +10,6 @@ import {
   Row,
   Tag,
   Text,
-  FabulaUtils,
   UtilsProvider
 } from '../lib';
 

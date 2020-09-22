@@ -9,7 +9,6 @@ import {
     Heading,
     Icon,
     FabulaProvider,
-    FabulaUtils,
     UtilsProvider,
     Wrapper
 } from '../lib';

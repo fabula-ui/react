@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import {
     Button,
     ButtonGroup,
-    FabulaUtils,
     Modal,
     ModalBody,
     ModalController,
@@ -16,7 +15,6 @@ const ModalColorExample = props => {
 
     const handleOpen = color => {
         openModal(<TargetModal color={color} />);
-        // setOpen(true);
     }
 
     return (

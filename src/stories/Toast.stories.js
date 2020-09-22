@@ -1,8 +1,6 @@
-import React, { useContext } from 'react';
-import { action } from '@storybook/addon-actions';
+import React from 'react';
 
 import {
-    Button,
     FabulaProvider,
     ToastProvider,
     Toast,

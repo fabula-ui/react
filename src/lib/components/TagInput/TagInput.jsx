@@ -28,12 +28,14 @@ const TagInput = props => {
     // Dynamic requires
     const Icon = icon ? require('../Icon/Icon').default : null;
 
-    const tagsCallback = useCallback(() => {
+    // Callbacks
+    const handleTags = useCallback(() => {
         const items = tags.map((tag, i) => <Tag color={tagColor} key={i}><span>{tag}</span></Tag>);
 
         setItems(items);
-    }, [tags]);
+    }, [tagColor, tags]);
 
+    // Hooks
     useEffect(() => {
         if (props.tags) {
             setTags(props.tags);
@@ -41,8 +43,8 @@ const TagInput = props => {
     }, [props.tags]);
 
     useEffect(() => {
-        tagsCallback();
-    }, [tags]);
+        handleTags();
+    }, [handleTags, tags]);
 
     const addTag = tag => {
         const tempTags = [...tags];

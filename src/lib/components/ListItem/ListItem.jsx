@@ -23,7 +23,7 @@ const ListItem = props => {
             properties={props}
             styles={ListItemStyles}
             wrapper="fab-list-item">
-            {(!!button || !!onClick || !!parentOnClick && !href) &&
+            {((!!button || !!onClick || !!parentOnClick) && !href) &&
                 <button data-divider={divider} data-fab-component="listItem" data-striped={striped} onClick={handleClick} ref={elRef}>
                     {children}
                 </button>

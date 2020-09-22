@@ -1,17 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 
 import {
     Modal,
-    ModalBody,
-    ModalController,
-    ModalFooter,
-    ModalHeader,
     ModalProvider,
-    Text,
     UtilsProvider,
     FabulaProvider,
-    Button,
-    ButtonGroup,
 } from '../lib';
 
 // Examples

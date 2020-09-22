@@ -20,7 +20,7 @@ const ToastStack = props => {
     const [toasts, setToasts] = useState(<></>);
 
     // Callbacks
-    const toastsCallback = useCallback(() => {
+    const handleToasts = useCallback(() => {
         let toasts;
 
         if (stacks[name]?.elements) {
@@ -28,12 +28,12 @@ const ToastStack = props => {
 
             setToasts(toasts);
         }
-    }, [stacks, stacks[name]]);
+    }, [name, stacks]);
 
     // Hooks
     useLayoutEffect(() => {
-        toastsCallback();
-    }, [stacks, stacks[name]]);
+        handleToasts();
+    }, [handleToasts, name, stacks]);
 
     return (
         <div className={`fab-toast-stack ${css(ToastStackStyles({ framework: 'react', props, utils }))}`} data-placement-x={placement.x} data-placement-y={placement.y}>

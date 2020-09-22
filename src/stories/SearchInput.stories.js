@@ -3,14 +3,8 @@ import React from 'react';
 import {
     Button,
     FabulaProvider,
-    Navbar,
-    NavbarLogo,
     SearchInput,
-    Tab,
-    Tabs,
     Icon,
-    NavbarSection,
-    ButtonGroup,
     FabulaUtils
 } from '../lib';
 

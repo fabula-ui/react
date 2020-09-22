@@ -16,7 +16,7 @@ const Tab = props => {
         if (activeTab) {
             setActive(activeTab === name);
         }
-    }, [activeTab]);
+    }, [activeTab, name]);
 
     const handleClick = () => {
         handleActive(name);

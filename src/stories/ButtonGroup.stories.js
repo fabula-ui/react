@@ -8,7 +8,6 @@ import {
     DropdownMenu,
     DropdownToggle,
     FabulaProvider,
-    FabulaUtils,
     UtilsProvider,
     Wrapper
 } from '../lib';

@@ -8,14 +8,14 @@ import Component from '../Component/Component';
 import DropdownStyles from '@fabula/core/styles/components/dropdown/dropdown';
 
 const Dropdown = props => {
-    const { alignment, children, direction, expand, onClose, onOpen, onToggle } = props;
+    const { alignment, children, direction, elRef, expand, onClose, onOpen, onToggle } = props;
     const [open, setOpen] = useState(props.open);
-    const elRef = useRef(null);
+    const ref = useRef(null);
 
     // Methods
     const toggle = useCallback(() => {
         setOpen(!open);
-        
+
         if (onClose && open) { onClose() }
         if (onOpen && !open) { onOpen() }
         if (onToggle) { onToggle(!open) }
@@ -23,10 +23,10 @@ const Dropdown = props => {
 
     // Callbacks
     const handleClick = useCallback(e => {
-        if (elRef.current && !elRef.current.contains(e.target) && open) {
+        if ((elRef || ref).current && !(elRef || ref).current.contains(e.target) && open) {
             toggle();
         }
-    }, [toggle, elRef, open]);
+    }, [toggle, elRef, ref, open]);
 
     // Hooks
     useEffect(() => {
@@ -42,13 +42,11 @@ const Dropdown = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={DropdownStyles}
-            wrapper="fab-dropdown-wrapper">
-            <div ref={elRef}>
-                <div className="fab-dropdown" data-open={open}>{childrenWithProps}</div>
-            </div>
+            wrapper="fab-dropdown">
+            <div className="fab-dropdown" data-open={open} ref={elRef || ref}>{childrenWithProps}</div>
         </Component>
     )
 }

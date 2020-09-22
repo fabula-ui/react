@@ -53,7 +53,6 @@ const Alert = props => {
                 properties={props}
                 styles={AlertStyles}
                 wrapper="fab-alert">
-                {/* <div data-fab-wrapper="alert" ref={elRef}> */}
                 <div
                     className="fab-alert"
                     data-closing={isClosing}
@@ -78,7 +77,6 @@ const Alert = props => {
 
                     {!!closeButton && <CloseButton circle={true} onClick={closeAlert} parentColor={color} size="sm" />}
                 </div>
-                {/* </div> */}
             </Component>
         )
     } else {

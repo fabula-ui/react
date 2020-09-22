@@ -40,6 +40,7 @@ const utilProps = [
     'py',
     'padding',
     'row',
+    'span',
     'visible',
     'width',
     'wrap'

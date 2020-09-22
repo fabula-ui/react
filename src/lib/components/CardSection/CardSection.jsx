@@ -7,19 +7,17 @@ import Component from '../Component/Component';
 import CardSectionStyles from '@fabula/core/styles/components/card-section/card-section';
 
 const CardSection = props => {
-    const { children, layout } = props;
-    const elRef = useRef(null);
+    const { children, elRef, layout } = props;
+    const ref = useRef(null);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={CardSectionStyles}
-            wrapper="fab-card-section-wrapper">
-            <div data-fab-wrapper="cardSection" data-layout={layout} ref={elRef}>
-                <div className="fab-card-section" data-fab-component="cardSection">
-                    {children}
-                </div>
+            wrapper="fab-card-section">
+            <div className="fab-card-section" data-layout={layout} data-fab-component="cardSection" ref={elRef || ref}>
+                {children}
             </div>
         </Component>
     )

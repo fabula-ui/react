@@ -8,19 +8,17 @@ import Component from '../Component/Component';
 import ButtonGroupStyles from '@fabula/core/styles/components/button-group/button-group';
 
 const ButtonGroup = props => {
-    const { children } = props;
-    const elRef = useRef(null);
+    const { children, elRef } = props;
+    const ref = useRef(null);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={ButtonGroupStyles}
-            wrapper="fab-button-group-wrapper">
-            <div data-fab-wrapper="buttonGroup" ref={elRef}>
-                <div className="fab-button-group" data-fab-component="buttonGroup">
-                    {children}
-                </div>
+            wrapper="fab-button-group">
+            <div className="fab-button-group" data-fab-component="buttonGroup" ref={elRef || ref}>
+                {children}
             </div>
         </Component>
     )
@@ -32,8 +30,7 @@ ButtonGroup.defaultProps = {
     dividerColor: '',
     glued: false,
     layout: 'horizontal',
-    spacing: null,
-    wrap: true
+    spacing: null
 }
 
 ButtonGroup.propTypes = {
@@ -42,8 +39,7 @@ ButtonGroup.propTypes = {
     dividerColor: PropTypes.string,
     glued: PropTypes.bool,
     layout: PropTypes.string,
-    spacing: PropTypes.any,
-    wrap: PropTypes.bool
+    spacing: PropTypes.any
 }
 
 export default ButtonGroup;

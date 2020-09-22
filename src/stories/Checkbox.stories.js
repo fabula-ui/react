@@ -3,7 +3,8 @@ import React from 'react';
 import {
     Checkbox,
     FabulaProvider,
-    FabulaUtils
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -11,296 +12,258 @@ export default {
     component: Checkbox,
 };
 
-export const Test = () => (
+// Stories
+export const Example = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div row>
-                <div col="4">
-                    <Checkbox label="Change Event" onChange={() => alert('Changed')} />
-                </div>
-
-                <div col="4">
-                    <Checkbox label="Check Event" onCheck={() => alert('Checked')} />
-                </div>
-
-                <div col="4">
-                    <Checkbox onUncheck={() => alert('Unchecked')}>Uncheck Event</Checkbox>
-                </div>
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Checkbox label="Checkbox Label" onChange={() => alert('Changed')} />
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const ActiveColor = () => (
+export const PropActiveColor = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} flex>
-                <Checkbox label="Label" mr={1} />
-                <Checkbox activeColor="primary" label="Label" mr={1} />
-                <Checkbox activeColor="secondary" label="Label" mr={1} />
-                <Checkbox activeColor="success" label="Label" mr={1} />
-                <Checkbox activeColor="danger" label="Label" mr={1} />
-                <Checkbox activeColor="warning" label="Label" mr={1} />
-                <Checkbox activeColor="hot" label="Label" mr={1} />
-                <Checkbox activeColor="cold" label="Label" mr={1} />
-                <Checkbox activeColor="dark" label="Label" mr={1} />
-                <Checkbox activeColor="light" label="Label" mr={1} />
-                <Checkbox activeColor="aux" label="Label" mr={1} />
-            </div>
+        <UtilsProvider>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="Inactive" mr={1} />
+                <Checkbox checked={true} label="Active" mr={1} />
+                <Checkbox indeterminate={true} label="Indeterminate" />
+            </Wrapper>
 
-            <div flex>
-                <Checkbox checked={true} label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="primary" label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="secondary" label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="success" label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="danger" label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="warning" label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="hot" label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="cold" label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="dark" label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="light" label="Label" mr={1} />
-                <Checkbox checked={true} activeColor="aux" label="Label" mr={1} />
-            </div>
-        </FabulaUtils>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox activeColor="primary" label="Inactive" mr={1} />
+                <Checkbox activeColor="primary" checked={true} label="Active" mr={1} />
+                <Checkbox activeColor="primary" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox activeColor="lavender" label="Inactive" mr={1} />
+                <Checkbox activeColor="lavender" checked={true} label="Active" mr={1} />
+                <Checkbox activeColor="lavender" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox activeColor="hot" label="Inactive" mr={1} />
+                <Checkbox activeColor="hot" checked={true} label="Active" mr={1} />
+                <Checkbox activeColor="hot" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox activeColor="aux" label="Inactive" mr={1} />
+                <Checkbox activeColor="aux" checked={true} label="Active" mr={1} />
+                <Checkbox activeColor="aux" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true}>
+                <Checkbox activeColor="dark" label="Inactive" mr={1} />
+                <Checkbox activeColor="dark" checked={true} label="Active" mr={1} />
+                <Checkbox activeColor="dark" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Color = () => (
+export const PropColor = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} flex>
-                <Checkbox label="Label" mr={1} />
-                <Checkbox color="primary" label="Label" mr={1} />
-                <Checkbox color="secondary" label="Label" mr={1} />
-                <Checkbox color="success" label="Label" mr={1} />
-                <Checkbox color="danger" label="Label" mr={1} />
-                <Checkbox color="warning" label="Label" mr={1} />
-                <Checkbox color="hot" label="Label" mr={1} />
-                <Checkbox color="cold" label="Label" mr={1} />
-                <Checkbox color="dark" label="Label" mr={1} />
-                <Checkbox color="light" label="Label" mr={1} />
-                <Checkbox color="aux" label="Label" mr={1} />
-            </div>
+        <UtilsProvider>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="Inactive" mr={1} />
+                <Checkbox checked={true} label="Active" mr={1} />
+                <Checkbox indeterminate={true} label="Indeterminate" />
+            </Wrapper>
 
-            <div mb={1} flex>
-                <Checkbox checked={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="primary" label="Label" mr={1} />
-                <Checkbox checked={true} color="secondary" label="Label" mr={1} />
-                <Checkbox checked={true} color="success" label="Label" mr={1} />
-                <Checkbox checked={true} color="danger" label="Label" mr={1} />
-                <Checkbox checked={true} color="warning" label="Label" mr={1} />
-                <Checkbox checked={true} color="hot" label="Label" mr={1} />
-                <Checkbox checked={true} color="cold" label="Label" mr={1} />
-                <Checkbox checked={true} color="dark" label="Label" mr={1} />
-                <Checkbox checked={true} color="light" label="Label" mr={1} />
-                <Checkbox checked={true} color="aux" label="Label" mr={1} />
-            </div>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="primary" label="Inactive" mr={1} />
+                <Checkbox color="primary" checked={true} label="Active" mr={1} />
+                <Checkbox color="primary" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
 
-            <div mb={1} flex>
-                <Checkbox indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="primary" indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="secondary" indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="success" indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="danger" indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="warning" indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="hot" indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="cold" indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="dark" indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="light" indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="aux" indeterminate={true} label="Label" mr={1} />
-            </div>
-        </FabulaUtils>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="lavender" label="Inactive" mr={1} />
+                <Checkbox color="lavender" checked={true} label="Active" mr={1} />
+                <Checkbox color="lavender" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="hot" label="Inactive" mr={1} />
+                <Checkbox color="hot" checked={true} label="Active" mr={1} />
+                <Checkbox color="hot" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="aux" label="Inactive" mr={1} />
+                <Checkbox color="aux" checked={true} label="Active" mr={1} />
+                <Checkbox color="aux" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true}>
+                <Checkbox color="dark" label="Inactive" mr={1} />
+                <Checkbox color="dark" checked={true} label="Active" mr={1} />
+                <Checkbox color="dark" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Disabled = () => (
+export const PropDisabled = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} flex>
-                <Checkbox disabled={true} label="Label" mr={1} />
-                <Checkbox color="primary" disabled={true} label="Label" mr={1} />
-                <Checkbox color="secondary" disabled={true} label="Label" mr={1} />
-                <Checkbox color="success" disabled={true} label="Label" mr={1} />
-                <Checkbox color="danger" disabled={true} label="Label" mr={1} />
-                <Checkbox color="warning" disabled={true} label="Label" mr={1} />
-                <Checkbox color="hot" disabled={true} label="Label" mr={1} />
-                <Checkbox color="cold" disabled={true} label="Label" mr={1} />
-                <Checkbox color="dark" disabled={true} label="Label" mr={1} />
-                <Checkbox color="light" disabled={true} label="Label" mr={1} />
-                <Checkbox color="aux" disabled={true} label="Label" mr={1} />
-            </div>
+        <UtilsProvider>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox disabled={true} label="Inactive" mr={1} />
+                <Checkbox checked={true} disabled={true} label="Active" mr={1} />
+                <Checkbox disabled={true} indeterminate={true} label="Indeterminate" />
+            </Wrapper>
 
-            <div mb={1} flex>
-                <Checkbox checked={true} disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="primary" disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="secondary" disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="success" disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="danger" disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="warning" disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="hot" disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="cold" disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="dark" disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="light" disabled={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="aux" disabled={true} label="Label" mr={1} />
-            </div>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="primary" disabled={true} label="Inactive" mr={1} />
+                <Checkbox color="primary" checked={true} disabled={true} label="Active" mr={1} />
+                <Checkbox color="primary" disabled={true} indeterminate={true} label="Indeterminate" />
+            </Wrapper>
 
-            <div mb={1} flex>
-                <Checkbox disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="primary" disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="secondary" disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="success" disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="danger" disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="warning" disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="hot" disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="cold" disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="dark" disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="light" disabled={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="aux" disabled={true} indeterminate={true} label="Label" mr={1} />
-            </div>
-        </FabulaUtils>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="lavender" disabled={true} label="Inactive" mr={1} />
+                <Checkbox color="lavender" checked={true} disabled={true} label="Active" mr={1} />
+                <Checkbox color="lavender" disabled={true} indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="hot" disabled={true} label="Inactive" mr={1} />
+                <Checkbox color="hot" checked={true} disabled={true} label="Active" mr={1} />
+                <Checkbox color="hot" disabled={true} indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="aux" disabled={true} label="Inactive" mr={1} />
+                <Checkbox color="aux" checked={true} disabled={true} label="Active" mr={1} />
+                <Checkbox color="aux" disabled={true} indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true}>
+                <Checkbox color="dark" disabled={true} label="Inactive" mr={1} />
+                <Checkbox color="dark" checked={true} disabled={true} label="Active" mr={1} />
+                <Checkbox color="dark" disabled={true} indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const InactiveColor = () => (
+export const PropInactiveColor = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} flex>
-                <Checkbox label="Label" mr={1} />
-                <Checkbox inactiveColor="primary" label="Label" mr={1} />
-                <Checkbox inactiveColor="secondary" label="Label" mr={1} />
-                <Checkbox inactiveColor="success" label="Label" mr={1} />
-                <Checkbox inactiveColor="danger" label="Label" mr={1} />
-                <Checkbox inactiveColor="warning" label="Label" mr={1} />
-                <Checkbox inactiveColor="hot" label="Label" mr={1} />
-                <Checkbox inactiveColor="cold" label="Label" mr={1} />
-                <Checkbox inactiveColor="dark" label="Label" mr={1} />
-                <Checkbox inactiveColor="light" label="Label" mr={1} />
-                <Checkbox inactiveColor="aux" label="Label" mr={1} />
-            </div>
+        <UtilsProvider>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="Inactive" mr={1} />
+                <Checkbox checked={true} label="Active" mr={1} />
+                <Checkbox indeterminate={true} label="Indeterminate" />
+            </Wrapper>
 
-            <div flex>
-                <Checkbox checked={true} label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="primary" label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="secondary" label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="success" label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="danger" label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="warning" label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="hot" label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="cold" label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="dark" label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="light" label="Label" mr={1} />
-                <Checkbox checked={true} inactiveColor="aux" label="Label" mr={1} />
-            </div>
-        </FabulaUtils>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox inactiveColor="primary" label="Inactive" mr={1} />
+                <Checkbox inactiveColor="primary" checked={true} label="Active" mr={1} />
+                <Checkbox inactiveColor="primary" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox inactiveColor="lavender" label="Inactive" mr={1} />
+                <Checkbox inactiveColor="lavender" checked={true} label="Active" mr={1} />
+                <Checkbox inactiveColor="lavender" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox inactiveColor="hot" label="Inactive" mr={1} />
+                <Checkbox inactiveColor="hot" checked={true} label="Active" mr={1} />
+                <Checkbox inactiveColor="hot" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox inactiveColor="aux" label="Inactive" mr={1} />
+                <Checkbox inactiveColor="aux" checked={true} label="Active" mr={1} />
+                <Checkbox inactiveColor="aux" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+
+            <Wrapper flex={true}>
+                <Checkbox inactiveColor="dark" label="Inactive" mr={1} />
+                <Checkbox inactiveColor="dark" checked={true} label="Active" mr={1} />
+                <Checkbox inactiveColor="dark" indeterminate={true} label="Indeterminate" />
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const ReadOnly = () => (
+export const PropReadOnly = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} flex>
-                <Checkbox readOnly={true} label="Label" mr={1} />
-                <Checkbox color="primary" readOnly={true} label="Label" mr={1} />
-                <Checkbox color="secondary" readOnly={true} label="Label" mr={1} />
-                <Checkbox color="success" readOnly={true} label="Label" mr={1} />
-                <Checkbox color="danger" readOnly={true} label="Label" mr={1} />
-                <Checkbox color="warning" readOnly={true} label="Label" mr={1} />
-                <Checkbox color="hot" readOnly={true} label="Label" mr={1} />
-                <Checkbox color="cold" readOnly={true} label="Label" mr={1} />
-                <Checkbox color="dark" readOnly={true} label="Label" mr={1} />
-                <Checkbox color="light" readOnly={true} label="Label" mr={1} />
-                <Checkbox color="aux" readOnly={true} label="Label" mr={1} />
-            </div>
+        <UtilsProvider>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="Inactive" mr={1} readOnly={true} />
+                <Checkbox checked={true} label="Active" mr={1} readOnly={true} />
+                <Checkbox indeterminate={true} label="Indeterminate" readOnly={true} />
+            </Wrapper>
 
-            <div mb={1} flex>
-                <Checkbox checked={true} readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="primary" readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="secondary" readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="success" readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="danger" readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="warning" readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="hot" readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="cold" readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="dark" readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="light" readOnly={true} label="Label" mr={1} />
-                <Checkbox checked={true} color="aux" readOnly={true} label="Label" mr={1} />
-            </div>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="primary" label="Inactive" mr={1} readOnly={true} />
+                <Checkbox color="primary" checked={true} label="Active" mr={1} readOnly={true} />
+                <Checkbox color="primary" indeterminate={true} label="Indeterminate" readOnly={true} />
+            </Wrapper>
 
-            <div mb={1} flex>
-                <Checkbox readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="primary" readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="secondary" readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="success" readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="danger" readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="warning" readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="hot" readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="cold" readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="dark" readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="light" readOnly={true} indeterminate={true} label="Label" mr={1} />
-                <Checkbox color="aux" readOnly={true} indeterminate={true} label="Label" mr={1} />
-            </div>
-        </FabulaUtils>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="lavender" label="Inactive" mr={1} readOnly={true} />
+                <Checkbox color="lavender" checked={true} label="Active" mr={1} readOnly={true} />
+                <Checkbox color="lavender" indeterminate={true} label="Indeterminate" readOnly={true} />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="hot" label="Inactive" mr={1} readOnly={true} />
+                <Checkbox color="hot" checked={true} label="Active" mr={1} readOnly={true} />
+                <Checkbox color="hot" indeterminate={true} label="Indeterminate" readOnly={true} />
+            </Wrapper>
+
+            <Wrapper flex={true} mb={1}>
+                <Checkbox color="aux" label="Inactive" mr={1} readOnly={true} />
+                <Checkbox color="aux" checked={true} label="Active" mr={1} readOnly={true} />
+                <Checkbox color="aux" indeterminate={true} label="Indeterminate" readOnly={true} />
+            </Wrapper>
+
+            <Wrapper flex={true}>
+                <Checkbox color="dark" label="Inactive" mr={1} readOnly={true} />
+                <Checkbox color="dark" checked={true} label="Active" mr={1} readOnly={true} />
+                <Checkbox color="dark" indeterminate={true} label="Indeterminate" readOnly={true} />
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Rounded = () => (
+export const PropSize = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1} flex>
-                <Checkbox label="Label" mr={1} rounded={true} />
-                <Checkbox color="primary" label="Label" mr={1} rounded={true} />
-                <Checkbox color="secondary" label="Label" mr={1} rounded={true} />
-                <Checkbox color="success" label="Label" mr={1} rounded={true} />
-                <Checkbox color="danger" label="Label" mr={1} rounded={true} />
-                <Checkbox color="warning" label="Label" mr={1} rounded={true} />
-                <Checkbox color="hot" label="Label" mr={1} rounded={true} />
-                <Checkbox color="cold" label="Label" mr={1} rounded={true} />
-                <Checkbox color="dark" label="Label" mr={1} rounded={true} />
-                <Checkbox color="light" label="Label" mr={1} rounded={true} />
-                <Checkbox color="aux" label="Label" mr={1} rounded={true} />
-            </div>
-
-            <div mb={1} flex>
-                <Checkbox checked={true} label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="primary" label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="secondary" label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="success" label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="danger" label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="warning" label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="hot" label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="cold" label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="dark" label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="light" label="Label" mr={1} rounded={true} />
-                <Checkbox checked={true} color="aux" label="Label" mr={1} rounded={true} />
-            </div>
-
-            <div mb={1} flex>
-                <Checkbox indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="primary" indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="secondary" indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="success" indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="danger" indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="warning" indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="hot" indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="cold" indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="dark" indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="light" indeterminate={true} label="Label" mr={1} rounded={true} />
-                <Checkbox color="aux" indeterminate={true} label="Label" mr={1} rounded={true} />
-            </div>
-        </FabulaUtils>
-    </FabulaProvider>
-)
-
-export const Size = () => (
-    <FabulaProvider>
-        <FabulaUtils>
-            <div alV="start" mb={1} flex>
-                <Checkbox checked={true} color="primary" label="Extra-Large Checkbox" mr={1} size="xl" />
-                <Checkbox checked={true} color="primary" label="Large Checkbox" mr={1} size="lg" />
-                <Checkbox checked={true} color="primary" label="Medium Checkbox" mr={1} size="md" />
-                <Checkbox checked={true} color="primary" label="Small Checkbox" mr={1} size="sm" />
-                <Checkbox checked={true} color="primary" label="Extra-small Checkbox" mr={1} size="xs" />
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="Extra-small Checkbox" mr={1} size="xs" />
+                <Checkbox checked={true} label="Extra-small Checkbox" mr={1} size="xs" />
+                <Checkbox indeterminate={true} label="Extra-small Checkbox" size="xs" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="Small Checkbox" mr={1} size="sm" />
+                <Checkbox checked={true} label="Small Checkbox" mr={1} size="sm" />
+                <Checkbox indeterminate={true} label="Small Checkbox" size="sm" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="Medium Checkbox" mr={1} size="md" />
+                <Checkbox checked={true} label="Medium Checkbox" mr={1} size="md" />
+                <Checkbox indeterminate={true} label="Medium Checkbox" size="md" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="Large Checkbox" mr={1} size="lg" />
+                <Checkbox checked={true} label="Large Checkbox" mr={1} size="lg" />
+                <Checkbox indeterminate={true} label="Large Checkbox" size="lg" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="Extra-Large Checkbox" mr={1} size="xl" />
+                <Checkbox checked={true} label="Extra-Large Checkbox" mr={1} size="xl" />
+                <Checkbox indeterminate={true} label="Extra-Large Checkbox" size="xl" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Checkbox label="2x Extra-Large Checkbox" mr={1} size="xxl" />
+                <Checkbox checked={true} label="2x Extra-Large Checkbox" mr={1} size="xxl" />
+                <Checkbox indeterminate={true} label="2x Extra-Large Checkbox" size="xxl" />
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
 )

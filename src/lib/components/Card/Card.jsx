@@ -8,8 +8,8 @@ import Component from '../Component/Component';
 import CardStyles from '@fabula/core/styles/components/card/card';
 
 const Card = props => {
-    const { children, layout } = props;
-    const elRef = useRef(null);
+    const { children, elRef, layout } = props;
+    const ref = useRef(null);
 
     // Children with props
     const childrenWithProps = Children.map(children, child => {
@@ -22,14 +22,12 @@ const Card = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={CardStyles}
-            wrapper="fab-card-wrapper">
-            <div data-fab-wrapper="card" ref={elRef}>
-                <div className="fab-card" data-fab-component="card">
-                    {childrenWithProps}
-                </div>
+            wrapper="fab-card">
+            <div className="fab-card" data-fab-component="card" ref={elRef || ref}>
+                {childrenWithProps}
             </div>
         </Component>
     )

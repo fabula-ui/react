@@ -24,7 +24,7 @@ const DropdownToggle = (props) => {
 				<Button onClick={handleClick} {...rest}>
 					{!!icon && typeof icon === 'object' && <InnerIcon icon={icon} parentProps={props} />}
 					{!!icon && typeof icon === 'string' && <InnerIcon icon={{ name: icon }} parentProps={props} />}
-					<span className="fab-dropdown-toggle__label">{label || children}</span>
+					{(!!label || !!children) && <span className="fab-dropdown-toggle__label">{label || children}</span>}
 					<span className="fab-dropdown-toggle__chevron" />
 				</Button>
 			</div>

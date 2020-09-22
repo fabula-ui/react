@@ -1,21 +1,24 @@
 import React from 'react';
 
 import {
+	Avatar,
 	Badge,
-	Div,
+	Button,
 	Divider,
 	Dropdown,
 	DropdownHeader,
 	DropdownItem,
 	DropdownMenu,
 	DropdownToggle,
+	Element,
 	FabulaProvider,
 	Icon,
 	List,
 	ListItem,
 	Tag,
 	Text,
-	FabulaUtils
+	UtilsProvider,
+	Wrapper
 } from '../lib';
 
 export default {
@@ -23,340 +26,163 @@ export default {
 	component: Dropdown
 };
 
-export const Examples = () => (
+export const Example = () => (
 	<FabulaProvider>
-		<FabulaUtils>
-			<Div flex>
-				<Dropdown mb={1} mr={1} onOpen={() => alert('onOpen')}>
-					<DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
-					<DropdownMenu clickToClose={true} onClickItem={() => console.log('Parent onClick')}>
-						<DropdownHeader>
-							<Icon mr={0.3} name="database" />
-							<span>Dropdown Header</span>
-						</DropdownHeader>
-						<DropdownItem>Dropdown Item 1</DropdownItem>
-						<DropdownItem>Dropdown Item 2</DropdownItem>
-						<DropdownItem>Dropdown Item 3</DropdownItem>
-						<Divider />
-						<DropdownItem>
-							<Div flex>
-								<Icon color="primary" mr=".5" name="database" />
-								<span grow={1} mr="1">
-									Dropdown Item 4
-								</span>
-								<Badge color="primary">New</Badge>
-							</Div>
-						</DropdownItem>
-						<Divider />
-						<DropdownItem color="primary">
-							<Div flex>
-								<Icon mr=".5" name="database" />
-								<span grow={1} mr="1">
-									Dropdown Item 5
-								</span>
-								<Badge color="primary" invert={true} rounded={true} size="sm">
-									1
-								</Badge>
-							</Div>
-						</DropdownItem>
+		<UtilsProvider>
+			<Dropdown>
+				<DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
+				<DropdownMenu clickToClose={true} onClickItem={() => console.log('Parent onClick')}>
+					<DropdownHeader>
+						<Icon mr={0.3} name="database" />
+						<Element>Dropdown Header</Element>
+					</DropdownHeader>
+					<DropdownItem>Dropdown Item 1</DropdownItem>
+					<DropdownItem>Dropdown Item 2</DropdownItem>
+					<DropdownItem>Dropdown Item 3</DropdownItem>
+					<Divider />
+					<DropdownItem>
+						<Wrapper flex>
+							<Icon color="primary" mr={.5} name="database" />
+							<Element grow={1} mr={1}>
+								Dropdown Item 4
+							</Element>
+							<Badge color="primary">New</Badge>
+						</Wrapper>
+					</DropdownItem>
+					<Divider />
+					<DropdownItem color="primary">
+						<Wrapper flex>
+							<Icon mr=".5" name="database" />
+							<Element grow={1} mr={1}>
+								Dropdown Item 5
+							</Element>
+							<Badge color="primary" invert={true} rounded={true} size="sm">
+								1
+							</Badge>
+						</Wrapper>
+					</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>
+		</UtilsProvider>
+	</FabulaProvider>
+);
+
+export const PropAlignment = () => (
+	<FabulaProvider>
+		<UtilsProvider>
+			<Wrapper flex={true}>
+				<Dropdown alignment="left" mr={1}>
+					<DropdownToggle color="primary" icon="arrow-left-circle" compact={true} label="Alignment: Left" />
+					<DropdownMenu clickToClose={true}>
+						<DropdownItem button={true}>This dropdown is aligned to the left</DropdownItem>
 					</DropdownMenu>
 				</Dropdown>
 
-				<Dropdown mb={1} mr={1} onClose={() => alert('onClose')}>
-                    <DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
-                    <DropdownMenu clickToClose={true} color="primary" onClickItem={() => console.log('Parent onClick')}>
-                        <DropdownHeader>
-                            <Icon mr={.3} name="database" />
-                            <span>Dropdown Header</span>
-                        </DropdownHeader>
-                        <DropdownItem>Dropdown Item 1</DropdownItem>
-                        <DropdownItem>Dropdown Item 2</DropdownItem>
-                        <DropdownItem>Dropdown Item 3</DropdownItem>
-                        <Divider />
-                        <DropdownItem>
-                            <Div flex>
-                                <Icon mr=".5" name="database" />
-                                <span grow={1} mr="1">Dropdown Item 4</span>
-                                <Badge color="primary" invert={true}>New</Badge>
-                            </Div>
-                        </DropdownItem>
-                        <Divider />
-                        <DropdownItem color="primary" invert={true}>
-                            <Div flex>
-                                <Icon mr=".5" name="database" />
-                                <span grow={1} mr="1">Dropdown Item 5</span>
-                                <Badge color="primary" rounded={true} size="sm">1</Badge>
-                            </Div>
-                        </DropdownItem>
-                    </DropdownMenu>
-                </Dropdown>
-
-                <Dropdown onToggle={() => alert('onToggle')}>
-                    <DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" />
-                    <DropdownMenu clickToClose={true} divider={false} items={[{ color: '', label: 'Default' }, { color: 'primary', label: 'Primary' }, { color: 'secondary', label: 'Secondary' }, { color: 'success', label: 'Success' }, { color: 'danger', label: 'Danger' }]}></DropdownMenu>
-                </Dropdown>
-			</Div>
-		</FabulaUtils>
-	</FabulaProvider>
-);
-
-export const Alignment = () => (
-	<FabulaProvider>
-		<FabulaUtils>
-			<div>
-				<Dropdown alignment="left" mr="5">
-					<DropdownToggle color="primary" icon="arrow-left" compact={true} label="Left" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Dropdown Item 1' },
-							{ button: true, label: 'Dropdown Item 2' },
-							{ button: true, label: 'Dropdown Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-
 				<Dropdown alignment="right">
-					<DropdownToggle color="primary" icon="arrow-right" compact={true} label="Right" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Dropdown Item 1' },
-							{ button: true, label: 'Dropdown Item 2' },
-							{ button: true, label: 'Dropdown Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
+					<DropdownToggle color="primary" icon="arrow-right-circle" compact={true} label="Alignment: Right" />
+					<DropdownMenu clickToClose={true}>
+						<DropdownItem button={true}>This dropdown is aligned to the right</DropdownItem>
+					</DropdownMenu>
 				</Dropdown>
-			</div>
-		</FabulaUtils>
+			</Wrapper>
+		</UtilsProvider>
 	</FabulaProvider>
 );
 
-export const Colors = () => (
+export const PropDirection = () => (
 	<FabulaProvider>
-		<FabulaUtils>
-			<Div mb="1" row>
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
+		<UtilsProvider>
+			<Wrapper flex={true} mt={5}>
+				<Dropdown direction="down" mr={1}>
+					<DropdownToggle color="primary" icon="arrow-down-circle" compact={true} label="Direction: Down" />
+					<DropdownMenu clickToClose={true}>
+						<DropdownItem button={true}>Dropdown Item</DropdownItem>
+					</DropdownMenu>
 				</Dropdown>
 
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="primary" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="primary"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
+				<Dropdown direction="up">
+					<DropdownToggle color="primary" icon="arrow-up-circle" compact={true} label="Direction: Up" />
+					<DropdownMenu clickToClose={true}>
+						<DropdownItem button={true}>Dropdown Item</DropdownItem>
+					</DropdownMenu>
 				</Dropdown>
-
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="secondary" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="secondary"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="success" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="success"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-			</Div>
-
-			<Div mb="1" row>
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="danger" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="danger"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="warning" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="warning"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="hot" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="hot"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="cold" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="cold"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-			</Div>
-
-			<Div mb="1" row>
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="dark" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="dark"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="light" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="light"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-
-				<Dropdown col="3" expand={true}>
-					<DropdownToggle color="aux" icon="map-pin" label="Dropdown Toggle" />
-					<DropdownMenu
-						clickToClose={true}
-						color="aux"
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-			</Div>
-		</FabulaUtils>
+			</Wrapper>
+		</UtilsProvider>
 	</FabulaProvider>
-);
+)
+
+export const PropExpand = () => (
+	<FabulaProvider>
+		<UtilsProvider>
+			<Dropdown expand={true}>
+				<DropdownToggle color="primary" label="Expand" />
+				<DropdownMenu clickToClose={true}>
+					<DropdownItem button={true}>Dropdown Item</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>
+		</UtilsProvider>
+	</FabulaProvider>
+)
 
 export const CustomContent = () => (
 	<FabulaProvider>
-		<FabulaUtils>
+		<UtilsProvider>
 			<Dropdown mr="1">
-				<DropdownToggle color="primary" icon="map-pin" label="Dropdown Toggle" wide={true} />
+				<DropdownToggle color="primary" label="Custom Content 1" wide={true} />
 				<DropdownMenu padding={false}>
 					<List padding={true} striped={true}>
 						<ListItem alV="center" flex>
-							<Text grow={1} weight={600}>
+							<Text inline={true} grow={1} weight={600}>
 								List Item 1
 							</Text>
 							<Tag color="success">
 								<Icon name="check" />
-								<strong>Done</strong>
+								<Text strong={true}>Done</Text>
 							</Tag>
 						</ListItem>
 
 						<ListItem alV="center" flex>
-							<Text grow={1} weight={600}>
+							<Text inline={true} grow={1} weight={600}>
 								List Item 2
 							</Text>
 							<Tag color="danger">
 								<Icon name="alert-triangle" />
-								<strong>Done</strong>
+								<Text strong={true}>Cancelled</Text>
 							</Tag>
 						</ListItem>
 
 						<ListItem alV="center" flex>
-							<Text grow={1} weight={600}>
+							<Text inline={true} grow={1} weight={600}>
 								List Item 3
 							</Text>
 							<Tag color="hot">
 								<Icon name="sun" />
-								<strong>Hot</strong>
+								<Text strong={true}>Hot</Text>
 							</Tag>
 						</ListItem>
 
 						<ListItem alV="center" flex>
-							<Text grow={1} weight={600}>
+							<Text inline={true} grow={1} weight={600}>
 								List Item 4
 							</Text>
 							<Tag color="warning">
 								<Icon name="clock" />
-								<strong>Waiting</strong>
+								<Text strong={true}>Waiting</Text>
 							</Tag>
 						</ListItem>
 					</List>
 				</DropdownMenu>
 			</Dropdown>
 
-			<Dropdown>
-				<DropdownToggle color="primary" icon="map-pin" compact={true} label="Dropdown Toggle" wide={true} />
+			<Dropdown mr={1}>
+				<DropdownToggle color="primary" compact={true} label="Custom Content 2" wide={true} />
 				<DropdownMenu padding={false}>
 					<DropdownItem alV="center" button={true} clickToClose={true} flex>
 						<Text grow={1} weight={600}>
 							List Item 1
 						</Text>
 						<Tag color="success">
+							<Icon name="check" />
 							<strong>Done</strong>
 						</Tag>
 					</DropdownItem>
@@ -398,190 +224,30 @@ export const CustomContent = () => (
 					</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>
-		</FabulaUtils>
-	</FabulaProvider>
-);
 
-export const Direction = () => (
-	<FabulaProvider>
-		<FabulaUtils>
-			<div mt="10">
-				<Dropdown mr="1">
-					<DropdownToggle color="primary" icon="arrow-down" compact={true} label="Going Down" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-
-				<Dropdown direction="up">
-					<DropdownToggle color="primary" icon="arrow-up" compact={true} label="Going Up" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-			</div>
-		</FabulaUtils>
-	</FabulaProvider>
-);
-
-export const Expand = () => (
-	<FabulaProvider>
-		<FabulaUtils>
-			<div flex>
-				<Dropdown mr="1">
-					<DropdownToggle align="left" color="primary" icon="map-pin" compact={true} label="Normal" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-
-				<Dropdown expand={true}>
-					<DropdownToggle color="primary" icon="map-pin" compact={true} label="Expand" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-					/>
-				</Dropdown>
-			</div>
-		</FabulaUtils>
-	</FabulaProvider>
-);
-
-export const Glow = () => (
-	<FabulaProvider>
-		<FabulaUtils>
-			<Dropdown mr="1">
-				<DropdownToggle icon={{ color: 'hot', name: 'sun' }} compact={true} glow={true} label="With Glow" />
-				<DropdownMenu
-					clickToClose={true}
-					items={[
-						{ button: true, label: 'Item 1' },
-						{ button: true, label: 'Item 2' },
-						{ button: true, label: 'Item 3' }
-					]}
-					onClick={() => alert('It works!')}
-				/>
+			<Dropdown>
+				<DropdownToggle color="primary" compact={true} label="Custom Content 3" wide={true} />
+				<DropdownMenu clickToClose={true} padding={false}>
+					<List padding={true}>
+						<ListItem flex={true}>
+							<Avatar mr={.75} rounded={true} size="sm" />
+							<Wrapper grow={1} pr={1}>
+								<Text block={true} size="md" strong={true}>User 1</Text>
+								<Text aux={true} mt={-.2} size="sm">@username1</Text>
+							</Wrapper>
+							<Button color="primary" size="sm">Follow</Button>
+						</ListItem>
+						<ListItem flex={true}>
+							<Avatar mr={.75} rounded={true} size="sm" />
+							<Wrapper grow={1} pr={2}>
+								<Text block={true} size="md" strong={true}>User 2</Text>
+								<Text aux={true} mt={-.2} size="sm">@username2</Text>
+							</Wrapper>
+							<Button color="aux" size="sm">Following</Button>
+						</ListItem>
+					</List>
+				</DropdownMenu>
 			</Dropdown>
-
-			<Dropdown mr="1">
-				<DropdownToggle
-					glow={false}
-					icon={{ color: 'cold', name: 'moon' }}
-					compact={true}
-					label="Without Glow"
-				/>
-				<DropdownMenu
-					clickToClose={true}
-					glow={false}
-					items={[
-						{ button: true, label: 'Item 1' },
-						{ button: true, label: 'Item 2' },
-						{ button: true, label: 'Item 3' }
-					]}
-					onClick={() => alert('It works!')}
-				/>
-			</Dropdown>
-		</FabulaUtils>
-	</FabulaProvider>
-);
-
-export const Size = () => (
-	<FabulaProvider>
-		<FabulaUtils>
-			<div flex>
-				<Dropdown mr="1">
-					<DropdownToggle color="aux" icon="map-pin" compact={true} label="Extra-small" size="xs" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-						size="xs"
-					/>
-				</Dropdown>
-
-				<Dropdown mr="1">
-					<DropdownToggle color="aux" icon="map-pin" compact={true} label="Small" size="sm" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-						size="sm"
-					/>
-				</Dropdown>
-
-				<Dropdown mr="1">
-					<DropdownToggle color="aux" icon="map-pin" compact={true} label="Medium" size="md" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-						size="md"
-					/>
-				</Dropdown>
-
-				<Dropdown mr="1">
-					<DropdownToggle color="aux" icon="map-pin" compact={true} label="Large" size="lg" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-						size="lg"
-					/>
-				</Dropdown>
-
-				<Dropdown mr="1">
-					<DropdownToggle color="aux" icon="map-pin" compact={true} label="Extra-Large" size="xl" />
-					<DropdownMenu
-						clickToClose={true}
-						items={[
-							{ button: true, label: 'Item 1' },
-							{ button: true, label: 'Item 2' },
-							{ button: true, label: 'Item 3' }
-						]}
-						onClick={() => alert('It works!')}
-						size="xl"
-					/>
-				</Dropdown>
-			</div>
-		</FabulaUtils>
+		</UtilsProvider>
 	</FabulaProvider>
 );

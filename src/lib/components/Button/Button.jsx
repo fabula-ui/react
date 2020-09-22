@@ -40,7 +40,7 @@ const Button = props => {
     const restProps = getComponentProps(rest);
 
     return (
-        <Component elRef={elRef || ref} properties={props} styles={ButtonStyles} wrapper="fab-button-wrapper">
+        <Component elRef={elRef || ref} properties={props} styles={ButtonStyles} wrapper="fab-button">
             {
                 !href && (
                     <button className="fab-button"

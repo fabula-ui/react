@@ -62,89 +62,91 @@ export const Examples = () => (
           </Card>
         </Column>
 
-        <Card col="9">
-          <CardImage height={120} />
-          <CardSection padding>
-            <Text block size="xl" weight="600">Card Title</Text>
-            <Text aux block>Card subtitle</Text>
-          </CardSection>
-          <CardSection>
-            <List padding striped>
-              <ListItem flex>
-                <Div flex flow="v" grow={1}>
-                  <Text size="lg" weight={600}>
-                    <Text inline={true} mr={.5}>Full-stack Engineer</Text>
-                    <Badge color="#E3FFD9">Full-time</Badge>
-                  </Text>
-                  <Text aux inline={true}>Google</Text>
-                </Div>
-                <Div alH="end" direction="column" flex>
-                  <TagGroup mb={.5}>
-                    <Tag>Angular</Tag>
-                    <Tag>Engineering</Tag>
-                    <Tag>Node</Tag>
-                  </TagGroup>
+        <Column col="9">
+          <Card>
+            <CardImage height={120} />
+            <CardSection padding>
+              <Text block size="xl" weight="600">Card Title</Text>
+              <Text aux block>Card subtitle</Text>
+            </CardSection>
+            <CardSection>
+              <List padding striped>
+                <ListItem flex>
+                  <Div flex flow="v" grow={1}>
+                    <Text size="lg" weight={600}>
+                      <Text inline={true} mr={.5}>Full-stack Engineer</Text>
+                      <Badge color="#E3FFD9">Full-time</Badge>
+                    </Text>
+                    <Text aux inline={true}>Google</Text>
+                  </Div>
+                  <Div alH="end" direction="column" flex>
+                    <TagGroup mb={.5}>
+                      <Tag>Angular</Tag>
+                      <Tag>Engineering</Tag>
+                      <Tag>Node</Tag>
+                    </TagGroup>
 
-                  <Text alV="center" aux flex={true}>
-                    <Icon mr=".5" name="clock" />
-                    <span>2 hours</span>
-                  </Text>
-                </Div>
-              </ListItem>
+                    <Text alV="center" aux flex={true}>
+                      <Icon mr=".5" name="clock" />
+                      <span>2 hours</span>
+                    </Text>
+                  </Div>
+                </ListItem>
 
-              <ListItem flex>
-                <Div flex flow="v" grow={1}>
-                  <Text size="lg" weight={600}>
-                    <Text inline={true} mr={.5}>Frontend Developer</Text>
-                    <Badge color="#FFECD9">Part-time</Badge>
-                  </Text>
-                  <Text inline={true} aux={true}>Amazon</Text>
-                </Div>
-                <Div alH="end" direction="column" flex>
-                  <TagGroup mb={.5}>
-                    <Tag>Angular</Tag>
-                    <Tag>Engineering</Tag>
-                    <Tag>Node</Tag>
-                  </TagGroup>
+                <ListItem flex>
+                  <Div flex flow="v" grow={1}>
+                    <Text size="lg" weight={600}>
+                      <Text inline={true} mr={.5}>Frontend Developer</Text>
+                      <Badge color="#FFECD9">Part-time</Badge>
+                    </Text>
+                    <Text inline={true} aux={true}>Amazon</Text>
+                  </Div>
+                  <Div alH="end" direction="column" flex>
+                    <TagGroup mb={.5}>
+                      <Tag>Angular</Tag>
+                      <Tag>Engineering</Tag>
+                      <Tag>Node</Tag>
+                    </TagGroup>
 
-                  <Text alV="center" aux flex={true}>
-                    <Icon mr=".5" name="clock" />
-                    <span>2 hours</span>
-                  </Text>
-                </Div>
-              </ListItem>
+                    <Text alV="center" aux flex={true}>
+                      <Icon mr=".5" name="clock" />
+                      <span>2 hours</span>
+                    </Text>
+                  </Div>
+                </ListItem>
 
-              <ListItem flex>
-                <Div flex flow="v" grow={1}>
-                  <Text size="lg" weight={600}>
-                    <Text inline={true} mr={.5}>Backend Developer</Text>
-                    <Badge color="#FFECD9" mr={.5}>Part-time</Badge>
-                    <Badge color="#D9E9FF">Remote</Badge>
-                  </Text>
-                  <Text aux inline={true}>Netflix</Text>
-                </Div>
-                <Div alH="end" direction="column" flex>
-                  <TagGroup mb={.5}>
-                    <Tag>Angular</Tag>
-                    <Tag>Engineering</Tag>
-                    <Tag>Node</Tag>
-                  </TagGroup>
+                <ListItem flex>
+                  <Div flex flow="v" grow={1}>
+                    <Text size="lg" weight={600}>
+                      <Text inline={true} mr={.5}>Backend Developer</Text>
+                      <Badge color="#FFECD9" mr={.5}>Part-time</Badge>
+                      <Badge color="#D9E9FF">Remote</Badge>
+                    </Text>
+                    <Text aux inline={true}>Netflix</Text>
+                  </Div>
+                  <Div alH="end" direction="column" flex>
+                    <TagGroup mb={.5}>
+                      <Tag>Angular</Tag>
+                      <Tag>Engineering</Tag>
+                      <Tag>Node</Tag>
+                    </TagGroup>
 
-                  <Text alV="center" aux flex={true}>
-                    <Icon mr=".5" name="clock" />
-                    <span>2 hours</span>
-                  </Text>
-                </Div>
-              </ListItem>
-            </List>
-          </CardSection>
-          <CardSection alH="right" flex={true} padding={true}>
-            <Wrapper>
-              <Button color="primary" mr={1} wide={true}>Confirm</Button>
-              <Button color="light" wide={true}>Cancel</Button>
-            </Wrapper>
-          </CardSection>
-        </Card>
+                    <Text alV="center" aux flex={true}>
+                      <Icon mr=".5" name="clock" />
+                      <span>2 hours</span>
+                    </Text>
+                  </Div>
+                </ListItem>
+              </List>
+            </CardSection>
+            <CardSection alH="right" flex={true} padding={true}>
+              <Wrapper>
+                <Button color="primary" mr={1} wide={true}>Confirm</Button>
+                <Button color="light" wide={true}>Cancel</Button>
+              </Wrapper>
+            </CardSection>
+          </Card>
+        </Column>
       </Row>
     </UtilsProvider>
   </FabulaProvider>

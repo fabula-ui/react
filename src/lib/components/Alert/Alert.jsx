@@ -13,10 +13,20 @@ import AlertStyles from '@fabula/core/styles/components/alert/alert';
 import Component from '../Component/Component';
 
 const Alert = props => {
-    const { children, closeButton, color, icon, onClose, text, visible, title, type } = props;
+    const {
+        children,
+        closeButton,
+        color,
+        elRef,
+        icon,
+        onClose,
+        text,
+        visible,
+        title,
+        type
+    } = props;
     const [isClosing, setIsClosing] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
-    const elRef = useRef(null);
     const ref = useRef(null);
 
     // Hooks
@@ -39,36 +49,36 @@ const Alert = props => {
     if (isVisible) {
         return (
             <Component
-                elRef={elRef}
+                elRef={ref || elRef}
                 properties={props}
                 styles={AlertStyles}
-                wrapper="fab-alert-wrapper">
-                <div data-fab-wrapper="alert" ref={elRef}>
-                    <div
-                        className="fab-alert"
-                        data-closing={isClosing}
-                        data-fab-component="alert"
-                        data-title={!!title}
-                        data-visible={isVisible}
-                        ref={ref}>
-                        {!!icon && <InnerIcon icon={icon} parentProps={props} />}
-                        {type === 'danger' && <InnerIcon icon={{ color: 'danger', name: 'alert-triangle' }} parentProps={props} />}
-                        {type === 'info' && <InnerIcon icon={{ color: 'info', name: 'info' }} parentProps={props} />}
-                        {type === 'success' && <InnerIcon icon={{ color: 'success', name: 'check' }} parentProps={props} />}
-                        {type === 'warning' && <InnerIcon icon={{ color: 'warning', name: 'alert-circle' }} parentProps={props} />}
-                        <div className="fab-alert__stage">
-                            {!!title &&
-                                <div className="fab-alert__title">{title}</div>
-                            }
-                            {!!text &&
-                                <div className="fab-alert__text">{text}</div>
-                            }
-                            {children}
-                        </div>
-
-                        {!!closeButton && <CloseButton circle={true} onClick={closeAlert} parentColor={color} size="sm" />}
+                wrapper="fab-alert">
+                {/* <div data-fab-wrapper="alert" ref={elRef}> */}
+                <div
+                    className="fab-alert"
+                    data-closing={isClosing}
+                    data-fab-component="alert"
+                    data-title={!!title}
+                    data-visible={isVisible}
+                    ref={ref || elRef}>
+                    {!!icon && !type && <InnerIcon icon={icon} parentProps={props} />}
+                    {type === 'danger' && <InnerIcon icon={{ color: 'danger', name: 'alert-triangle' }} parentProps={props} />}
+                    {type === 'info' && <InnerIcon icon={{ color: 'info', name: 'info' }} parentProps={props} />}
+                    {type === 'success' && <InnerIcon icon={{ color: 'success', name: 'check' }} parentProps={props} />}
+                    {type === 'warning' && <InnerIcon icon={{ color: 'warning', name: 'alert-circle' }} parentProps={props} />}
+                    <div className="fab-alert__stage">
+                        {!!title &&
+                            <div className="fab-alert__title">{title}</div>
+                        }
+                        {!!text &&
+                            <div className="fab-alert__text">{text}</div>
+                        }
+                        {children}
                     </div>
+
+                    {!!closeButton && <CloseButton circle={true} onClick={closeAlert} parentColor={color} size="sm" />}
                 </div>
+                {/* </div> */}
             </Component>
         )
     } else {

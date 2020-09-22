@@ -1,11 +1,17 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import {
+    Avatar,
     Badge,
+    Button,
+    Divider,
+    Element,
+    Heading,
     Icon,
     FabulaProvider,
-    FabulaUtils
+    FabulaUtils,
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -13,253 +19,321 @@ export default {
     component: Badge,
 };
 
-export const Circle = () => (
+export const Example = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1">
-                <Badge circle><Icon name="user-check" /></Badge>
-                <Badge color="primary" circle><Icon name="user-check" /></Badge>
-                <Badge color="secondary" circle><Icon name="user-check" /></Badge>
-                <Badge color="success" circle><Icon name="user-check" /></Badge>
-                <Badge color="danger" circle><Icon name="user-check" /></Badge>
-                <Badge color="warning" circle><Icon name="user-check" /></Badge>
-                <Badge color="hot" circle><Icon name="user-check" /></Badge>
-                <Badge color="cold" circle><Icon name="user-check" /></Badge>
-                <Badge color="dark" circle><Icon name="user-check" /></Badge>
-                <Badge color="light" circle><Icon name="user-check" /></Badge>
-                <Badge color="aux" circle><Icon name="user-check" /></Badge>
-            </div>
+        <UtilsProvider>
+            <Wrapper>
+                <Heading mb={1} mt={0}>
+                    <Element mr={1}>Heading</Element>
+                    <Badge color="aux">Level 1</Badge>
+                </Heading>
 
-            <div>
-                <Badge circle>1</Badge>
-                <Badge color="primary" circle>1</Badge>
-                <Badge color="secondary" circle>1</Badge>
-                <Badge color="success" circle>1</Badge>
-                <Badge color="danger" circle>1</Badge>
-                <Badge color="warning" circle>1</Badge>
-                <Badge color="hot" circle>1</Badge>
-                <Badge color="cold" circle>1</Badge>
-                <Badge color="dark" circle>1</Badge>
-                <Badge color="light" circle>1</Badge>
-                <Badge color="aux" circle>1</Badge>
-            </div>
-        </FabulaUtils>
+                <Heading level={2} mb={1} mt={0}>
+                    <Element mr={1}>Heading</Element>
+                    <Badge color="aux">Level 2</Badge>
+                </Heading>
+
+                <Heading level={3} mb={1} mt={0}>
+                    <Element mr={1}>Heading</Element>
+                    <Badge color="aux">Level 3</Badge>
+                </Heading>
+
+                <Heading level={4} mb={1} mt={0}>
+                    <Element mr={.5}>Heading</Element>
+                    <Badge color="aux">Level 4</Badge>
+                </Heading>
+
+                <Heading level={5} mb={1} mt={0}>
+                    <Element mr={.5}>Heading</Element>
+                    <Badge color="aux">Level 5</Badge>
+                </Heading>
+
+                <Heading level={6} mb={1} mt={0}>
+                    <Element mr={.5}>Heading</Element>
+                    <Badge color="aux">Level 6</Badge>
+                </Heading>
+            </Wrapper>
+            <Divider my={1} />
+            <Button color="primary" compact={true} mr="1">
+                <Element>Button</Element>
+                <Badge color="primary" invert={true}>99+</Badge>
+            </Button>
+            <Button color="lavender" compact={true} mr="1">
+                <Element>Button</Element>
+                <Badge color="lavender" invert={true}>99+</Badge>
+            </Button>
+            <Button color="hot" compact={true} mr="1">
+                <Element>Button</Element>
+                <Badge color="hot" invert={true}>99+</Badge>
+            </Button>
+            <Button color="aux" compact={true} mr="1">
+                <Element>Button</Element>
+                <Badge color="aux" invert={true}>99+</Badge>
+            </Button>
+            <Button color="dark" compact={true}>
+                <Element>Button</Element>
+                <Badge color="dark" invert={true}>99+</Badge>
+            </Button>
+            <Divider my={1} />
+            <Avatar mr={1}>
+                <Badge color="primary" rounded={true}>9</Badge>
+            </Avatar>
+            <Avatar mr={1}>
+                <Badge color="primary" rounded={true}>99+</Badge>
+            </Avatar>
+            <Avatar mr={1}>
+                <Badge color="primary" rounded={true}>
+                    <Icon name="check"></Icon>
+                </Badge>
+            </Avatar>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Clear = () => (
+export const PropClear = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1">
-                <Badge clear><Icon name="user-check" /></Badge>
-                <Badge color="primary" clear><Icon name="user-check" /></Badge>
-                <Badge color="secondary" clear><Icon name="user-check" /></Badge>
-                <Badge color="success" clear><Icon name="user-check" /></Badge>
-                <Badge color="danger" clear><Icon name="user-check" /></Badge>
-                <Badge color="warning" clear><Icon name="user-check" /></Badge>
-                <Badge color="hot" clear><Icon name="user-check" /></Badge>
-                <Badge color="cold" clear><Icon name="user-check" /></Badge>
-                <Badge color="dark" clear><Icon name="user-check" /></Badge>
-                <Badge color="light" clear><Icon name="user-check" /></Badge>
-                <Badge color="aux" clear><Icon name="user-check" /></Badge>
-            </div>
-            <div>
-                <Badge clear>123</Badge>
-                <Badge color="primary" clear>123</Badge>
-                <Badge color="secondary" clear>123</Badge>
-                <Badge color="success" clear>123</Badge>
-                <Badge color="danger" clear>123</Badge>
-                <Badge color="warning" clear>123</Badge>
-                <Badge color="hot" clear>123</Badge>
-                <Badge color="cold" clear>123</Badge>
-                <Badge color="dark" clear>123</Badge>
-                <Badge color="light" clear>123</Badge>
-                <Badge color="aux" clear>123</Badge>
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge clear={true}>9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge clear={true} color="primary">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge clear={true} color="lavender">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge clear={true} color="hot">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge clear={true} color="aux">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge clear={true} color="dark">9</Badge>
+            </Button>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Color = () => (
+export const PropColor = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1">
-                <Badge><Icon name="user-check" /></Badge>
-                <Badge color="primary"><Icon name="user-check" /></Badge>
-                <Badge color="secondary"><Icon name="user-check" /></Badge>
-                <Badge color="success"><Icon name="user-check" /></Badge>
-                <Badge color="danger"><Icon name="user-check" /></Badge>
-                <Badge color="warning"><Icon name="user-check" /></Badge>
-                <Badge color="hot"><Icon name="user-check" /></Badge>
-                <Badge color="cold"><Icon name="user-check" /></Badge>
-                <Badge color="dark"><Icon name="user-check" /></Badge>
-                <Badge color="light"><Icon name="user-check" /></Badge>
-                <Badge color="aux"><Icon name="user-check" /></Badge>
-            </div>
-
-            <div>
-                <Badge>123</Badge>
-                <Badge color="primary">123</Badge>
-                <Badge color="secondary">123</Badge>
-                <Badge color="success">123</Badge>
-                <Badge color="danger">123</Badge>
-                <Badge color="warning">123</Badge>
-                <Badge color="hot">123</Badge>
-                <Badge color="cold">123</Badge>
-                <Badge color="dark">123</Badge>
-                <Badge color="light">123</Badge>
-                <Badge color="aux">123</Badge>
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge>9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="primary">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="lavender">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="hot">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="aux">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="dark">9</Badge>
+            </Button>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Faded = () => (
+export const PropDarken = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1}>
-                <Badge faded><Icon name="user-check" /></Badge>
-                <Badge color="primary" faded><Icon name="user-check" /></Badge>
-                <Badge color="secondary" faded><Icon name="user-check" /></Badge>
-                <Badge color="success" faded><Icon name="user-check" /></Badge>
-                <Badge color="danger" faded><Icon name="user-check" /></Badge>
-                <Badge color="warning" faded><Icon name="user-check" /></Badge>
-                <Badge color="hot" faded><Icon name="user-check" /></Badge>
-                <Badge color="cold" faded><Icon name="user-check" /></Badge>
-                <Badge color="dark" faded><Icon name="user-check" /></Badge>
-                <Badge color="light" faded><Icon name="user-check" /></Badge>
-                <Badge color="aux" faded><Icon name="user-check" /></Badge>
-            </div>
-
-            <div>
-                <Badge faded>123</Badge>
-                <Badge color="primary" faded>123</Badge>
-                <Badge color="secondary" faded>123</Badge>
-                <Badge color="success" faded>123</Badge>
-                <Badge color="danger" faded>123</Badge>
-                <Badge color="warning" faded>123</Badge>
-                <Badge color="hot" faded>123</Badge>
-                <Badge color="cold" faded>123</Badge>
-                <Badge color="dark" faded>123</Badge>
-                <Badge color="light" faded>123</Badge>
-                <Badge color="aux" faded>123</Badge>
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge darken={true}>9</Badge>
+            </Button>
+            <Button color="primary" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="primary" darken={true}>9</Badge>
+            </Button>
+            <Button color="lavender" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="lavender" darken={true}>9</Badge>
+            </Button>
+            <Button color="hot" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="hot" darken={true}>9</Badge>
+            </Button>
+            <Button color="aux" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="aux" darken={true}>9</Badge>
+            </Button>
+            <Button color="dark" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="dark" darken={true}>9</Badge>
+            </Button>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Invert = () => (
+export const PropFaded = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1}>
-                <Badge invert><Icon name="user-check" /></Badge>
-                <Badge color="primary" invert><Icon name="user-check" /></Badge>
-                <Badge color="secondary" invert><Icon name="user-check" /></Badge>
-                <Badge color="success" invert><Icon name="user-check" /></Badge>
-                <Badge color="danger" invert><Icon name="user-check" /></Badge>
-                <Badge color="warning" invert><Icon name="user-check" /></Badge>
-                <Badge color="hot" invert><Icon name="user-check" /></Badge>
-                <Badge color="cold" invert><Icon name="user-check" /></Badge>
-                <Badge color="dark" invert><Icon name="user-check" /></Badge>
-                <Badge color="light" invert><Icon name="user-check" /></Badge>
-                <Badge color="aux" invert><Icon name="user-check" /></Badge>
-            </div>
-
-            <div>
-                <Badge invert>123</Badge>
-                <Badge color="primary" invert>123</Badge>
-                <Badge color="secondary" invert>123</Badge>
-                <Badge color="success" invert>123</Badge>
-                <Badge color="danger" invert>123</Badge>
-                <Badge color="warning" invert>123</Badge>
-                <Badge color="hot" invert>123</Badge>
-                <Badge color="cold" invert>123</Badge>
-                <Badge color="dark" invert>123</Badge>
-                <Badge color="light" invert>123</Badge>
-                <Badge color="aux" invert>123</Badge>
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge faded={true}>9</Badge>
+            </Button>
+            <Button color="primary" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="primary" faded={true}>9</Badge>
+            </Button>
+            <Button color="lavender" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="lavender" faded={true}>9</Badge>
+            </Button>
+            <Button color="hot" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="hot" faded={true}>9</Badge>
+            </Button>
+            <Button color="aux" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="aux" faded={true}>9</Badge>
+            </Button>
+            <Button color="dark" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="dark" faded={true}>9</Badge>
+            </Button>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Outline = () => (
+export const PropInvert = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb={1}>
-                <Badge outline><Icon name="user-check" /></Badge>
-                <Badge color="primary" outline><Icon name="user-check" /></Badge>
-                <Badge color="secondary" outline><Icon name="user-check" /></Badge>
-                <Badge color="success" outline><Icon name="user-check" /></Badge>
-                <Badge color="danger" outline><Icon name="user-check" /></Badge>
-                <Badge color="warning" outline><Icon name="user-check" /></Badge>
-                <Badge color="hot" outline><Icon name="user-check" /></Badge>
-                <Badge color="cold" outline><Icon name="user-check" /></Badge>
-                <Badge color="dark" outline><Icon name="user-check" /></Badge>
-                <Badge color="light" outline><Icon name="user-check" /></Badge>
-                <Badge color="aux" outline><Icon name="user-check" /></Badge>
-            </div>
-
-            <div>
-                <Badge outline>123</Badge>
-                <Badge color="primary" outline>123</Badge>
-                <Badge color="secondary" outline>123</Badge>
-                <Badge color="success" outline>123</Badge>
-                <Badge color="danger" outline>123</Badge>
-                <Badge color="warning" outline>123</Badge>
-                <Badge color="hot" outline>123</Badge>
-                <Badge color="cold" outline>123</Badge>
-                <Badge color="dark" outline>123</Badge>
-                <Badge color="light" outline>123</Badge>
-                <Badge color="aux" outline>123</Badge>
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge invert={true}>9</Badge>
+            </Button>
+            <Button color="primary" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="primary" invert={true}>9</Badge>
+            </Button>
+            <Button color="lavender" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="lavender" invert={true}>9</Badge>
+            </Button>
+            <Button color="hot" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="hot" invert={true}>9</Badge>
+            </Button>
+            <Button color="aux" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="aux" invert={true}>9</Badge>
+            </Button>
+            <Button color="dark" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="dark" invert={true}>9</Badge>
+            </Button>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Rounded = () => (
+export const PropLighten = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1">
-                <Badge rounded><Icon name="user-check" /></Badge>
-                <Badge color="primary" rounded><Icon name="user-check" /></Badge>
-                <Badge color="secondary" rounded><Icon name="user-check" /></Badge>
-                <Badge color="success" rounded><Icon name="user-check" /></Badge>
-                <Badge color="danger" rounded><Icon name="user-check" /></Badge>
-                <Badge color="warning" rounded><Icon name="user-check" /></Badge>
-                <Badge color="hot" rounded><Icon name="user-check" /></Badge>
-                <Badge color="cold" rounded><Icon name="user-check" /></Badge>
-                <Badge color="dark" rounded><Icon name="user-check" /></Badge>
-                <Badge color="light" rounded><Icon name="user-check" /></Badge>
-                <Badge color="aux" rounded><Icon name="user-check" /></Badge>
-            </div>
+        <UtilsProvider>
+            <Button border={true} compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge lighten={true}>9</Badge>
+            </Button>
+            <Button color="primary" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="primary" lighten={true}>9</Badge>
+            </Button>
+            <Button color="lavender" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="lavender" lighten={true}>9</Badge>
+            </Button>
+            <Button color="hot" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="hot" lighten={true}>9</Badge>
+            </Button>
+            <Button color="aux" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="aux" lighten={true}>9</Badge>
+            </Button>
+            <Button color="dark" compact={true} mr={1}>
+                <Element>Button</Element>
+                <Badge color="dark" lighten={true}>9</Badge>
+            </Button>
+        </UtilsProvider>
+    </FabulaProvider>
+)
 
-            <div mb="1">
-                <Badge rounded>1</Badge>
-                <Badge color="primary" rounded>1</Badge>
-                <Badge color="secondary" rounded>1</Badge>
-                <Badge color="success" rounded>1</Badge>
-                <Badge color="danger" rounded>1</Badge>
-                <Badge color="warning" rounded>1</Badge>
-                <Badge color="hot" rounded>1</Badge>
-                <Badge color="cold" rounded>1</Badge>
-                <Badge color="dark" rounded>1</Badge>
-                <Badge color="light" rounded>1</Badge>
-                <Badge color="aux" rounded>1</Badge>
-            </div>
+export const PropOutline = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Button compact={true} mr={1} outline={true}>
+                <Element>Button</Element>
+                <Badge outline={true}>9</Badge>
+            </Button>
+            <Button compact={true} mr={1} outline={true}>
+                <Element>Button</Element>
+                <Badge color="primary" outline={true}>9</Badge>
+            </Button>
+            <Button compact={true} mr={1} outline={true}>
+                <Element>Button</Element>
+                <Badge color="lavender" outline={true}>9</Badge>
+            </Button>
+            <Button compact={true} mr={1} outline={true}>
+                <Element>Button</Element>
+                <Badge color="hot" outline={true}>9</Badge>
+            </Button>
+            <Button compact={true} mr={1} outline={true}>
+                <Element>Button</Element>
+                <Badge color="aux" outline={true}>9</Badge>
+            </Button>
+            <Button compact={true} mr={1} outline={true}>
+                <Element>Button</Element>
+                <Badge color="dark" outline={true}>9</Badge>
+            </Button>
+        </UtilsProvider>
+    </FabulaProvider>
+)
 
-            <div>
-                <Badge rounded>123</Badge>
-                <Badge color="primary" rounded>123</Badge>
-                <Badge color="secondary" rounded>123</Badge>
-                <Badge color="success" rounded>123</Badge>
-                <Badge color="danger" rounded>123</Badge>
-                <Badge color="warning" rounded>123</Badge>
-                <Badge color="hot" rounded>123</Badge>
-                <Badge color="cold" rounded>123</Badge>
-                <Badge color="dark" rounded>123</Badge>
-                <Badge color="light" rounded>123</Badge>
-                <Badge color="aux" rounded>123</Badge>
-            </div>
-        </FabulaUtils>
+export const PropRounded = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Button border={true} compact={true} mr={1} rounded={true}>
+                <Element>Button</Element>
+                <Badge rounded={true}>9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1} rounded={true}>
+                <Element>Button</Element>
+                <Badge color="primary" rounded={true}>9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1} rounded={true}>
+                <Element>Button</Element>
+                <Badge color="lavender" rounded={true}>9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1} rounded={true}>
+                <Element>Button</Element>
+                <Badge color="hot" rounded={true}>9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1} rounded={true}>
+                <Element>Button</Element>
+                <Badge color="aux" rounded={true}>9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1} rounded={true}>
+                <Element>Button</Element>
+                <Badge color="dark" rounded={true}>9</Badge>
+            </Button>
+        </UtilsProvider>
     </FabulaProvider>
 )

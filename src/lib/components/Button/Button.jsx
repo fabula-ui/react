@@ -10,7 +10,7 @@ import getComponentProps from '../../utils/getComponentProps';
 // Styles
 import ButtonStyles from '@fabula/core/styles/components/button/button';
 
-const Button = (props) => {
+const Button = props => {
     const {
         border,
         children,
@@ -21,6 +21,7 @@ const Button = (props) => {
         compact,
         darken,
         disabled,
+        elRef,
         expand,
         faded,
         glow,
@@ -35,38 +36,49 @@ const Button = (props) => {
         wide,
         ...rest
     } = props;
-    const elRef = useRef(null);
+    const ref = useRef(null);
     const restProps = getComponentProps(rest);
 
     return (
-        <Component elRef={elRef} properties={props} styles={ButtonStyles} wrapper="fab-button-wrapper">
-            <div
-                data-fab-wrapper="button"
-                data-border={border}
-                data-circle={!!circle}
-                data-color={color}
-                data-expand={expand}
-                data-outline={outline}
-                data-rounded={rounded}
-                ref={elRef}
-            >
-                {
-                    !href && (
-                        <button className="fab-button" data-fab-component="button" disabled={disabled} {...restProps}>
-                            {!!label && <span>{label}</span>}
-                            {children}
-                        </button>
-                    )
-                }
-                {
-                    !!href && (
-                        <a className="fab-button" data-fab-component="button" disabled={disabled} href={href} {...restProps}>
-                            {!!label && <span>{label}</span>}
-                            {children}
-                        </a>
-                    )
-                }
-            </div>
+        <Component elRef={elRef || ref} properties={props} styles={ButtonStyles} wrapper="fab-button-wrapper">
+            {
+                !href && (
+                    <button className="fab-button"
+                        data-border={border}
+                        data-circle={!!circle}
+                        data-color={color}
+                        data-expand={expand}
+                        data-outline={outline}
+                        data-rounded={rounded}
+                        data-fab-component="button"
+                        disabled={disabled}
+                        {...restProps}
+                        ref={elRef || ref}>
+                        {!!label && <span>{label}</span>}
+                        {children}
+                    </button>
+                )
+            }
+            {
+                !!href && (
+                    <a className="fab-button"
+                        data-border={border}
+                        data-circle={!!circle}
+                        data-color={color}
+                        data-disabled={disabled}
+                        data-expand={expand}
+                        data-outline={outline}
+                        data-rounded={rounded}
+                        data-fab-component="button"
+                        data-fab-component="button"
+                        href={href}
+                        {...restProps}
+                        ref={elRef || ref}>
+                        {!!label && <span>{label}</span>}
+                        {children}
+                    </a>
+                )
+            }
         </Component>
     );
 };

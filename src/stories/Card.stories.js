@@ -7,16 +7,19 @@ import {
   Card,
   CardImage,
   CardSection,
+  Column,
   Div,
   FabulaProvider,
   Icon,
   List,
   ListItem,
+  Row,
   Strong,
   UtilsProvider,
   Tag,
   TagGroup,
   Text,
+  Wrapper
 } from '../lib';
 
 export default {
@@ -24,24 +27,42 @@ export default {
   component: Card,
 };
 
+// Base component
+const BaseComponent = props => (
+  <Card {...props}>
+    <CardImage color={props.color} darken={!!props.color} height="120" />
+    <CardSection color={props.color} padding>
+      <Text size="lg"><strong>Card Title</strong></Text>
+      <Text aux={true} color={!!props.color ? 'inherit' : ''} size="sm">Card subtitle</Text>
+    </CardSection>
+    <CardSection color={props.color} divider="top" padding={true}>
+      <Button color={props.color || 'primary'} expand={true} invert={!!props.color}>Button</Button>
+    </CardSection>
+  </Card>
+)
+
+// Stories
 export const Examples = () => (
   <FabulaProvider>
     <UtilsProvider>
-      <Div row>
-        <Card col="3">
-          <CardImage height={200} />
-          <CardSection divider="top" padding>
-            <Text flex size="lg">
-              <Strong mr=".5">Card Title</Strong>
-              <Badge color="primary">New</Badge>
-            </Text>
-            <Text aux block mb="1" size="sm">Card subtitle</Text>
-            <Text mb="1">This is some text inside this card. You can add whatever content in here.</Text>
-          </CardSection>
-          <CardSection divider="top" padding>
-            <Button color="primary" expand>Card Button</Button>
-          </CardSection>
-        </Card>
+      <Row>
+        <Column col={3}>
+          <Card>
+            <CardImage height={200} />
+            <CardSection divider="top" padding>
+              <Text size="lg">
+                <Text inline={true} mr=".5" strong={true}>Card Title</Text>
+                <Badge color="primary">New</Badge>
+              </Text>
+              <Text aux mb="1" size="sm">Card subtitle</Text>
+              <Text mb="1">This is some text inside this card. You can add whatever content in here.</Text>
+            </CardSection>
+            <CardSection divider="top" padding>
+              <Button color="primary" expand>Card Button</Button>
+            </CardSection>
+          </Card>
+        </Column>
+
         <Card col="9">
           <CardImage height={120} />
           <CardSection padding>
@@ -52,8 +73,8 @@ export const Examples = () => (
             <List padding striped>
               <ListItem flex>
                 <Div flex flow="v" grow={1}>
-                  <Text inline={true} size="lg" weight={600}>
-                    <Text mr={.5}>Full-stack Engineer</Text>
+                  <Text size="lg" weight={600}>
+                    <Text inline={true} mr={.5}>Full-stack Engineer</Text>
                     <Badge color="#E3FFD9">Full-time</Badge>
                   </Text>
                   <Text aux inline={true}>Google</Text>
@@ -74,8 +95,8 @@ export const Examples = () => (
 
               <ListItem flex>
                 <Div flex flow="v" grow={1}>
-                  <Text inline={true} size="lg" weight={600}>
-                    <Text mr={.5}>Frontend Developer</Text>
+                  <Text size="lg" weight={600}>
+                    <Text inline={true} mr={.5}>Frontend Developer</Text>
                     <Badge color="#FFECD9">Part-time</Badge>
                   </Text>
                   <Text inline={true} aux={true}>Amazon</Text>
@@ -96,8 +117,8 @@ export const Examples = () => (
 
               <ListItem flex>
                 <Div flex flow="v" grow={1}>
-                  <Text inline={true} size="lg" weight={600}>
-                    <Text mr={.5}>Backend Developer</Text>
+                  <Text size="lg" weight={600}>
+                    <Text inline={true} mr={.5}>Backend Developer</Text>
                     <Badge color="#FFECD9" mr={.5}>Part-time</Badge>
                     <Badge color="#D9E9FF">Remote</Badge>
                   </Text>
@@ -118,357 +139,125 @@ export const Examples = () => (
               </ListItem>
             </List>
           </CardSection>
-          <CardSection alH="right" flex padding>
-            <ButtonGroup>
-              <Button color="primary" wide>Confirm</Button>
-              <Button color="light" wide>Cancel</Button>
-            </ButtonGroup>
+          <CardSection alH="right" flex={true} padding={true}>
+            <Wrapper>
+              <Button color="primary" mr={1} wide={true}>Confirm</Button>
+              <Button color="light" wide={true}>Cancel</Button>
+            </Wrapper>
           </CardSection>
         </Card>
-      </Div>
+      </Row>
     </UtilsProvider>
   </FabulaProvider>
 )
 
-export const Color = () => (
+export const PropColor = () => (
   <FabulaProvider>
     <UtilsProvider>
-      <Div mb="2" row>
-        <Card col="3">
-          <CardImage height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection divider="top" padding>
-            <Button color="primary" expand>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="primary">
-          <CardImage adaptColor={true} color="primary" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="primary" divider="top" padding>
-            <Button color="primary" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="secondary">
-          <CardImage adaptColor={true} color="secondary" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="secondary" divider="top" padding>
-            <Button color="secondary" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="success">
-          <CardImage adaptColor={true} color="success" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="success" divider="top" padding>
-            <Button color="success" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-      </Div>
-
-      <Div mb="2" row>
-        <Card col="3" color="danger">
-          <CardImage adaptColor={true} color="danger" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="danger" divider="top" padding>
-            <Button color="danger" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="warning">
-          <CardImage adaptColor={true} color="warning" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="warning" divider="top" padding>
-            <Button color="warning" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="hot">
-          <CardImage adaptColor={true} color="hot" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="hot" divider="top" padding>
-            <Button color="hot" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="cold">
-          <CardImage adaptColor={true} color="cold" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="cold" divider="top" padding>
-            <Button color="cold" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-      </Div>
-
-      <Div row mb="2">
-        <Card col="3" color="dark">
-          <CardImage adaptColor={true} color="dark" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="dark" divider="top" padding>
-            <Button color="dark" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="light">
-          <CardImage adaptColor={true} color="light" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="light" divider="top" padding>
-            <Button color="light" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="aux">
-          <CardImage adaptColor={true} color="aux" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="aux" divider="top" padding>
-            <Button color="aux" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-      </Div>
+      <Row mb={1}>
+        <Column col={3}>
+          <BaseComponent />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="primary" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="lavender" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="hot" />
+        </Column>
+      </Row>
+      <Row>
+        <Column col={3}>
+          <BaseComponent color="aux" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="dark" />
+        </Column>
+      </Row>
     </UtilsProvider>
-
   </FabulaProvider>
 )
 
-export const Glow = () => (
+export const PropGlow = () => (
   <FabulaProvider>
     <UtilsProvider>
-      <Div mb="2" row>
-        <Card col="3" glow={true}>
-          <CardImage height="120" />
-          <CardSection padding>
-            <Text block size="lg" strong><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection divider="top" padding>
-            <Button color="primary" expand>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="primary" glow={true}>
-          <CardImage adaptColor={true} color="primary" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="primary" divider="top" padding>
-            <Button color="primary" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="secondary" glow={true}>
-          <CardImage adaptColor={true} color="secondary" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="secondary" divider="top" padding>
-            <Button color="secondary" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="success" glow={true}>
-          <CardImage adaptColor={true} color="success" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="success" divider="top" padding>
-            <Button color="success" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-      </Div>
-
-      <Div mb="2" row>
-        <Card col="3" color="danger" glow={true}>
-          <CardImage adaptColor={true} color="danger" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="danger" divider="top" padding>
-            <Button color="danger" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="warning" glow={true}>
-          <CardImage adaptColor={true} color="warning" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="warning" divider="top" padding>
-            <Button color="warning" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="hot" glow={true}>
-          <CardImage adaptColor={true} color="hot" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="hot" divider="top" padding>
-            <Button color="hot" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="cold" glow={true}>
-          <CardImage adaptColor={true} color="cold" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="cold" divider="top" padding>
-            <Button color="cold" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-      </Div>
-
-      <Div row mb="2">
-        <Card col="3" color="dark" glow={true}>
-          <CardImage adaptColor={true} color="dark" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="dark" divider="top" padding>
-            <Button color="dark" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="light" glow={true}>
-          <CardImage adaptColor={true} color="light" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="light" divider="top" padding>
-            <Button color="light" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="aux" glow={true}>
-          <CardImage adaptColor={true} color="aux" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-          <CardSection color="aux" divider="top" padding>
-            <Button color="aux" expand invert>Button</Button>
-          </CardSection>
-        </Card>
-      </Div>
+      <Row mb={1}>
+        <Column col={3}>
+          <BaseComponent glow={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="primary" glow={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="lavender" glow={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="hot" glow={true} />
+        </Column>
+      </Row>
+      <Row>
+        <Column col={3}>
+          <BaseComponent color="aux" glow={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="dark" glow={true} />
+        </Column>
+      </Row>
     </UtilsProvider>
-
   </FabulaProvider>
 )
 
-export const Layout = () => (
+export const PropLayout = () => (
   <FabulaProvider>
     <UtilsProvider>
-      <Div row>
-        <Card col="3">
-          <CardImage height={200} />
-          <CardSection divider="top" padding>
-            <Text flex size="lg">
-              <Strong mr=".5">Card Title</Strong>
-              <Badge color="primary">New</Badge>
-            </Text>
-            <Text aux block mb="1" size="sm" span>Card subtitle</Text>
-            <Text mb="1">This is some text inside this card. You can add whatever content in here.</Text>
-          </CardSection>
-          <CardSection divider="top" padding>
-            <Button color="primary" expand>Card Button</Button>
-          </CardSection>
-        </Card>
-
-        <Div col="9">
-          <Card layout="h" mb={1}>
-            <CardImage width={200} />
-            <CardSection grow={1} padding>
+      <Row>
+        <Column col={3}>
+          <Card>
+            <CardImage height={200} />
+            <CardSection divider="top" padding>
               <Text flex size="lg">
                 <Strong mr=".5">Card Title</Strong>
                 <Badge color="primary">New</Badge>
               </Text>
               <Text aux block mb="1" size="sm" span>Card subtitle</Text>
-              <Text>This is some text inside this card. You can add whatever content in here.</Text>
+              <Text mb="1">This is some text inside this card. You can add whatever content in here.</Text>
             </CardSection>
-            <CardSection padding>
+            <CardSection divider="top" padding>
               <Button color="primary" expand>Card Button</Button>
             </CardSection>
           </Card>
+        </Column>
 
+        <Column col="9">
           <Card layout="h" mb={1}>
-            <CardImage height={300} width={200} />
-            <CardSection expand={true}>
-              <CardSection expand={true} grow={1} padding>
-                <Text flex size="lg">
-                  <Strong mr=".5">Card Title</Strong>
-                  <Badge color="primary">New</Badge>
-                </Text>
-                <Text aux block mb="1" size="sm" span>Card subtitle</Text>
-                <Text>This is some text inside this card. You can add whatever content in here.</Text>
-              </CardSection>
-
-              <CardSection divider="top" padding>
-                <Button color="primary" expand>Card Button</Button>
-              </CardSection>
+            <CardImage width={200} />
+            <CardSection grow={1} padding>
+              <Text size="lg">
+                <Text inline={true} mr=".5" strong={true}>Card Title</Text>
+                <Badge color="primary">New</Badge>
+              </Text>
+              <Text aux={true} mb="1" size="sm" span>Card subtitle</Text>
+              <Text>This is some text inside this card. You can add whatever content in here.</Text>
+              <Button color="primary" expand={true} mt={1}>Card Button</Button>
             </CardSection>
-
           </Card>
 
           <Card layout="h">
             <CardSection grow={1} padding>
-              <Text flex size="lg">
-                <Strong mr=".5">Card Title</Strong>
+              <Text size="lg">
+                <Text inline={true} mr=".5" strong={true}>Card Title</Text>
                 <Badge color="primary">New</Badge>
               </Text>
               <Text aux block mb="1" size="sm" span>Card subtitle</Text>
               <Text>This is some text inside this card. You can add whatever content in here.</Text>
+              <Button color="primary" expand={true} mt={1}>Card Button</Button>
             </CardSection>
-            <CardSection padding>
-              <Button color="primary">Card Button</Button>
-            </CardSection>
-
-            <CardImage />
+            <CardImage width={200} />
           </Card>
-        </Div>
-      </Div>
+        </Column>
+      </Row>
     </UtilsProvider>
   </FabulaProvider>
 )

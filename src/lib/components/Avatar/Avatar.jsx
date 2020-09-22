@@ -13,6 +13,7 @@ import AvatarStyles from '@fabula/core/styles/components/avatar/avatar';
 
 const Avatar = props => {
     const {
+        badge,
         children,
         color,
         icon,
@@ -36,6 +37,7 @@ const Avatar = props => {
                     {image && <div className="fab-avatar__image" style={{ backgroundImage: `url(${image})` }}></div>}
                 </div>
                 {children}
+                {badge.label && <div className="fab-avatar__badge">{badge.label}</div>}
             </div>
         </Component>
     )
@@ -43,6 +45,12 @@ const Avatar = props => {
 
 Avatar.defaultProps = {
     adaptColor: false,
+    badge: {
+        placement: {
+            x: 'right',
+            y: 'bottom'
+        }
+    },
     darken: false,
     icon: 'image',
     image: '',
@@ -54,6 +62,7 @@ Avatar.defaultProps = {
 
 Avatar.propTypes = {
     adaptColor: PropTypes.bool,
+    badge: PropTypes.any,
     darken: PropTypes.bool,
     icon: PropTypes.string,
     image: PropTypes.string,

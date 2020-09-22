@@ -4,11 +4,14 @@ import {
   Card,
   CardImage,
   CardSection,
+  Column,
   FabulaProvider,
   Icon,
+  Row,
   Tag,
   Text,
-  FabulaUtils
+  FabulaUtils,
+  UtilsProvider
 } from '../lib';
 
 export default {
@@ -16,403 +19,233 @@ export default {
   component: CardImage,
 };
 
-export const AdaptColor = () => (
+// Base component
+const BaseComponent = props => (
+  <Card glow={true}>
+    <CardImage height="120" {...props} />
+    <CardSection padding>
+      <Text block size="lg"><strong>Card Title</strong></Text>
+      <Text aux block size="sm">Card subtitle</Text>
+    </CardSection>
+  </Card>
+)
+
+// Stories
+export const PropColor = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div mb="2" row>
-        <Card col="3" glow={true}>
-          <CardImage adaptColor={true} height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="primary" glow={true}>
-          <CardImage adaptColor={true} color="primary" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="secondary" glow={true}>
-          <CardImage adaptColor={true} color="secondary" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="success" glow={true}>
-          <CardImage adaptColor={true} color="success" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-
-      <div mb="2" row>
-        <Card col="3" color="danger" glow={true}>
-          <CardImage adaptColor={true} color="danger" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="warning" glow={true}>
-          <CardImage adaptColor={true} color="warning" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="hot" glow={true}>
-          <CardImage adaptColor={true} color="hot" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="cold" glow={true}>
-          <CardImage adaptColor={true} color="cold" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-
-      <div row mb="2">
-        <Card col="3" color="dark" glow={true}>
-          <CardImage adaptColor={true} color="dark" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="light" glow={true}>
-          <CardImage adaptColor={true} color="light" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" color="aux" glow={true}>
-          <CardImage adaptColor={true} color="aux" height="120" />
-          <CardSection padding>
-            <Text block color="inherit" size="lg"><strong>Card Title</strong></Text>
-            <Text aux block color="inherit" size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-    </FabulaUtils>
+    <UtilsProvider>
+      <Row mb={1}>
+        <Column col={3}>
+          <BaseComponent />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="primary" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="lavender" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="hot" />
+        </Column>
+      </Row>
+      <Row>
+        <Column col={3}>
+          <BaseComponent color="aux" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="dark" />
+        </Column>
+      </Row>
+    </UtilsProvider>
   </FabulaProvider>
 )
 
-export const Color = () => (
+export const PropDarken = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div mb="2" row>
-        <Card col="3" glow={true}>
-          <CardImage height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" glow={true}>
-          <CardImage color="primary" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" glow={true}>
-          <CardImage color="secondary" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" glow={true}>
-          <CardImage color="success" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-
-      <div mb="2" row>
-        <Card col="3" glow={true}>
-          <CardImage color="danger" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" glow={true}>
-          <CardImage color="warning" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" glow={true}>
-          <CardImage color="hot" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" glow={true}>
-          <CardImage color="cold" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-
-      <div mb="2" row>
-        <Card col="3" glow={true}>
-          <CardImage color="dark" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" glow={true}>
-          <CardImage color="light" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3" glow={true}>
-          <CardImage color="aux" height="120" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-    </FabulaUtils>
+    <UtilsProvider>
+      <Row mb={1}>
+        <Column col={3}>
+          <BaseComponent darken={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="primary" darken={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="lavender" darken={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="hot" darken={true} />
+        </Column>
+      </Row>
+      <Row>
+        <Column col={3}>
+          <BaseComponent color="aux" darken={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="dark" darken={true} />
+        </Column>
+      </Row>
+    </UtilsProvider>
   </FabulaProvider>
 )
 
-export const CustomIcon = () => (
+export const PropFaded = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div mb="2" row>
-        <Card col="3">
-          <CardImage height={160} />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3">
-          <CardImage icon="file" height={160} />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3">
-          <CardImage icon="toggle-right" height={160} />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-    </FabulaUtils>
+    <UtilsProvider>
+      <Row mb={1}>
+        <Column col={3}>
+          <BaseComponent faded={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="primary" faded={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="lavender" faded={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="hot" faded={true} />
+        </Column>
+      </Row>
+      <Row>
+        <Column col={3}>
+          <BaseComponent color="aux" faded={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="dark" faded={true} />
+        </Column>
+      </Row>
+    </UtilsProvider>
   </FabulaProvider>
 )
 
-export const Height = () => (
+export const PropHeight = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div mb="2" row>
-        <Card col="3">
-          <CardImage src="https://placehold.it/800x300" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
+    <UtilsProvider>
+      <Row>
+        <Column col={3}>
+          <BaseComponent src="https://placehold.it/800x300" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent height="240" src="https://placehold.it/800x300" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent height="160" src="https://placehold.it/800x300" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent height="80" src="https://placehold.it/800x300" />
+        </Column>
+      </Row>
+    </UtilsProvider>
+  </FabulaProvider>
+)
 
-        <Card col="3">
-          <CardImage height="240" src="https://placehold.it/800x300" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3">
-          <CardImage height="160" src="https://placehold.it/800x300" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="3">
-          <CardImage height="80" src="https://placehold.it/800x300" />
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-    </FabulaUtils>
+export const PropIcon = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <Row>
+        <Column col={4}>
+          <BaseComponent />
+        </Column>
+        <Column col={4}>
+          <BaseComponent icon="file" />
+        </Column>
+        <Column col={4}>
+          <BaseComponent icon="toggle-right" />
+        </Column>
+      </Row>
+    </UtilsProvider>
   </FabulaProvider>
 )
 
 export const ExternalTag = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div mb="2" row>
-        <Card col="4">
-          <CardImage src="https://placehold.it/800x300">
+    <UtilsProvider>
+      <Row mb={1}>
+        <Column col={4}>
+          <BaseComponent>
             <Tag color="primary" placement={{ x: 'left', y: 'top' }}>
               <Icon name="cloud" />
               <Text color="inherit" strong>Online</Text>
             </Tag>
-          </CardImage>
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
+          </BaseComponent>
+        </Column>
 
-        <Card col="4">
-          <CardImage src="https://placehold.it/800x300">
-            <Tag color="primary" placement={{ x: 'left', y: 'center' }}>
-              <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
-            </Tag>
-          </CardImage>
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="4">
-          <CardImage src="https://placehold.it/800x300">
-            <Tag color="primary" placement={{ x: 'left', y: 'bottom' }}>
-              <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
-            </Tag>
-          </CardImage>
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-
-      <div mb="2" row>
-        <Card col="4">
-          <CardImage src="https://placehold.it/800x300">
+        <Column col={4}>
+          <BaseComponent>
             <Tag color="primary" placement={{ x: 'center', y: 'top' }}>
               <Icon name="cloud" />
               <Text color="inherit" strong>Online</Text>
             </Tag>
-          </CardImage>
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
+          </BaseComponent>
+        </Column>
 
-        <Card col="4">
-          <CardImage src="https://placehold.it/800x300">
-            <Tag color="primary" placement={{ x: 'center', y: 'center' }}>
-              <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
-            </Tag>
-          </CardImage>
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-
-        <Card col="4">
-          <CardImage src="https://placehold.it/800x300">
-            <Tag color="primary" placement={{ x: 'center', y: 'bottom' }}>
-              <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
-            </Tag>
-          </CardImage>
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-
-      <div mb="2" row>
-        <Card col="4">
-          <CardImage src="https://placehold.it/800x300">
+        <Column col={4}>
+          <BaseComponent>
             <Tag color="primary" placement={{ x: 'right', y: 'top' }}>
               <Icon name="cloud" />
               <Text color="inherit" strong>Online</Text>
             </Tag>
-          </CardImage>
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
+          </BaseComponent>
+        </Column>
+      </Row>
 
-        <Card col="4">
-          <CardImage src="https://placehold.it/800x300">
+      <Row mb={1}>
+        <Column col={4}>
+          <BaseComponent>
+            <Tag color="primary" placement={{ x: 'left', y: 'center' }}>
+              <Icon name="cloud" />
+              <Text color="inherit" strong>Online</Text>
+            </Tag>
+          </BaseComponent>
+        </Column>
+
+        <Column col={4}>
+          <BaseComponent>
+            <Tag color="primary" placement={{ x: 'center', y: 'center' }}>
+              <Icon name="cloud" />
+              <Text color="inherit" strong>Online</Text>
+            </Tag>
+          </BaseComponent>
+        </Column>
+
+        <Column col={4}>
+          <BaseComponent>
             <Tag color="primary" placement={{ x: 'right', y: 'center' }}>
               <Icon name="cloud" />
               <Text color="inherit" strong>Online</Text>
             </Tag>
-          </CardImage>
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
+          </BaseComponent>
+        </Column>
+      </Row>
 
-        <Card col="4">
-          <CardImage src="https://placehold.it/800x300">
+      <Row>
+        <Column col={4}>
+          <BaseComponent>
+            <Tag color="primary" placement={{ x: 'left', y: 'bottom' }}>
+              <Icon name="cloud" />
+              <Text color="inherit" strong>Online</Text>
+            </Tag>
+          </BaseComponent>
+        </Column>
+
+        <Column col={4}>
+          <BaseComponent>
+            <Tag color="primary" placement={{ x: 'center', y: 'bottom' }}>
+              <Icon name="cloud" />
+              <Text color="inherit" strong>Online</Text>
+            </Tag>
+          </BaseComponent>
+        </Column>
+
+        <Column col={4}>
+          <BaseComponent>
             <Tag color="primary" placement={{ x: 'right', y: 'bottom' }}>
               <Icon name="cloud" />
               <Text color="inherit" strong>Online</Text>
             </Tag>
-          </CardImage>
-          <CardSection padding>
-            <Text block size="lg"><strong>Card Title</strong></Text>
-            <Text aux block size="sm">Card subtitle</Text>
-          </CardSection>
-        </Card>
-      </div>
-    </FabulaUtils>
+          </BaseComponent>
+        </Column>
+      </Row>
+    </UtilsProvider>
   </FabulaProvider>
 )

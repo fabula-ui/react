@@ -8,12 +8,14 @@ import Card from './components/Card/Card';
 import CardImage from './components/CardImage/CardImage';
 import CardSection from './components/CardSection/CardSection';
 import Checkbox from './components/Checkbox/Checkbox';
+import Column from './components/Column/Column';
 import Divider from './components/Divider/Divider';
 import Dropdown from './components/Dropdown/Dropdown';
 import DropdownHeader from './components/DropdownHeader/DropdownHeader';
 import DropdownItem from './components/DropdownItem/DropdownItem';
 import DropdownMenu from './components/DropdownMenu/DropdownMenu';
 import DropdownToggle from './components/DropdownToggle/DropdownToggle';
+import Element from './components/Element/Element';
 import FileInput from './components/FileInput/FileInput';
 import Heading from './components/Heading/Heading';
 import Icon from './components/Icon/Icon';
@@ -31,6 +33,7 @@ import Navbar from './components/Navbar/Navbar';
 import NavbarLogo from './components/NavbarLogo/NavbarLogo';
 import NavbarSection from './components/NavbarSection/NavbarSection';
 import NavbarTabs from './components/NavbarTabs/NavbarTabs';
+import Row from './components/Row/Row';
 import SearchInput from './components/SearchInput/SearchInput';
 import Segment from './components/Segment/Segment';
 import SegmentContent from './components/SegmentContent/SegmentContent';
@@ -45,6 +48,7 @@ import Text from './components/Text/Text';
 import Toast from './components/Toast/Toast';
 import Toggle from './components/Toggle/Toggle';
 import Tooltip from './components/TooltipWrapper/TooltipWrapper';
+import Wrapper from './components/Wrapper/Wrapper';
 
 // Controllers
 import ModalController from './controllers/ModalController';
@@ -81,12 +85,14 @@ export {
     CardImage,
     CardSection,
     Checkbox,
+    Column,
     Divider,
     Dropdown,
     DropdownHeader,
     DropdownItem,
     DropdownMenu,
     DropdownToggle,
+    Element,
     FileInput,
     Heading,
     Icon,
@@ -104,6 +110,7 @@ export {
     NavbarLogo,
     NavbarSection,
     NavbarTabs,
+    Row,
     SearchInput,
     Segment,
     SegmentContent,
@@ -118,6 +125,7 @@ export {
     Toast,
     Toggle,
     Tooltip,
+    Wrapper,
 
     // Controllers
     ModalController,

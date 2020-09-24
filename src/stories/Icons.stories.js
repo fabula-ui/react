@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, FabulaProvider, Icon, UtilsProvider } from '../lib';
+import { FabulaProvider, Icon, UtilsProvider } from '../lib';
 
 export default {
 	title: 'Icons',

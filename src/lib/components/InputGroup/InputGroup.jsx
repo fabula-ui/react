@@ -28,14 +28,11 @@ const InputGroup = props => {
 }
 
 InputGroup.defaultProps = {
-    flow: 'horizontal',
-    glued: false,
-    spacing: null,
+    layout: 'horizontal'
 }
 
 InputGroup.propTypes = {
-    flow: PropTypes.string,
-    glued: PropTypes.bool,
+    layout: PropTypes.string,
     spacing: PropTypes.any,
 }
 

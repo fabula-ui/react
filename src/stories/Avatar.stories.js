@@ -78,19 +78,6 @@ export const Example = () => (
     </FabulaProvider>
 )
 
-export const PropBadge = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <BadgeExample mb={1} />
-            <BadgeExample color="primary" mb={1} />
-            <BadgeExample color="lavender" mb={1} />
-            <BadgeExample color="hot" mb={1} />
-            <BadgeExample color="aux" mb={1} />
-            <BadgeExample color="dark" />
-        </UtilsProvider>
-    </FabulaProvider>
-)
-
 export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -207,6 +194,19 @@ export const PropSize = () => (
                 <Avatar mr="1" rounded={true} size="sm" />
                 <Avatar mr="1" rounded={true} size="xs" />
             </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const ExternalBadge = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BadgeExample mb={1} />
+            <BadgeExample color="primary" mb={1} />
+            <BadgeExample color="lavender" mb={1} />
+            <BadgeExample color="hot" mb={1} />
+            <BadgeExample color="aux" mb={1} />
+            <BadgeExample color="dark" />
         </UtilsProvider>
     </FabulaProvider>
 )

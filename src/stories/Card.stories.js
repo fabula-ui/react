@@ -139,8 +139,8 @@ export const Examples = () => (
                 </ListItem>
               </List>
             </CardSection>
-            <CardSection alH="right" flex={true} padding={true}>
-              <Wrapper>
+            <CardSection padding={true}>
+              <Wrapper alH="right" flex={true} width="100%">
                 <Button color="primary" mr={1} wide={true}>Confirm</Button>
                 <Button color="light" wide={true}>Cancel</Button>
               </Wrapper>

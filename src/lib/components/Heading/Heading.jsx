@@ -10,14 +10,14 @@ import getComponentProps from '../../utils/getComponentProps';
 import HeadingStyles from '@fabula/core/styles/components/heading/heading';
 
 const Heading = props => {
-    const { children, level, ...rest } = props;
-    const elRef = useRef(null);
+    const { children, elRef, level, ...rest } = props;
+    const ref = useRef(null);
     const restProps = getComponentProps(rest);
-    const HTag = () => createElement(`h${level}`, { ...restProps, ref: elRef }, children);
+    const HTag = () => createElement(`h${level}`, { ...restProps, ref: (elRef || ref) }, children);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={HeadingStyles}
             wrapper="fab-heading">

@@ -7,15 +7,16 @@ import Component from '../Component/Component';
 import IconStyles from '@fabula/core/styles/components/icon/icon';
 
 const Icon = props => {
-    const elRef = useRef(null);
+    const { elRef } = props;
+    const ref = useRef(null);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={IconStyles}
             wrapper="fab-icon">
-            <i ref={elRef} />
+            <i ref={elRef || ref} />
         </Component>
     )
 }

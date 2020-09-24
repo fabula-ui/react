@@ -1,26 +1,44 @@
 import React from 'react';
 
-import { Button, FabulaProvider, FabulaUtils, Icon } from '../lib';
-
-// import { ReactComponent as Activity } from '@fabula/icons/assets/activity.svg';
-// const activity = require('@fabula/icons/react/index.jsx');
+import { Button, FabulaProvider, Icon, UtilsProvider } from '../lib';
 
 export default {
 	title: 'Icons',
 	component: Icon
 };
 
-export const Test = () => (
+export const Example = () => (
 	<FabulaProvider>
-		<FabulaUtils>
-			<Button color="primary">
-				<Icon name="database" />
-				<span>Button</span>
-			</Button>
-			<div className="test" style={{ color: 'red' }}>
-				<Icon name="activity" />
-			</div>
-			{/* <Icon name="database" /> */}
-		</FabulaUtils>
+		<UtilsProvider>
+			<Icon name="bell" mr={1} size="xxl" />
+			<Icon name="cast" mr={1} size="xxl" />
+			<Icon name="download" mr={1} size="xxl" />
+			<Icon name="folder" size="xxl" />
+		</UtilsProvider>
 	</FabulaProvider>
 );
+
+export const PropColor = () => (
+	<FabulaProvider>
+		<UtilsProvider>
+			<Icon color="primary" name="bell" mr={1} size="xxl" />
+			<Icon color="lavender" name="bell" mr={1} size="xxl" />
+			<Icon color="hot" name="bell" mr={1} size="xxl" />
+			<Icon color="aux" name="bell" mr={1} size="xxl" />
+			<Icon color="dark" name="bell" size="xxl" />
+		</UtilsProvider>
+	</FabulaProvider>
+);
+
+export const PropSize = () => (
+	<FabulaProvider>
+		<UtilsProvider>
+			<Icon name="bell" mr={1} size="xs" />
+			<Icon name="bell" mr={1} size="sm" />
+			<Icon name="bell" mr={1} size="md" />
+			<Icon name="bell" mr={1} size="lg" />
+			<Icon name="bell" mr={1} size="xl" />
+			<Icon name="bell" size="xxl" />
+		</UtilsProvider>
+	</FabulaProvider>
+)

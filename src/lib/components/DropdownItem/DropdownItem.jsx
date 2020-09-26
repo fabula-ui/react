@@ -15,6 +15,7 @@ const DropdownItem = props => {
         button,
         children,
         clickToClose,
+        elRef,
         href,
         invert,
         label,
@@ -24,7 +25,7 @@ const DropdownItem = props => {
         toggle,
         ...rest
     } = props;
-    const elRef = useRef(null);
+    const ref = useRef(null);
     const restProps = getComponentProps(rest);
 
     const handleClick = () => {
@@ -35,22 +36,22 @@ const DropdownItem = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={DropdownItemStyles}
             wrapper="fab-dropdown-item">
             {(!!button || !!clickToClose || !!onClick || !!parentOnClick) && !href &&
-                <button data-fab-component="dropdownItem" onClick={handleClick} ref={elRef}>
+                <button data-fab-component="dropdownItem" onClick={handleClick} ref={elRef || ref} {...restProps}>
                     {label || children}
                 </button>
             }
             {!button && !clickToClose && !href && !onClick && !parentOnClick &&
-                <div data-fab-component="dropdownItem" onClick={handleClick} ref={elRef}>
+                <div data-fab-component="dropdownItem" onClick={handleClick} ref={elRef || ref}>
                     {label || children}
                 </div>
             }
             {href &&
-                <a data-fab-component="dropdownItem" href={href} ref={elRef} {...restProps}>
+                <a data-fab-component="dropdownItem" href={href} ref={elRef || ref} {...restProps}>
                     {label || children}
                 </a>
             }

@@ -10,7 +10,6 @@ import {
     Input,
     InputGroup,
     Text,
-    FabulaUtils,
     UtilsProvider
 } from '../lib';
 

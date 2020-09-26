@@ -41,25 +41,21 @@ export const Example = () => (
 					<DropdownItem>Dropdown Item 3</DropdownItem>
 					<Divider />
 					<DropdownItem>
-						<Wrapper flex>
-							<Icon color="primary" mr={.5} name="database" />
-							<Element grow={1} mr={1}>
-								Dropdown Item 4
+						<Icon color="primary" mr={.5} name="database" />
+						<Element grow={1} mr={1}>
+							Dropdown Item 4
 							</Element>
-							<Badge color="primary">New</Badge>
-						</Wrapper>
+						<Badge color="primary">New</Badge>
 					</DropdownItem>
 					<Divider />
 					<DropdownItem color="primary">
-						<Wrapper flex>
-							<Icon mr=".5" name="database" />
-							<Element grow={1} mr={1}>
-								Dropdown Item 5
+						<Icon mr=".5" name="database" />
+						<Element grow={1} mr={1}>
+							Dropdown Item 5
 							</Element>
-							<Badge color="primary" invert={true} rounded={true} size="sm">
-								1
-							</Badge>
-						</Wrapper>
+						<Badge color="primary" invert={true} rounded={true} size="sm">
+							1
+						</Badge>
 					</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>

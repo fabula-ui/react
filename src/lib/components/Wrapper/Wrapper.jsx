@@ -19,7 +19,7 @@ const Wrapper = props => {
             elRef={elRef || ref}
             properties={props}
             styles={WrapperStyles}
-            wrapper="fab-div">
+            wrapper="fab-wrapper">
             <div ref={elRef || ref} {...restProps}>{children}</div>
         </Component>
     )

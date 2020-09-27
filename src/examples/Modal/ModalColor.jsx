@@ -1,16 +1,16 @@
 import React, { useContext } from 'react';
 import {
     Button,
-    ButtonGroup,
     Modal,
     ModalBody,
     ModalController,
     ModalFooter,
     ModalHeader,
     Text,
+    Wrapper
 } from '../../lib';
 
-const ModalColorExample = props => {
+const ModalColorExample = () => {
     const { openModal } = useContext(ModalController);
 
     const handleOpen = color => {
@@ -18,19 +18,14 @@ const ModalColorExample = props => {
     }
 
     return (
-        <ButtonGroup>
-            <Button onClick={() => handleOpen('')}>Open Modal</Button>
-            <Button color="primary" onClick={() => handleOpen('primary')}>Open Modal</Button>
-            <Button color="secondary" onClick={() => handleOpen('secondary')}>Open Modal</Button>
-            <Button color="success" onClick={() => handleOpen('success')}>Open Modal</Button>
-            <Button color="danger" onClick={() => handleOpen('danger')}>Open Modal</Button>
-            <Button color="warning" onClick={() => handleOpen('warning')}>Open Modal</Button>
-            <Button color="hot" onClick={() => handleOpen('hot')}>Open Modal</Button>
-            <Button color="cold" onClick={() => handleOpen('cold')}>Open Modal</Button>
-            <Button color="dark" onClick={() => handleOpen('dark')}>Open Modal</Button>
-            <Button color="light" onClick={() => handleOpen('light')}>Open Modal</Button>
-            <Button color="aux" onClick={() => handleOpen('aux')}>Open Modal</Button>
-        </ButtonGroup>
+        <Wrapper>
+            <Button mr={1} onClick={() => handleOpen('')}>Open Modal</Button>
+            <Button mr={1} color="primary" onClick={() => handleOpen('primary')}>Open Modal</Button>
+            <Button mr={1} color="lavender" onClick={() => handleOpen('lavender')}>Open Modal</Button>
+            <Button mr={1} color="hot" onClick={() => handleOpen('hot')}>Open Modal</Button>
+            <Button mr={1} color="aux" onClick={() => handleOpen('aux')}>Open Modal</Button>
+            <Button mr={1} color="dark" onClick={() => handleOpen('dark')}>Open Modal</Button>
+        </Wrapper>
     )
 }
 
@@ -54,10 +49,10 @@ const TargetModal = props => {
                     </Text>
             </ModalBody>
             <ModalFooter alH="end" color={!color ? 'light' : ''} adaptColor={!!color} flex={true}>
-                <ButtonGroup>
-                    <Button border={!color} color={color} glow={true} onClick={handleClose} lighten={true}>Cancel</Button>
+                <Wrapper>
+                    <Button border={!color} color={color} glow={true} onClick={handleClose} lighten={true} mr={1}>Cancel</Button>
                     <Button border={true} color={!color ? 'danger' : color} glow={true} invert={!!color} onClick={handleClose}>Deactivate</Button>
-                </ButtonGroup>
+                </Wrapper>
             </ModalFooter>
         </Modal>
     )

@@ -12,6 +12,7 @@ const ModalFooter = props => {
 
     return (
         <Component
+            classes={['fab-modal-footer']}
             elRef={elRef}
             properties={props}
             styles={ModalSectionStyles}

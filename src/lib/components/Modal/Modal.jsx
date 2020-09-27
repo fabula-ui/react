@@ -1,10 +1,10 @@
-import React, { 
-    Children, 
+import React, {
+    Children,
     cloneElement,
     useCallback,
-    useContext, 
-    useEffect, 
-    useRef 
+    useContext,
+    useEffect,
+    useRef
 } from 'react';
 import PropTypes from 'prop-types';
 
@@ -41,7 +41,11 @@ const Modal = props => {
             styles={ModalStyles}
             wrapper="fab-modal-wrapper">
             <div data-closing={modalIsClosing} data-open={modalIsOpen} ref={elRef || ref}>
-                <div className="fab-modal">{childrenWithProps}</div>
+                <div className="fab-modal__dialog">
+                    <div className="fab-modal">
+                        {childrenWithProps}
+                    </div>
+                </div>
                 <div className="fab-modal__backdrop" onClick={closeModal}></div>
             </div>
         </Component>

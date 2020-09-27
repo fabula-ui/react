@@ -19,7 +19,7 @@ const Element = props => {
             elRef={elRef || ref}
             properties={props}
             styles={ElementStyles}
-            wrapper="fab-div">
+            wrapper="fab-element">
             <div ref={elRef || ref} {...restProps}>{children}</div>
         </Component>
     )

@@ -14,6 +14,7 @@ const Link = props => {
         aux,
         children,
         className,
+        elRef,
         href,
         label,
         underline,
@@ -21,16 +22,16 @@ const Link = props => {
         target,
         ...rest
     } = props;
-    const elRef = useRef(null);
+    const ref = useRef(null);
     const restProps = getComponentProps(rest);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={LinkStyles}
             wrapper="fab-link">
-            <a href={href || url} ref={elRef} target={target} {...restProps}>
+            <a href={href || url} target={target} ref={elRef || ref} {...restProps}>
                 {label || children}
             </a>
         </Component>

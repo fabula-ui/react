@@ -17,7 +17,7 @@ export default {
     component: Modal,
 };
 
-export const Examples = () => {
+export const Example = () => {
     return (
         <FabulaProvider>
             <UtilsProvider>
@@ -29,7 +29,7 @@ export const Examples = () => {
     )
 };
 
-export const Color = () => {
+export const PropColor = () => {
     return (
         <FabulaProvider>
             <UtilsProvider>
@@ -41,7 +41,7 @@ export const Color = () => {
     )
 };
 
-export const Size = () => {
+export const PropSize = () => {
     return (
         <FabulaProvider>
             <UtilsProvider>

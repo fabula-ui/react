@@ -3,7 +3,7 @@ import React from 'react';
 import { FabulaProvider, Icon, UtilsProvider } from '../lib';
 
 export default {
-	title: 'Icons',
+	title: 'Icon',
 	component: Icon
 };
 

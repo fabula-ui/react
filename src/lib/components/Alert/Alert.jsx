@@ -92,6 +92,9 @@ Alert.defaultProps = {
     color: '',
     faded: false,
     glow: false,
+    hasProperty: {
+        visible: true
+    },
     icon: null,
     invert: false,
     marker: '',

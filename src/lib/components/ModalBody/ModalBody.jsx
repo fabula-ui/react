@@ -13,6 +13,7 @@ const ModalBody = props => {
 
     return (
         <Component
+            classes={['fab-modal-body']}
             elRef={elRef}
             properties={props}
             styles={ModalSectionStyles}

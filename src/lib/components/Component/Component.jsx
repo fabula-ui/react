@@ -46,8 +46,8 @@ const Component = props => {
                 elRef.current.classList.add(css(utilsStyles));
             }
 
-            if (responsiveContext?.added && styles) {                
-                responsiveStyles = require('@fabula/core/styles/responsive/responsive').default({ framework: 'react', props: properties, styles });
+            if (responsiveContext?.added) {                
+                responsiveStyles = require('@fabula/core/styles/responsive/responsive').default({ framework: 'react', props: properties, styles, utils: utilsContext?.added });
                 elRef.current.classList.add(css(responsiveStyles));
             }
         }

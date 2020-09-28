@@ -24,6 +24,9 @@ const Navbar = props => {
 
 Navbar.defaultProps = {
     color: '',
+    hasProperty: {
+        expand: true
+    },
     height: null
 }
 

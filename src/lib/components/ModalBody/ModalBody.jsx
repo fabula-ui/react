@@ -1,23 +1,27 @@
 import React, { useRef } from 'react';
+import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
 
 // Styles
+import ModalBodyStyles from '@fabula/core/styles/components/modal-body/modal-body';
 import ModalSectionStyles from '@fabula/core/styles/components/modal-section/modal-section';
 
 const ModalBody = props => {
     const { children } = props;
+    const sectionCss = css(ModalSectionStyles({ framework: 'react', props }));
     const elRef = useRef(null);
 
     return (
         <Component
-            classes={['fab-modal-body']}
+            classes={['fab-modal-section']}
             elRef={elRef}
+            otherStyles={[sectionCss]}
             properties={props}
-            styles={ModalSectionStyles}
-            wrapper="fab-modal-section">
+            styles={ModalBodyStyles}
+            wrapper="fab-modal-body">
             <div ref={elRef}>
                 {children}
             </div>

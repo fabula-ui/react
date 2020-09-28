@@ -8,16 +8,16 @@ import Component from '../Component/Component';
 import NavbarSectionStyles from '@fabula/core/styles/components/navbar-section/navbar-section';
 
 const NavbarSection = props => {
-    const { children } = props;
-    const elRef = useRef(null);
+    const { children, elRef } = props;
+    const ref = useRef(null);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={NavbarSectionStyles}
             wrapper="fab-navbar-section">
-            <div ref={elRef}>{children}</div>
+            <div ref={elRef || ref}>{children}</div>
         </Component>
     )
 }

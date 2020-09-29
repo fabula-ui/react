@@ -9,11 +9,6 @@ import {
     FabulaProvider,
 } from '../lib';
 
-// Examples
-import ModalExample from '../examples/Modal/Modal';
-import ModalColorExample from '../examples/Modal/ModalColor';
-import ModalSizeExample from '../examples/Modal/ModalSize';
-
 export default {
     title: 'Modal Body',
     component: ModalBody,
@@ -30,7 +25,7 @@ const BaseWrapper = () => {
 
     useEffect(() => {
         openModal(<BaseComponent />)
-    }, []);
+    }, [openModal]);
 
     return <></>
 }

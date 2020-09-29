@@ -45,6 +45,9 @@ Tab.defaultProps = {
     color: '',
     expand: false,
     faded: false,
+    hasProperty: {
+        expand: true
+    },
     href: '',
     inactiveTextColor: '',
     invert: false,

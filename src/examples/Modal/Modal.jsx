@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import {
     Button,
-    Element,
     Modal,
     ModalBody,
     ModalController,

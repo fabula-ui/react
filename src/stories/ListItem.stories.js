@@ -2,11 +2,9 @@ import React from 'react';
 
 import {
     Badge,
-    Column,
     FabulaProvider,
     List,
     ListItem,
-    Row,
     Tag,
     TagGroup,
     Text,

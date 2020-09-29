@@ -2,8 +2,6 @@ import React from 'react';
 
 import {
     Button,
-    Card,
-    Column,
     Container,
     FabulaProvider,
     Navbar,
@@ -13,9 +11,7 @@ import {
     Tabs,
     Icon,
     NavbarSection,
-    Row,
     UtilsProvider,
-    Wrapper,
     ResponsiveProvider,
 } from '../lib';
 

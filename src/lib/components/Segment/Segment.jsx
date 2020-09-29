@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
@@ -12,7 +12,7 @@ const Segment = props => {
     const [active, setActive] = useState(props.active);
     const elRef = useRef(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (activeSegment) { setActive(activeSegment === name); }
     }, [activeSegment, name]);
 

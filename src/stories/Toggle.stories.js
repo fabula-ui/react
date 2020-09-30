@@ -4,7 +4,8 @@ import {
     Div,
     FabulaProvider,
     Toggle,
-    UtilsProvider
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -12,155 +13,132 @@ export default {
     component: Toggle,
 };
 
-export const Examples = () => (
+export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div row>
-                <Toggle col="4" label="Toggle Label" />
-                <Toggle col="4" label="Toggle Label" rounded={false} />
-            </Div>
+            <Toggle label="Toggle Label" mb={1} />
+            <Toggle>Toggle Label</Toggle>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const ActiveColor = () => (
+export const PropActiveColor = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Toggle active={true} col="2" label="Toggle Label" />
-                <Toggle active={true} col="2" activeColor="primary" label="Toggle Label" />
-                <Toggle active={true} col="2" activeColor="secondary" label="Toggle Label" />
-                <Toggle active={true} col="2" activeColor="success" label="Toggle Label" />
-                <Toggle active={true} col="2" activeColor="danger" label="Toggle Label" />
-                <Toggle active={true} col="2" activeColor="warning" label="Toggle Label" />
-            </Div>
-
-            <Div mb="1" row>
-                <Toggle active={true} col="2" activeColor="hot" label="Toggle Label" />
-                <Toggle active={true} col="2" activeColor="cold" label="Toggle Label" />
-                <Toggle active={true} col="2" activeColor="dark" label="Toggle Label" />
-                <Toggle active={true} col="2" activeColor="light" label="Toggle Label" />
-                <Toggle active={true} col="2" activeColor="aux" label="Toggle Label" />
-            </Div>
+            <Wrapper flex={true} mb={1}>
+                <Toggle activeColor="primary" label="Inactive" mr={1} />
+                <Toggle active={true} activeColor="primary" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle activeColor="lavender" label="Inactive" mr={1} />
+                <Toggle active={true} activeColor="lavender" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle activeColor="hot" label="Inactive" mr={1} />
+                <Toggle active={true} activeColor="hot" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle activeColor="aux" label="Inactive" mr={1} />
+                <Toggle active={true} activeColor="aux" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="dark" label="Inactive" mr={1} />
+                <Toggle active={true} color="dark" label="Active" />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Color = () => (
+export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Toggle active={true} col="2" label="Toggle Label" />
-                <Toggle active={true} col="2" color="primary" label="Toggle Label" />
-                <Toggle active={true} col="2" color="secondary" label="Toggle Label" />
-                <Toggle active={true} col="2" color="success" label="Toggle Label" />
-                <Toggle active={true} col="2" color="danger" label="Toggle Label" />
-                <Toggle active={true} col="2" color="warning" label="Toggle Label" />
-            </Div>
-
-            <Div mb="1" row>
-                <Toggle active={true} col="2" color="hot" label="Toggle Label" />
-                <Toggle active={true} col="2" color="cold" label="Toggle Label" />
-                <Toggle active={true} col="2" color="dark" label="Toggle Label" />
-                <Toggle active={true} col="2" color="light" label="Toggle Label" />
-                <Toggle active={true} col="2" color="aux" label="Toggle Label" />
-            </Div>
-
-            <Div mb="1" row>
-                <Toggle col="2" label="Toggle Label" />
-                <Toggle col="2" color="primary" label="Toggle Label" />
-                <Toggle col="2" color="secondary" label="Toggle Label" />
-                <Toggle col="2" color="success" label="Toggle Label" />
-                <Toggle col="2" color="danger" label="Toggle Label" />
-                <Toggle col="2" color="warning" label="Toggle Label" />
-            </Div>
-
-            <Div mb="1" row>
-                <Toggle col="2" color="hot" label="Toggle Label" />
-                <Toggle col="2" color="cold" label="Toggle Label" />
-                <Toggle col="2" color="dark" label="Toggle Label" />
-                <Toggle col="2" color="light" label="Toggle Label" />
-                <Toggle col="2" color="aux" label="Toggle Label" />
-            </Div>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="primary" label="Inactive" mr={1} />
+                <Toggle active={true} color="primary" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="lavender" label="Inactive" mr={1} />
+                <Toggle active={true} color="lavender" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="hot" label="Inactive" mr={1} />
+                <Toggle active={true} color="hot" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="aux" label="Inactive" mr={1} />
+                <Toggle active={true} color="aux" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="dark" label="Inactive" mr={1} />
+                <Toggle active={true} color="dark" label="Active" />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Disabled = () => (
+export const PropDisabled = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Toggle active={true} col="2" disabled={true} label="Toggle Label" />
-                <Toggle active={true} col="2" color="primary" disabled={true} label="Toggle Label" />
-                <Toggle active={true} col="2" color="secondary" disabled={true} label="Toggle Label" />
-                <Toggle active={true} col="2" color="success" disabled={true} label="Toggle Label" />
-                <Toggle active={true} col="2" color="danger" disabled={true} label="Toggle Label" />
-                <Toggle active={true} col="2" color="warning" disabled={true} label="Toggle Label" />
-            </Div>
-
-            <Div mb="1" row>
-                <Toggle active={true} col="2" color="hot" disabled={true} label="Toggle Label" />
-                <Toggle active={true} col="2" color="cold" disabled={true} label="Toggle Label" />
-                <Toggle active={true} col="2" color="dark" disabled={true} label="Toggle Label" />
-                <Toggle active={true} col="2" color="light" disabled={true} label="Toggle Label" />
-                <Toggle active={true} col="2" color="aux" disabled={true} label="Toggle Label" />
-            </Div>
-
-            <Div mb="1" row>
-                <Toggle col="2" disabled={true} label="Toggle Label" />
-                <Toggle col="2" color="primary" disabled={true} label="Toggle Label" />
-                <Toggle col="2" color="secondary" disabled={true} label="Toggle Label" />
-                <Toggle col="2" color="success" disabled={true} label="Toggle Label" />
-                <Toggle col="2" color="danger" disabled={true} label="Toggle Label" />
-                <Toggle col="2" color="warning" disabled={true} label="Toggle Label" />
-            </Div>
-
-            <Div mb="1" row>
-                <Toggle col="2" color="hot" disabled={true} label="Toggle Label" />
-                <Toggle col="2" color="cold" disabled={true} label="Toggle Label" />
-                <Toggle col="2" color="dark" disabled={true} label="Toggle Label" />
-                <Toggle col="2" color="light" disabled={true} label="Toggle Label" />
-                <Toggle col="2" color="aux" disabled={true} label="Toggle Label" />
-            </Div>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="primary" disabled={true} label="Inactive" mr={1} />
+                <Toggle active={true} color="primary" disabled={true} label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="lavender" disabled={true} label="Inactive" mr={1} />
+                <Toggle active={true} color="lavender" disabled={true} label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="hot" disabled={true} label="Inactive" mr={1} />
+                <Toggle active={true} color="hot" disabled={true} label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="aux" disabled={true} label="Inactive" mr={1} />
+                <Toggle active={true} color="aux" disabled={true} label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle color="dark" disabled={true} label="Inactive" mr={1} />
+                <Toggle active={true} color="dark" disabled={true} label="Active" />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const InactiveColor = () => (
+export const PropInactiveColor = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Toggle col="2" />
-                <Toggle col="2" inactiveColor="primary" label="Toggle Label" />
-                <Toggle col="2" inactiveColor="secondary" label="Toggle Label" />
-                <Toggle col="2" inactiveColor="success" label="Toggle Label" />
-                <Toggle col="2" inactiveColor="danger" label="Toggle Label" />
-                <Toggle col="2" inactiveColor="warning" label="Toggle Label" />
-            </Div>
-
-            <Div mb="1" row>
-                <Toggle col="2" inactiveColor="hot" label="Toggle Label" />
-                <Toggle col="2" inactiveColor="cold" label="Toggle Label" />
-                <Toggle col="2" inactiveColor="dark" label="Toggle Label" />
-                <Toggle col="2" inactiveColor="light" label="Toggle Label" />
-                <Toggle col="2" inactiveColor="aux" label="Toggle Label" />
-            </Div>
+            <Wrapper flex={true} mb={1}>
+                <Toggle inactiveColor="primary" label="Inactive" mr={1} />
+                <Toggle active={true} inactiveColor="primary" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle inactiveColor="lavender" label="Inactive" mr={1} />
+                <Toggle active={true} inactiveColor="lavender" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle inactiveColor="hot" label="Inactive" mr={1} />
+                <Toggle active={true} inactiveColor="hot" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle inactiveColoractiveColor="aux" label="Inactive" mr={1} />
+                <Toggle active={true} inactiveColor="aux" label="Active" />
+            </Wrapper>
+            <Wrapper flex={true} mb={1}>
+                <Toggle inactiveColor="dark" label="Inactive" mr={1} />
+                <Toggle active={true} inactiveColor="dark" label="Active" />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Size = () => (
+export const PropSize = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Toggle active={true} col="3" label="Toggle Label" size="xl" />
-                <Toggle active={true} col="3" label="Toggle Label" size="lg" />
-                <Toggle active={true} col="3" label="Toggle Label" size="md" />
-                <Toggle active={true} col="3" label="Toggle Label" size="sm" />
-            </Div>
-            <Div mb="1" row>
-                <Toggle active={true} col="3" label="Toggle Label" size="xs" />
-            </Div>
+            <Toggle active={true} label="Extra-small Toggle" mb={1} size="xs" />
+            <Toggle active={true} label="Small Toggle" mb={1} size="sm" />
+            <Toggle active={true} label="Medium Label" mb={1} size="md" />
+            <Toggle active={true} label="Large Toggle" mb={1} size="lg" />
+            <Toggle active={true} label="Extra-large Toggle" mb={1} size="xl" />
+            <Toggle active={true} label="2x Extra-large Toggle" size="xxl" />
         </UtilsProvider>
     </FabulaProvider>
 )

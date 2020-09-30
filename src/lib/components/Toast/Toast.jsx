@@ -93,9 +93,9 @@ const Toast = props => {
                         {children}
                         {(!!button || !!hideButton || !!link) &&
                             <div className="fab-toast__close-button">
-                                {!!hideButton && <Button size="sm" {...hideButton} data-close-button onClick={hideToast} />}
+                                {!!hideButton && !link && !button && <Button size="sm" {...hideButton} data-close-button onClick={hideToast} />}
                                 {!!button && <Button size="sm" {...button} />}
-                                {!!link && !link.button && <Link {...link} />}
+                                {!!link && !button && !link.button && <Link {...link} />}
                             </div>
                         }
                     </div>

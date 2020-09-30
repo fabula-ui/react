@@ -163,7 +163,7 @@ export const PropShowInitials = () => (
             </Wrapper>
 
             <Wrapper>
-                <Avatar mr="1" showInitials="Default" />
+                <Avatar mr="1" rounded={true} showInitials="Default Rounded" />
                 <Avatar color="primary" mr="1" rounded={true} showInitials="Primary Rounded" />
                 <Avatar color="lavender" mr="1" rounded={true} showInitials="Lavender Rounded" />
                 <Avatar color="hot" mr="1" rounded={true} showInitials="Hot Rounded" />

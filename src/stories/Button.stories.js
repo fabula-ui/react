@@ -13,7 +13,7 @@ export default {
   component: Button,
 };
 
-export const Examples = () => (
+export const Example = () => (
   <FabulaProvider>
     <UtilsProvider>
       <Button mr={1}>Button</Button>

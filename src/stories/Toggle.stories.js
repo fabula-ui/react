@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {
-    Div,
     FabulaProvider,
     Toggle,
     UtilsProvider,

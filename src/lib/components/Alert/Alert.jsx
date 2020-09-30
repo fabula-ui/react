@@ -66,7 +66,7 @@ const Alert = props => {
     // Hooks
     useEffect(() => {
         if (type) { handleType(type); }
-    }, [type]);
+    }, [handleType, type]);
 
     useEffect(() => {
         if (visible != null) { setIsVisible(visible); }

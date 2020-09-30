@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
 import CloseButton from '../CloseButton/CloseButton';
+import Component from '../Component/Component';
 import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Methods
@@ -10,7 +11,6 @@ import getTransitionDuration from '@fabula/core/styles/methods/misc/getTransitio
 
 // Styles
 import AlertStyles from '@fabula/core/styles/components/alert/alert';
-import Component from '../Component/Component';
 
 const Alert = props => {
     const {
@@ -27,9 +27,47 @@ const Alert = props => {
     } = props;
     const [isClosing, setIsClosing] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
+    const [typeIcon, setTypeIcon] = useState(null);
     const ref = useRef(null);
 
+    // Callbacks
+    const handleType = useCallback((type) => {
+        let typeIcon;
+        
+        switch (type) {
+            case 'danger':
+                typeIcon = {
+                    color: 'danger',
+                    name: 'alert-triangle'
+                };
+                break;
+            case 'success':
+                typeIcon = {
+                    color: 'success',
+                    name: 'check'
+                };
+                break;
+            case 'warning':
+                typeIcon = {
+                    color: 'warning',
+                    name: 'alert-circle'
+                };
+                break;
+            default:
+                typeIcon = {
+                    color: 'cold',
+                    name: 'info'
+                };
+        }
+
+        setTypeIcon(typeIcon);
+    }, []);
+
     // Hooks
+    useEffect(() => {
+        if (type) { handleType(type); }
+    }, [type]);
+
     useEffect(() => {
         if (visible != null) { setIsVisible(visible); }
     }, [visible]);
@@ -60,11 +98,8 @@ const Alert = props => {
                     data-title={!!title}
                     data-visible={isVisible}
                     ref={ref || elRef}>
-                    {!!icon && !type && <InnerIcon icon={icon} parentProps={props} />}
-                    {type === 'danger' && <InnerIcon icon={{ color: 'danger', name: 'alert-triangle' }} parentProps={props} />}
-                    {type === 'info' && <InnerIcon icon={{ color: 'info', name: 'info' }} parentProps={props} />}
-                    {type === 'success' && <InnerIcon icon={{ color: 'success', name: 'check' }} parentProps={props} />}
-                    {type === 'warning' && <InnerIcon icon={{ color: 'warning', name: 'alert-circle' }} parentProps={props} />}
+                    {!!icon && !typeIcon && <InnerIcon icon={icon} parentProps={props} />}
+                    {!!typeIcon && <InnerIcon icon={typeIcon} parentProps={props} />}
                     <div className="fab-alert__stage">
                         {!!title &&
                             <div className="fab-alert__title">{title}</div>

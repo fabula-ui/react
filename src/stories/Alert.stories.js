@@ -17,7 +17,7 @@ const BaseComponent = props => (
 )
 
 // Stories
-export const Examples = () => (
+export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
             <BaseComponent mb={1} type="success" />
@@ -43,6 +43,7 @@ export const PropClear = () => (
             <BaseComponent clear={true} mb={1} />
             <BaseComponent clear={true} color="primary" mb={1} />
             <BaseComponent clear={true} color="lavender" mb={1} />
+            <BaseComponent clear={true} color="hot" mb={1} />
             <BaseComponent clear={true} color="aux" mb={1} />
             <BaseComponent clear={true} color="dark" />
         </UtilsProvider>
@@ -55,6 +56,7 @@ export const PropCloseButton = () => (
             <BaseComponent closeButton={true} mb={1} />
             <BaseComponent closeButton={true} color="primary" mb={1} />
             <BaseComponent closeButton={true} color="lavender" mb={1} />
+            <BaseComponent closeButton={true} color="hot" mb={1} />
             <BaseComponent closeButton={true} color="aux" mb={1} />
             <BaseComponent closeButton={true} color="dark" />
         </UtilsProvider>
@@ -66,6 +68,7 @@ export const PropColor = () => (
         <UtilsProvider>
             <BaseComponent color="primary" mb={1} />
             <BaseComponent color="lavender" mb={1} />
+            <BaseComponent color="hot" mb={1} />
             <BaseComponent color="aux" mb={1} />
             <BaseComponent color="dark" />
         </UtilsProvider>
@@ -78,6 +81,7 @@ export const PropFaded = () => (
             <BaseComponent faded={true} mb={1} />
             <BaseComponent color="primary" faded={true} mb={1} />
             <BaseComponent color="lavender" faded={true} mb={1} />
+            <BaseComponent color="hot" faded={true} mb={1} />
             <BaseComponent color="aux" faded={true} mb={1} />
             <BaseComponent color="dark" faded={true} />
         </UtilsProvider>
@@ -90,6 +94,7 @@ export const PropGlow = () => (
             <BaseComponent glow={true} mb={1} />
             <BaseComponent color="primary" glow={true} mb={1} />
             <BaseComponent color="lavender" glow={true} mb={1} />
+            <BaseComponent color="hot" glow={true} mb={1} />
             <BaseComponent color="aux" glow={true} mb={1} />
             <BaseComponent color="dark" glow={true} />
         </UtilsProvider>
@@ -110,6 +115,7 @@ export const PropInvert = () => (
             <BaseComponent invert={true} mb={1} />
             <BaseComponent color="primary" invert={true} mb={1} />
             <BaseComponent color="lavender" invert={true} mb={1} />
+            <BaseComponent color="hot" invert={true} mb={1} />
             <BaseComponent color="aux" invert={true} mb={1} />
             <BaseComponent color="dark" invert={true} />
         </UtilsProvider>
@@ -121,6 +127,7 @@ export const PropMarker = () => (
         <UtilsProvider>
             <BaseComponent marker="primary" mb={1} />
             <BaseComponent marker="lavender" mb={1} />
+            <BaseComponent marker="hot" mb={1} />
             <BaseComponent marker="aux" mb={1} />
             <BaseComponent marker="dark" />
         </UtilsProvider>
@@ -133,6 +140,7 @@ export const PropOutline = () => (
             <BaseComponent outline={true} mb={1} />
             <BaseComponent color="primary" outline={true} mb={1} />
             <BaseComponent color="lavender" outline={true} mb={1} />
+            <BaseComponent color="hot" outline={true} mb={1} />
             <BaseComponent color="aux" outline={true} mb={1} />
             <BaseComponent color="dark" outline={true} />
         </UtilsProvider>
@@ -144,6 +152,7 @@ export const PropTextColor = () => (
         <UtilsProvider>
             <BaseComponent textColor="primary" mb={1} />
             <BaseComponent textColor="lavender" mb={1} />
+            <BaseComponent textColor="hot" mb={1} />
             <BaseComponent textColor="aux" mb={1} />
             <BaseComponent textColor="dark" />
         </UtilsProvider>
@@ -156,6 +165,7 @@ export const PropTitleColor = () => (
             <BaseComponent titleColor="primary" mb={1} />
             <BaseComponent titleColor="lavender" mb={1} />
             <BaseComponent titleColor="aux" mb={1} />
+            <BaseComponent titleColor="hot" mb={1} />
             <BaseComponent titleColor="dark" />
         </UtilsProvider>
     </FabulaProvider>

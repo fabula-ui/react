@@ -26,7 +26,7 @@ export default {
   component: Card,
 };
 
-// Base component
+// Base components
 const BaseComponent = props => (
   <Card {...props}>
     <CardImage color={props.color} darken={!!props.color} height="120" />
@@ -40,8 +40,32 @@ const BaseComponent = props => (
   </Card>
 )
 
+const ListItemExample = ({ children, title, ...rest }) => (
+  <ListItem flex={true} {...rest}>
+    <Wrapper flex={true} flow="v" grow={1}>
+      <Text size="lg" weight={600}>
+        <Text inline={true} mr={.5}>{title}</Text>
+        {children}
+      </Text>
+      <Text aux inline={true}>List item subtitle</Text>
+    </Wrapper>
+    <Div alH="end" direction="column" flex={true}>
+      <TagGroup mb={.5}>
+        <Tag>Tag 1</Tag>
+        <Tag>Tag 2</Tag>
+        <Tag>Tag 3</Tag>
+      </TagGroup>
+
+      <Text alV="center" aux={true} flex={true}>
+        <Icon mr=".5" name="clock" />
+        <span>2 hours</span>
+      </Text>
+    </Div>
+  </ListItem>
+)
+
 // Stories
-export const Examples = () => (
+export const Example = () => (
   <FabulaProvider>
     <UtilsProvider>
       <Row>
@@ -66,77 +90,23 @@ export const Examples = () => (
           <Card>
             <CardImage height={120} />
             <CardSection padding>
-              <Text block size="xl" weight="600">Card Title</Text>
-              <Text aux block>Card subtitle</Text>
+              <Text size="xl" weight="600">Card Title</Text>
+              <Text aux={true}>Card subtitle</Text>
             </CardSection>
             <CardSection>
-              <List padding striped>
-                <ListItem flex>
-                  <Div flex flow="v" grow={1}>
-                    <Text size="lg" weight={600}>
-                      <Text inline={true} mr={.5}>Full-stack Engineer</Text>
-                      <Badge color="#E3FFD9">Full-time</Badge>
-                    </Text>
-                    <Text aux inline={true}>Google</Text>
-                  </Div>
-                  <Div alH="end" direction="column" flex>
-                    <TagGroup mb={.5}>
-                      <Tag>Angular</Tag>
-                      <Tag>Engineering</Tag>
-                      <Tag>Node</Tag>
-                    </TagGroup>
-
-                    <Text alV="center" aux flex={true}>
-                      <Icon mr=".5" name="clock" />
-                      <span>2 hours</span>
-                    </Text>
-                  </Div>
-                </ListItem>
-
-                <ListItem flex>
-                  <Div flex flow="v" grow={1}>
-                    <Text size="lg" weight={600}>
-                      <Text inline={true} mr={.5}>Frontend Developer</Text>
-                      <Badge color="#FFECD9">Part-time</Badge>
-                    </Text>
-                    <Text inline={true} aux={true}>Amazon</Text>
-                  </Div>
-                  <Div alH="end" direction="column" flex>
-                    <TagGroup mb={.5}>
-                      <Tag>Angular</Tag>
-                      <Tag>Engineering</Tag>
-                      <Tag>Node</Tag>
-                    </TagGroup>
-
-                    <Text alV="center" aux flex={true}>
-                      <Icon mr=".5" name="clock" />
-                      <span>2 hours</span>
-                    </Text>
-                  </Div>
-                </ListItem>
-
-                <ListItem flex>
-                  <Div flex flow="v" grow={1}>
-                    <Text size="lg" weight={600}>
-                      <Text inline={true} mr={.5}>Backend Developer</Text>
-                      <Badge color="#FFECD9" mr={.5}>Part-time</Badge>
-                      <Badge color="#D9E9FF">Remote</Badge>
-                    </Text>
-                    <Text aux inline={true}>Netflix</Text>
-                  </Div>
-                  <Div alH="end" direction="column" flex>
-                    <TagGroup mb={.5}>
-                      <Tag>Angular</Tag>
-                      <Tag>Engineering</Tag>
-                      <Tag>Node</Tag>
-                    </TagGroup>
-
-                    <Text alV="center" aux flex={true}>
-                      <Icon mr=".5" name="clock" />
-                      <span>2 hours</span>
-                    </Text>
-                  </Div>
-                </ListItem>
+              <List padding={true} striped={true}>
+                <ListItemExample title="List Item 1">
+                  <Badge mr={.5}>Badge 1</Badge>
+                  <Badge color="primary">Badge 2</Badge>
+                </ListItemExample>
+                <ListItemExample title="List Item 2">
+                  <Badge color="lavender" mr={.5}>Badge 3</Badge>
+                  <Badge color="hot">Badge 4</Badge>
+                </ListItemExample>
+                <ListItemExample title="List Item 3">
+                  <Badge color="aux" mr={.5}>Badge 5</Badge>
+                  <Badge color="dark">Badge 6</Badge>
+                </ListItemExample>
               </List>
             </CardSection>
             <CardSection padding={true}>

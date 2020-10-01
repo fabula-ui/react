@@ -28,18 +28,14 @@ ButtonGroup.defaultProps = {
     color: '',
     divider: true,
     dividerColor: '',
-    glued: false,
     layout: 'horizontal',
-    spacing: null
 }
 
 ButtonGroup.propTypes = {
     color: PropTypes.string,
     divider: PropTypes.bool,
     dividerColor: PropTypes.string,
-    glued: PropTypes.bool,
     layout: PropTypes.string,
-    spacing: PropTypes.any
 }
 
 export default ButtonGroup;

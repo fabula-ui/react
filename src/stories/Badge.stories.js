@@ -54,23 +54,23 @@ export const Example = () => (
             </Wrapper>
             <Divider my={1} />
             <Button color="primary" compact={true} mr="1">
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="primary" invert={true}>99+</Badge>
             </Button>
             <Button color="lavender" compact={true} mr="1">
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="lavender" invert={true}>99+</Badge>
             </Button>
             <Button color="hot" compact={true} mr="1">
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="hot" invert={true}>99+</Badge>
             </Button>
             <Button color="aux" compact={true} mr="1">
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="aux" invert={true}>99+</Badge>
             </Button>
             <Button color="dark" compact={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="dark" invert={true}>99+</Badge>
             </Button>
             <Divider my={1} />
@@ -93,27 +93,27 @@ export const PropClear = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge clear={true}>9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge clear={true} color="primary">9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge clear={true} color="lavender">9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge clear={true} color="hot">9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge clear={true} color="aux">9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge clear={true} color="dark">9</Badge>
             </Button>
         </UtilsProvider>
@@ -124,27 +124,27 @@ export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge>9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="primary">9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="lavender">9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="hot">9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="aux">9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="dark">9</Badge>
             </Button>
         </UtilsProvider>
@@ -155,27 +155,27 @@ export const PropDarken = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge darken={true}>9</Badge>
             </Button>
             <Button color="primary" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="primary" darken={true}>9</Badge>
             </Button>
             <Button color="lavender" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="lavender" darken={true}>9</Badge>
             </Button>
             <Button color="hot" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="hot" darken={true}>9</Badge>
             </Button>
             <Button color="aux" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="aux" darken={true}>9</Badge>
             </Button>
             <Button color="dark" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="dark" darken={true}>9</Badge>
             </Button>
         </UtilsProvider>
@@ -186,27 +186,27 @@ export const PropFaded = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge faded={true}>9</Badge>
             </Button>
             <Button color="primary" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="primary" faded={true}>9</Badge>
             </Button>
             <Button color="lavender" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="lavender" faded={true}>9</Badge>
             </Button>
             <Button color="hot" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="hot" faded={true}>9</Badge>
             </Button>
             <Button color="aux" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="aux" faded={true}>9</Badge>
             </Button>
             <Button color="dark" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="dark" faded={true}>9</Badge>
             </Button>
         </UtilsProvider>
@@ -217,27 +217,27 @@ export const PropInvert = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge invert={true}>9</Badge>
             </Button>
             <Button color="primary" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="primary" invert={true}>9</Badge>
             </Button>
             <Button color="lavender" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="lavender" invert={true}>9</Badge>
             </Button>
             <Button color="hot" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="hot" invert={true}>9</Badge>
             </Button>
             <Button color="aux" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="aux" invert={true}>9</Badge>
             </Button>
             <Button color="dark" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="dark" invert={true}>9</Badge>
             </Button>
         </UtilsProvider>
@@ -248,27 +248,27 @@ export const PropLighten = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Button border={true} compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge lighten={true}>9</Badge>
             </Button>
             <Button color="primary" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="primary" lighten={true}>9</Badge>
             </Button>
             <Button color="lavender" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="lavender" lighten={true}>9</Badge>
             </Button>
             <Button color="hot" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="hot" lighten={true}>9</Badge>
             </Button>
             <Button color="aux" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="aux" lighten={true}>9</Badge>
             </Button>
             <Button color="dark" compact={true} mr={1}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="dark" lighten={true}>9</Badge>
             </Button>
         </UtilsProvider>
@@ -279,27 +279,27 @@ export const PropOutline = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Button compact={true} mr={1} outline={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge outline={true}>9</Badge>
             </Button>
             <Button compact={true} mr={1} outline={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="primary" outline={true}>9</Badge>
             </Button>
             <Button compact={true} mr={1} outline={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="lavender" outline={true}>9</Badge>
             </Button>
             <Button compact={true} mr={1} outline={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="hot" outline={true}>9</Badge>
             </Button>
             <Button compact={true} mr={1} outline={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="aux" outline={true}>9</Badge>
             </Button>
             <Button compact={true} mr={1} outline={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="dark" outline={true}>9</Badge>
             </Button>
         </UtilsProvider>
@@ -310,27 +310,27 @@ export const PropRounded = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Button border={true} compact={true} mr={1} rounded={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge rounded={true}>9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1} rounded={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="primary" rounded={true}>9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1} rounded={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="lavender" rounded={true}>9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1} rounded={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="hot" rounded={true}>9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1} rounded={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="aux" rounded={true}>9</Badge>
             </Button>
             <Button border={true} compact={true} mr={1} rounded={true}>
-                <Element>Button</Element>
+                <Element mr={.5}>Button</Element>
                 <Badge color="dark" rounded={true}>9</Badge>
             </Button>
         </UtilsProvider>

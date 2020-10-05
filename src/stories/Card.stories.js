@@ -8,12 +8,12 @@ import {
   CardSection,
   Column,
   Div,
+  Element,
   FabulaProvider,
   Icon,
   List,
   ListItem,
   Row,
-  Strong,
   UtilsProvider,
   Tag,
   TagGroup,
@@ -188,12 +188,12 @@ export const PropLayout = () => (
           <Card>
             <CardImage height={200} />
             <CardSection divider="top" padding>
-              <Text flex size="lg">
-                <Strong mr=".5">Card Title</Strong>
+              <Element flex={true}>
+                <Text inline={true} mr={.5} size="lg" strong={true}>Card Title</Text>
                 <Badge color="primary">New</Badge>
-              </Text>
-              <Text aux block mb="1" size="sm" span>Card subtitle</Text>
-              <Text mb="1">This is some text inside this card. You can add whatever content in here.</Text>
+              </Element>
+              <Text aux={true} mb={1} size="sm">Card subtitle</Text>
+              <Text mb={1}>This is some text inside this card. You can add whatever content in here.</Text>
             </CardSection>
             <CardSection divider="top" padding>
               <Button color="primary" expand>Card Button</Button>
@@ -205,10 +205,10 @@ export const PropLayout = () => (
           <Card layout="h" mb={1}>
             <CardImage width={200} />
             <CardSection grow={1} padding>
-              <Text size="lg">
-                <Text inline={true} mr=".5" strong={true}>Card Title</Text>
+              <Element>
+                <Text inline={true} mr=".5" size="lg" strong={true}>Card Title</Text>
                 <Badge color="primary">New</Badge>
-              </Text>
+              </Element>
               <Text aux={true} mb="1" size="sm" span>Card subtitle</Text>
               <Text>This is some text inside this card. You can add whatever content in here.</Text>
               <Button color="primary" expand={true} mt={1}>Card Button</Button>
@@ -217,10 +217,10 @@ export const PropLayout = () => (
 
           <Card layout="h">
             <CardSection grow={1} padding>
-              <Text size="lg">
-                <Text inline={true} mr=".5" strong={true}>Card Title</Text>
+              <Element>
+                <Text inline={true} mr=".5" size="lg" strong={true}>Card Title</Text>
                 <Badge color="primary">New</Badge>
-              </Text>
+              </Element>
               <Text aux block mb="1" size="sm" span>Card subtitle</Text>
               <Text>This is some text inside this card. You can add whatever content in here.</Text>
               <Button color="primary" expand={true} mt={1}>Card Button</Button>

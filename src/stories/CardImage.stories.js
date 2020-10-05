@@ -14,7 +14,7 @@ import {
 } from '../lib';
 
 export default {
-  title: 'CardImage',
+  title: 'Card Image',
   component: CardImage,
 };
 
@@ -30,6 +30,18 @@ const BaseComponent = props => (
 )
 
 // Stories
+export const Example = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <Row>
+        <Column col={3}>
+          <BaseComponent />
+        </Column>
+      </Row>
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
 export const PropColor = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -150,6 +162,35 @@ export const PropIcon = () => (
         </Column>
         <Column col={4}>
           <BaseComponent icon="toggle-right" />
+        </Column>
+      </Row>
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
+export const PropLighten = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <Row mb={1}>
+        <Column col={3}>
+          <BaseComponent lighten={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="primary" lighten={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="lavender" lighten={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="hot" lighten={true} />
+        </Column>
+      </Row>
+      <Row>
+        <Column col={3}>
+          <BaseComponent color="aux" lighten={true} />
+        </Column>
+        <Column col={3}>
+          <BaseComponent color="dark" lighten={true} />
         </Column>
       </Row>
     </UtilsProvider>

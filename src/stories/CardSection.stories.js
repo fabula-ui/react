@@ -36,10 +36,10 @@ const BaseComponent = ({ color, darken, divider, faded, lighten }) => (
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Card width="300px">
+            <Card width="400px">
                 <CardImage height={120} />
                 <CardSection padding={true}>
-                    <Text block size="lg" weight={700}>Card Title</Text>
+                    <Text size="lg" weight={700}>Card Title</Text>
                     <Text aux={true} size="sm">Card subtitle</Text>
                 </CardSection>
                 <CardSection divider="top" padding={true}>

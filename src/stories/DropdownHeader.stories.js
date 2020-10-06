@@ -20,9 +20,9 @@ export const Example = () => (
 	<FabulaProvider>
 		<UtilsProvider>
 			<Dropdown>
-				<DropdownToggle color="primary" label="Dropdown Toggle" />
+				<DropdownToggle color="primary">Dropdown Toggle</DropdownToggle>
 				<DropdownMenu>
-					<DropdownHeader color="primary" pl={1}>Dropdown Header</DropdownHeader>
+					<DropdownHeader pl={1}>Dropdown Header</DropdownHeader>
 					<DropdownItem button={true}>Dropdown Item 1</DropdownItem>
 					<DropdownItem button={true}>Dropdown Item 2</DropdownItem>
 					<Divider />
@@ -37,7 +37,7 @@ export const PropColor = () => (
 	<FabulaProvider>
 		<UtilsProvider>
 			<Dropdown>
-				<DropdownToggle color="primary" label="Dropdown Toggle" />
+				<DropdownToggle color="primary">Dropdown Toggle</DropdownToggle>
 				<DropdownMenu>
 					<DropdownHeader color="primary">Dropdown Header</DropdownHeader>
 					<DropdownItem button={true}>Dropdown Item 1</DropdownItem>

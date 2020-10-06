@@ -13,7 +13,7 @@ import {
 } from '../lib';
 
 export default {
-    title: 'CardSection',
+    title: 'Card Section',
     component: CardSection,
 };
 

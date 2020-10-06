@@ -30,7 +30,10 @@ export const Example = () => (
 	<FabulaProvider>
 		<UtilsProvider>
 			<Dropdown>
-				<DropdownToggle color="primary" icon="map-pin" compact={true} label="Button" />
+				<DropdownToggle color="primary" compact={true}>
+					<Icon mr={.5} name="map-pin" />
+					<span>Dropdown Toggle</span>
+				</DropdownToggle>
 				<DropdownMenu clickToClose={true} onClickItem={() => console.log('Parent onClick')}>
 					<DropdownHeader>
 						<Icon mr={0.3} name="database" />
@@ -52,7 +55,7 @@ export const Example = () => (
 						<Icon mr=".5" name="database" />
 						<Element grow={1} mr={1}>
 							Dropdown Item 5
-							</Element>
+						</Element>
 						<Badge color="primary" invert={true} rounded={true} size="sm">
 							1
 						</Badge>
@@ -68,14 +71,20 @@ export const PropAlignment = () => (
 		<UtilsProvider>
 			<Wrapper flex={true}>
 				<Dropdown alignment="left" mr={1}>
-					<DropdownToggle color="primary" icon="arrow-left-circle" compact={true} label="Alignment: Left" />
+					<DropdownToggle color="primary" compact={true}>
+						<Icon mr={.5} name="arrow-left-circle" />
+						<span>Alignment: Left</span>
+					</DropdownToggle>
 					<DropdownMenu clickToClose={true}>
 						<DropdownItem button={true}>This dropdown is aligned to the left</DropdownItem>
 					</DropdownMenu>
 				</Dropdown>
 
 				<Dropdown alignment="right">
-					<DropdownToggle color="primary" icon="arrow-right-circle" compact={true} label="Alignment: Right" />
+					<DropdownToggle color="primary" compact={true}>
+						<Icon mr={.5} name="arrow-right-circle" />
+						<span>Alignment: Right</span>
+					</DropdownToggle>
 					<DropdownMenu clickToClose={true}>
 						<DropdownItem button={true}>This dropdown is aligned to the right</DropdownItem>
 					</DropdownMenu>
@@ -90,14 +99,20 @@ export const PropDirection = () => (
 		<UtilsProvider>
 			<Wrapper flex={true} mt={5}>
 				<Dropdown direction="down" mr={1}>
-					<DropdownToggle color="primary" icon="arrow-down-circle" compact={true} label="Direction: Down" />
+					<DropdownToggle color="primary" compact={true}>
+						<Icon mr={.5} name="arrow-down-circle" />
+						<span>Direction: Down</span>
+					</DropdownToggle>
 					<DropdownMenu clickToClose={true}>
 						<DropdownItem button={true}>Dropdown Item</DropdownItem>
 					</DropdownMenu>
 				</Dropdown>
 
 				<Dropdown direction="up">
-					<DropdownToggle color="primary" icon="arrow-up-circle" compact={true} label="Direction: Up" />
+				<DropdownToggle color="primary" compact={true}>
+						<Icon mr={.5} name="arrow-up-circle" />
+						<span>Direction: Up</span>
+					</DropdownToggle>
 					<DropdownMenu clickToClose={true}>
 						<DropdownItem button={true}>Dropdown Item</DropdownItem>
 					</DropdownMenu>
@@ -111,7 +126,7 @@ export const PropExpand = () => (
 	<FabulaProvider>
 		<UtilsProvider>
 			<Dropdown expand={true}>
-				<DropdownToggle color="primary" label="Expand" />
+				<DropdownToggle color="primary">Expand</DropdownToggle>
 				<DropdownMenu clickToClose={true}>
 					<DropdownItem button={true}>Dropdown Item</DropdownItem>
 				</DropdownMenu>
@@ -124,7 +139,7 @@ export const CustomContent = () => (
 	<FabulaProvider>
 		<UtilsProvider>
 			<Dropdown mr="1">
-				<DropdownToggle color="primary" label="Custom Content 1" wide={true} />
+				<DropdownToggle color="primary" wide={true}>Custom Content 1</DropdownToggle>
 				<DropdownMenu padding={false}>
 					<List padding={true} striped={true}>
 						<ListItem alV="center" flex>
@@ -171,7 +186,9 @@ export const CustomContent = () => (
 			</Dropdown>
 
 			<Dropdown mr={1}>
-				<DropdownToggle color="primary" compact={true} label="Custom Content 2" wide={true} />
+				<DropdownToggle color="primary" compact={true} wide={true}>
+					Custom Content 2
+				</DropdownToggle>
 				<DropdownMenu padding={false}>
 					<DropdownItem alV="center" button={true} clickToClose={true} flex>
 						<Text grow={1} weight={600}>
@@ -191,7 +208,7 @@ export const CustomContent = () => (
 						</Text>
 						<Tag color="danger">
 							<Icon name="alert-triangle" />
-							<strong>Done</strong>
+							<strong>Cancelled</strong>
 						</Tag>
 					</DropdownItem>
 
@@ -222,7 +239,9 @@ export const CustomContent = () => (
 			</Dropdown>
 
 			<Dropdown>
-				<DropdownToggle color="primary" compact={true} label="Custom Content 3" wide={true} />
+				<DropdownToggle color="primary" compact={true} wide={true}>
+					Custom Content 3
+				</DropdownToggle>
 				<DropdownMenu clickToClose={true} padding={false}>
 					<List padding={true}>
 						<ListItem flex={true}>

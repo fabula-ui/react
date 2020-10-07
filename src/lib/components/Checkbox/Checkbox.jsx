@@ -38,7 +38,7 @@ const Checkbox = props => {
             properties={props}
             styles={CheckboxStyles}
             wrapper="fab-checkbox-wrapper">
-            <div data-checked={checked} data-disabled={disabled} data-focus={focus} data-indeterminate={isIndeterminate} data-read-only={readOnly} ref={elRef}>
+            <div data-checked={checked} data-disabled={disabled} data-focus={focus} data-indeterminate={isIndeterminate} data-read-only={readOnly} data-fab-component="checkbox" ref={elRef}>
                 <div className="fab-checkbox" onClick={() => handleChange()} />
                 <label className="fab-checkbox__label">
                     <input

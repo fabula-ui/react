@@ -24,19 +24,19 @@ export const Example = () => (
             <InputGroup mb={1}>
                 <Input iconStart={{ color: 'primary', name: 'battery-charging' }} message={{ color: 'primary', text: 'Example of an input message' }} placeholder="Type something..." />
                 <Button color="primary">
-                    <Text color="inherit" weight={600}>Button</Text>
+                    <Text color="inherit" inline={true} mr={.5} weight={600}>Button</Text>
                     <Icon name="arrow-right" />
                 </Button>
             </InputGroup>
 
             <InputGroup glued={true}>
                 <Dropdown>
-                    <DropdownToggle border={true} color="light" compact={true} glow={false} label="Dropdown Toggle" />
+                    <DropdownToggle border={true} color="light" compact={true} glow={false}>Dropdown Toggle</DropdownToggle>
                     <DropdownMenu clickToClose={true} items={[{ label: 'Item 1' }, { label: 'Item 2' }, { label: 'Item 3' }]}></DropdownMenu>
                 </Dropdown>
                 <Input iconStart={{ color: 'primary', name: 'battery-charging' }} message="Example of an input message" placeholder="Type something..." />
                 <Button border={true} color="light">
-                    <Text color="inherit" weight={600}>Button</Text>
+                    <Text color="inherit" inline={true} mr={.5} weight={600}>Button</Text>
                     <Icon name="arrow-right" />
                 </Button>
             </InputGroup>
@@ -51,7 +51,7 @@ export const PropLayout = () => (
             <InputGroup mb={1}>
                 <Input iconStart={{ color: 'primary', name: 'battery-charging' }} placeholder="Type something..." />
                 <Button color="primary">
-                    <Text color="inherit" weight={600}>Button</Text>
+                    <Text color="inherit" inline={true} mr={.5} weight={600}>Button</Text>
                     <Icon name="arrow-right" />
                 </Button>
             </InputGroup>
@@ -59,7 +59,7 @@ export const PropLayout = () => (
             <InputGroup layout="v">
                 <Input iconStart={{ color: 'primary', name: 'battery-charging' }} placeholder="Type something..." />
                 <Button border={true}>
-                    <Text color="inherit" weight={600}>Button</Text>
+                    <Text color="inherit" inline={true} mr={.5} weight={600}>Button</Text>
                     <Icon name="arrow-right" />
                 </Button>
             </InputGroup>

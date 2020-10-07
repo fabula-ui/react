@@ -59,7 +59,7 @@ const DropdownMenu = props => {
             properties={props}
             styles={DropdownMenuStyles}
             wrapper="fab-dropdown-menu">
-            <div data-direction={direction} data-open={open} ref={elRef}>
+            <div data-direction={direction} data-open={open} data-fab-component="dropdownMenu" ref={elRef}>
                 {!!items && renderItems()}
                 {!items && childrenWithProps}
             </div>

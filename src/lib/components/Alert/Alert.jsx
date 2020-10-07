@@ -94,9 +94,9 @@ const Alert = props => {
                 <div
                     className="fab-alert"
                     data-closing={isClosing}
-                    data-fab-component="alert"
                     data-title={!!title}
                     data-visible={isVisible}
+                    data-fab-component="alert"
                     ref={ref || elRef}>
                     {!!icon && !typeIcon && <InnerIcon icon={icon} parentProps={props} />}
                     {!!typeIcon && <InnerIcon icon={typeIcon} parentProps={props} />}

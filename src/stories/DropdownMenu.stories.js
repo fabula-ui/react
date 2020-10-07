@@ -32,7 +32,9 @@ const items = [
 // Base component
 const BaseComponent = ({ color, expand }) => (
     <Dropdown expand={expand}>
-        <DropdownToggle color={color || 'primary'} expand={expand} label="Dropdown Toggle" />
+        <DropdownToggle color={color || 'primary'} expand={expand}>
+            Dropdown Toggle
+        </DropdownToggle>
         <DropdownMenu clickToClose={true} color={color}>
             <DropdownItem>Dropdown Item 1</DropdownItem>
             <DropdownItem>Dropdown Item 2</DropdownItem>
@@ -44,14 +46,6 @@ const BaseComponent = ({ color, expand }) => (
 
 // Stories
 export const Example = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <BaseComponent />
-        </UtilsProvider>
-    </FabulaProvider>
-);
-
-export const PropClickToClose = () => (
     <FabulaProvider>
         <UtilsProvider>
             <BaseComponent />
@@ -84,10 +78,3 @@ export const PropColor = () => (
         </UtilsProvider>
     </FabulaProvider>
 );
-
-export const PropItems = () => (
-    <Dropdown>
-        <DropdownToggle color="primary" label="Dropdown Toggle" />
-        <DropdownMenu clickToClose={true} items={items} />
-    </Dropdown>
-)

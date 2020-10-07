@@ -22,44 +22,14 @@ export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Dropdown>
-                <DropdownToggle color="primary" label="Dropdown Toggle" />
+                <DropdownToggle color="primary">
+                    Dropdown Toggle
+                </DropdownToggle>
                 <DropdownMenu>
                     <DropdownItem button={true}>Dropdown Item 1</DropdownItem>
                     <DropdownItem button={true}>Dropdown Item 2</DropdownItem>
                     <Divider />
                     <DropdownItem button={true}>Dropdown Item 3</DropdownItem>
-                </DropdownMenu>
-            </Dropdown>
-        </UtilsProvider>
-    </FabulaProvider>
-);
-
-export const PropButton = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <Dropdown>
-                <DropdownToggle color="primary" label="Dropdown Toggle" />
-                <DropdownMenu>
-                    <DropdownItem button={true}>Dropdown Item 1</DropdownItem>
-                    <DropdownItem button={true}>Dropdown Item 2</DropdownItem>
-                    <Divider />
-                    <DropdownItem button={true}>Dropdown Item 3</DropdownItem>
-                </DropdownMenu>
-            </Dropdown>
-        </UtilsProvider>
-    </FabulaProvider>
-);
-
-export const PropClickToClose = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <Dropdown>
-                <DropdownToggle color="primary" label="Dropdown Toggle" />
-                <DropdownMenu>
-                    <DropdownItem clickToClose={true}>Dropdown Item 1</DropdownItem>
-                    <DropdownItem clickToClose={true}>Dropdown Item 2</DropdownItem>
-                    <Divider />
-                    <DropdownItem clickToClose={true}>Dropdown Item 3</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
         </UtilsProvider>
@@ -70,7 +40,9 @@ export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Dropdown>
-                <DropdownToggle color="primary" label="Dropdown Toggle" />
+                <DropdownToggle color="primary">
+                    Dropdown Toggle
+                </DropdownToggle>
                 <DropdownMenu>
                     <DropdownHeader>Dropdown Header</DropdownHeader>
                     <DropdownItem button={true}>Dropdown Item 1</DropdownItem>
@@ -90,7 +62,9 @@ export const PropSize = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Dropdown>
-                <DropdownToggle color="primary" label="Dropdown Toggle" />
+                <DropdownToggle color="primary">
+                    Dropdown Toggle
+                </DropdownToggle>
                 <DropdownMenu>
                     <DropdownItem button={true} size="xs">
                         <Badge color="aux" mr={.5}>xs</Badge>

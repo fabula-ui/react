@@ -22,7 +22,7 @@ const Badge = props => {
             styles={BadgeStyles}
             wrapper="fab-badge-wrapper">
             <div data-fab-wrapper="badge" ref={elRef}>
-                <div className="fab-badge" data-fab-component="badge" data-has-placement={!!placement}>
+                <div className="fab-badge" data-has-placement={!!placement} data-fab-component="badge">
                     {label}
                     {children}
                 </div>

@@ -46,7 +46,7 @@ const Dropdown = props => {
             properties={props}
             styles={DropdownStyles}
             wrapper="fab-dropdown">
-            <div className="fab-dropdown" data-open={open} ref={elRef || ref}>{childrenWithProps}</div>
+            <div className="fab-dropdown" data-open={open} data-fab-component="dropdown" ref={elRef || ref}>{childrenWithProps}</div>
         </Component>
     )
 }

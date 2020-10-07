@@ -17,18 +17,6 @@ export default {
     component: DropdownMenu
 };
 
-const items = [
-    {
-        label: 'Dropdown Item 1'
-    },
-    {
-        label: 'Dropdown Item 2'
-    },
-    {
-        label: 'Dropdown Item 3'
-    }
-]
-
 // Base component
 const BaseComponent = ({ color, expand }) => (
     <Dropdown expand={expand}>

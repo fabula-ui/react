@@ -29,7 +29,7 @@ export const Example = () => (
                 </Button>
             </InputGroup>
 
-            <InputGroup glued={true}>
+            <InputGroup>
                 <Dropdown>
                     <DropdownToggle border={true} color="light" compact={true} glow={false}>Dropdown Toggle</DropdownToggle>
                     <DropdownMenu clickToClose={true} items={[{ label: 'Item 1' }, { label: 'Item 2' }, { label: 'Item 3' }]}></DropdownMenu>
@@ -40,7 +40,6 @@ export const Example = () => (
                     <Icon name="arrow-right" />
                 </Button>
             </InputGroup>
-
         </UtilsProvider>
     </FabulaProvider>
 )

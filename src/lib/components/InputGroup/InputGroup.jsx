@@ -32,8 +32,7 @@ InputGroup.defaultProps = {
 }
 
 InputGroup.propTypes = {
-    layout: PropTypes.string,
-    spacing: PropTypes.any,
+    layout: PropTypes.string
 }
 
 export default InputGroup;

@@ -39,6 +39,7 @@ const Link = props => {
 }
 
 Link.defaultProps = {
+    size: 'md',
     underline: true
 }
 

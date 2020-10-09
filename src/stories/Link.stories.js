@@ -18,6 +18,18 @@ export const Example = () => (
   </Text>
 )
 
+export const PropColor = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <Link block={true} color="primary" mb={1}>Link with color: primary</Link>
+      <Link block={true} color="lavender" mb={1}>Link with color: lavender</Link>
+      <Link block={true} color="hot" mb={1}>Link with color: hot</Link>
+      <Link block={true} color="aux" mb={1}>Link with color: aux</Link>
+      <Link block={true} color="dark" mb={1}>Link with color: dark</Link>
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
 export const PropSize = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -34,8 +46,9 @@ export const PropSize = () => (
 export const PropUnderline = () => (
   <FabulaProvider>
     <UtilsProvider>
-      <Link block={true} mb={1}>Link with Underline</Link>
-      <Link block={true} underline={false}>Link with Underline</Link>
+      <Link block={true} mb={1}>Link with underline</Link>
+      <Link block={true} mb={1} underline="hover">Link with underline on hover</Link>
+      <Link block={true} underline={false}>Link without underline</Link>
     </UtilsProvider>
   </FabulaProvider>
 )

@@ -20,7 +20,7 @@ const Wrapper = props => {
             properties={props}
             styles={WrapperStyles}
             wrapper="fab-wrapper">
-            <div ref={elRef || ref} {...restProps}>{children}</div>
+            <div data-fab-component="wrapper" ref={elRef || ref} {...restProps}>{children}</div>
         </Component>
     )
 }

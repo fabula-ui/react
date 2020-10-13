@@ -51,10 +51,8 @@ const TargetModal = props => {
 Donec tincidunt vitae ligula eget dignissim. Donec tincidunt tortor tortor, in tempor odio tincidunt vitae. Ut nulla metus, laoreet nec imperdiet quis, bibendum tempor lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam accumsan consequat nisi, ut faucibus arcu laoreet sit amet. Praesent feugiat varius ullamcorper. In quis suscipit risus. Morbi tempus nunc in ex efficitur porta. Etiam et lectus non mi dictum rhoncus sit amet id lacus.</Text>
             </ModalBody>
             <ModalFooter alH="end" color="light" flex={true}>
-                <Wrapper>
-                    <Button border={true} glow={true} onClick={handleClose} mr={1}>Cancel</Button>
-                    <Button border={true} color="danger" glow={true} onClick={handleClose}>Deactivate</Button>
-                </Wrapper>
+                <Button border={true} glow={true} onClick={handleClose} mr={1}>Cancel</Button>
+                <Button border={true} color="danger" glow={true} onClick={handleClose}>Deactivate</Button>
             </ModalFooter>
         </Modal>
     )

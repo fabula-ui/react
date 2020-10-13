@@ -27,7 +27,7 @@ const ModalHeader = props => {
             properties={props}
             styles={ModalHeaderStyles}
             wrapper="fab-modal-header">
-            <div ref={elRef}>
+            <div data-fab-component="modalHeader" ref={elRef}>
                 <div className="fab-modal-header__content">
                     {children}
                 </div>

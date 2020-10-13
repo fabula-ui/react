@@ -25,7 +25,7 @@ const List = props => {
             styles={ListStyles}
             wrapper="fab-list-wrapper">
             <div ref={elRef}>
-                <div className="fab-list">
+                <div className="fab-list" data-fab-component="list">
                     {childrenWithProps}
                 </div>
             </div>

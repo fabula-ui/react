@@ -17,7 +17,7 @@ const ModalFooter = props => {
             properties={props}
             styles={ModalSectionStyles}
             wrapper="fab-modal-section">
-            <div ref={elRef}>{children}</div>
+            <div data-fab-component="modalFooter" ref={elRef}>{children}</div>
         </Component>
     )
 }

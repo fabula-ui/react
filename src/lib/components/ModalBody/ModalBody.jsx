@@ -22,7 +22,7 @@ const ModalBody = props => {
             properties={props}
             styles={ModalBodyStyles}
             wrapper="fab-modal-body">
-            <div ref={elRef}>
+            <div data-fab-component="modalBody" ref={elRef}>
                 {children}
             </div>
         </Component>

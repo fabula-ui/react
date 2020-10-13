@@ -17,7 +17,7 @@ const ModalSection = props => {
             properties={props}
             styles={ModalSectionStyles}
             wrapper="fab-modal-section">
-            <div ref={elRef}>
+            <div data-fab-component="modalSection" ref={elRef}>
                 {children}
             </div>
         </Component>

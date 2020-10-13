@@ -57,7 +57,6 @@ export const Example = () => (
 export const PropButton = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <BaseComponent button={true} mb={1} />
             <BaseComponent onClick={() => alert('Click event triggered')} />
         </UtilsProvider>
     </FabulaProvider>

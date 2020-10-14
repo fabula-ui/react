@@ -17,7 +17,7 @@ const Navbar = props => {
             properties={props}
             styles={NavbarStyles}
             wrapper="fab-navbar">
-            <div ref={elRef}>{children}</div>
+            <div data-fab-component="navbar" ref={elRef}>{children}</div>
         </Component>
     );
 }

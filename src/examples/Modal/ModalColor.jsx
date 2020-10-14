@@ -48,10 +48,10 @@ const TargetModal = props => {
                         All of your data will be permanantly removed.
                     </Text>
             </ModalBody>
-            <ModalFooter alH="end" color={!color ? 'light' : ''} adaptColor={!!color} flex={true}>
+            <ModalFooter alH="end" color={!color ? 'light' : ''} darken={!!color} flex={true}>
                 <Wrapper>
                     <Button border={!color} color={color} glow={true} onClick={handleClose} lighten={true} mr={1}>Cancel</Button>
-                    <Button border={true} color={!color ? 'danger' : color} glow={true} invert={!!color} onClick={handleClose}>Deactivate</Button>
+                    <Button border={!color} color={!color ? 'danger' : color} glow={!color} invert={!!color} onClick={handleClose}>Deactivate</Button>
                 </Wrapper>
             </ModalFooter>
         </Modal>

@@ -1,10 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
 import Button from '../Button/Button';
 import Component from '../Component/Component';
-import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import InnerIcon from '../InnerIcon/InnerIcon';
 import Input from '../Input/Input';
 
@@ -13,7 +12,6 @@ import SearchInputStyles from '@fabula/core/styles/components/search-input/searc
 
 const SearchInput = props => {
     const { autocomplete, button, children, className, icon, placeholder, onSearch, ...rest } = props;
-    const [autocompleteIsOpen, setAutocompleIsOpen] = useState(false);
     const elRef = useRef(null);
     const searchRef = useRef(null);
 
@@ -39,21 +37,17 @@ const SearchInput = props => {
             elRef={elRef}
             properties={props}
             styles={SearchInputStyles}
-            wrapper="fab-search-input-wrapper">
+            wrapper="fab-search-input">
             <div ref={elRef}>
-                <div className="fab-search-input">
-                    <Input elRef={searchRef} iconStart={{ name: 'search' }} onFocus={() => handleFocus(true)} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...rest}>
-                        {!!button &&
-                            <Button color="primary" compact={true} onClick={handleSearch} {...button}>
-                                {!button.label && !button.icon && 'Search'}
-                                {!!button.icon && <InnerIcon icon={button.icon} parentProps={button} />}
-                            </Button>
-                        }
-                        {!button && children}
-                    </Input>
-
-                    {!!autocomplete && <DropdownMenu clickToClose={true} items={[{ button: true, label: 'Item 1' }, { button: true, label: 'Item 2' }, { button: true, label: 'Item 3' }]} onChange={setAutocompleIsOpen} open={autocompleteIsOpen}></DropdownMenu>}
-                </div>
+                <Input elRef={searchRef} iconStart={{ name: 'search' }} onFocus={() => handleFocus(true)} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...rest}>
+                    {!!button &&
+                        <Button color="primary" compact={true} onClick={handleSearch} {...button}>
+                            {!button.label && !button.icon && 'Search'}
+                            {!!button.icon && <InnerIcon icon={button.icon} parentProps={button} />}
+                        </Button>
+                    }
+                    {!button && children}
+                </Input>
             </div>
         </Component>
     )

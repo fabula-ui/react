@@ -28,6 +28,7 @@ const Button = props => {
         gradient,
         href,
         invert,
+        label,
         lighten,
         outline,
         rounded,
@@ -53,7 +54,7 @@ const Button = props => {
                         disabled={disabled}
                         {...restProps}
                         ref={elRef || ref}>
-                        {children}
+                        {label || children}
                     </button>
                 )
             }
@@ -71,7 +72,7 @@ const Button = props => {
                         href={href}
                         {...restProps}
                         ref={elRef || ref}>
-                        {children}
+                        {label || children}
                     </a>
                 )
             }

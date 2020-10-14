@@ -1,10 +1,10 @@
-import React, { 
-  Children, 
-  cloneElement, 
+import React, {
+  Children,
+  cloneElement,
   useCallback,
-  useEffect, 
-  useRef, 
-  useState 
+  useEffect,
+  useRef,
+  useState
 } from 'react';
 import PropTypes from 'prop-types';
 
@@ -78,7 +78,6 @@ const Segments = props => {
   // Children with props
   const childrenWithProps = Children.map(children, child => cloneElement(child, {
     activeColor,
-    activeFillColor,
     activeTextColor,
     activeSegment,
     clear,
@@ -98,11 +97,9 @@ const Segments = props => {
       elRef={elRef || ref}
       properties={props}
       styles={SegmentsStyles}
-      wrapper="fab-segments-wrapper">
+      wrapper="fab-segments">
       <div ref={elRef || ref}>
-        <div className="fab-segments">
-          {childrenWithProps}
-        </div>
+        {childrenWithProps}
       </div>
     </Component>
   )
@@ -111,7 +108,6 @@ const Segments = props => {
 Segments.defaultProps = {
   active: '',
   activeColor: '',
-  activeFillColor: '',
   activeTextColor: '',
   border: true,
   clear: false,

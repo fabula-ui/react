@@ -63,7 +63,8 @@ const Input = props => {
                     data-disabled={disabled}
                     data-focus={focus}
                     data-textarea={textarea}
-                    data-variant={variant}>
+                    data-variant={variant}
+                    data-fab-component="input">
                     {(!!icon || !!iconStart) &&
                         <div className="fab-input__icon" data-placement="start">
                             {!!icon && <InnerIcon icon={icon} parentProps={props} />}

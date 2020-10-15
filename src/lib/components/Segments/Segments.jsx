@@ -18,7 +18,6 @@ const Segments = props => {
   const {
     active,
     activeColor,
-    activeFillColor,
     activeTextColor,
     children,
     clear,

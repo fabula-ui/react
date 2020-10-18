@@ -24,12 +24,12 @@ const BaseComponent = props => (
         </TagGroup>
 
         <TagGroup mb={1}>
-            <Tag {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Normal</a></Tag>
-            <Tag color="primary" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Normal</a></Tag>
-            <Tag color="lavender" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Normal</a></Tag>
-            <Tag color="hot" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Normal</a></Tag>
-            <Tag color="aux" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Normal</a></Tag>
-            <Tag color="dark" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Normal</a></Tag>
+            <Tag {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
+            <Tag color="primary" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
+            <Tag color="lavender" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
+            <Tag color="hot" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
+            <Tag color="aux" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
+            <Tag color="dark" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
         </TagGroup>
 
         <TagGroup>
@@ -44,6 +44,18 @@ const BaseComponent = props => (
 )
 
 // Stories
+export const Example = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <TagGroup>
+                <Tag>Normal</Tag>
+                <Tag><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
+                <Tag><button>Button</button></Tag>
+            </TagGroup>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
 export const PropClear = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -165,66 +177,3 @@ export const PropSize = () => (
         </UtilsProvider>
     </FabulaProvider>
 )
-
-
-export const AnchorAndButton = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <TagGroup mb={1}>
-                <Tag rounded={true}><a href="https://www.fabulaui.com" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-                <Tag><a href="https://www.fabulaui.com" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-                <Tag color="primary" rounded={true}><a href="https://www.fabulaui.com" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-                <Tag color="primary"><a href="https://www.fabulaui.com" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-            </TagGroup>
-
-            <TagGroup>
-                <Tag rounded={true}><button onClick={() => alert('Click event triggered')}>Fabula</button></Tag>
-                <Tag><button onClick={() => alert('Click event triggered')}>Fabula</button></Tag>
-                <Tag color="primary" rounded={true}><button onClick={() => alert('Click event triggered')}>Fabula</button></Tag>
-                <Tag color="primary"><button onClick={() => alert('Click event triggered')}>Fabula</button></Tag>
-            </TagGroup>
-        </UtilsProvider>
-    </FabulaProvider>
-)
-
-// export const Rounded = () => (
-//     <FabulaProvider>
-//         <FabulaUtils>
-//             <TagGroup>
-//                 <Tag rounded={true}>Fabula</Tag>
-//                 <Tag color="primary" rounded={true}>Fabula</Tag>
-//                 <Tag color="secondary" rounded={true}>Fabula</Tag>
-//                 <Tag color="success" rounded={true}>Fabula</Tag>
-//                 <Tag color="danger" rounded={true}>Fabula</Tag>
-//                 <Tag color="warning" rounded={true}>Fabula</Tag>
-//                 <Tag color="hot" rounded={true}>Fabula</Tag>
-//                 <Tag color="cold" rounded={true}>Fabula</Tag>
-//                 <Tag color="dark" rounded={true}>Fabula</Tag>
-//                 <Tag color="light" rounded={true}>Fabula</Tag>
-//                 <Tag color="aux" rounded={true}>Fabula</Tag>
-//             </TagGroup>
-//         </FabulaUtils>
-//     </FabulaProvider>
-// )
-
-// export const Size = () => (
-//     <FabulaProvider>
-//         <FabulaUtils>
-//             <TagGroup mb="1">
-//                 <Tag color="primary" size="xs">Extra-small</Tag>
-//                 <Tag color="primary" size="sm">Small</Tag>
-//                 <Tag color="primary" size="md">Medium</Tag>
-//                 <Tag color="primary" size="lg">Large</Tag>
-//                 <Tag color="primary" size="xl">Extra-large</Tag>
-//             </TagGroup>
-
-//             <TagGroup>
-//                 <Tag color="primary" rounded={true} size="xs">Extra-small</Tag>
-//                 <Tag color="primary" rounded={true} size="sm">Small</Tag>
-//                 <Tag color="primary" rounded={true} size="md">Medium</Tag>
-//                 <Tag color="primary" rounded={true} size="lg">Large</Tag>
-//                 <Tag color="primary" rounded={true} size="xl">Extra-large</Tag>
-//             </TagGroup>
-//         </FabulaUtils>
-//     </FabulaProvider>
-// )

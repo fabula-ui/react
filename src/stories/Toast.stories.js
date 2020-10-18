@@ -27,29 +27,31 @@ export const PropClear = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Row mb={1}>
-                <Column col={4}>
+                <Column col={6}>
                     <BaseComponent clear={true} iconColor="primary" />
                 </Column>
 
-                <Column col={4}>
+                <Column col={6}>
                     <BaseComponent clear={true} color="primary" />
                 </Column>
+            </Row>
 
-                <Column col={4}>
+            <Row mb={1}>
+                <Column col={6}>
                     <BaseComponent clear={true} color="lavender" iconColor="lavender" />
+                </Column>
+
+                <Column col={6}>
+                    <BaseComponent clear={true} color="hot" iconColor="hot" />
                 </Column>
             </Row>
 
             <Row>
-                <Column col={4}>
-                    <BaseComponent clear={true} color="hot" iconColor="hot" />
-                </Column>
-
-                <Column col={4}>
+                <Column col={6}>
                     <BaseComponent clear={true} color="aux" iconColor="aux" />
                 </Column>
 
-                <Column col={4}>
+                <Column col={6}>
                     <BaseComponent clear={true} color="dark" iconColor="dark" />
                 </Column>
             </Row>

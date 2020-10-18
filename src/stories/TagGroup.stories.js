@@ -20,6 +20,18 @@ const BaseComponent = props => (
   </TagGroup>
 )
 
+export const Example = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <TagGroup>
+        <Tag>Tag 1</Tag>
+        <Tag>Tag 2</Tag>
+        <Tag>Tag 3</Tag>
+      </TagGroup>
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
 export const PropColor = () => (
   <FabulaProvider>
     <UtilsProvider>

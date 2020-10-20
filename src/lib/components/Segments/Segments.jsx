@@ -11,6 +11,9 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import SegmentsStyles from '@fabula/core/styles/components/segments/segments';
 
@@ -25,16 +28,17 @@ const Segments = props => {
     elRef,
     faded,
     inactiveColor,
-    inactiveFillColor,
     inactiveTextColor,
     invert,
     onChange,
     outline,
     rounded,
-    scope
+    scope,
+    ...rest
   } = props;
   const [activeSegment, setActiveSegment] = useState(active);
   const ref = useRef(null);
+  const restProps = getComponentProps(rest);
 
   // Callbacks
   const toggleContent = useCallback(segment => {
@@ -84,7 +88,6 @@ const Segments = props => {
     faded,
     handleActive,
     inactiveColor,
-    inactiveFillColor,
     inactiveTextColor,
     invert,
     outline,
@@ -97,7 +100,7 @@ const Segments = props => {
       properties={props}
       styles={SegmentsStyles}
       wrapper="fab-segments">
-      <div ref={elRef || ref}>
+      <div ref={elRef || ref} {...restProps}>
         {childrenWithProps}
       </div>
     </Component>
@@ -113,7 +116,6 @@ Segments.defaultProps = {
   color: '',
   expand: false,
   faded: false,
-  inactiveFillColor: '',
   inactiveTextColor: '',
   invert: false,
   layout: 'horizontal',
@@ -127,14 +129,12 @@ Segments.defaultProps = {
 Segments.propTypes = {
   active: PropTypes.string,
   activeColor: PropTypes.string,
-  activeFillColor: PropTypes.string,
   activeTextColor: PropTypes.string,
   border: PropTypes.bool,
   clear: PropTypes.bool,
   color: PropTypes.string,
   expand: PropTypes.bool,
   faded: PropTypes.bool,
-  inactiveFillColor: PropTypes.string,
   inactiveTextColor: PropTypes.string,
   invert: PropTypes.bool,
   layout: PropTypes.string,

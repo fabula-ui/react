@@ -55,13 +55,6 @@ import Wrapper from './components/Wrapper/Wrapper';
 import ModalController from './controllers/ModalController';
 import ToastController from './controllers/ToastController';
 
-// HTML Elements
-import {
-    Div,
-    Span,
-    Strong
-} from './components/HTMLElements/HTMLElements';
-
 // Providers
 import FabulaProvider from './providers/FabulaProvider';
 import FabulaUtils from './providers/FabulaUtils';
@@ -132,11 +125,6 @@ export {
     // Controllers
     ModalController,
     ToastController,
-
-    // HTML elements
-    Div,
-    Span,
-    Strong,
 
     // Providers
     FabulaProvider,

@@ -7,7 +7,6 @@ import {
   CardImage,
   CardSection,
   Column,
-  Div,
   Element,
   FabulaProvider,
   Icon,
@@ -49,7 +48,7 @@ const ListItemExample = ({ children, title, ...rest }) => (
       </Text>
       <Text aux inline={true}>List item subtitle</Text>
     </Wrapper>
-    <Div alH="end" direction="column" flex={true}>
+    <Wrapper alH="end" direction="column" flex={true}>
       <TagGroup mb={.5}>
         <Tag>Tag 1</Tag>
         <Tag>Tag 2</Tag>
@@ -60,7 +59,7 @@ const ListItemExample = ({ children, title, ...rest }) => (
         <Icon mr=".5" name="clock" />
         <span>2 hours</span>
       </Text>
-    </Div>
+    </Wrapper>
   </ListItem>
 )
 

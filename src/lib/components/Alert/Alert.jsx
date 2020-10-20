@@ -9,6 +9,9 @@ import InnerIcon from '../InnerIcon/InnerIcon';
 // Methods
 import getTransitionDuration from '@fabula/core/styles/methods/misc/getTransitionDuration';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import AlertStyles from '@fabula/core/styles/components/alert/alert';
 
@@ -23,17 +26,19 @@ const Alert = props => {
         text,
         visible,
         title,
-        type
+        type,
+        ...rest
     } = props;
     const [isClosing, setIsClosing] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [typeIcon, setTypeIcon] = useState(null);
     const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     // Callbacks
     const handleType = useCallback((type) => {
         let typeIcon;
-        
+
         switch (type) {
             case 'danger':
                 typeIcon = {
@@ -87,7 +92,7 @@ const Alert = props => {
     if (isVisible) {
         return (
             <Component
-                elRef={ref || elRef}
+                elRef={elRef || ref}
                 properties={props}
                 styles={AlertStyles}
                 wrapper="fab-alert">
@@ -97,7 +102,8 @@ const Alert = props => {
                     data-title={!!title}
                     data-visible={isVisible}
                     data-fab-component="alert"
-                    ref={ref || elRef}>
+                    ref={elRef || ref}
+                    {...restProps}>
                     {!!icon && !typeIcon && <InnerIcon icon={icon} parentProps={props} />}
                     {!!typeIcon && <InnerIcon icon={typeIcon} parentProps={props} />}
                     <div className="fab-alert__stage">

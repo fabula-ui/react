@@ -4,24 +4,30 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import BadgeStyles from '@fabula/core/styles/components/badge/badge';
 
 const Badge = props => {
     const {
         children,
+        elRef,
         label,
-        placement
+        placement,
+        ...rest
     } = props;
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={ref || elRef}
             properties={props}
             styles={BadgeStyles}
             wrapper="fab-badge-wrapper">
-            <div data-fab-wrapper="badge" ref={elRef}>
+            <div data-fab-wrapper="badge" ref={ref || elRef} {...restProps}>
                 <div className="fab-badge" data-has-placement={!!placement} data-fab-component="badge">
                     {label}
                     {children}

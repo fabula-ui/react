@@ -10,8 +10,8 @@ import getComponentProps from '../../utils/getComponentProps';
 import TextStyles from '@fabula/core/styles/components/text/text';
 
 const Text = props => {
-    const { aux, bold, children, color, content, medium, semibold, strong, weight, ...rest } = props;
-    const elRef = useRef(null);
+    const { aux, bold, children, color, content, elRef, medium, semibold, strong, weight, ...rest } = props;
+    const ref = useRef(null);
     const [fontWeight, setFontWeight] = useState(null);
     const restProps = getComponentProps(rest);
 
@@ -27,11 +27,11 @@ const Text = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={{...props, weight: fontWeight}}
             styles={TextStyles}
             wrapper="fab-text">
-            <div data-aux={!!aux} data-color={color} ref={elRef} {...restProps}>
+            <div data-aux={!!aux} data-color={color} ref={elRef || ref} {...restProps}>
                 {!content && children}
                 {!!content && content}
             </div>

@@ -26,7 +26,7 @@ const Toast = props => {
     const [height, setHeight] = useState();
     const [hidden, setHidden] = useState(false);
     const [hiding, setHiding] = useState(false);
-    const toastRef = useRef(null);
+    const ref = useRef(null);
 
     // Dynamic requires
     const Link = link ? require('../Link/Link').default : null;
@@ -58,10 +58,10 @@ const Toast = props => {
     }, [handleHide, handleShow, inline, stacked]);
 
     useEffect(() => {
-        if (toastRef.current && !inline) {
-            setHeight(toastRef.current.offsetHeight);
+        if (ref.current && !inline) {
+            setHeight(ref.current.offsetHeight);
         }
-    }, [inline, toastRef]);
+    }, [inline, ref]);
 
     // Methods
     const hideToast = () => {
@@ -81,11 +81,11 @@ const Toast = props => {
     if (!hidden) {
         return (
             <Component
-                elRef={toastRef}
+                elRef={ref}
                 properties={{ ...props, height, stacked }}
                 styles={ToastStyles}
                 wrapper="fab-toast-wrapper">
-                <div data-fab-wrapper="toast" data-hiding={hiding} data-stacked={stacked} ref={toastRef} style={{ height }}>
+                <div data-fab-wrapper="toast" data-hiding={hiding} data-stacked={stacked} ref={ref} style={{ height }}>
                     <div className="fab-toast" data-fab-component="toast">
                         {!!icon && <Icon {...icon} />}
                         {!!message && <span className="fab-toast__message">{message}</span>}

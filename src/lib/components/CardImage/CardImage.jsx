@@ -21,8 +21,8 @@ const CardImage = props => {
             properties={props}
             styles={CardImageStyles}
             wrapper="fab-card-image">
-            <div data-layout={layout} ref={elRef || ref}>
-                {!!src && <img alt={alt} src={src} {...restProps} />}
+            <div data-layout={layout} data-fab-component="cardImage" ref={elRef || ref} {...restProps}>
+                {!!src && <img alt={alt} src={src} />}
                 {children}
             </div>
         </Component>
@@ -30,7 +30,6 @@ const CardImage = props => {
 }
 
 CardImage.defaultProps = {
-    adaptColor: false,
     color: '',
     cover: false,
     height: null,
@@ -41,7 +40,6 @@ CardImage.defaultProps = {
 }
 
 CardImage.propTypes = {
-    adaptColor: PropTypes.bool,
     color: PropTypes.string,
     cover: PropTypes.bool,
     height: PropTypes.any,

@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import ButtonGroupStyles from '@fabula/core/styles/components/button-group/button-group';
 
 const ButtonGroup = props => {
-    const { children, elRef } = props;
+    const { children, elRef, ...rest } = props;
     const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
@@ -17,7 +21,10 @@ const ButtonGroup = props => {
             properties={props}
             styles={ButtonGroupStyles}
             wrapper="fab-button-group">
-            <div className="fab-button-group" data-fab-component="buttonGroup" ref={elRef || ref}>
+            <div
+                data-fab-component="buttonGroup"
+                ref={elRef || ref}
+                {...restProps}>
                 {children}
             </div>
         </Component>

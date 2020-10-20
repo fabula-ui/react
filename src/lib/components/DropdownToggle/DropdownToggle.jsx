@@ -9,8 +9,8 @@ import Component from '../Component/Component';
 import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
 
 const DropdownToggle = (props) => {
-	const { children, className, direction, onClick, open, toggle, ...rest } = props;
-	const elRef = useRef(null);
+	const { children, className, direction, elRef, onClick, open, toggle, ...rest } = props;
+	const ref = useRef(null);
 
 	const handleClick = () => {
 		if (onClick) { onClick(); }
@@ -18,8 +18,8 @@ const DropdownToggle = (props) => {
 	};
 
 	return (
-		<Component elRef={elRef} properties={props} styles={DropdownToggleStyles} wrapper="fab-dropdown-toggle">
-			<div data-direction={direction} data-open={open} ref={elRef}>
+		<Component elRef={elRef || ref} properties={props} styles={DropdownToggleStyles} wrapper="fab-dropdown-toggle">
+			<div data-direction={direction} data-open={open} ref={elRef || ref}>
 				<Button onClick={handleClick} {...rest}>
 					{!!children && <span className="fab-dropdown-toggle__label">{children}</span>}
 					<span className="fab-dropdown-toggle__chevron" />

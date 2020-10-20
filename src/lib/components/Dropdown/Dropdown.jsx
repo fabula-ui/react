@@ -4,13 +4,17 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import DropdownStyles from '@fabula/core/styles/components/dropdown/dropdown';
 
 const Dropdown = props => {
-    const { alignment, children, direction, elRef, expand, onClose, onOpen, onToggle } = props;
+    const { alignment, children, direction, elRef, expand, onClose, onOpen, onToggle, ...rest } = props;
     const [open, setOpen] = useState(props.open);
     const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     // Methods
     const toggle = useCallback(() => {
@@ -46,7 +50,14 @@ const Dropdown = props => {
             properties={props}
             styles={DropdownStyles}
             wrapper="fab-dropdown">
-            <div className="fab-dropdown" data-open={open} data-fab-component="dropdown" ref={elRef || ref}>{childrenWithProps}</div>
+            <div
+                className="fab-dropdown"
+                data-open={open}
+                data-fab-component="dropdown"
+                ref={elRef || ref}
+                {...restProps}>
+                {childrenWithProps}
+            </div>
         </Component>
     )
 }

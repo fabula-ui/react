@@ -7,17 +7,17 @@ import Component from '../Component/Component';
 import InnerIcon from '../InnerIcon/InnerIcon';
 import Input from '../Input/Input';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import SearchInputStyles from '@fabula/core/styles/components/search-input/search-input';
 
 const SearchInput = props => {
-    const { autocomplete, button, children, className, icon, placeholder, onSearch, ...rest } = props;
-    const elRef = useRef(null);
+    const { button, children, className, elRef, icon, placeholder, onSearch, ...rest } = props;
+    const ref = useRef(null);
     const searchRef = useRef(null);
-
-    const handleFocus = status => {
-        // setAutocompleIsOpen(status);
-    }
+    const restProps = getComponentProps(rest);
 
     const handleKeyDown = e => {
         if (e.keyCode === 13 && onSearch) {
@@ -34,12 +34,12 @@ const SearchInput = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={SearchInputStyles}
             wrapper="fab-search-input">
-            <div ref={elRef}>
-                <Input elRef={searchRef} iconStart={{ name: 'search' }} onFocus={() => handleFocus(true)} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...rest}>
+            <div ref={elRef || ref} {...restProps}>
+                <Input elRef={searchRef} iconStart={{ name: 'search' }} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...rest}>
                     {!!button &&
                         <Button color="primary" compact={true} onClick={handleSearch} {...button}>
                             {!button.label && !button.icon && 'Search'}

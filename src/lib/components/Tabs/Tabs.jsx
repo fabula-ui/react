@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import TabsStyles from '@fabula/core/styles/components/tabs/tabs';
 
@@ -12,14 +15,13 @@ const Tabs = props => {
         active,
         activeColor,
         activeBorderColor,
-        activeFillColor,
         activeTextColor,
         children,
         clear,
         color,
+        elRef,
         expand,
         faded,
-        inactiveFillColor,
         inactiveTextColor,
         invert,
         layout,
@@ -28,10 +30,12 @@ const Tabs = props => {
         rounded,
         scope,
         stacked,
-        type
+        type,
+        ...rest
     } = props;
     const [activeTab, setActiveTab] = useState(active);
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     // Callbacks
     const toggleContent = useCallback(segment => {
@@ -75,7 +79,6 @@ const Tabs = props => {
     const childrenWithProps = Children.map(children, child => cloneElement(child, {
         activeBorderColor,
         activeColor,
-        activeFillColor,
         activeTextColor,
         activeTab,
         clear,
@@ -83,7 +86,6 @@ const Tabs = props => {
         expand,
         faded,
         handleActive,
-        inactiveFillColor,
         inactiveTextColor,
         invert,
         layout,
@@ -97,11 +99,11 @@ const Tabs = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={TabsStyles}
             wrapper="fab-tabs-wrapper">
-            <div ref={elRef}>
+            <div ref={elRef || ref} {...restProps}>
                 <div className="fab-tabs">
                     {childrenWithProps}
                 </div>
@@ -112,14 +114,12 @@ const Tabs = props => {
 
 Tabs.defaultProps = {
     activeColor: '',
-    activeFillColor: '',
     activeTextColor: '',
     alignment: '',
     clear: false,
     color: '',
     expand: false,
     faded: false,
-    inactiveFillColor: '',
     inactiveTextColor: '',
     invert: false,
     layout: 'horizontal',
@@ -132,14 +132,12 @@ Tabs.defaultProps = {
 
 Tabs.propTypes = {
     activeColor: PropTypes.string,
-    activeFillColor: PropTypes.string,
     activeTextColor: PropTypes.string,
     alignment: PropTypes.string,
     clear: PropTypes.bool,
     color: PropTypes.string,
-    expand: PropTypes.bool,
+    expand: PropTypes.any,
     faded: PropTypes.bool,
-    inactiveFillColor: PropTypes.string,
     inactiveTextColor: PropTypes.string,
     invert: PropTypes.bool,
     layout: PropTypes.string,

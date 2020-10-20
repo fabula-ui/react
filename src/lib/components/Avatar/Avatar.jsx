@@ -8,6 +8,9 @@ import InnerIcon from '../InnerIcon/InnerIcon';
 // Methods
 import getInitials from '@fabula/core/styles/methods/misc/getInitials';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import AvatarStyles from '@fabula/core/styles/components/avatar/avatar';
 
@@ -16,21 +19,24 @@ const Avatar = props => {
         badge,
         children,
         color,
+        elRef,
         icon,
         image,
         rounded,
         showInitials,
-        size
+        size,
+        ...rest
     } = props;
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={AvatarStyles}
             wrapper="fab-avatar-wrapper">
-            <div data-fab-wrapper="avatar" data-rounded={rounded} ref={elRef}>
+            <div data-fab-wrapper="avatar" data-rounded={rounded} ref={elRef || ref} {...restProps}>
                 <div className="fab-avatar" data-color={color} data-fab-component="avatar" data-rounded={rounded} data-size={size}>
                     {!showInitials && !!icon && <InnerIcon icon={icon} parentProps={props} />}
                     {showInitials && <span className="fab-avatar__initials">{getInitials(showInitials)}</span>}
@@ -44,7 +50,6 @@ const Avatar = props => {
 }
 
 Avatar.defaultProps = {
-    adaptColor: false,
     badge: {
         placement: {
             x: 'right',
@@ -61,7 +66,6 @@ Avatar.defaultProps = {
 }
 
 Avatar.propTypes = {
-    adaptColor: PropTypes.bool,
     badge: PropTypes.any,
     darken: PropTypes.bool,
     icon: PropTypes.string,

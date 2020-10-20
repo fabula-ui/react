@@ -54,11 +54,11 @@ const Input = props => {
 
     return (
         <Component
-            elRef={ref}
+            elRef={elRef || ref}
             properties={props}
             styles={InputStyles}
             wrapper="fab-input-wrapper">
-            <div data-focus={focus} data-fab-wrapper="input" ref={ref}>
+            <div data-focus={focus} data-fab-wrapper="input" ref={elRef || ref}>
                 <div className="fab-input"
                     data-disabled={disabled}
                     data-focus={focus}

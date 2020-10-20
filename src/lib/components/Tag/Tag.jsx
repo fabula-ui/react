@@ -4,20 +4,24 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import TagStyles from '@fabula/core/styles/components/tag/tag';
 
 const Tag = props => {
-    const { children, label, placement } = props;
-    const elRef = useRef(null);
+    const { children, elRef, label, placement, ...rest } = props;
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={TagStyles}
             wrapper="fab-tag-wrapper">
-            <div data-placement-x={placement && placement.x} data-placement-y={placement && placement.y} ref={elRef}>
+            <div data-placement-x={placement && placement.x} data-placement-y={placement && placement.y} ref={elRef || ref} {...restProps}>
                 <div className="fab-tag">
                     {label || children}
                 </div>

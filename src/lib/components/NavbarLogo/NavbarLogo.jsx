@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import NavbarLogoStyles from '@fabula/core/styles/components/navbar-logo/navbar-logo';
 
 const NavbarLogo = props => {
-    const { alt, elRef, children, src } = props;
+    const { alt, elRef, children, src, ...rest } = props;
     const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
@@ -17,7 +21,7 @@ const NavbarLogo = props => {
             properties={props}
             styles={NavbarLogoStyles}
             wrapper="fab-navbar-logo">
-            <div ref={elRef || ref}>
+            <div ref={elRef || ref} {...restProps}>
                 {src && <img alt={alt} src={src} />}
                 {children}
             </div>

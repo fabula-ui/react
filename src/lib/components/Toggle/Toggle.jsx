@@ -7,9 +7,9 @@ import Component from '../Component/Component';
 import ToggleStyles from '@fabula/core/styles/components/toggle/toggle';
 
 const Toggle = props => {
-    const { children, disabled, label, onToggle } = props;
+    const { children, disabled, elRef, label, onToggle } = props;
     const [active, setActive] = useState(props.active);
-    const elRef = useRef(null);
+    const ref = useRef(null);
 
     const handleClick = () => {
         if (!disabled) { setActive(!active); }
@@ -18,11 +18,11 @@ const Toggle = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={ToggleStyles}
             wrapper="fab-toggle-wrapper">
-            <div data-active={active} data-disabled={disabled} ref={elRef}>
+            <div data-active={active} data-disabled={disabled} ref={elRef || ref}>
                 <button className="fab-toggle" onClick={handleClick}></button>
                 <div className="fab-toggle__label" onClick={handleClick}>{label || children}</div>
             </div>

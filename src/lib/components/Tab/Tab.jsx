@@ -4,13 +4,17 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import TabStyles from '@fabula/core/styles/components/tab/tab';
 
 const Tab = props => {
-    const { activeTab, children, handleActive, label, link, name, ...rest } = props;
+    const { activeTab, children, elRef, handleActive, label, link, name, ...rest } = props;
     const [active, setActive] = useState(props.active);
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     useEffect(() => {
         if (activeTab) {
@@ -24,11 +28,11 @@ const Tab = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={TabStyles}
             wrapper="fab-tab">
-            <div data-active={active} ref={elRef}>
+            <div data-active={active} ref={elRef || ref} {...restProps}>
                 {!link && <button onClick={handleClick}>{label || children}</button>}
                 {link && <a href={link} {...rest}>{label || children}</a>}
             </div>
@@ -39,7 +43,6 @@ const Tab = props => {
 Tab.defaultProps = {
     active: false,
     activeColor: '',
-    activeFillColor: '',
     activeTextColor: '',
     clear: false,
     color: '',
@@ -65,11 +68,10 @@ Tab.defaultProps = {
 Tab.propTypes = {
     active: PropTypes.bool,
     activeColor: PropTypes.string,
-    activeFillColor: PropTypes.string,
     activeTextColor: PropTypes.string,
     clear: PropTypes.bool,
     color: PropTypes.string,
-    expand: PropTypes.bool,
+    expand: PropTypes.any,
     faded: PropTypes.bool,
     href: PropTypes.string,
     inactiveTextColor: PropTypes.string,

@@ -1,8 +1,16 @@
 import React from 'react';
 
 import {
+    Avatar,
     Button,
+    ButtonGroup,
+    Card,
+    CardImage,
+    CardSection,
     FabulaProvider,
+    Input,
+    Link,
+    Text,
     Tooltip,
     TooltipProvider,
     UtilsProvider,
@@ -28,9 +36,63 @@ export const Example = () => {
     return (
         <FabulaProvider>
             <UtilsProvider>
-                <Wrapper mt={5}>
+                <Wrapper mt="3">
                     <TooltipProvider>
-                        <BaseComponent label="Tooltip" mr={1} />
+                        <Wrapper al="center" direction="column" flex={true}>
+                            <Wrapper mb={1}>
+                                <Tooltip label="Tooltip">
+                                    <Avatar />
+                                </Tooltip>
+                            </Wrapper>
+
+                            <Wrapper mb={1}>
+                                <Tooltip label="Tooltip">
+                                    <Button>Button</Button>
+                                </Tooltip>
+                            </Wrapper>
+
+                            <Wrapper mb={1}>
+                                <ButtonGroup>
+                                    <Tooltip label="Tooltip">
+                                        <Button>Button 1</Button>
+                                    </Tooltip>
+
+                                    <Tooltip label="Tooltip">
+                                        <Button>Button 2</Button>
+                                    </Tooltip>
+
+                                    <Tooltip label="Tooltip">
+                                        <Button>Button 3</Button>
+                                    </Tooltip>
+                                </ButtonGroup>
+                            </Wrapper>
+
+                            <Card mb={1} width={300}>
+                                <Tooltip label="Tooltip">
+                                    <CardImage height={200} />
+                                </Tooltip>
+
+                                <CardSection padding={true}>
+                                    <Wrapper>
+                                        <Tooltip label="Tooltip">
+                                            <Text inline={true} strong={true} size="lg">
+                                                Card Title
+                                        </Text>
+                                        </Tooltip>
+                                    </Wrapper>
+                                    <Tooltip label="Tooltip">
+                                        <Link mb={1}>This is a link</Link>
+                                    </Tooltip>
+                                    <Tooltip label="Tooltip">
+                                        <Button color="primary" expand={true}>Button</Button>
+                                    </Tooltip>
+                                </CardSection>
+                            </Card>
+
+                            <Tooltip label="Tooltip">
+                                <Input placeholder="Input" width={300} />
+                            </Tooltip>
+                        </Wrapper>
                     </TooltipProvider>
                 </Wrapper>
             </UtilsProvider>

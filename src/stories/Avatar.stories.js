@@ -57,7 +57,7 @@ const BadgeExample = ({ color, mb }) => (
     </Wrapper>
 )
 
-// Stories
+// Example
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -78,6 +78,7 @@ export const Example = () => (
     </FabulaProvider>
 )
 
+// Properties
 export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -198,6 +199,45 @@ export const PropSize = () => (
     </FabulaProvider>
 )
 
+// Utils
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <Avatar mr={.5} />
+                <Avatar mx={.5} />
+                <Avatar ml={.5} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <Avatar mb={.5} />
+                <Avatar my={.5} />
+                <Avatar mt={.5} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true}>
+                <Avatar />
+                <Wrapper al="center" flex={true}>
+                    <Avatar />
+                    <Avatar m={1} />
+                    <Avatar />
+                </Wrapper>
+                <Avatar />
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Avatar hidden={true} />
+            <Avatar visible={true} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Other
 export const ExternalBadge = () => (
     <FabulaProvider>
         <UtilsProvider>

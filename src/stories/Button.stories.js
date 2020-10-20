@@ -13,6 +13,7 @@ export default {
   component: Button,
 };
 
+// Example
 export const Example = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -26,6 +27,7 @@ export const Example = () => (
   </FabulaProvider>
 )
 
+// Properties
 export const PropBorder = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -392,5 +394,57 @@ export const PropWide = () => (
       <Button color="primary" mr={1}>Normal</Button>
       <Button color="primary" wide={true}>Wide</Button>
     </UtilsProvider>
+  </FabulaProvider>
+)
+
+// Utilities
+export const UtilMargin = () => (
+  <FabulaProvider>
+      <UtilsProvider>
+          <Wrapper al="center" flex={true} mb={1}>
+              <Button color="aux" mr={.5}>Button</Button>
+              <Button color="aux" mx={.5}>Button</Button>
+              <Button color="aux" ml={.5}>Button</Button>
+          </Wrapper>
+
+          <Wrapper al="center" direction="column" flex={true} mb={1}>
+              <Button color="aux" mb={.5}>Button</Button>
+              <Button color="aux" my={.5}>Button</Button>
+              <Button color="aux" mt={.5}>Button</Button>
+          </Wrapper>
+
+          <Wrapper al="center" direction="column" flex={true}>
+              <Button color="aux">Button</Button>
+              <Wrapper al="center" flex={true}>
+                  <Button color="aux">Button</Button>
+                  <Button color="aux" m={1}>Button</Button>
+                  <Button color="aux">Button</Button>
+              </Wrapper>
+              <Button color="aux">Button</Button>
+          </Wrapper>
+      </UtilsProvider>
+  </FabulaProvider>
+)
+
+export const UtilPadding = () => (
+  <FabulaProvider>
+      <UtilsProvider>
+          <Button color="aux" mr={1} p={2}>Button</Button>
+          <Button color="aux" mr={1} pb={2}>Button</Button>
+          <Button color="aux" mr={1} pl={2}>Button</Button>
+          <Button color="aux" mr={1} pr={2}>Button</Button>
+          <Button color="aux" mr={1} pt={2}>Button</Button>
+          <Button color="aux" mr={1} px={2}>Button</Button>
+          <Button color="aux" mr={1} py={2}>Button</Button>
+      </UtilsProvider>
+  </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+  <FabulaProvider>
+      <UtilsProvider>
+          <Button color="aux" hidden={true}>Button</Button>
+          <Button color="aux" visible={true}>Button</Button>
+      </UtilsProvider>
   </FabulaProvider>
 )

@@ -18,6 +18,7 @@ export default {
     component: Badge,
 };
 
+// Example
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -89,6 +90,7 @@ export const Example = () => (
     </FabulaProvider>
 )
 
+// Properties
 export const PropClear = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -333,6 +335,58 @@ export const PropRounded = () => (
                 <Element mr={.5}>Button</Element>
                 <Badge color="dark" rounded={true}>9</Badge>
             </Button>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Utilities
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <Badge color="aux" mr={.5}>Badge</Badge>
+                <Badge color="aux" mx={.5}>Badge</Badge>
+                <Badge color="aux" ml={.5}>Badge</Badge>
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <Badge color="aux" mb={.5}>Badge</Badge>
+                <Badge color="aux" my={.5}>Badge</Badge>
+                <Badge color="aux" mt={.5}>Badge</Badge>
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true}>
+                <Badge color="aux">Badge</Badge>
+                <Wrapper al="center" flex={true}>
+                    <Badge color="aux">Badge</Badge>
+                    <Badge color="aux" m={1}>Badge</Badge>
+                    <Badge color="aux">Badge</Badge>
+                </Wrapper>
+                <Badge color="aux">Badge</Badge>
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilPadding = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Badge color="aux" mr={1} p={2}>Badge</Badge>
+            <Badge color="aux" mr={1} pb={2}>Badge</Badge>
+            <Badge color="aux" mr={1} pl={2}>Badge</Badge>
+            <Badge color="aux" mr={1} pr={2}>Badge</Badge>
+            <Badge color="aux" mr={1} pt={2}>Badge</Badge>
+            <Badge color="aux" mr={1} px={2}>Badge</Badge>
+            <Badge color="aux" mr={1} py={2}>Badge</Badge>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Badge color="aux" hidden={true}>Badge</Badge>
+            <Badge color="aux" visible={true}>Badge</Badge>
         </UtilsProvider>
     </FabulaProvider>
 )

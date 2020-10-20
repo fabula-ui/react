@@ -17,6 +17,16 @@ export default {
     component: ButtonGroup,
 };
 
+// Base component
+export const BaseComponent = ({ color, ...rest }) => (
+    <ButtonGroup color={color} {...rest}>
+        <Button color={color}>Button</Button>
+        <Button color={color}>Button</Button>
+        <Button color={color}>Button</Button>
+    </ButtonGroup>
+)
+
+// Example
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -50,6 +60,7 @@ export const Example = () => (
     </FabulaProvider>
 )
 
+// Properties
 export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -129,12 +140,13 @@ export const PropLayout = () => (
         <UtilsProvider>
             <Wrapper flex={true}>
                 <Wrapper>
-                    <ButtonGroup flex={true} mb={1}>
-                        <Button>Button</Button>
-                        <Button>Button</Button>
-                        <Button>Button</Button>
+                    <ButtonGroup mb={1} mr={1}>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
                     </ButtonGroup>
-                    <ButtonGroup color="primary" flex={true} mr={1}>
+
+                    <ButtonGroup color="primary" mr={1}>
                         <Button color="primary">Button</Button>
                         <Button color="primary">Button</Button>
                         <Button color="primary">Button</Button>
@@ -143,9 +155,9 @@ export const PropLayout = () => (
 
                 <Wrapper>
                     <ButtonGroup layout="v" mr={1}>
-                        <Button>Button</Button>
-                        <Button>Button</Button>
-                        <Button>Button</Button>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
                     </ButtonGroup>
 
                     <ButtonGroup color="primary" layout="v">
@@ -159,6 +171,45 @@ export const PropLayout = () => (
     </FabulaProvider>
 );
 
+// Utilities
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <BaseComponent color="aux" mr={.5} />
+                <BaseComponent color="aux" mx={.5} />
+                <BaseComponent color="aux" ml={.5} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <BaseComponent color="aux" mb={.5} />
+                <BaseComponent color="aux" my={.5} />
+                <BaseComponent color="aux" mt={.5} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true}>
+                <BaseComponent color="aux" />
+                <Wrapper al="center" flex={true}>
+                    <BaseComponent color="aux" />
+                    <BaseComponent color="aux" m={1} />
+                    <BaseComponent color="aux" />
+                </Wrapper>
+                <BaseComponent color="aux" />
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent color="aux" hidden={true} />
+            <BaseComponent color="aux" visible={true} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Other
 export const ExternalDropdown = () => (
     <FabulaProvider>
         <UtilsProvider>

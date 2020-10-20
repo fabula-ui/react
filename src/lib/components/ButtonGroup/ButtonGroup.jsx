@@ -20,12 +20,11 @@ const ButtonGroup = props => {
             elRef={elRef || ref}
             properties={props}
             styles={ButtonGroupStyles}
-            wrapper="fab-button-group">
-            <div
-                data-fab-component="buttonGroup"
-                ref={elRef || ref}
-                {...restProps}>
-                {children}
+            wrapper="fab-button-group-wrapper">
+            <div data-fab-wrapper="buttonGroup" ref={elRef || ref} {...restProps}>
+                <div className="fab-button-group" data-fab-component="buttonGroup">
+                    {children}
+                </div>
             </div>
         </Component>
     )
@@ -35,6 +34,7 @@ ButtonGroup.defaultProps = {
     color: '',
     divider: true,
     dividerColor: '',
+    inline: true,
     layout: 'horizontal',
 }
 

@@ -59,6 +59,7 @@ Avatar.defaultProps = {
     darken: false,
     icon: 'image',
     image: '',
+    inline: true,
     lighten: false,
     rounded: false,
     showInitials: '',

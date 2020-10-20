@@ -44,6 +44,7 @@ Badge.defaultProps = {
     darken: false,
     faded: false,
     glow: false,
+    inline: true,
     invert: false,
     label: '',
     lighten: false,

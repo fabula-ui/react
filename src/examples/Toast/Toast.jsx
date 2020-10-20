@@ -66,7 +66,9 @@ export const ToastExamples = props => {
                 invert: true,
                 label: 'Go there'
             },
-            icon: 'compass',
+            icon: {
+                name: 'compass'
+            },
             hideDelay: 4000,
             message: 'Here is an example of a toast component working...',
             stack
@@ -74,7 +76,7 @@ export const ToastExamples = props => {
     }
 
     return (
-        <>
+        <Wrapper al="center" direction="column" flex={true}>
             <Wrapper mb={1}>
                 <Button border={true} clear={true} color="primary" mr={1} onClick={() => addToast('topLeft')}>Top Left</Button>
                 <Button border={true} clear={true} color="primary" mr={1} onClick={() => addToast('topCenter')}>Top Center</Button>
@@ -86,6 +88,6 @@ export const ToastExamples = props => {
                 <Button border={true} clear={true} color="primary" mr={1} onClick={() => addToast('bottomCenter')}>Bottom Center</Button>
                 <Button border={true} clear={true} color="primary" onClick={() => addToast('bottomRight')}>Bottom Right</Button>
             </Wrapper>
-        </>
+        </Wrapper>
     )
 }

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Components
 import Button from '../Button/Button';
 import Component from '../Component/Component';
-import InnerIcon from '../InnerIcon/InnerIcon';
+import Icon from '../Icon/Icon';
 
 // Styles
 import ToastStyles from '@fabula/core/styles/components/toast/toast';
@@ -13,7 +13,6 @@ const Toast = props => {
     const {
         button,
         children,
-        color,
         hideButton,
         hideDelay,
         icon,
@@ -87,8 +86,8 @@ const Toast = props => {
                 styles={ToastStyles}
                 wrapper="fab-toast-wrapper">
                 <div data-fab-wrapper="toast" data-hiding={hiding} data-stacked={stacked} ref={toastRef} style={{ height }}>
-                    <div className="fab-toast">
-                        {!!icon && <InnerIcon color={color} icon={icon} parentProps={props} />}
+                    <div className="fab-toast" data-fab-component="toast">
+                        {!!icon && <Icon {...icon} />}
                         {!!message && <span className="fab-toast__message">{message}</span>}
                         {children}
                         {(!!button || !!hideButton || !!link) &&
@@ -114,7 +113,7 @@ Toast.defaultProps = {
     glow: false,
     hideButton: null,
     hideDelay: 2000,
-    link: '',
+    link: {},
     message: '',
     outline: false,
     stacked: false
@@ -127,7 +126,7 @@ Toast.propTypes = {
     glow: PropTypes.bool,
     hideButton: PropTypes.any,
     hideDelay: PropTypes.any,
-    link: PropTypes.string,
+    link: PropTypes.any,
     message: PropTypes.string,
     outline: PropTypes.bool,
     stacked: PropTypes.bool

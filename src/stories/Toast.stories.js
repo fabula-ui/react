@@ -7,7 +7,8 @@ import {
     ToastProvider,
     Row,
     Toast,
-    UtilsProvider
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 import { ToastExamples } from '../examples/Toast/Toast';
@@ -26,35 +27,31 @@ const BaseComponent = ({ color, hideButton, iconColor, iconName, ...rest }) => (
 export const PropClear = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Row mb={1}>
-                <Column col={6}>
-                    <BaseComponent clear={true} iconColor="primary" />
-                </Column>
+            <Container>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} />
+                </Wrapper>
 
-                <Column col={6}>
+                <Wrapper mb={1}>
                     <BaseComponent clear={true} color="primary" />
-                </Column>
-            </Row>
+                </Wrapper>
 
-            <Row mb={1}>
-                <Column col={6}>
-                    <BaseComponent clear={true} color="lavender" iconColor="lavender" />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} color="lavender" />
+                </Wrapper>
 
-                <Column col={6}>
-                    <BaseComponent clear={true} color="hot" iconColor="hot" />
-                </Column>
-            </Row>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} color="hot" />
+                </Wrapper>
 
-            <Row>
-                <Column col={6}>
-                    <BaseComponent clear={true} color="aux" iconColor="aux" />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} color="aux" />
+                </Wrapper>
 
-                <Column col={6}>
-                    <BaseComponent clear={true} color="dark" iconColor="dark" />
-                </Column>
-            </Row>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} color="dark" />
+                </Wrapper>
+            </Container>
         </UtilsProvider>
     </FabulaProvider>
 )
@@ -62,33 +59,31 @@ export const PropClear = () => (
 export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Row mb={1}>
-                <Column col={4}>
+            <Container>
+                <Wrapper mb={1}>
                     <BaseComponent />
-                </Column>
+                </Wrapper>
 
-                <Column col={4}>
+                <Wrapper mb={1}>
                     <BaseComponent color="primary" />
-                </Column>
+                </Wrapper>
 
-                <Column col={4}>
+                <Wrapper mb={1}>
                     <BaseComponent color="lavender" />
-                </Column>
-            </Row>
+                </Wrapper>
 
-            <Row>
-                <Column col={4}>
+                <Wrapper mb={1}>
                     <BaseComponent color="hot" />
-                </Column>
+                </Wrapper>
 
-                <Column col={4}>
+                <Wrapper mb={1}>
                     <BaseComponent color="aux" />
-                </Column>
+                </Wrapper>
 
-                <Column col={4}>
+                <Wrapper mb={1}>
                     <BaseComponent color="dark" />
-                </Column>
-            </Row>
+                </Wrapper>
+            </Container>
         </UtilsProvider>
     </FabulaProvider>
 )
@@ -96,33 +91,31 @@ export const PropColor = () => (
 export const PropFaded = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Row mb={1}>
-                <Column col={4}>
+            <Container>
+                <Wrapper mb={1}>
                     <BaseComponent faded={true} />
-                </Column>
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="primary" faded={true} />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="primary" />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="lavender" faded={true} />
-                </Column>
-            </Row>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="lavender" />
+                </Wrapper>
 
-            <Row>
-                <Column col={4}>
-                    <BaseComponent color="hot" faded={true} />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="hot" />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="aux" faded={true} />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="aux" />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="dark" faded={true} />
-                </Column>
-            </Row>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="dark" />
+                </Wrapper>
+            </Container>
         </UtilsProvider>
     </FabulaProvider>
 )
@@ -130,33 +123,31 @@ export const PropFaded = () => (
 export const PropGlow = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Row mb={1}>
-                <Column col={4}>
+            <Container>
+                <Wrapper mb={1}>
                     <BaseComponent glow={true} />
-                </Column>
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="primary" glow={true} />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="primary" />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="lavender" glow={true} />
-                </Column>
-            </Row>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="lavender" />
+                </Wrapper>
 
-            <Row>
-                <Column col={4}>
-                    <BaseComponent color="hot" glow={true} />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="hot" />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="aux" glow={true} />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="aux" />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="dark" glow={true} />
-                </Column>
-            </Row>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="dark" />
+                </Wrapper>
+            </Container>
         </UtilsProvider>
     </FabulaProvider>
 )
@@ -165,7 +156,9 @@ export const PropHideButton = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Container>
-                <BaseComponent color="primary" hideButton={{ color: 'primary', compact: true, invert: true, label: "Hide me" }} mb={1} />
+                <Wrapper mb={1}>
+                    <BaseComponent color="primary" hideButton={{ color: 'primary', compact: true, invert: true, label: "Hide me" }} />
+                </Wrapper>
                 <BaseComponent color="primary" hideButton={{ color: 'primary', invert: true, label: "Hide me", wide: true }} />
             </Container>
         </UtilsProvider>
@@ -188,11 +181,13 @@ export const PropIcon = () => (
 export const PropLink = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <BaseComponent link={{
-                label: 'Go there',
-                target: '_blank',
-                url: 'https://www.github.com/fabula-ui'
-            }} />
+            <Container>
+                <BaseComponent link={{
+                    label: 'Go there',
+                    target: '_blank',
+                    url: 'https://www.github.com/fabula-ui'
+                }} />
+            </Container>
         </UtilsProvider>
     </FabulaProvider>
 )
@@ -200,33 +195,31 @@ export const PropLink = () => (
 export const PropOutline = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Row mb={1}>
-                <Column col={4}>
-                    <BaseComponent hideButton={{ invert: false, outline: true }} outline={true} />
-                </Column>
+            <Container>
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="primary" hideButton={{ invert: false, outline: true }} outline={true} />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="primary" />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="lavender" hideButton={{ invert: false, outline: true }} outline={true} />
-                </Column>
-            </Row>
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="lavender" />
+                </Wrapper>
 
-            <Row>
-                <Column col={4}>
-                    <BaseComponent color="hot" hideButton={{ invert: false, outline: true }} outline={true} />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="hot" />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="aux" hideButton={{ invert: false, outline: true }} outline={true} />
-                </Column>
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="aux" />
+                </Wrapper>
 
-                <Column col={4}>
-                    <BaseComponent color="dark" hideButton={{ invert: false, outline: true }} outline={true} />
-                </Column>
-            </Row>
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="dark" />
+                </Wrapper>
+            </Container>
         </UtilsProvider>
     </FabulaProvider>
 )

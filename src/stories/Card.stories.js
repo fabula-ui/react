@@ -63,7 +63,7 @@ const ListItemExample = ({ children, title, ...rest }) => (
   </ListItem>
 )
 
-// Stories
+// Example
 export const Example = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -121,6 +121,7 @@ export const Example = () => (
   </FabulaProvider>
 )
 
+// Properties
 export const PropColor = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -229,5 +230,43 @@ export const PropLayout = () => (
         </Column>
       </Row>
     </UtilsProvider>
+  </FabulaProvider>
+)
+
+// Utilities
+export const UtilMargin = () => (
+  <FabulaProvider>
+      <UtilsProvider>
+          <Wrapper al="center" flex={true} mb={1}>
+              <BaseComponent mr={.5} width={300} />
+              <BaseComponent mx={.5} width={300} />
+              <BaseComponent ml={.5} width={300} />
+          </Wrapper>
+
+          <Wrapper al="center" direction="column" flex={true} mb={1}>
+              <BaseComponent mb={.5} width={300} />
+              <BaseComponent my={.5} width={300} />
+              <BaseComponent mt={.5} width={300} />
+          </Wrapper>
+
+          <Wrapper al="center" direction="column" flex={true}>
+              <BaseComponent width={300} />
+              <Wrapper al="center" flex={true}>
+                  <BaseComponent width={300} />
+                  <BaseComponent m={1} width={300} />
+                  <BaseComponent width={300} />
+              </Wrapper>
+              <BaseComponent width={300} />
+          </Wrapper>
+      </UtilsProvider>
+  </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+  <FabulaProvider>
+      <UtilsProvider>
+          <BaseComponent hidden={true} />
+          <BaseComponent visible={true} width={300} />
+      </UtilsProvider>
   </FabulaProvider>
 )

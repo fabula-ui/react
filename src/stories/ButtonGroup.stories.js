@@ -18,7 +18,7 @@ export default {
 };
 
 // Base component
-export const BaseComponent = ({ color, ...rest }) => (
+const BaseComponent = ({ color, ...rest }) => (
     <ButtonGroup color={color} {...rest}>
         <Button color={color}>Button</Button>
         <Button color={color}>Button</Button>

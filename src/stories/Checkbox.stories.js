@@ -12,7 +12,7 @@ export default {
     component: Checkbox,
 };
 
-// Stories
+// Example
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -21,6 +21,7 @@ export const Example = () => (
     </FabulaProvider>
 )
 
+// Properties
 export const PropActiveColor = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -264,6 +265,44 @@ export const PropSize = () => (
                 <Checkbox checked={true} label="2x Extra-Large Checkbox" mr={1} size="xxl" />
                 <Checkbox indeterminate={true} label="2x Extra-Large Checkbox" size="xxl" />
             </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Utilities
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <Checkbox label="Checkbox" mr={.5} />
+                <Checkbox label="Checkbox" mx={.5} />
+                <Checkbox label="Checkbox" ml={.5} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <Checkbox label="Checkbox" mb={.5} />
+                <Checkbox label="Checkbox" my={.5} />
+                <Checkbox label="Checkbox" mt={.5} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true}>
+                <Checkbox label="Checkbox" />
+                <Wrapper al="center" flex={true}>
+                    <Checkbox label="Checkbox" />
+                    <Checkbox label="Checkbox" m={1} />
+                    <Checkbox label="Checkbox" />
+                </Wrapper>
+                <Checkbox label="Checkbox" />
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Checkbox label="Checkbox" hidden={true} />
+            <Checkbox label="Checkbox" visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

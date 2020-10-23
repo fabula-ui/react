@@ -29,7 +29,7 @@ const BaseComponent = props => (
   </Card>
 )
 
-// Stories
+// Example
 export const Example = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -42,6 +42,7 @@ export const Example = () => (
   </FabulaProvider>
 )
 
+// Properties
 export const PropColor = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -284,6 +285,22 @@ export const ExternalTag = () => (
               <Text color="inherit" strong>Online</Text>
             </Tag>
           </BaseComponent>
+        </Column>
+      </Row>
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
+// Utilities
+export const UtilVisibility = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <Row>
+        <Column col={4}>
+          <BaseComponent hidden={true} />
+        </Column>
+        <Column col={4}>
+          <BaseComponent visible={true} />
         </Column>
       </Row>
     </UtilsProvider>

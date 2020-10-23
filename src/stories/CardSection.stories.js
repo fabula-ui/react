@@ -32,7 +32,7 @@ const BaseComponent = ({ color, darken, divider, faded, lighten }) => (
     </Card>
 )
 
-// Stories
+// Example
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -52,6 +52,7 @@ export const Example = () => (
     </FabulaProvider>
 )
 
+// Properties
 export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -198,6 +199,39 @@ export const PropLighten = () => (
                     <BaseComponent color="dark" lighten={true} />
                 </Column>
             </Row>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Utilities
+const UtilBaseComponent = ({ pmb, ...rest }) => (
+    <Card mb={pmb}>
+        <CardSection {...rest}>
+            <Text block={true} size="lg" weight={700}>Card Title</Text>
+            <Text aux={true} size="sm">Card subtitle</Text>
+        </CardSection>
+    </Card>
+)
+
+export const UtilPadding = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <UtilBaseComponent pmb={1} p={2} />
+            <UtilBaseComponent pmb={1} pb={2} />
+            <UtilBaseComponent pmb={1} pl={2} />
+            <UtilBaseComponent pmb={1} pr={2} />
+            <UtilBaseComponent pmb={1} pt={2} />
+            <UtilBaseComponent pmb={1} px={2} />
+            <UtilBaseComponent pmb={1} py={2} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <UtilBaseComponent hidden={true} pmb={1} />
+            <UtilBaseComponent padding={true} visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

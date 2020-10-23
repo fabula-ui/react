@@ -17,7 +17,7 @@ const BaseComponent = props => (
     <Alert icon="bell" text="This is an example of an alert" title="Alert Title" {...props} />
 )
 
-// Stories
+// Example
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>

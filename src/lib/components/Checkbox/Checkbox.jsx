@@ -21,11 +21,11 @@ const Checkbox = props => {
     const handleChange = e => {
         const tempChecked = e ? e.target.checked : !checked;
         const indeterminate = e ? e.target.indeterminate : false;
+        console.log('e', e);
 
         if (!disabled && !readOnly) {
             setChecked(tempChecked);
             setIndeterminate(indeterminate);
-
             handleEvents(tempChecked);
         }
     }
@@ -43,25 +43,29 @@ const Checkbox = props => {
             styles={CheckboxStyles}
             wrapper="fab-checkbox-wrapper">
             <div
-                data-checked={checked}
-                data-disabled={disabled}
-                data-focus={focus}
-                data-indeterminate={isIndeterminate}
-                data-read-only={readOnly}
-                data-fab-component="checkbox"
-                ref={elRef}
+                data-fab-wrapper="checkbox"
+                ref={elRef || ref}
                 {...restProps}>
-                <div className="fab-checkbox" onClick={() => handleChange()} />
-                <label className="fab-checkbox__label">
-                    <input
-                        checked={checked}
-                        disabled={disabled}
-                        onBlur={() => setFocus(false)}
-                        onFocus={() => setFocus(true)}
-                        onChange={handleChange}
-                        type="checkbox" />
-                    {label || children}
-                </label>
+                <div
+                    className="fab-checkbox"
+                    data-checked={checked}
+                    data-disabled={disabled}
+                    data-focus={focus}
+                    data-indeterminate={isIndeterminate}
+                    data-read-only={readOnly}
+                    data-fab-component="checkbox">
+                    <div className="fab-checkbox__square" onClick={() => handleChange()} />
+                    <label className="fab-checkbox__label">
+                        <input
+                            checked={checked}
+                            disabled={disabled}
+                            onBlur={() => setFocus(false)}
+                            onChange={handleChange}
+                            onFocus={() => setFocus(true)}
+                            type="checkbox" />
+                        {label || children}
+                    </label>
+                </div>
             </div>
         </Component>
     )

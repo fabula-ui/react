@@ -103,8 +103,8 @@ const Tabs = props => {
             properties={props}
             styles={TabsStyles}
             wrapper="fab-tabs-wrapper">
-            <div ref={elRef || ref} {...restProps}>
-                <div className="fab-tabs">
+            <div ref={elRef || ref} data-fab-wrapper="tabs" {...restProps}>
+                <div className="fab-tabs" data-fab-component="tabs">
                     {childrenWithProps}
                 </div>
             </div>

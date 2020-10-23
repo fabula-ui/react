@@ -14,10 +14,20 @@ import getComponentProps from '../../utils/getComponentProps';
 import SearchInputStyles from '@fabula/core/styles/components/search-input/search-input';
 
 const SearchInput = props => {
-    const { button, children, className, elRef, icon, placeholder, onSearch, ...rest } = props;
+    const {
+        button,
+        children,
+        className,
+        elRef,
+        icon,
+        placeholder,
+        onSearch,
+        ...rest
+    } = props;
     const ref = useRef(null);
     const searchRef = useRef(null);
-    const restProps = getComponentProps(rest);
+    const inputRestProps = getComponentProps(rest, 'utils');
+    const wrapperRestProps = getComponentProps(rest);
 
     const handleKeyDown = e => {
         if (e.keyCode === 13 && onSearch) {
@@ -38,8 +48,8 @@ const SearchInput = props => {
             properties={props}
             styles={SearchInputStyles}
             wrapper="fab-search-input">
-            <div ref={elRef || ref} {...restProps}>
-                <Input elRef={searchRef} iconStart={{ name: 'search' }} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...rest}>
+            <div ref={elRef || ref} data-fab-wrapper="searchInput" {...wrapperRestProps}>
+                <Input elRef={searchRef} iconStart={{ name: 'search' }} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...inputRestProps}>
                     {!!button &&
                         <Button color="primary" compact={true} onClick={handleSearch} {...button}>
                             {!button.label && !button.icon && 'Search'}

@@ -19,6 +19,7 @@ export default {
   component: Segments,
 };
 
+// Base component
 const BaseComponent = props => (
   <Segments active="docs" {...props}>
     <Segment name="docs">Docs</Segment>
@@ -27,6 +28,7 @@ const BaseComponent = props => (
   </Segments>
 )
 
+// Example
 export const Example = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -51,6 +53,7 @@ export const Example = () => (
   </FabulaProvider>
 )
 
+// Properties
 export const PropActiveColor = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -487,6 +490,59 @@ export const PropRounded = () => (
   </FabulaProvider>
 )
 
+// Utilities
+export const UtilMargin = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <Wrapper al="center" flex={true} mb={1}>
+        <BaseComponent mr={.5} width={400} />
+        <BaseComponent mx={.5} width={400} />
+        <BaseComponent ml={.5} width={400} />
+      </Wrapper>
+
+      <Wrapper al="center" direction="column" flex={true} mb={1}>
+        <BaseComponent mb={.5} width={400} />
+        <BaseComponent my={.5} width={400} />
+        <BaseComponent mt={.5} width={400} />
+      </Wrapper>
+
+      <Wrapper al="center" direction="column" flex={true}>
+        <BaseComponent width={400} />
+        <Wrapper al="center" flex={true}>
+          <BaseComponent width={400} />
+          <BaseComponent m={1} width={400} />
+          <BaseComponent width={400} />
+        </Wrapper>
+        <BaseComponent width={400} />
+      </Wrapper>
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
+export const UtilPadding = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <BaseComponent mb={1} p={2} />
+      <BaseComponent mb={1} pb={2} />
+      <BaseComponent mb={1} pl={2} />
+      <BaseComponent mb={1} pr={2} />
+      <BaseComponent mb={1} pt={2} />
+      <BaseComponent mb={1} px={2} />
+      <BaseComponent mb={1} py={2} />
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <BaseComponent hidden={true} />
+      <BaseComponent visible={true} />
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
+// Other
 export const HandleContent = () => (
   <FabulaProvider>
     <UtilsProvider>

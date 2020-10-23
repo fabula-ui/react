@@ -1,12 +1,18 @@
 import React from 'react';
 
-import { FabulaProvider, Icon, UtilsProvider } from '../lib';
+import {
+	FabulaProvider,
+	Icon,
+	UtilsProvider,
+	Wrapper
+} from '../lib';
 
 export default {
 	title: 'Icon',
 	component: Icon
 };
 
+// Example
 export const Example = () => (
 	<FabulaProvider>
 		<UtilsProvider>
@@ -18,6 +24,7 @@ export const Example = () => (
 	</FabulaProvider>
 );
 
+// Properties
 export const PropColor = () => (
 	<FabulaProvider>
 		<UtilsProvider>
@@ -39,6 +46,48 @@ export const PropSize = () => (
 			<Icon name="bell" mr={1} size="lg" />
 			<Icon name="bell" mr={1} size="xl" />
 			<Icon name="bell" size="xxl" />
+		</UtilsProvider>
+	</FabulaProvider>
+)
+
+// Utilities
+const UtilBaseComponent = props => (
+	<Icon name="bell" size="xxl" {...props} />
+)
+
+export const UtilMargin = () => (
+	<FabulaProvider>
+		<UtilsProvider>
+			<Wrapper al="center" flex={true} mb={1}>
+				<UtilBaseComponent mr={.5} />
+				<UtilBaseComponent mx={.5} />
+				<UtilBaseComponent ml={.5} />
+			</Wrapper>
+
+			<Wrapper al="center" direction="column" flex={true} mb={1}>
+				<UtilBaseComponent mb={.5} />
+				<UtilBaseComponent my={.5} />
+				<UtilBaseComponent mt={.5} />
+			</Wrapper>
+
+			<Wrapper al="center" direction="column" flex={true}>
+				<UtilBaseComponent />
+				<Wrapper al="center" flex={true}>
+					<UtilBaseComponent />
+					<UtilBaseComponent m={1} />
+					<UtilBaseComponent />
+				</Wrapper>
+				<UtilBaseComponent />
+			</Wrapper>
+		</UtilsProvider>
+	</FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+	<FabulaProvider>
+		<UtilsProvider>
+			<UtilBaseComponent hidden={true} />
+			<UtilBaseComponent visible={true} width={300} />
 		</UtilsProvider>
 	</FabulaProvider>
 )

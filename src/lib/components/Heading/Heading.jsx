@@ -13,7 +13,7 @@ const Heading = props => {
     const { children, elRef, level, ...rest } = props;
     const ref = useRef(null);
     const restProps = getComponentProps(rest);
-    const HTag = () => createElement(`h${level}`, { ...restProps, ref: (elRef || ref) }, children);
+    const HTag = () => createElement(`h${level}`, { ...restProps, ref: (elRef || ref), 'data-fab-component': 'heading' }, children);
 
     return (
         <Component

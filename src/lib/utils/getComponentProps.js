@@ -1,15 +1,8 @@
-const utilProps = [
+const allProps = [
     'active',
     'activeColor',
     'activeBorderColor',
     'activeTextColor',
-    'al',
-    'alH',
-    'alV',
-    'align',
-    'alignH',
-    'alignV',
-    'block',
     'border',
     'borderColor',
     'circle',
@@ -17,35 +10,55 @@ const utilProps = [
     'clear',
     'clickToClose',
     'closeModal',
-    'col',
     'cover',
     'darken',
-    'direction',
     'display',
     'divider',
     'dividerColor',
-    'expand',
     'faded',
-    'flex',
-    'font',
-    'flow',
     'glow',
-    'grow',
     'hasProperty',
-    'height',
-    'hidden',
     'inactiveColor',
     'inactiveTextColor',
     'indeterminate',
-    'inline',
     'invert',
     'label',
     'lighten',
     'lineHeight',
-    'maxHeight',
-    'maxWidth',
     'message',
     'messageColor',
+    'outline',
+    'padding',
+    'parentColor',
+    'parentOnClick',
+    'placementX',
+    'placementY',
+    'rounded',
+    'stacked',
+    'textColor',
+    'titleColor',
+    'toggle',
+];
+const utilProps = [
+    'al',
+    'alH',
+    'alV',
+    'align',
+    'alignH',
+    'alignV',
+    'block',
+    'col',
+    'direction',
+    'expand',
+    'flex',
+    'font',
+    'flow',
+    'grow',
+    'height',
+    'hidden',
+    'inline',
+    'maxHeight',
+    'maxWidth',
     'minHeight',
     'minWidth',
     'm',
@@ -53,40 +66,37 @@ const utilProps = [
     'mr',
     'mx',
     'my',
-    'outline',
     'ov',
     'overflow',
     'ovX',
     'overflowX',
     'ovY',
     'overflowY',
-    'parentColor',
-    'parentOnClick',
     'p',
     'pl',
-    'placementX',
-    'placementY',
     'pr',
     'px',
     'py',
-    'padding',
-    'rounded',
     'row',
-    'span',
-    'stacked',
-    'textColor',
-    'titleColor',
-    'toggle',
     'visible',
     'width',
     'wrap'
 ]
 
-const getComponentProps = props => {
-    const componentProps = {...props};
-    
-    for (let i = 0; i < utilProps.length; i++) {
-        const utilProp = utilProps[i];
+const getComponentProps = (props, context) => {
+    const componentProps = { ...props };
+    let targetProps;
+
+    if (!context || context === 'all') {
+        targetProps = [...utilProps, ...allProps]
+    } else if (context === 'component') {
+        targetProps = [...allProps];
+    } else if (context === 'utils') {
+        targetProps = [...utilProps];
+    }
+
+    for (let i = 0; i < targetProps.length; i++) {
+        const utilProp = targetProps[i];
 
         if (componentProps.hasOwnProperty(utilProp)) {
             delete componentProps[utilProp];

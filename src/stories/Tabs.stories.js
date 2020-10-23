@@ -38,7 +38,7 @@ const BaseComponent = props => (
     </Tabs>
 )
 
-// Stories
+// Example
 export const Example = () => (
     <FabulaProvider>
         <Container>
@@ -47,6 +47,7 @@ export const Example = () => (
     </FabulaProvider>
 )
 
+// Properties
 export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -334,6 +335,58 @@ export const HandleContent = () => (
                     </TabContent>
                 </Wrapper>
             </Container>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Utilities
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <BaseComponent mr={.5} />
+                <BaseComponent mx={.5} />
+                <BaseComponent ml={.5} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <BaseComponent mb={.5} />
+                <BaseComponent my={.5} />
+                <BaseComponent mt={.5} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true}>
+                <BaseComponent />
+                <Wrapper al="center" flex={true}>
+                    <BaseComponent />
+                    <BaseComponent m={1} />
+                    <BaseComponent />
+                </Wrapper>
+                <BaseComponent />
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilPadding = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent mb={1} p={2} />
+            <BaseComponent mb={1} pb={2} />
+            <BaseComponent mb={1} pl={2} />
+            <BaseComponent mb={1} pr={2} />
+            <BaseComponent mb={1} pt={2} />
+            <BaseComponent mb={1} px={2} />
+            <BaseComponent mb={1} py={2} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent hidden={true} />
+            <BaseComponent visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

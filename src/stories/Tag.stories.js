@@ -4,7 +4,8 @@ import {
     FabulaProvider,
     Tag,
     TagGroup,
-    UtilsProvider
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -12,6 +13,7 @@ export default {
     component: Tag,
 };
 
+// Base component
 const BaseComponent = props => (
     <Fragment>
         <TagGroup mb={1}>
@@ -24,12 +26,12 @@ const BaseComponent = props => (
         </TagGroup>
 
         <TagGroup mb={1}>
-            <Tag {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-            <Tag color="primary" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-            <Tag color="lavender" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-            <Tag color="hot" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-            <Tag color="aux" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-            <Tag color="dark" {...props}><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
+            <Tag href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+            <Tag color="primary" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+            <Tag color="lavender" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+            <Tag color="hot" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+            <Tag color="aux" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+            <Tag color="dark" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
         </TagGroup>
 
         <TagGroup>
@@ -43,19 +45,20 @@ const BaseComponent = props => (
     </Fragment>
 )
 
-// Stories
+// Example
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
             <TagGroup>
                 <Tag>Normal</Tag>
-                <Tag><a href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</a></Tag>
-                <Tag><button>Button</button></Tag>
+                <Tag href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</Tag>
+                <Tag button={true}>Button</Tag>
             </TagGroup>
         </UtilsProvider>
     </FabulaProvider>
 )
 
+// Properties
 export const PropClear = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -174,6 +177,58 @@ export const PropSize = () => (
                 <Tag color="primary" rounded={true} size="xl">Extra-large</Tag>
                 <Tag color="primary" rounded={true} size="xxl">2x Extra-large</Tag>
             </TagGroup>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Utilities
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <Tag color="aux" mr={.5}>Tag</Tag>
+                <Tag color="aux" mx={.5}>Tag</Tag>
+                <Tag color="aux" ml={.5}>Tag</Tag>
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <Tag color="aux" mb={.5}>Tag</Tag>
+                <Tag color="aux" my={.5}>Tag</Tag>
+                <Tag color="aux" mt={.5}>Tag</Tag>
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true}>
+                <Tag color="aux">Tag</Tag>
+                <Wrapper al="center" flex={true}>
+                    <Tag color="aux">Tag</Tag>
+                    <Tag color="aux" m={1}>Tag</Tag>
+                    <Tag color="aux">Tag</Tag>
+                </Wrapper>
+                <Tag color="aux">Tag</Tag>
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilPadding = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Tag color="aux" mr={1} p={2}>Tag</Tag>
+            <Tag color="aux" mr={1} pb={2}>Tag</Tag>
+            <Tag color="aux" mr={1} pl={2}>Tag</Tag>
+            <Tag color="aux" mr={1} pr={2}>Tag</Tag>
+            <Tag color="aux" mr={1} pt={2}>Tag</Tag>
+            <Tag color="aux" mr={1} px={2}>Tag</Tag>
+            <Tag color="aux" mr={1} py={2}>Tag</Tag>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Tag color="aux" hidden={true}>Tag</Tag>
+            <Tag color="aux" visible={true}>Tag</Tag>
         </UtilsProvider>
     </FabulaProvider>
 )

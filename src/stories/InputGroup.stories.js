@@ -10,7 +10,8 @@ import {
     Input,
     InputGroup,
     Text,
-    UtilsProvider
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -18,6 +19,7 @@ export default {
     component: InputGroup,
 };
 
+// Example
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -44,6 +46,7 @@ export const Example = () => (
     </FabulaProvider>
 )
 
+// Properties
 export const PropLayout = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -62,6 +65,54 @@ export const PropLayout = () => (
                     <Icon name="arrow-right" />
                 </Button>
             </InputGroup>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Utilities
+const UtilBaseComponent = props => (
+    <InputGroup {...props}>
+        <Input iconStart={{ color: 'primary', name: 'battery-charging' }} message={{ color: 'primary', text: 'Example of an input message' }} placeholder="Type something..." />
+        <Button color="primary">
+            <Text color="inherit" inline={true} mr={.5} weight={600}>Button</Text>
+            <Icon name="arrow-right" />
+        </Button>
+    </InputGroup>
+)
+
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <UtilBaseComponent mr={.5} width={400} />
+                <UtilBaseComponent mx={.5} width={400} />
+                <UtilBaseComponent ml={.5} width={400} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <UtilBaseComponent mb={.5} width={400} />
+                <UtilBaseComponent my={.5} width={400} />
+                <UtilBaseComponent mt={.5} width={400} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true}>
+                <UtilBaseComponent width={400} />
+                <Wrapper al="center" flex={true}>
+                    <UtilBaseComponent width={400} />
+                    <UtilBaseComponent m={1} width={400} />
+                    <UtilBaseComponent width={400} />
+                </Wrapper>
+                <UtilBaseComponent width={400} />
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <UtilBaseComponent hidden={true} />
+            <UtilBaseComponent visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

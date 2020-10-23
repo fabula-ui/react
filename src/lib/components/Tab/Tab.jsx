@@ -11,7 +11,7 @@ import getComponentProps from '../../utils/getComponentProps';
 import TabStyles from '@fabula/core/styles/components/tab/tab';
 
 const Tab = props => {
-    const { activeTab, children, elRef, handleActive, label, link, name, ...rest } = props;
+    const { activeTab, children, elRef, handleActive, href, label, link, name, ...rest } = props;
     const [active, setActive] = useState(props.active);
     const ref = useRef(null);
     const restProps = getComponentProps(rest);
@@ -32,9 +32,9 @@ const Tab = props => {
             properties={props}
             styles={TabStyles}
             wrapper="fab-tab">
-            <div data-active={active} ref={elRef || ref} {...restProps}>
-                {!link && <button onClick={handleClick}>{label || children}</button>}
-                {link && <a href={link} {...rest}>{label || children}</a>}
+            <div data-active={active} ref={elRef || ref} data-fab-wrapper="tab">
+                {!href && !link && <button onClick={handleClick} data-fab-component="tab">{label || children}</button>}
+                {(!!href || !!link) && <a href={href || link} data-fab-component="tab" {...restProps}>{label || children}</a>}
             </div>
         </Component>
     )

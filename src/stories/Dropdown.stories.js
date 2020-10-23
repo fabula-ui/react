@@ -26,6 +26,7 @@ export default {
 	component: Dropdown
 };
 
+// Example
 export const Example = () => (
 	<FabulaProvider>
 		<UtilsProvider>
@@ -66,6 +67,7 @@ export const Example = () => (
 	</FabulaProvider>
 );
 
+// Properties
 export const PropAlignment = () => (
 	<FabulaProvider>
 		<UtilsProvider>
@@ -109,7 +111,7 @@ export const PropDirection = () => (
 				</Dropdown>
 
 				<Dropdown direction="up">
-				<DropdownToggle color="primary" compact={true}>
+					<DropdownToggle color="primary" compact={true}>
 						<Icon mr={.5} name="arrow-up-circle" />
 						<span>Direction: Up</span>
 					</DropdownToggle>
@@ -266,3 +268,54 @@ export const CustomContent = () => (
 		</UtilsProvider>
 	</FabulaProvider>
 );
+
+// Utilities
+const UtilBaseComponent = props => (
+	<FabulaProvider>
+		<UtilsProvider>
+			<Dropdown {...props}>
+				<DropdownToggle color="primary">Dropdown Toggle</DropdownToggle>
+				<DropdownMenu>
+					<DropdownItem>Dropdown Item 1</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>
+		</UtilsProvider>
+	</FabulaProvider>
+)
+
+export const UtilMargin = () => (
+	<FabulaProvider>
+		<UtilsProvider>
+			<Wrapper al="center" flex={true} mb={1}>
+				<UtilBaseComponent mr={.5} />
+				<UtilBaseComponent mx={.5} />
+				<UtilBaseComponent ml={.5} />
+			</Wrapper>
+
+			<Wrapper al="center" direction="column" flex={true} mb={1}>
+				<UtilBaseComponent mb={.5} />
+				<UtilBaseComponent my={.5} />
+				<UtilBaseComponent mt={.5} />
+			</Wrapper>
+
+			<Wrapper al="center" direction="column" flex={true}>
+				<UtilBaseComponent />
+				<Wrapper al="center" flex={true}>
+					<UtilBaseComponent />
+					<UtilBaseComponent m={1} />
+					<UtilBaseComponent />
+				</Wrapper>
+				<UtilBaseComponent />
+			</Wrapper>
+		</UtilsProvider>
+	</FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+	<FabulaProvider>
+		<UtilsProvider>
+			<UtilBaseComponent hidden={true} />
+			<UtilBaseComponent visible={true} />
+		</UtilsProvider>
+	</FabulaProvider>
+)

@@ -66,6 +66,7 @@ Dropdown.defaultProps = {
     alignment: 'left',
     direction: 'down',
     expand: false,
+    inline: true,
     open: false
 }
 

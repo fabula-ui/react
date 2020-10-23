@@ -14,6 +14,7 @@ export default {
     component: Input,
 };
 
+// Example
 export const Example = () => {
     const handleBlur = () => {
         console.log('Blur');
@@ -65,6 +66,7 @@ export const Example = () => {
     )
 }
 
+// Properties
 export const PropDisabled = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -360,6 +362,62 @@ export const PropVariant = () => (
                     </Column>
                 </Row>
             </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Utilities
+const UtilBaseComponent = props => (
+    <Input icon={{ name: 'user' }} iconEnd={{ name: 'check' }} placeholder="Type something..." variant="fill" {...props} />
+)
+
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <UtilBaseComponent mr={.5} width={400} />
+                <UtilBaseComponent mx={.5} width={400} />
+                <UtilBaseComponent ml={.5} width={400} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <UtilBaseComponent mb={.5} width={400} />
+                <UtilBaseComponent my={.5} width={400} />
+                <UtilBaseComponent mt={.5} width={400} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true}>
+                <UtilBaseComponent width={400} />
+                <Wrapper al="center" flex={true}>
+                    <UtilBaseComponent width={400} />
+                    <UtilBaseComponent m={1} width={400} />
+                    <UtilBaseComponent width={400} />
+                </Wrapper>
+                <UtilBaseComponent width={400} />
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilPadding = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <UtilBaseComponent mb={1} p={2} />
+            <UtilBaseComponent mb={1} pb={2} />
+            <UtilBaseComponent mb={1} pl={2} />
+            <UtilBaseComponent mb={1} pr={2} />
+            <UtilBaseComponent mb={1} pt={2} />
+            <UtilBaseComponent mb={1} px={2} />
+            <UtilBaseComponent mb={1} py={2} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <UtilBaseComponent hidden={true} />
+            <UtilBaseComponent visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

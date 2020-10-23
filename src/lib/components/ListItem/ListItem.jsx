@@ -28,19 +28,19 @@ const ListItem = props => {
             styles={ListItemStyles}
             wrapper="fab-list-item">
             {((!!button || !!onClick || !!parentOnClick) && !href) &&
-                <button data-divider={divider} data-fab-component="listItem" data-striped={striped} onClick={handleClick} ref={elRef || ref} {...restProps}>
+                <button data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
                     {children}
                 </button>
             }
 
             {!!href &&
-                <a data-divider={divider} data-fab-component="listItem" data-striped={striped} href={href} target={target} ref={elRef || ref} {...restProps}>
+                <a data-divider={divider} data-striped={striped} href={href} target={target} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
                     {children}
                 </a>
             }
 
             {(!button && !onClick && !parentOnClick && !href) &&
-                <div data-divider={divider} data-fab-component="listItem" data-striped={striped} onClick={handleClick} ref={elRef || ref} {...restProps}>
+                <div data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
                     {children}
                 </div>
             }

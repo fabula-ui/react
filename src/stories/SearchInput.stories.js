@@ -7,7 +7,8 @@ import {
     SearchInput,
     Icon,
     Row,
-    UtilsProvider
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -15,6 +16,7 @@ export default {
     component: SearchInput,
 };
 
+// Example
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -37,6 +39,7 @@ export const Example = () => (
     </FabulaProvider>
 )
 
+// Properties
 export const PropButton = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -225,6 +228,62 @@ export const PropVariant = () => (
                     <SearchInput button={{ rounded: true }} rounded={true} variant="fill" />
                 </Column>
             </Row>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Utilities
+const UtilBaseComponent = props => (
+    <SearchInput icon={{ name: 'user' }} variant="fill" {...props} />
+)
+
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <UtilBaseComponent mr={.5} width={400} />
+                <UtilBaseComponent mx={.5} width={400} />
+                <UtilBaseComponent ml={.5} width={400} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <UtilBaseComponent mb={.5} width={400} />
+                <UtilBaseComponent my={.5} width={400} />
+                <UtilBaseComponent mt={.5} width={400} />
+            </Wrapper>
+
+            <Wrapper al="center" direction="column" flex={true}>
+                <UtilBaseComponent width={400} />
+                <Wrapper al="center" flex={true}>
+                    <UtilBaseComponent width={400} />
+                    <UtilBaseComponent m={1} width={400} />
+                    <UtilBaseComponent width={400} />
+                </Wrapper>
+                <UtilBaseComponent width={400} />
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilPadding = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <UtilBaseComponent mb={1} p={2} />
+            <UtilBaseComponent mb={1} pb={2} />
+            <UtilBaseComponent mb={1} pl={2} />
+            <UtilBaseComponent mb={1} pr={2} />
+            <UtilBaseComponent mb={1} pt={2} />
+            <UtilBaseComponent mb={1} px={2} />
+            <UtilBaseComponent mb={1} py={2} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <UtilBaseComponent hidden={true} />
+            <UtilBaseComponent visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

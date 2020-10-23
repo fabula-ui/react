@@ -99,9 +99,11 @@ const Segments = props => {
       elRef={elRef || ref}
       properties={props}
       styles={SegmentsStyles}
-      wrapper="fab-segments">
-      <div ref={elRef || ref} {...restProps}>
-        {childrenWithProps}
+      wrapper="fab-segments-wrapper">
+      <div ref={elRef || ref} data-fab-wrapper="segments" {...restProps}>
+        <div className="fab-segments" data-fab-component="segments">
+          {childrenWithProps}
+        </div>
       </div>
     </Component>
   )

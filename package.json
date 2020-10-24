@@ -1,6 +1,6 @@
 {
   "name": "@fabula/react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "private": false,
   "files": [
@@ -90,8 +90,5 @@
   },
   "peerDependencies": {
     "react": "^16.13.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }

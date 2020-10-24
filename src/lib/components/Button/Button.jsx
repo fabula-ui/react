@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import ButtonStyles from '@fabula/core/styles/components/button/button';
 
-const Button = (props) => {
+const Button = props => {
     const {
         border,
         children,
@@ -16,7 +19,9 @@ const Button = (props) => {
         clear,
         color,
         compact,
+        darken,
         disabled,
+        elRef,
         expand,
         faded,
         glow,
@@ -24,42 +29,53 @@ const Button = (props) => {
         href,
         invert,
         label,
+        lighten,
         outline,
         rounded,
+        size,
         wide,
         ...rest
     } = props;
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
-        <Component elRef={elRef} properties={props} styles={ButtonStyles} wrapper="fab-button-wrapper">
-            <div
-                data-fab-wrapper="button"
-                data-border={border}
-                data-circle={!!circle}
-                data-color={color}
-                data-expand={expand}
-                data-outline={outline}
-                data-rounded={rounded}
-                ref={elRef}
-            >
-                {
-                    !href && (
-                        <button className="fab-button" data-fab-component="button" disabled={disabled} {...rest}>
-                            {!!label && <span>{label}</span>}
-                            {children}
-                        </button>
-                    )
-                }
-                {
-                    !!href && (
-                        <a className="fab-button" data-fab-component="button" disabled={disabled} href={href} {...rest}>
-                            {!!label && <span>{label}</span>}
-                            {children}
-                        </a>
-                    )
-                }
-            </div>
+        <Component elRef={elRef || ref} properties={props} styles={ButtonStyles} wrapper="fab-button">
+            {
+                !href && (
+                    <button className="fab-button"
+                        data-border={border}
+                        data-circle={!!circle}
+                        data-color={color}
+                        data-expand={expand}
+                        data-outline={outline}
+                        data-rounded={rounded}
+                        data-fab-component="button"
+                        disabled={disabled}
+                        {...restProps}
+                        ref={elRef || ref}>
+                        {label || children}
+                    </button>
+                )
+            }
+            {
+                !!href && (
+                    <a className="fab-button"
+                        data-border={border}
+                        data-circle={!!circle}
+                        data-color={color}
+                        data-disabled={disabled}
+                        data-expand={expand}
+                        data-outline={outline}
+                        data-rounded={rounded}
+                        data-fab-component="button"
+                        href={href}
+                        {...restProps}
+                        ref={elRef || ref}>
+                        {label || children}
+                    </a>
+                )
+            }
         </Component>
     );
 };
@@ -68,11 +84,14 @@ Button.defaultProps = {
     align: 'center',
     color: null,
     compact: false,
+    darken: false,
     expand: false,
     faded: false,
     glow: false,
     gradient: false,
+    inline: true,
     invert: false,
+    lighten: false,
     outline: false,
     rounded: false,
     size: 'md',
@@ -84,11 +103,13 @@ Button.propTypes = {
     clear: PropTypes.bool,
     color: PropTypes.string,
     compact: PropTypes.bool,
+    darken: PropTypes.bool,
     expand: PropTypes.bool,
     faded: PropTypes.bool,
     glow: PropTypes.bool,
     gradient: PropTypes.bool,
     invert: PropTypes.bool,
+    lighten: PropTypes.bool,
     outline: PropTypes.bool,
     rounded: PropTypes.bool,
     size: PropTypes.string,

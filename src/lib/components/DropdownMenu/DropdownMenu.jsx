@@ -3,6 +3,7 @@ import React, {
     cloneElement,
     isValidElement,
     useEffect,
+    useCallback,
     useRef,
     useState
 } from 'react';
@@ -12,13 +13,17 @@ import PropTypes from 'prop-types';
 import Component from '../Component/Component';
 import DropdownItem from '../DropdownItem/DropdownItem';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
 
 const DropdownMenu = props => {
-    const { children, clickToClose, color, direction, items, onChange, onClickItem, size, toggle } = props;
+    const { children, clickToClose, color, direction, elRef, items, onChange, onClickItem, size, toggle, ...rest } = props;
     const [open, setOpen] = useState(false);
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
             return cloneElement(child, { color, clickToClose, open, parentOnClick: onClickItem, size, toggle, ...child.props })
@@ -27,10 +32,15 @@ const DropdownMenu = props => {
         }
     });
 
+    // Callbacks
+    const handleChange = useCallback(open => {
+        if (onChange) { onChange(open); }
+    }, [onChange]);
+
     // Hooks
     useEffect(() => {
-        if (onChange) { onChange(open); }
-    }, [open]);
+        handleChange(open);
+    }, [handleChange, open]);
 
     useEffect(() => {
         setOpen(props.open);
@@ -49,11 +59,16 @@ const DropdownMenu = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={DropdownMenuStyles}
             wrapper="fab-dropdown-menu">
-            <div data-direction={direction} data-open={open} ref={elRef}>
+            <div
+                data-direction={direction}
+                data-open={open}
+                data-fab-component="dropdownMenu"
+                ref={elRef || ref}
+                {...restProps}>
                 {!!items && renderItems()}
                 {!items && childrenWithProps}
             </div>

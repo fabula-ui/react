@@ -4,34 +4,37 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import TabStyles from '@fabula/core/styles/components/tab/tab';
 
 const Tab = props => {
-    const { activeTab, children, handleActive, label, link, name, onChange, ...rest } = props;
+    const { activeTab, children, elRef, handleActive, href, label, link, name, ...rest } = props;
     const [active, setActive] = useState(props.active);
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     useEffect(() => {
         if (activeTab) {
             setActive(activeTab === name);
         }
-    }, [activeTab]);
+    }, [activeTab, name]);
 
     const handleClick = () => {
         handleActive(name);
-        onChange(name);
     }
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={TabStyles}
             wrapper="fab-tab">
-            <div data-active={active} ref={elRef}>
-                {!link && <button onClick={handleClick}>{label || children}</button>}
-                {link && <a href={link} {...rest}>{label || children}</a>}
+            <div data-active={active} ref={elRef || ref} data-fab-wrapper="tab">
+                {!href && !link && <button onClick={handleClick} data-fab-component="tab">{label || children}</button>}
+                {(!!href || !!link) && <a href={href || link} data-fab-component="tab" {...restProps}>{label || children}</a>}
             </div>
         </Component>
     )
@@ -40,12 +43,14 @@ const Tab = props => {
 Tab.defaultProps = {
     active: false,
     activeColor: '',
-    activeFillColor: '',
     activeTextColor: '',
     clear: false,
     color: '',
     expand: false,
     faded: false,
+    hasProperty: {
+        expand: true
+    },
     href: '',
     inactiveTextColor: '',
     invert: false,
@@ -63,11 +68,10 @@ Tab.defaultProps = {
 Tab.propTypes = {
     active: PropTypes.bool,
     activeColor: PropTypes.string,
-    activeFillColor: PropTypes.string,
     activeTextColor: PropTypes.string,
     clear: PropTypes.bool,
     color: PropTypes.string,
-    expand: PropTypes.bool,
+    expand: PropTypes.any,
     faded: PropTypes.bool,
     href: PropTypes.string,
     inactiveTextColor: PropTypes.string,

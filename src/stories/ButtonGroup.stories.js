@@ -3,8 +3,13 @@ import React from 'react';
 import {
     Button,
     ButtonGroup,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle,
     FabulaProvider,
-    FabulaUtils
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -12,162 +17,217 @@ export default {
     component: ButtonGroup,
 };
 
-export const Flow = () => (
-    <FabulaProvider>
-        <FabulaUtils>
-            <ButtonGroup mb="1">
-                <Button color="primary">Button 1</Button>
-                <Button color="primary">Button 2</Button>
-                <Button color="primary">Button 3</Button>
-            </ButtonGroup>
+// Base component
+const BaseComponent = ({ color, ...rest }) => (
+    <ButtonGroup color={color} {...rest}>
+        <Button color={color}>Button</Button>
+        <Button color={color}>Button</Button>
+        <Button color={color}>Button</Button>
+    </ButtonGroup>
+)
 
-            <ButtonGroup layout="vertical" mb="1">
-                <Button color="primary">Button 1</Button>
-                <Button color="primary">Button 2</Button>
-                <Button color="primary">Button 3</Button>
-            </ButtonGroup>
-        </FabulaUtils>
+// Example
+export const Example = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper flex={true}>
+                <ButtonGroup mr={1}>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                    <Button>Button</Button>
+                </ButtonGroup>
+                <ButtonGroup mr={1}>
+                    <Button border={true}>Button</Button>
+                    <Button border={true}>Button</Button>
+                    <Button border={true}>Button</Button>
+                </ButtonGroup>
+                <ButtonGroup color="primary" mr={1}>
+                    <Button color="primary">Button</Button>
+                    <Button color="primary">Button</Button>
+                    <Button color="primary">Button</Button>
+                </ButtonGroup>
+                <ButtonGroup color="primary">
+                    <Button color="primary">Button</Button>
+                    <Dropdown alignment="right">
+                        <DropdownToggle color="primary" compact={true} />
+                        <DropdownMenu>
+                            <DropdownItem>Dropdown Item</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                </ButtonGroup>
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Glued = () => (
+// Properties
+export const PropColor = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <ButtonGroup color="primary" glued={true} mb={1}>
-                <Button color="primary">Button 1</Button>
-                <Button color="primary">Button 2</Button>
-                <Button color="primary">Button 3</Button>
-            </ButtonGroup>
+        <UtilsProvider>
+            <Wrapper flex={true}>
+                <Wrapper mr={1}>
+                    <ButtonGroup flex={true} mb={1}>
+                        <Button>Button</Button>
+                        <Button>Button</Button>
+                        <Button>Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="primary" flex={true} mb={1}>
+                        <Button color="primary">Button</Button>
+                        <Button color="primary">Button</Button>
+                        <Button color="primary">Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="lavender" flex={true} mb={1}>
+                        <Button color="lavender">Button</Button>
+                        <Button color="lavender">Button</Button>
+                        <Button color="lavender">Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="hot" flex={true} mb={1}>
+                        <Button color="hot">Button</Button>
+                        <Button color="hot">Button</Button>
+                        <Button color="hot">Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="aux" flex={true} mb={1}>
+                        <Button color="aux">Button</Button>
+                        <Button color="aux">Button</Button>
+                        <Button color="aux">Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="dark" flex={true}>
+                        <Button color="dark">Button</Button>
+                        <Button color="dark">Button</Button>
+                        <Button color="dark">Button</Button>
+                    </ButtonGroup>
+                </Wrapper>
 
-            <ButtonGroup glued={true} mb={1}>
-                <Button border={true} color="primary">Button 1</Button>
-                <Button border={true} color="primary">Button 2</Button>
-                <Button border={true} color="primary">Button 3</Button>
-            </ButtonGroup>
+                <Wrapper>
+                    <ButtonGroup flex={true} mb={1}>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="primary" flex={true} mb={1}>
+                        <Button border={true} color="primary">Button</Button>
+                        <Button border={true} color="primary">Button</Button>
+                        <Button border={true} color="primary">Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="lavender" flex={true} mb={1}>
+                        <Button border={true} color="lavender">Button</Button>
+                        <Button border={true} color="lavender">Button</Button>
+                        <Button border={true} color="lavender">Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="hot" flex={true} mb={1}>
+                        <Button border={true} color="hot">Button</Button>
+                        <Button border={true} color="hot">Button</Button>
+                        <Button border={true} color="hot">Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="aux" flex={true} mb={1}>
+                        <Button border={true} color="aux">Button</Button>
+                        <Button border={true} color="aux">Button</Button>
+                        <Button border={true} color="aux">Button</Button>
+                    </ButtonGroup>
+                    <ButtonGroup color="dark" flex={true}>
+                        <Button border={true} color="dark">Button</Button>
+                        <Button border={true} color="dark">Button</Button>
+                        <Button border={true} color="dark">Button</Button>
+                    </ButtonGroup>
+                </Wrapper>
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
 
-            <ButtonGroup color="primary" glued={true} mb={1}>
-                <Button color="primary">Button 1</Button>
-                <Button color="primary">Button 2</Button>
-                <Button color="primary">Button 3</Button>
-            </ButtonGroup>
+export const PropLayout = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper flex={true}>
+                <Wrapper>
+                    <ButtonGroup mb={1} mr={1}>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
+                    </ButtonGroup>
 
-            <ButtonGroup color="secondary" glued={true} mb={1}>
-                <Button color="secondary">Button 1</Button>
-                <Button color="secondary">Button 2</Button>
-                <Button color="secondary">Button 3</Button>
-            </ButtonGroup>
+                    <ButtonGroup color="primary" mr={1}>
+                        <Button color="primary">Button</Button>
+                        <Button color="primary">Button</Button>
+                        <Button color="primary">Button</Button>
+                    </ButtonGroup>
+                </Wrapper>
 
-            <ButtonGroup color="aux" glued={true} mb={1}>
-                <Button color="aux">Button 1</Button>
-                <Button color="aux">Button 2</Button>
-                <Button color="aux">Button 3</Button>
-            </ButtonGroup>
+                <Wrapper>
+                    <ButtonGroup layout="v" mr={1}>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
+                        <Button border={true}>Button</Button>
+                    </ButtonGroup>
 
-            <ButtonGroup color="#EEE" glued={true} mb={1}>
-                <Button color="primary" clear={true}>Button 1</Button>
-                <Button color="secondary" clear={true}>Button 2</Button>
-                <Button color="danger" clear={true}>Button 3</Button>
-            </ButtonGroup>
-
-            <ButtonGroup glued={true} mb={1}>
-                <Button color="primary">Button 1</Button>
-                <Button color="secondary">Button 2</Button>
-                <Button color="danger">Button 3</Button>
-            </ButtonGroup>
-
-            <ButtonGroup glued={true} mb={1}>
-                <Button color="primary" faded={true}>Button 1</Button>
-                <Button color="secondary" faded={true}>Button 2</Button>
-                <Button color="danger" faded={true}>Button 3</Button>
-            </ButtonGroup>
-
-            <ButtonGroup glued={true} mb={1}>
-                <Button color="primary" gradient={true}>Button 1</Button>
-                <Button color="secondary" gradient={true}>Button 2</Button>
-                <Button color="danger" gradient={true}>Button 3</Button>
-            </ButtonGroup>
-
-            <ButtonGroup dividerColor="secondary" glued={true} faded={true} mb={1}>
-                <Button color="primary" invert={true}>Button 1</Button>
-                <Button color="secondary" invert={true}>Button 2</Button>
-                <Button color="danger" invert={true}>Button 3</Button>
-            </ButtonGroup>
-
-            <ButtonGroup glued={true}>
-                <Button color="primary" outline={true}>Button 1</Button>
-                <Button color="secondary" outline={true}>Button 2</Button>
-                <Button color="danger" outline={true}>Button 3</Button>
-            </ButtonGroup>
-        </FabulaUtils>
+                    <ButtonGroup color="primary" layout="v">
+                        <Button color="primary">Button</Button>
+                        <Button color="primary">Button</Button>
+                        <Button color="primary">Button</Button>
+                    </ButtonGroup>
+                </Wrapper>
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
 );
 
-export const Spaced = () => (
+// Utilities
+export const UtilMargin = () => (
     <FabulaProvider>
-        <ButtonGroup>
-            <Button color="primary">Button 1</Button>
-            <Button color="primary">Button 2</Button>
-            <Button color="primary">Button 3</Button>
-        </ButtonGroup>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <BaseComponent color="aux" mr={.5} />
+                <BaseComponent color="aux" mx={.5} />
+                <BaseComponent color="aux" ml={.5} />
+            </Wrapper>
 
-        <ButtonGroup>
-            <Button border={true} color="primary">Button 1</Button>
-            <Button border={true} color="primary">Button 2</Button>
-            <Button border={true} color="primary">Button 3</Button>
-        </ButtonGroup>
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <BaseComponent color="aux" mb={.5} />
+                <BaseComponent color="aux" my={.5} />
+                <BaseComponent color="aux" mt={.5} />
+            </Wrapper>
 
-        <ButtonGroup dividerColor="primary">
-            <Button color="primary">Button 1</Button>
-            <Button color="primary">Button 2</Button>
-            <Button color="primary">Button 3</Button>
-        </ButtonGroup>
-
-        <ButtonGroup dividerColor="secondary">
-            <Button color="secondary">Button 1</Button>
-            <Button color="secondary">Button 2</Button>
-            <Button color="secondary">Button 3</Button>
-        </ButtonGroup>
-
-        <ButtonGroup dividerColor="aux">
-            <Button color="aux">Button 1</Button>
-            <Button color="aux">Button 2</Button>
-            <Button color="aux">Button 3</Button>
-        </ButtonGroup>
-
-        <ButtonGroup dividerColor="#EEE">
-            <Button color="primary" clear={true}>Button 1</Button>
-            <Button color="secondary" clear={true}>Button 2</Button>
-            <Button color="danger" clear={true}>Button 3</Button>
-        </ButtonGroup>
-
-        <ButtonGroup>
-            <Button color="primary">Button 1</Button>
-            <Button color="secondary">Button 2</Button>
-            <Button color="danger">Button 3</Button>
-        </ButtonGroup>
-
-        <ButtonGroup>
-            <Button color="primary" faded={true}>Button 1</Button>
-            <Button color="secondary" faded={true}>Button 2</Button>
-            <Button color="danger" faded={true}>Button 3</Button>
-        </ButtonGroup>
-
-        <ButtonGroup>
-            <Button color="primary" gradient={true}>Button 1</Button>
-            <Button color="secondary" gradient={true}>Button 2</Button>
-            <Button color="danger" gradient={true}>Button 3</Button>
-        </ButtonGroup>
-
-        <ButtonGroup dividerColor="secondary" faded={true}>
-            <Button color="primary" invert={true}>Button 1</Button>
-            <Button color="secondary" invert={true}>Button 2</Button>
-            <Button color="danger" invert={true}>Button 3</Button>
-        </ButtonGroup>
-
-        <ButtonGroup>
-            <Button color="primary" outline={true}>Button 1</Button>
-            <Button color="secondary" outline={true}>Button 2</Button>
-            <Button color="danger" outline={true}>Button 3</Button>
-        </ButtonGroup>
+            <Wrapper al="center" direction="column" flex={true}>
+                <BaseComponent color="aux" />
+                <Wrapper al="center" flex={true}>
+                    <BaseComponent color="aux" />
+                    <BaseComponent color="aux" m={1} />
+                    <BaseComponent color="aux" />
+                </Wrapper>
+                <BaseComponent color="aux" />
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
-);
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent color="aux" hidden={true} />
+            <BaseComponent color="aux" visible={true} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+// Other
+export const ExternalDropdown = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <ButtonGroup>
+                <Dropdown>
+                    <DropdownToggle border={true} color="light" compact={true}>Dropdown Label</DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem>Dropdown Item</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
+                <Button border={true}>Button without action</Button>
+                <Dropdown alignment="right">
+                    <DropdownToggle border={true} color="light" compact={true} />
+                    <DropdownMenu>
+                        <DropdownItem>Dropdown Item</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
+            </ButtonGroup>
+        </UtilsProvider>
+    </FabulaProvider>
+)

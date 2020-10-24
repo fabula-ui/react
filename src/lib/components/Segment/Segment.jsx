@@ -1,20 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import SegmentStyles from '@fabula/core/styles/components/segment/segment';
 
 const Segment = props => {
-    const { activeSegment, children, handleActive, link, name, target } = props;
+    const { activeSegment, children, elRef, handleActive, href, link, name, target, ...rest } = props;
     const [active, setActive] = useState(props.active);
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (activeSegment) { setActive(activeSegment === name); }
-    }, [activeSegment]);
+    }, [activeSegment, name]);
 
     const handleClick = () => {
         handleActive(name);
@@ -22,13 +26,13 @@ const Segment = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={SegmentStyles}
             wrapper="fab-segment">
-            <div data-active={!!active} ref={elRef}>
-                {!link && <button onClick={handleClick}>{children}</button>}
-                {!!link && <a href={link} target={target}>{children}</a>}
+            <div data-active={!!active} ref={elRef || ref} data-fab-component="segment">
+                {!href && !link && <button onClick={handleClick} {...restProps}>{children}</button>}
+                {(!!href || !!link) && <a href={href || link} target={target} {...restProps}>{children}</a>}
             </div>
         </Component>
     )
@@ -37,14 +41,12 @@ const Segment = props => {
 Segment.defaultProps = {
     active: false,
     activeColor: '',
-    activeFillColor: '',
     activeTextColor: '',
     clear: false,
     color: '',
     expand: false,
     faded: false,
     href: '',
-    inactiveFillColor: '',
     inactiveTextColor: '',
     invert: false,
     layout: '',
@@ -68,7 +70,6 @@ Segment.propTypes = {
     expand: PropTypes.bool,
     faded: PropTypes.bool,
     href: PropTypes.string,
-    inactiveFillColor: PropTypes.string,
     inactiveTextColor: PropTypes.string,
     invert: PropTypes.bool,
     layout: PropTypes.string,

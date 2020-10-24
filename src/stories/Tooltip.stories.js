@@ -1,16 +1,20 @@
-import React, { useEffect, forwardRef, useRef, Fragment } from 'react';
-import { action } from '@storybook/addon-actions';
+import React from 'react';
 
 import {
+    Avatar,
     Button,
-    Div,
-    FabulaProvider,
-    Icon,
-    UtilsProvider,
-    Tooltip,
     ButtonGroup,
+    Card,
+    CardImage,
+    CardSection,
+    FabulaProvider,
+    Input,
+    Link,
+    Text,
+    Tooltip,
     TooltipProvider,
-    Text
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -18,120 +22,129 @@ export default {
     component: Tooltip,
 };
 
-export const Color = () => {
+// Base component
+const BaseComponent = ({ buttonColor, color, label, mr, ...rest }) => (
+    <Tooltip color={color} label={label} placement="top" {...rest}>
+        <Button color={buttonColor || color} mr={mr}>
+            {label}
+        </Button>
+    </Tooltip>
+)
+
+// Stories
+export const Example = () => {
     return (
         <FabulaProvider>
-            <TooltipProvider>
-                <UtilsProvider>
-                    <ButtonGroup mt={3}>
-                        <Tooltip label="Default" placement="top">
-                            <Button border={true}>
-                                <Icon name="activity" />
-                                <span>Default</span>
-                            </Button>
-                        </Tooltip>
-                        <Tooltip color="primary" label="Primary" placement="top">
-                            <Button color="primary">Primary</Button>
-                        </Tooltip>
-                        <Tooltip color="secondary" label="Secondary" placement="top">
-                            <Button color="secondary">Secondary</Button>
-                        </Tooltip>
-                        <Tooltip color="success" label="Success" placement="top">
-                            <Button color="success">Success</Button>
-                        </Tooltip>
-                        <Tooltip color="danger" label="Danger" placement="top">
-                            <Button color="danger">Danger</Button>
-                        </Tooltip>
-                        <Tooltip color="warning" label="Warning" placement="top">
-                            <Button color="warning">Warning</Button>
-                        </Tooltip>
-                        <Tooltip color="hot" label="Hot" placement="top">
-                            <Button color="hot">Hot</Button>
-                        </Tooltip>
-                        <Tooltip color="cold" label="Cold" placement="top">
-                            <Button color="cold">Cold</Button>
-                        </Tooltip>
-                        <Tooltip color="dark" label="Dark" placement="top">
-                            <Button color="dark">Dark</Button>
-                        </Tooltip>
-                        <Tooltip color="light" label="Light" placement="top">
-                            <Button color="light">Light</Button>
-                        </Tooltip>
-                        <Tooltip color="aux" label="Aux" placement="top">
-                            <Button color="aux">Aux</Button>
-                        </Tooltip>
-                    </ButtonGroup>
-                </UtilsProvider>
-            </TooltipProvider>
+            <UtilsProvider>
+                <Wrapper mt="3">
+                    <TooltipProvider>
+                        <Wrapper al="center" direction="column" flex={true}>
+                            <Wrapper mb={1}>
+                                <Tooltip label="Tooltip">
+                                    <Avatar />
+                                </Tooltip>
+                            </Wrapper>
+
+                            <Wrapper mb={1}>
+                                <Tooltip label="Tooltip">
+                                    <Button>Button</Button>
+                                </Tooltip>
+                            </Wrapper>
+
+                            <Wrapper mb={1}>
+                                <ButtonGroup>
+                                    <Tooltip label="Tooltip">
+                                        <Button>Button 1</Button>
+                                    </Tooltip>
+
+                                    <Tooltip label="Tooltip">
+                                        <Button>Button 2</Button>
+                                    </Tooltip>
+
+                                    <Tooltip label="Tooltip">
+                                        <Button>Button 3</Button>
+                                    </Tooltip>
+                                </ButtonGroup>
+                            </Wrapper>
+
+                            <Card mb={1} width={300}>
+                                <Tooltip label="Tooltip">
+                                    <CardImage height={200} />
+                                </Tooltip>
+
+                                <CardSection padding={true}>
+                                    <Wrapper>
+                                        <Tooltip label="Tooltip">
+                                            <Text inline={true} strong={true} size="lg">
+                                                Card Title
+                                        </Text>
+                                        </Tooltip>
+                                    </Wrapper>
+                                    <Tooltip label="Tooltip">
+                                        <Link mb={1}>This is a link</Link>
+                                    </Tooltip>
+                                    <Tooltip label="Tooltip">
+                                        <Button color="primary" expand={true}>Button</Button>
+                                    </Tooltip>
+                                </CardSection>
+                            </Card>
+
+                            <Tooltip label="Tooltip">
+                                <Input placeholder="Input" width={300} />
+                            </Tooltip>
+                        </Wrapper>
+                    </TooltipProvider>
+                </Wrapper>
+            </UtilsProvider>
         </FabulaProvider>
     )
 }
 
-export const Label = () => (
+export const PropColor = () => {
+    return (
+        <FabulaProvider>
+            <UtilsProvider>
+                <TooltipProvider>
+                    <Wrapper mt={5}>
+                        <BaseComponent label="Default" mr={1} />
+                        <BaseComponent color="primary" label="Primary" mr={1} />
+                        <BaseComponent color="lavender" label="Lavender" mr={1} />
+                        <BaseComponent color="hot" label="Hot" mr={1} />
+                        <BaseComponent color="aux" label="Aux" mr={1} />
+                        <BaseComponent color="dark" label="Dark" />
+                    </Wrapper>
+                </TooltipProvider>
+            </UtilsProvider>
+        </FabulaProvider>
+    )
+}
+
+export const PropOffset = () => (
     <FabulaProvider>
         <TooltipProvider>
             <UtilsProvider>
-                <ButtonGroup mt="5">
-                    <Tooltip label="Label 1" placement="top">
-                        <Button color="primary">Label 1</Button>
-                    </Tooltip>
-                    <Tooltip label="Label 2" placement="top">
-                        <Button color="primary">Label 2</Button>
-                    </Tooltip>
-                    <Tooltip label="Label 3" placement="top">
-                        <Button color="primary">Label 3</Button>
-                    </Tooltip>
-                </ButtonGroup>
+                <Wrapper mt={5}>
+                    <BaseComponent buttonColor="primary" label="Default" mr={1} />
+                    <BaseComponent buttonColor="primary" label="Offset: 1" mr={1} offset={1} />
+                    <BaseComponent buttonColor="primary" label="Offset: 1.5rem" mr={1} offset="1.5rem" />
+                    <BaseComponent buttonColor="primary" label="Offset: 30px" mr={1} offset="30px" />
+                </Wrapper>
             </UtilsProvider>
         </TooltipProvider>
     </FabulaProvider>
 )
 
-export const Offset = () => (
-    <FabulaProvider>
-        <TooltipProvider>
-            <UtilsProvider>
-                <ButtonGroup mt="5">
-                    <Tooltip label="Default" placement="top">
-                        <Button color="primary">Default</Button>
-                    </Tooltip>
-
-                    <Tooltip offset={1} label="1" placement="top">
-                        <Button color="primary">1</Button>
-                    </Tooltip>
-
-                    <Tooltip offset="1rem" label="1rem" placement="top">
-                        <Button color="primary">1rem</Button>
-                    </Tooltip>
-
-                    <Tooltip offset="30px" label="30px" placement="top">
-                        <Button color="primary">30px</Button>
-                    </Tooltip>
-                </ButtonGroup>
-            </UtilsProvider>
-        </TooltipProvider>
-    </FabulaProvider>
-)
-
-export const Placement = () => {
+export const PropPlacement = () => {
     return (
         <FabulaProvider>
             <TooltipProvider>
                 <UtilsProvider>
-                    <ButtonGroup mt="3">
-                        <Tooltip label="Top" placement="top">
-                            <Button color="primary">Top</Button>
-                        </Tooltip>
-                        <Tooltip label="Right" placement="right">
-                            <Button color="primary">Right</Button>
-                        </Tooltip>
-                        <Tooltip label="Bottom" placement="bottom">
-                            <Button color="primary">Bottom</Button>
-                        </Tooltip>
-                        <Tooltip label="Left" placement="left">
-                            <Button color="primary">Left</Button>
-                        </Tooltip>
-                    </ButtonGroup>
+                    <Wrapper mt={5}>
+                        <BaseComponent buttonColor="primary" label="Top" mr={1} />
+                        <BaseComponent buttonColor="primary" label="Right" placement="right" mr={1} />
+                        <BaseComponent buttonColor="primary" label="Bottom" placement="bottom" mr={1} />
+                        <BaseComponent buttonColor="primary" label="Left" placement="left" />
+                    </Wrapper>
                 </UtilsProvider>
             </TooltipProvider>
         </FabulaProvider>

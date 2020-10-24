@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 // Components
 import Button from '../Button/Button';
 import Component from '../Component/Component';
-import InnerIcon from '../InnerIcon/InnerIcon';
 
 // Styles
 import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
 
 const DropdownToggle = (props) => {
-	const { children, className, direction, icon, label, onClick, open, toggle, ...rest } = props;
-	const elRef = useRef(null);
+	const { children, className, direction, elRef, onClick, open, toggle, ...rest } = props;
+	const ref = useRef(null);
 
 	const handleClick = () => {
 		if (onClick) { onClick(); }
@@ -19,12 +18,10 @@ const DropdownToggle = (props) => {
 	};
 
 	return (
-		<Component elRef={elRef} properties={props} styles={DropdownToggleStyles} wrapper="fab-dropdown-toggle">
-			<div data-direction={direction} data-open={open} ref={elRef}>
+		<Component elRef={elRef || ref} properties={props} styles={DropdownToggleStyles} wrapper="fab-dropdown-toggle">
+			<div data-direction={direction} data-open={open} ref={elRef || ref}>
 				<Button onClick={handleClick} {...rest}>
-					{!!icon && typeof icon === 'object' && <InnerIcon icon={icon} parentProps={props} />}
-					{!!icon && typeof icon === 'string' && <InnerIcon icon={{ name: icon }} parentProps={props} />}
-					<span className="fab-dropdown-toggle__label">{label || children}</span>
+					{!!children && <span className="fab-dropdown-toggle__label">{children}</span>}
 					<span className="fab-dropdown-toggle__chevron" />
 				</Button>
 			</div>

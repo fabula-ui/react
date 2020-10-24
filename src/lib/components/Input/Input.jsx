@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
+import InnerIcon from '../InnerIcon/InnerIcon';
+
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
 
 // Styles
 import InputStyles from '@fabula/core/styles/components/input/input';
@@ -11,23 +15,24 @@ const Input = props => {
     const {
         children,
         disabled,
+        elRef,
         icon,
         iconEnd,
         iconStart,
         message,
         onBlur,
-        onChange,
         onFocus,
-        onKeyDown,
-        onKeyUp,
         placeholder,
         passwordToggle,
         textarea,
-        type
+        type,
+        variant,
+        ...rest
     } = props;
     const [focus, setFocus] = useState(false);
     const [inputType, setInputType] = useState(type || 'text');
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     const handleBlur = (e) => {
         setFocus(false);
@@ -35,22 +40,10 @@ const Input = props => {
         if (onBlur) { onBlur(e); }
     }
 
-    const handleChange = e => {
-        if (onChange) { onChange(e); }
-    }
-
     const handleFocus = e => {
         setFocus(true);
 
         if (onFocus) { onFocus(e); }
-    }
-
-    const handleKeyDown = e => {
-        if (onKeyDown) { onKeyDown(e); }
-    }
-
-    const handleKeyUp = e => {
-        if (onKeyUp) { onKeyUp(e); }
     }
 
     const toggleType = () => {
@@ -61,41 +54,55 @@ const Input = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={InputStyles}
             wrapper="fab-input-wrapper">
-            <div data-fab-wrapper="input" ref={elRef}>
-                <div className="fab-input" data-disabled={disabled} data-focus={focus} data-textarea={textarea}>
-                    {(!!icon || !!iconStart) && <span className="fab-input__icon" data-placement="start" />}
+            <div data-focus={focus} data-fab-wrapper="input" ref={elRef || ref}>
+                <div className="fab-input"
+                    data-disabled={disabled}
+                    data-focus={focus}
+                    data-textarea={textarea}
+                    data-variant={variant}
+                    data-fab-component="input">
+                    {(!!icon || !!iconStart) &&
+                        <div className="fab-input__icon" data-placement="start">
+                            {!!icon && <InnerIcon icon={icon} parentProps={props} />}
+                            {!!iconStart && <InnerIcon icon={iconStart} parentProps={props} />}
+                        </div>
+                    }
 
                     {!textarea &&
-                        <input className="fab-input__field"
+                        <input
+                            className="fab-input__field"
                             data-fab-component="input"
                             disabled={disabled}
                             onBlur={handleBlur}
-                            onChange={handleChange}
                             onFocus={handleFocus}
-                            onKeyDown={handleKeyDown}
-                            onKeyUp={handleKeyUp}
                             placeholder={placeholder}
-                            type={inputType} />
+                            ref={elRef}
+                            type={inputType}
+                            {...restProps} />
                     }
 
                     {textarea &&
-                        <textarea className="fab-input__field"
+                        <textarea
+                            className="fab-input__field"
                             data-fab-component="input"
                             disabled={disabled}
                             onBlur={handleBlur}
-                            onChange={handleChange}
                             onFocus={handleFocus}
-                            onKeyDown={handleKeyDown}
-                            onKeyUp={handleKeyUp}
                             placeholder={placeholder}
-                            type={inputType} />
+                            ref={elRef}
+                            type={inputType}
+                            {...restProps} />
                     }
 
-                    {(!!iconEnd && !passwordToggle) && <span className="fab-input__icon" data-placement="end" />}
+                    {(!!iconEnd && !passwordToggle) &&
+                        <div className="fab-input__icon" data-placement="end">
+                            <InnerIcon icon={iconEnd} parentProps={props} />
+                        </div>
+                    }
 
                     {passwordToggle &&
                         <button className="fab-input__password-toggle" onClick={toggleType} data-toggled={inputType === 'text'}>
@@ -129,7 +136,7 @@ Input.defaultProps = {
     icon: null,
     iconEnd: null,
     iconStart: null,
-    message: '',
+    message: null,
     messageColor: '',
     passwordToggle: false,
     placeholder: '',
@@ -149,7 +156,7 @@ Input.propTypes = {
     icon: PropTypes.any,
     iconEnd: PropTypes.any,
     iconStart: PropTypes.any,
-    message: PropTypes.string,
+    message: PropTypes.any,
     messageColor: PropTypes.string,
     passwordToggle: PropTypes.bool,
     placeholder: PropTypes.string,

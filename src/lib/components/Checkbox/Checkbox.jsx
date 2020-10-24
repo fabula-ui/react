@@ -4,24 +4,28 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';
 
 const Checkbox = props => {
-    const { children, disabled, label, onChange, onCheck, onUncheck, readOnly } = props;
+    const { children, disabled, elRef, label, onChange, onCheck, onUncheck, readOnly, ...rest } = props;
     const [checked, setChecked] = useState(props.checked || false);
     const [focus, setFocus] = useState(false);
     const [isIndeterminate, setIndeterminate] = useState(props.indeterminate || false);
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     const handleChange = e => {
         const tempChecked = e ? e.target.checked : !checked;
         const indeterminate = e ? e.target.indeterminate : false;
+        console.log('e', e);
 
         if (!disabled && !readOnly) {
             setChecked(tempChecked);
             setIndeterminate(indeterminate);
-
             handleEvents(tempChecked);
         }
     }
@@ -34,22 +38,34 @@ const Checkbox = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={CheckboxStyles}
             wrapper="fab-checkbox-wrapper">
-            <div data-checked={checked} data-disabled={disabled} data-focus={focus} data-indeterminate={isIndeterminate} data-read-only={readOnly} ref={elRef}>
-                <div className="fab-checkbox" onClick={() => handleChange()} />
-                <label className="fab-checkbox__label">
-                    <input
-                        checked={checked}
-                        disabled={disabled}
-                        onBlur={() => setFocus(false)}
-                        onFocus={() => setFocus(true)}
-                        onChange={handleChange}
-                        type="checkbox" />
-                    {label || children}
-                </label>
+            <div
+                data-fab-wrapper="checkbox"
+                ref={elRef || ref}
+                {...restProps}>
+                <div
+                    className="fab-checkbox"
+                    data-checked={checked}
+                    data-disabled={disabled}
+                    data-focus={focus}
+                    data-indeterminate={isIndeterminate}
+                    data-read-only={readOnly}
+                    data-fab-component="checkbox">
+                    <div className="fab-checkbox__square" onClick={() => handleChange()} />
+                    <label className="fab-checkbox__label">
+                        <input
+                            checked={checked}
+                            disabled={disabled}
+                            onBlur={() => setFocus(false)}
+                            onChange={handleChange}
+                            onFocus={() => setFocus(true)}
+                            type="checkbox" />
+                        {label || children}
+                    </label>
+                </div>
             </div>
         </Component>
     )

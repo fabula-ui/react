@@ -1,4 +1,4 @@
-import React, { cloneElement, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 // Controller
 import ModalController from '../controllers/ModalController';
@@ -12,21 +12,19 @@ const ModalProvider = props => {
     const [modalIsClosing, setModalIsClosing] = useState(false);
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    const closeModal = () => {
+    const closeModal = useCallback(() => {
         setModalIsClosing(true);
 
         setTimeout(() => {
             setModalIsClosing(false);
             setModalIsOpen(false);
         }, 300);
-    }
+    }, []);
 
-    const openModal = (component, props) => {
-        const modal = cloneElement(component, { closeModal });
-
+    const openModal = useCallback(component => {
         setActiveModal(component);
         setModalIsOpen(true);
-    }
+    }, []);
 
     const initialState = {
         activeModal,

@@ -1,25 +1,30 @@
-import React, { useRef } from 'react';
+import React, { Children, cloneElement, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import InputGroupStyles from '@fabula/core/styles/components/input-group/input-group';
 
 const InputGroup = props => {
-    const { children } = props;
-    const elRef = useRef(null);
+    const { children, elRef, size, ...rest } = props;
+    const ref = useRef(null);
+    const childrenWithProps = Children.map(children, child => cloneElement(child, { size }));
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={InputGroupStyles}
             wrapper="fab-input-group-wrapper">
-            <div data-fab-wrapper="inputGroup" ref={elRef}>
+            <div data-fab-wrapper="inputGroup" ref={elRef || ref} {...restProps}>
                 <div className="fab-input-group" data-fab-component="inputGroup">
-                    {children}
+                    {childrenWithProps}
                 </div>
             </div>
         </Component>
@@ -27,15 +32,11 @@ const InputGroup = props => {
 }
 
 InputGroup.defaultProps = {
-    flow: 'horizontal',
-    glued: false,
-    spacing: null,
+    layout: 'horizontal'
 }
 
 InputGroup.propTypes = {
-    flow: PropTypes.string,
-    glued: PropTypes.bool,
-    spacing: PropTypes.any,
+    layout: PropTypes.string
 }
 
 export default InputGroup;

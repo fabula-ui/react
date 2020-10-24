@@ -2,18 +2,16 @@ import React from 'react';
 
 import {
     Badge,
-    Card,
-    Div,
-    Divider,
+    Column,
     FabulaProvider,
-    Icon,
     List,
     ListItem,
+    Row,
     Tag,
     TagGroup,
     Text,
     UtilsProvider,
-    Avatar
+    Wrapper
 } from '../lib';
 
 export default {
@@ -21,364 +19,202 @@ export default {
     component: List,
 };
 
-const Example = props => {
-    const { buttons, color, divider, link, striped, target } = props;
+// Base component
+const BaseComponent = ({ color, ...rest }) => {
     return (
         <UtilsProvider>
-            <Card {...props}>
-                <List color={color} divider={divider} padding striped={striped}>
-                    <ListItem button={buttons} flex href={link} target={target}>
-                        <Avatar color={color} darken={!!color} icon="file" mr={.75} />
-                        <Div grow={1}>
-                            <Text color="inherit" flex weight={600}>
-                                <Text>List Item 1</Text>
-                                <Badge color={color || 'aux'} darken={!!color} ml=".5">New</Badge>
-                            </Text>
-                            <Text aux block color={!!color && 'inherit'} size="sm">List item subtitle</Text>
-                        </Div>
-                    </ListItem>
+            <List color={color} padding={true} {...rest}>
+                <ListItem flex={true}>
+                    <Wrapper grow={1}>
+                        <Text size="lg" weight={600}>
+                            <Text inline={true} mr={.5}>List Item 1</Text>
+                            <Badge color={color || 'primary'} invert={!!color} size="sm">Badge</Badge>
+                        </Text>
+                        <Text aux={true} color={color ? 'inherit' : ''} size="sm">
+                            List item subtitle
+                        </Text>
+                    </Wrapper>
+                    <TagGroup>
+                        <Tag color={color} invert={!!color} size="sm">Tag 1</Tag>
+                        <Tag color={color} invert={!!color} size="sm">Tag 2</Tag>
+                        <Tag color={color} invert={!!color} size="sm">Tag 3</Tag>
+                    </TagGroup>
+                </ListItem>
 
-                    <ListItem button={buttons} flex href={link} target={target}>
-                        <Avatar color={color} darken={!!color} icon="file" mr={.75} />
-                        <Div grow={1}>
-                            <Text color="inherit" flex weight={600}>
-                                <Text>List Item 2</Text>
-                                <Badge color={color || 'aux'} darken={!!color} ml=".5">New</Badge>
-                            </Text>
-                            <Text aux block color={!!color && 'inherit'} size="sm">List item subtitle</Text>
-                        </Div>
-                    </ListItem>
+                <ListItem flex={true}>
+                    <Wrapper grow={1}>
+                        <Text size="lg" weight={600}>
+                            <Text inline={true} mr={.5}>List Item 2</Text>
+                            <Badge color={color || 'secondary'} invert={!!color} size="sm">Badge</Badge>
+                        </Text>
+                        <Text aux={true} color={color ? 'inherit' : ''} size="sm">
+                            List item subtitle
+                        </Text>
+                    </Wrapper>
+                    <TagGroup>
+                        <Tag color={color} invert={!!color} size="sm">Tag 1</Tag>
+                        <Tag color={color} invert={!!color} size="sm">Tag 2</Tag>
+                        <Tag color={color} invert={!!color} size="sm">Tag 3</Tag>
+                    </TagGroup>
+                </ListItem>
 
-                    {!divider && <Divider />}
-
-                    <ListItem button={buttons} flex href={link} target={target}>
-                        <Avatar color={color} darken={!!color} icon="file" mr={.75} />
-                        <Div grow={1}>
-                            <Text color="inherit" flex weight={600}>
-                                <Text>List Item 3</Text>
-                                <Badge color={color || 'aux'} darken={!!color} ml=".5">New</Badge>
-                            </Text>
-                            <Text aux block color={!!color && 'inherit'} size="sm">List item subtitle</Text>
-                        </Div>
-                    </ListItem>
-                </List>
-            </Card>
+                <ListItem flex={true}>
+                    <Wrapper grow={1}>
+                        <Text size="lg" weight={600}>
+                            <Text inline={true} mr={.5}>List Item 3</Text>
+                            <Badge color={color || 'hot'} invert={!!color} size="sm">Badge</Badge>
+                        </Text>
+                        <Text aux={true} color={color ? 'inherit' : ''} size="sm">
+                            List item subtitle
+                        </Text>
+                    </Wrapper>
+                    <TagGroup>
+                        <Tag color={color} invert={!!color} size="sm">Tag 1</Tag>
+                        <Tag color={color} invert={!!color} size="sm">Tag 2</Tag>
+                        <Tag color={color} invert={!!color} size="sm">Tag 3</Tag>
+                    </TagGroup>
+                </ListItem>
+            </List>
         </UtilsProvider>
     )
 }
 
-Example.defaultProps = {
+BaseComponent.defaultProps = {
     divider: true
 }
 
-export const Examples = () => (
+// Example
+export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div row>
-                <Card col="8" ov="hidden">
-                    <List padding>
-                        <ListItem flex>
-                            <Div flex flow="v" grow={1}>
-                                <Text size="lg" weight={600}>
-                                    <Text mr={.5}>Full-stack Engineer</Text>
-                                    <Badge color="#E3FFD9">Full-time</Badge>
-                                </Text>
-                                <Text aux>Google</Text>
-                            </Div>
-                            <Div alItems="end" justContent="start" flex flow="v">
-                                <TagGroup mb={.5}>
-                                    <Tag>Angular</Tag>
-                                    <Tag>Engineering</Tag>
-                                    <Tag>Node</Tag>
-                                </TagGroup>
-
-                                <Div flex alItems="center">
-                                    <Icon mr=".5" name="clock" />
-                                    <Text>2 hours</Text>
-                                </Div>
-                            </Div>
-                        </ListItem>
-
-                        <ListItem flex>
-                            <Div flex flow="v" grow={1}>
-                                <Text size="lg" weight={600}>
-                                    <Text mr={.5}>Frontend Developer</Text>
-                                    <Badge color="#FFECD9">Part-time</Badge>
-                                </Text>
-                                <Text aux>Amazon</Text>
-                            </Div>
-                            <Div alItems="end" justContent="start" flex flow="v">
-                                <TagGroup mb={.5}>
-                                    <Tag>Angular</Tag>
-                                    <Tag>Engineering</Tag>
-                                    <Tag>Node</Tag>
-                                </TagGroup>
-
-                                <Div flex alItems="center">
-                                    <Icon mr=".5" name="clock" />
-                                    <Text>2 hours</Text>
-                                </Div>
-                            </Div>
-                        </ListItem>
-
-                        <ListItem flex>
-                            <Div flex flow="v" grow={1}>
-                                <Text size="lg" weight={600}>
-                                    <Text mr={.5}>Backend Developer</Text>
-                                    <Badge color="#FFECD9" mr={.5}>Part-time</Badge>
-                                    <Badge color="#D9E9FF">Remote</Badge>
-                                </Text>
-                                <Text aux>Netflix</Text>
-                            </Div>
-                            <Div alItems="end" justContent="start" flex flow="v">
-                                <TagGroup mb={.5}>
-                                    <Tag>Angular</Tag>
-                                    <Tag>Engineering</Tag>
-                                    <Tag>Node</Tag>
-                                </TagGroup>
-
-                                <Div flex alItems="center">
-                                    <Icon mr=".5" name="clock" />
-                                    <Text>2 hours</Text>
-                                </Div>
-                            </Div>
-                        </ListItem>
-                    </List>
-                </Card>
-
-                <Card col="3" ov="hidden">
-                    <List padding striped>
-                        <ListItem alV="center" flex>
-                            <Text grow={1} weight={600}>List Item 1</Text>
-                            <Tag color="success">
-                                <Icon name="check" />
-                                <strong>Done</strong>
-                            </Tag>
-                        </ListItem>
-
-                        <ListItem alV="center" flex>
-                            <Text grow={1} weight={600}>List Item 2</Text>
-                            <Tag color="danger">
-                                <Icon name="alert-triangle" />
-                                <strong>Error</strong>
-                            </Tag>
-                        </ListItem>
-
-                        <ListItem alV="center" flex>
-                            <Text grow={1} weight={600}>List Item 3</Text>
-                            <Tag color="hot">
-                                <Icon name="activity" />
-                                <strong>Hot</strong>
-                            </Tag>
-                        </ListItem>
-
-                        <ListItem alV="center" flex>
-                            <Text grow={1} weight={600}>List Item 4</Text>
-                            <Tag color="warning">
-                                <Icon name="clock" />
-                                <strong>Waiting</strong>
-                            </Tag>
-                        </ListItem>
-                    </List>
-                </Card>
-            </Div>
+            <BaseComponent />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Buttons = () => (
+// Properties
+export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Example buttons={true} col="3" ov="hidden" />
-                <Example buttons={true} col="3" color="primary" ov="hidden" />
-                <Example buttons={true} col="3" color="secondary" ov="hidden" />
-                <Example buttons={true} col="3" color="success" ov="hidden" />
-            </Div>
-
-            <Div mb="1" row>
-                <Example buttons={true} col="3" color="danger" ov="hidden" />
-                <Example buttons={true} col="3" color="warning" ov="hidden" />
-                <Example buttons={true} col="3" color="hot" ov="hidden" />
-                <Example buttons={true} col="3" color="cold" ov="hidden" />
-            </Div>
-
-            <Div row>
-                <Example buttons={true} col="3" color="dark" ov="hidden" />
-                <Example buttons={true} col="3" color="light" ov="hidden" />
-                <Example buttons={true} col="3" color="aux" ov="hidden" />
-            </Div>
+            <BaseComponent mb={1} />
+            <BaseComponent color="primary" mb={1} />
+            <BaseComponent color="lavender" mb={1} />
+            <BaseComponent color="hot" mb={1} />
+            <BaseComponent color="aux" mb={1} />
+            <BaseComponent color="dark" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Color = () => (
+export const PropDivider = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Example col="3" ov="hidden" />
-                <Example col="3" color="primary" ov="hidden" />
-                <Example col="3" color="secondary" ov="hidden" />
-                <Example col="3" color="success" ov="hidden" />
-            </Div>
+            <Row mb={1}>
+                <Column col={6}>
+                    <BaseComponent divider={true} />
+                </Column>
+                <Column col={6}>
+                    <BaseComponent divider={false} />
+                </Column>
+            </Row>
 
-            <Div mb="1" row>
-                <Example col="3" color="danger" ov="hidden" />
-                <Example col="3" color="warning" ov="hidden" />
-                <Example col="3" color="hot" ov="hidden" />
-                <Example col="3" color="cold" ov="hidden" />
-            </Div>
-
-            <Div row>
-                <Example col="3" color="dark" ov="hidden" />
-                <Example col="3" color="light" ov="hidden" />
-                <Example col="3" color="aux" ov="hidden" />
-            </Div>
+            <Row mb={1}>
+                <Column col={6}>
+                    <BaseComponent color="primary" divider={true} />
+                </Column>
+                <Column col={6}>
+                    <BaseComponent color="primary" divider={false} />
+                </Column>
+            </Row>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Dividers = () => (
+export const PropPadding = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Example col="3" ov="hidden"></Example>
-                <Example col="3" divider={false} ov="hidden"></Example>
-            </Div>
+            <Row mb={1}>
+                <Column col={6}>
+                    <BaseComponent padding={true} />
+                </Column>
+                <Column col={6}>
+                    <BaseComponent padding={false} />
+                </Column>
+            </Row>
+
+            <Row mb={1}>
+                <Column col={6}>
+                    <BaseComponent color="primary" padding={true} />
+                </Column>
+                <Column col={6}>
+                    <BaseComponent color="primary" padding={false} />
+                </Column>
+            </Row>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Link = () => (
+export const PropStriped = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Example link={'http://www.google.com.br'} col="3" ov="hidden" target="_blank" />
-                <Example link={'http://www.google.com.br'} col="3" color="primary" ov="hidden" target="_blank" />
-                <Example link={'http://www.google.com.br'} col="3" color="secondary" ov="hidden" target="_blank" />
-                <Example link={'http://www.google.com.br'} col="3" color="success" ov="hidden" target="_blank" />
-            </Div>
-
-            <Div mb="1" row>
-                <Example link={'http://www.google.com.br'} col="3" color="danger" ov="hidden" target="_blank" />
-                <Example link={'http://www.google.com.br'} col="3" color="warning" ov="hidden" target="_blank" />
-                <Example link={'http://www.google.com.br'} col="3" color="hot" ov="hidden" target="_blank" />
-                <Example link={'http://www.google.com.br'} col="3" color="cold" ov="hidden" target="_blank" />
-            </Div>
-
-            <Div row>
-                <Example link={'http://www.google.com.br'} col="3" color="dark" ov="hidden" target="_blank" />
-                <Example link={'http://www.google.com.br'} col="3" color="light" ov="hidden" target="_blank" />
-                <Example link={'http://www.google.com.br'} col="3" color="aux" ov="hidden" target="_blank" />
-            </Div>
+            <BaseComponent mb={1} />
+            <BaseComponent color="primary" mb={1} striped={true} />
+            <BaseComponent color="lavender" mb={1} striped={true} />
+            <BaseComponent color="hot" mb={1} striped={true} />
+            <BaseComponent color="aux" mb={1} striped={true} />
+            <BaseComponent color="dark" striped={true} />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Padding = () => (
+// Utilities
+export const UtilMargin = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Card col="3">
-                    <List>
-                        <ListItem flex>
-                            <Avatar icon="file" mr={.75} />
-                            <Div grow={1}>
-                                <Text flex weight={600}>
-                                    <Text>List Item 1</Text>
-                                    <Badge color="aux" ml=".5">New</Badge>
-                                </Text>
-                                <Text aux block size="sm">List item subtitle</Text>
-                            </Div>
-                        </ListItem>
+            <Wrapper al="center" flex={true} mb={1}>
+                <BaseComponent mr={.5} width={400} />
+                <BaseComponent mx={.5} width={400} />
+                <BaseComponent ml={.5} width={400} />
+            </Wrapper>
 
-                        <ListItem flex>
-                            <Avatar icon="file" mr={.75} />
-                            <Div grow={1}>
-                                <Text flex weight={600}>
-                                    <Text>List Item 2</Text>
-                                    <Badge color="aux" ml=".5">New</Badge>
-                                </Text>
-                                <Text aux block size="sm">List item subtitle</Text>
-                            </Div>
-                        </ListItem>
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <BaseComponent mb={.5} width={400} />
+                <BaseComponent my={.5} width={400} />
+                <BaseComponent mt={.5} width={400} />
+            </Wrapper>
 
-                        <ListItem flex>
-                            <Avatar icon="file" mr={.75} />
-                            <Div grow={1}>
-                                <Text flex weight={600}>
-                                    <Text>List Item 3</Text>
-                                    <Badge color="aux" ml=".5">New</Badge>
-                                </Text>
-                                <Text aux block size="sm">List item subtitle</Text>
-                            </Div>
-                        </ListItem>
-                    </List>
-                </Card>
-
-                <Card col="3">
-                    <List padding={true}>
-                        <ListItem flex>
-                            <Avatar icon="file" mr={.75} />
-                            <Div grow={1}>
-                                <Text flex weight={600}>
-                                    <Text>List Item 1</Text>
-                                    <Badge color="aux" ml=".5">New</Badge>
-                                </Text>
-                                <Text aux block size="sm">List item subtitle</Text>
-                            </Div>
-                        </ListItem>
-
-                        <ListItem flex>
-                            <Avatar icon="file" mr={.75} />
-                            <Div grow={1}>
-                                <Text flex weight={600}>
-                                    <Text>List Item 2</Text>
-                                    <Badge color="aux" ml=".5">New</Badge>
-                                </Text>
-                                <Text aux block size="sm">List item subtitle</Text>
-                            </Div>
-                        </ListItem>
-
-                        <ListItem flex>
-                            <Avatar icon="file" mr={.75} />
-                            <Div grow={1}>
-                                <Text flex weight={600}>
-                                    <Text>List Item 3</Text>
-                                    <Badge color="aux" ml=".5">New</Badge>
-                                </Text>
-                                <Text aux block size="sm">List item subtitle</Text>
-                            </Div>
-                        </ListItem>
-                    </List>
-                </Card>
-            </Div>
+            <Wrapper al="center" direction="column" flex={true}>
+                <BaseComponent width={400} />
+                <Wrapper al="center" flex={true}>
+                    <BaseComponent width={400} />
+                    <BaseComponent m={1} width={400} />
+                    <BaseComponent width={400} />
+                </Wrapper>
+                <BaseComponent width={400} />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Striped = () => (
+export const UtilPadding = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Example striped={true} col="3" ov="hidden" />
-                <Example striped={true} col="3" color="primary" ov="hidden" />
-                <Example striped={true} col="3" color="secondary" ov="hidden" />
-                <Example striped={true} col="3" color="success" ov="hidden" />
-            </Div>
+            <BaseComponent mb={1} p={2} />
+            <BaseComponent mb={1} pb={2} />
+            <BaseComponent mb={1} pl={2} />
+            <BaseComponent mb={1} pr={2} />
+            <BaseComponent mb={1} pt={2} />
+            <BaseComponent mb={1} px={2} />
+            <BaseComponent mb={1} py={2} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
 
-            <Div mb="1" row>
-                <Example striped={true} col="3" color="danger" ov="hidden" />
-                <Example striped={true} col="3" color="warning" ov="hidden" />
-                <Example striped={true} col="3" color="hot" ov="hidden" />
-                <Example striped={true} col="3" color="cold" ov="hidden" />
-            </Div>
-
-            <Div row>
-                <Example striped={true} col="3" color="dark" ov="hidden" />
-                <Example striped={true} col="3" color="light" ov="hidden" />
-                <Example striped={true} col="3" color="aux" ov="hidden" />
-            </Div>
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent hidden={true} />
+            <BaseComponent visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import {
     Alert,
-    Avatar,
-    Button,
-    ButtonGroup,
-    Div,
     FabulaProvider,
-    Text,
     UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -16,409 +12,226 @@ export default {
     component: Alert,
 };
 
-export const Examples = () => (
+// Base component
+const BaseComponent = props => (
+    <Alert icon="bell" text="This is an example of an alert" title="Alert Title" {...props} />
+)
+
+// Example
+export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" icon={{ color: 'danger', name: 'alert-triangle' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" icon={{ color: 'warning', name: 'alert-circle' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" icon={{ color: 'success', name: 'check' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
+            <BaseComponent mb={1} type="success" />
+            <BaseComponent mb={1} type="warning" />
+            <BaseComponent mb={1} type="danger" />
+            <BaseComponent type="info" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Border = () => (
+// Properties
+export const PropBorder = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert borderColor="primary" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert borderColor="secondary" col="4" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert borderColor="success" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert borderColor="danger" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert borderColor="warning" col="4" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert borderColor="hot" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert borderColor="cold" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert borderColor="dark" col="4" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div row>
-                <Alert borderColor="light" col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert borderColor="aux" col="4" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
+            <BaseComponent mb={1} type="info" />
+            <BaseComponent border={false} type="info" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Clear = () => (
+export const PropClear = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" clear={true} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" clear={true} color="primary" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" clear={true} color="secondary" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" clear={true} color="success" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" clear={true} color="danger" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" clear={true} color="warning" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" clear={true} color="hot" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" clear={true} color="cold" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" clear={true} color="dark" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" clear={true} color="light" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" clear={true} color="aux" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
+            <BaseComponent clear={true} mb={1} />
+            <BaseComponent clear={true} color="primary" mb={1} />
+            <BaseComponent clear={true} color="lavender" mb={1} />
+            <BaseComponent clear={true} color="hot" mb={1} />
+            <BaseComponent clear={true} color="aux" mb={1} />
+            <BaseComponent clear={true} color="dark" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const CloseButton = () => (
+export const PropCloseButton = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" closeButton={true} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" closeButton={true} text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" closeButton={true} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
+            <BaseComponent closeButton={true} mb={1} />
+            <BaseComponent closeButton={true} color="primary" mb={1} />
+            <BaseComponent closeButton={true} color="lavender" mb={1} />
+            <BaseComponent closeButton={true} color="hot" mb={1} />
+            <BaseComponent closeButton={true} color="aux" mb={1} />
+            <BaseComponent closeButton={true} color="dark" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Color = () => (
+export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="primary" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="secondary" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="success" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="danger" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="warning" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="hot" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="cold" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="dark" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" color="light" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="aux" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
+            <BaseComponent color="primary" mb={1} />
+            <BaseComponent color="lavender" mb={1} />
+            <BaseComponent color="hot" mb={1} />
+            <BaseComponent color="aux" mb={1} />
+            <BaseComponent color="dark" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const CustomContent = () => (
+export const PropFaded = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Alert glow={true}>
-                <Div alV="center" flex={true} flow="h">
-                    <Avatar icon="coffee" mr=".75" />
-                    <Div grow={1} mr={1}>
-                        <Text block mb=".5" size="md" weight={600}>Custom Alert Title</Text>
-                        <Text aux block size="sm">Custom Alert Title</Text>
-                    </Div>
-
-                    <ButtonGroup spacing={.75}>
-                        <Button color="primary" size="sm">OK</Button>
-                        <Button color="light" size="sm">Cancel</Button>
-                    </ButtonGroup>
-                </Div>
-            </Alert>
+            <BaseComponent faded={true} mb={1} />
+            <BaseComponent color="primary" faded={true} mb={1} />
+            <BaseComponent color="lavender" faded={true} mb={1} />
+            <BaseComponent color="hot" faded={true} mb={1} />
+            <BaseComponent color="aux" faded={true} mb={1} />
+            <BaseComponent color="dark" faded={true} />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Faded = () => (
+export const PropGlow = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" faded text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="primary" faded text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="secondary" faded text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="success" faded text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="danger" faded text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="warning" faded text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="hot" faded text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="cold" faded text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="dark" faded text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" color="light" faded text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="aux" faded text="Hey! Just a reminder that this is an alert!" />
-            </Div>
+            <BaseComponent glow={true} mb={1} />
+            <BaseComponent color="primary" glow={true} mb={1} />
+            <BaseComponent color="lavender" glow={true} mb={1} />
+            <BaseComponent color="hot" glow={true} mb={1} />
+            <BaseComponent color="aux" glow={true} mb={1} />
+            <BaseComponent color="dark" glow={true} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+export const PropIcon = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent icon="database" mb={1} />
+            <BaseComponent icon={{ color: 'primary', name: 'calendar' }} mb={1} />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Glow = () => (
+export const PropInvert = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" glow text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" glow color="primary" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" glow color="secondary" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" glow color="success" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" glow color="danger" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" glow color="warning" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" glow color="hot" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" glow color="cold" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" glow color="dark" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" glow color="light" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" glow color="aux" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-        </UtilsProvider>
-    </FabulaProvider>
-)
-export const Icons = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" color="primary" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" color="secondary" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="success" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" color="danger" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" color="warning" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="hot" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" color="cold" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" color="dark" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" color="light" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" color="aux" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
+            <BaseComponent invert={true} mb={1} />
+            <BaseComponent color="primary" invert={true} mb={1} />
+            <BaseComponent color="lavender" invert={true} mb={1} />
+            <BaseComponent color="hot" invert={true} mb={1} />
+            <BaseComponent color="aux" invert={true} mb={1} />
+            <BaseComponent color="dark" invert={true} />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const IconColors = () => (
+export const PropMarker = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" glow icon={{ name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" glow icon={{ color: 'primary', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" glow icon={{ color: 'secondary', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" glow icon={{ color: 'success', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" glow icon={{ color: 'danger', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" glow icon={{ color: 'warning', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" glow icon={{ color: 'hot', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" glow icon={{ color: 'cold', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" glow icon={{ color: 'dark', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" glow icon={{ color: 'light', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" glow icon={{ color: 'aux', name: 'database' }} text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-            </Div>
+            <BaseComponent marker="primary" mb={1} />
+            <BaseComponent marker="lavender" mb={1} />
+            <BaseComponent marker="hot" mb={1} />
+            <BaseComponent marker="aux" mb={1} />
+            <BaseComponent marker="dark" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Invert = () => (
+export const PropOutline = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" invert text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="primary" invert text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="secondary" invert text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="success" invert text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="danger" invert text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="warning" invert text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="hot" invert text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="cold" invert text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="dark" invert text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" color="light" invert text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="aux" invert text="Hey! Just a reminder that this is an alert!" />
-            </Div>
+            <BaseComponent outline={true} mb={1} />
+            <BaseComponent color="primary" outline={true} mb={1} />
+            <BaseComponent color="lavender" outline={true} mb={1} />
+            <BaseComponent color="hot" outline={true} mb={1} />
+            <BaseComponent color="aux" outline={true} mb={1} />
+            <BaseComponent color="dark" outline={true} />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Marker = () => (
+export const PropTextColor = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" marker="primary" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" marker="primary" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" marker="secondary" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" marker="success" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" marker="danger" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" marker="warning" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" marker="hot" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" marker="cold" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" marker="dark" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" marker="light" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" marker="aux" text="Hey! Just a reminder that this is an alert!" />
-            </Div>
+            <BaseComponent textColor="primary" mb={1} />
+            <BaseComponent textColor="lavender" mb={1} />
+            <BaseComponent textColor="hot" mb={1} />
+            <BaseComponent textColor="aux" mb={1} />
+            <BaseComponent textColor="dark" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Outline = () => (
+export const PropTitleColor = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" outline text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="primary" outline text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="secondary" outline text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="success" outline text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="danger" outline text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="warning" outline text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" color="hot" outline text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="cold" outline text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="dark" outline text="Hey! Just a reminder that this is an alert!" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" color="light" outline text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" color="aux" outline text="Hey! Just a reminder that this is an alert!" />
-            </Div>
+            <BaseComponent titleColor="primary" mb={1} />
+            <BaseComponent titleColor="lavender" mb={1} />
+            <BaseComponent titleColor="aux" mb={1} />
+            <BaseComponent titleColor="hot" mb={1} />
+            <BaseComponent titleColor="dark" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const TextColor = () => (
+export const PropType = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="primary" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="secondary" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="success" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="danger" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="warning" />
-            </Div>
-
-            <Div mb="1" row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="hot" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="cold" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="dark" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="light" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" textColor="aux" />
-            </Div>
+            <BaseComponent mb={1} title="Success Type" type="success" />
+            <BaseComponent mb={1} title="Warning Type" type="warning" />
+            <BaseComponent mb={1} title="Danger Type" type="danger" />
+            <BaseComponent title="Info Type" type="info" />
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const TitleColor = () => (
+// Utilities
+export const UtilMargin = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="primary" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="secondary" />
-            </Div>
+            <Wrapper al="center" flex={true} mb={1}>
+                <BaseComponent mr={.5} width={400} />
+                <BaseComponent mx={.5} width={400} />
+                <BaseComponent ml={.5} width={400} />
+            </Wrapper>
 
-            <Div mb="1" row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="success" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="danger" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="warning" />
-            </Div>
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <BaseComponent mb={.5} width={400} />
+                <BaseComponent my={.5} width={400} />
+                <BaseComponent mt={.5} width={400} />
+            </Wrapper>
 
-            <Div mb="1" row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="hot" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="cold" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="dark" />
-            </Div>
-
-            <Div row>
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="light" />
-                <Alert col="4" text="Hey! Just a reminder that this is an alert!" title="Alert Title" titleColor="aux" />
-            </Div>
+            <Wrapper al="center" direction="column" flex={true}>
+                <BaseComponent width={400} />
+                <Wrapper al="center" flex={true}>
+                    <BaseComponent width={400} />
+                    <BaseComponent m={1} width={400} />
+                    <BaseComponent width={400} />
+                </Wrapper>
+                <BaseComponent width={400} />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Type = () => (
+export const UtilPadding = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb="1" row>
-                <Alert col="6" text="Hey! Just a reminder that this is an alert!" title="Success Type" type="success" />
-                <Alert col="6" text="Hey! Just a reminder that this is an alert!" title="Danger Type" type="danger" />
-            </Div>
-            <Div row>
-                <Alert col="6" text="Hey! Just a reminder that this is an alert!" title="Warning type" type="warning" />
-                <Alert col="6" text="Hey! Just a reminder that this is an alert!" title="Info type" type="info" />
-            </Div>
+            <BaseComponent mb={1} p={2} />
+            <BaseComponent mb={1} pb={2} />
+            <BaseComponent mb={1} pl={2} />
+            <BaseComponent mb={1} pr={2} />
+            <BaseComponent mb={1} pt={2} />
+            <BaseComponent mb={1} px={2} />
+            <BaseComponent mb={1} py={2} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent hidden={true} />
+            <BaseComponent visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

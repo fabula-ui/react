@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import { action } from '@storybook/addon-actions';
+import React from 'react';
 
 import {
-    Button,
+    Container,
     FabulaProvider,
     ToastProvider,
     Toast,
-    FabulaUtils,
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 import { ToastExamples } from '../examples/Toast/Toast';
@@ -16,416 +16,220 @@ export default {
     component: Toast,
 };
 
-export const Clear = () => (
+// Base component
+const BaseComponent = ({ color, hideButton, iconColor, iconName, ...rest }) => (
+    <Toast color={color} hideButton={{ border: !color, color, invert: !!color, label: 'Hide', ...hideButton }} icon={{ color: iconColor, name: iconName || 'hard-drive' }} message="Here is an example of a toast component working..." {...rest} />
+)
+
+// Stories
+export const PropClear = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <div col="4">
-                    <Toast clear={true} closeButton={{ label: 'Close' }} icon={{ color: 'primary', name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+        <UtilsProvider>
+            <Container>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'primary', label: 'Close', invert: true }} color="primary" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} color="primary" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'secondary', label: 'Close', invert: true }} color="secondary" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} color="lavender" />
+                </Wrapper>
 
-            <div mb="1" row>
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'success', label: 'Close', invert: true }} color="success" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} color="hot" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'danger', label: 'Close', invert: true }} color="danger" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} color="aux" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'warning', label: 'Close', invert: true }} color="warning" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'hot', label: 'Close', invert: true }} color="hot" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'cold', label: 'Close', invert: true }} color="cold" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'dark', label: 'Close', invert: true }} color="dark" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'light', label: 'Close', invert: true }} color="light" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast clear={true} closeButton={{ color: 'aux', label: 'Close', invert: true }} color="aux" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-        </FabulaUtils>
+                <Wrapper mb={1}>
+                    <BaseComponent clear={true} color="dark" />
+                </Wrapper>
+            </Container>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Color = () => (
+export const PropColor = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ label: 'Close' }} icon={{ color: 'primary', name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+        <UtilsProvider>
+            <Container>
+                <Wrapper mb={1}>
+                    <BaseComponent />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'primary', label: 'Close', invert: true }} color="primary" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent color="primary" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'secondary', label: 'Close', invert: true }} color="secondary" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
+                <Wrapper mb={1}>
+                    <BaseComponent color="lavender" />
+                </Wrapper>
 
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'success', label: 'Close', invert: true }} color="success" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent color="hot" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'danger', label: 'Close', invert: true }} color="danger" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent color="aux" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'warning', label: 'Close', invert: true }} color="warning" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'hot', label: 'Close', invert: true }} color="hot" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'cold', label: 'Close', invert: true }} color="cold" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'dark', label: 'Close', invert: true }} color="dark" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'light', label: 'Close', invert: true }} color="light" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'aux', label: 'Close', invert: true }} color="aux" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-        </FabulaUtils>
+                <Wrapper mb={1}>
+                    <BaseComponent color="dark" />
+                </Wrapper>
+            </Container>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Faded = () => (
+export const PropFaded = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ label: 'Close' }} faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+        <UtilsProvider>
+            <Container>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'primary', label: 'Close', invert: true }} color="primary" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="primary" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'secondary', label: 'Close', invert: true }} color="secondary" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="lavender" />
+                </Wrapper>
 
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'success', label: 'Close', invert: true }} color="success" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="hot" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'danger', label: 'Close', invert: true }} color="danger" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="aux" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'warning', label: 'Close', invert: true }} color="warning" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'hot', label: 'Close', invert: true }} color="hot" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'cold', label: 'Close', invert: true }} color="cold" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'dark', label: 'Close', invert: true }} color="dark" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'light', label: 'Close', invert: true }} color="light" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'aux', label: 'Close', invert: true }} color="aux" faded={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-        </FabulaUtils>
-
+                <Wrapper mb={1}>
+                    <BaseComponent faded={true} color="dark" />
+                </Wrapper>
+            </Container>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Glow = () => (
+export const PropGlow = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ label: 'Close' }} glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+        <UtilsProvider>
+            <Container>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'primary', label: 'Close', invert: true }} color="primary" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="primary" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'secondary', label: 'Close', invert: true }} color="secondary" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="lavender" />
+                </Wrapper>
 
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'success', label: 'Close', invert: true }} color="success" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="hot" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'danger', label: 'Close', invert: true }} color="danger" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="aux" />
+                </Wrapper>
 
-                <div col="4">
-                    <Toast closeButton={{ color: 'warning', label: 'Close', invert: true }} color="warning" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'hot', label: 'Close', invert: true }} color="hot" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'cold', label: 'Close', invert: true }} color="cold" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'dark', label: 'Close', invert: true }} color="dark" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'light', label: 'Close', invert: true }} color="light" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'aux', label: 'Close', invert: true }} color="aux" glow={true} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." width="100%" />
-                </div>
-            </div>
-        </FabulaUtils>
-
-    </FabulaProvider>
-
-)
-
-export const Icons = () => (
-    <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <div col="3">
-                    <Toast closeButton={{ label: 'Close' }} icon={{ name: 'compass' }} message="Here is a toast with an icon..." width="100%" />
-                </div>
-
-                <div col="3">
-                    <Toast closeButton={{ color: 'primary', label: 'Close' }} icon={{ color: 'primary', name: 'battery-charging' }} message="Here is a toast with an icon..." width="100%" />
-                </div>
-
-                <div col="3">
-                    <Toast closeButton={{ color: 'secondary', label: 'Close' }} icon={{ color: 'secondary', name: 'camera' }} message="Here is a toast with an icon..." width="100%" />
-                </div>
-
-                <div col="3">
-                    <Toast closeButton={{ color: 'success', label: 'Close' }} icon={{ color: 'success', name: 'database' }} message="Here is a toast with an icon..." width="100%" />
-                </div>
-            </div>
-        </FabulaUtils>
+                <Wrapper mb={1}>
+                    <BaseComponent glow={true} color="dark" />
+                </Wrapper>
+            </Container>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Links = () => (
+export const PropHideButton = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'secondary', label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'success', label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'danger', label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'warning', label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'hot', label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'cold', label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'dark', label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'light', label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'aux', label: 'Go to Google', target: '_blank', url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-            </div>
-
-            
-
-            <div mb="1" row>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'secondary', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'success', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'danger', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'warning', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'hot', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'cold', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'dark', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'light', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-                <div col="3">
-                    <Toast icon={{ color: 'primary', name: 'map-pin' }} link={{color: 'aux', label: 'Go to Google', target: '_blank', underline: false, url: 'https://www.google.com.br'}} message="Here is a toast with a link..." width="100%" />
-                </div>
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Container>
+                <Wrapper mb={1}>
+                    <BaseComponent color="primary" hideButton={{ color: 'primary', compact: true, invert: true, label: "Hide me" }} />
+                </Wrapper>
+                <BaseComponent color="primary" hideButton={{ color: 'primary', invert: true, label: "Hide me", wide: true }} />
+            </Container>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Outline = () => (
+export const PropIcon = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ label: 'Close', outline: true }} icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'primary', label: 'Close', outline: true }} color="primary" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'secondary', label: 'Close', outline: true }} color="secondary" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'success', label: 'Close', outline: true }} color="success" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'danger', label: 'Close', outline: true }} color="danger" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'warning', label: 'Close', outline: true }} color="warning" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'hot', label: 'Close', outline: true }} color="hot" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'cold', label: 'Close', outline: true }} color="cold" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'dark', label: 'Close', outline: true }} color="dark" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-            </div>
-
-            <div mb="1" row>
-                <div col="4">
-                    <Toast closeButton={{ color: 'light', label: 'Close', outline: true }} color="light" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-
-                <div col="4">
-                    <Toast closeButton={{ color: 'aux', label: 'Close', outline: true }} color="aux" icon={{ name: 'hard-drive' }} message="Here is an example of a toast component working..." outline={true} width="100%" />
-                </div>
-            </div>
-        </FabulaUtils>
-
+        <UtilsProvider>
+            <Container>
+                <BaseComponent iconName="compass" mb={1} />
+                <BaseComponent iconColor="primary" iconName="battery-charging" mb={1} />
+                <BaseComponent iconColor="lavender" iconName="camera" mb={1} />
+                <BaseComponent iconColor="hot" iconName="database" mb={1} />
+            </Container>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Stacks = () => {
+export const PropLink = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Container>
+                <BaseComponent link={{
+                    label: 'Go there',
+                    target: '_blank',
+                    url: 'https://www.github.com/fabula-ui'
+                }} />
+            </Container>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const PropOutline = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Container>
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} />
+                </Wrapper>
+
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="primary" />
+                </Wrapper>
+
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="lavender" />
+                </Wrapper>
+
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="hot" />
+                </Wrapper>
+
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="aux" />
+                </Wrapper>
+
+                <Wrapper mb={1}>
+                    <BaseComponent outline={true} color="dark" />
+                </Wrapper>
+            </Container>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const HandleStacks = () => {
     return (
         <FabulaProvider>
-            <ToastProvider>
-                <ToastExamples />
-            </ToastProvider>
+            <UtilsProvider>
+                <ToastProvider>
+                    <ToastExamples />
+                </ToastProvider>
+            </UtilsProvider>
         </FabulaProvider>
     )
 }

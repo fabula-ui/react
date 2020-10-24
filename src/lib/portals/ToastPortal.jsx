@@ -6,14 +6,12 @@ import ToastController from '../controllers/ToastController';
 // Components
 import ToastStack from '../components/ToastStack/ToastStack';
 
-// Services
-import ToastService from '../services/ToastService';
-
-const ToastPortal = props => {
+const ToastPortal = () => {
     const { stacks } = useContext(ToastController);
     const [stacksEl, setStacksEl] = useState(<></>);
 
-    const stacksCallback = useCallback(() => {
+    // Callbacks
+    const handleStacks = useCallback(() => {
         const stacksEl = Object.keys(stacks).map((name, i) => {
             const stack = stacks[name];
             const { placement } = stack;
@@ -24,9 +22,10 @@ const ToastPortal = props => {
         setStacksEl(stacksEl);
     }, [stacks]);
 
+    // Hooks
     useEffect(() => {
-        stacksCallback();
-    }, [stacks]);
+        handleStacks();
+    }, [handleStacks]);
 
     return stacksEl;
 }

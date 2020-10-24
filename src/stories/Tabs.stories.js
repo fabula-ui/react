@@ -2,14 +2,17 @@ import React from 'react';
 
 import {
     Card,
-    Div,
+    Column,
+    Container,
     FabulaProvider,
+    Row,
     Tab,
     TabContent,
     Tabs,
     Text,
     UtilsProvider,
-    Icon
+    Icon,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -17,936 +20,373 @@ export default {
     component: Tabs,
 };
 
-export const Examples = () => (
+// Base Component
+const BaseComponent = props => (
+    <Tabs {...props}>
+        <Tab active={true} name="docs">
+            <Icon name="file-text" />
+            <span>Tab 1</span>
+        </Tab>
+        <Tab name="components">
+            <Icon name="tool" />
+            <span>Tab 2</span>
+        </Tab>
+        <Tab name="showcase">
+            <Icon name="camera" />
+            <span>Tab 3</span>
+        </Tab>
+    </Tabs>
+)
+
+// Example
+export const Example = () => (
     <FabulaProvider>
-        <Tabs inactiveFillColor="red" type="block">
-            <Tab active={true} name="docs">Docs</Tab>
-            <Tab name="components">Components</Tab>
-            <Tab name="showcase">Showcase</Tab>
-        </Tabs>
+        <Container>
+            <BaseComponent expand={true} />
+        </Container>
     </FabulaProvider>
 )
 
-export const Block = () => (
+// Properties
+export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="primary" flex={true} type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="secondary" flex={true} type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="success" type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="danger" flex={true} type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="warning" flex={true} type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="hot" type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="cold" flex={true} type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="dark" flex={true} type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="light" type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="aux" flex={true} type="block">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="primary" expand="v" grow={1} />
+                <BaseComponent alignment="center" color="primary" expand="v" grow={1} type="block" />
+                <BaseComponent alignment="center" color="primary" expand="v" grow={1} type="float" />
+                <BaseComponent alignment="center" color="primary" expand="v" grow={1} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="lavender" expand="v" grow={1} />
+                <BaseComponent alignment="center" color="lavender" expand="v" grow={1} type="block" />
+                <BaseComponent alignment="center" color="lavender" expand="v" grow={1} type="float" />
+                <BaseComponent alignment="center" color="lavender" expand="v" grow={1} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="hot" expand="v" grow={1} />
+                <BaseComponent alignment="center" color="hot" expand="v" grow={1} type="block" />
+                <BaseComponent alignment="center" color="hot" expand="v" grow={1} type="float" />
+                <BaseComponent alignment="center" color="hot" expand="v" grow={1} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="aux" expand="v" grow={1} />
+                <BaseComponent alignment="center" color="aux" expand="v" grow={1} type="block" />
+                <BaseComponent alignment="center" color="aux" expand="v" grow={1} type="float" />
+                <BaseComponent alignment="center" color="aux" expand="v" grow={1} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="dark" expand="v" grow={1} />
+                <BaseComponent alignment="center" color="dark" expand="v" grow={1} type="block" />
+                <BaseComponent alignment="center" color="dark" expand="v" grow={1} type="float" />
+                <BaseComponent alignment="center" color="dark" expand="v" grow={1} type="pill" />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Color = () => (
+export const PropExpand = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
+            <Row>
+                <Column col={6}>
+                    <Wrapper flex={true} mb={1}>
+                        <BaseComponent color="aux" expand="h" />
+                    </Wrapper>
 
-                <Tabs alH="center" col="4" color="primary" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
+                    <Wrapper flex={true} mb={1}>
+                        <BaseComponent color="aux" expand="h" type="block" />
+                    </Wrapper>
 
-                <Tabs alH="center" col="4" color="secondary" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
+                    <Wrapper flex={true} mb={1}>
+                        <BaseComponent color="aux" expand="h" type="float" />
+                    </Wrapper>
 
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="success">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
+                    <Wrapper flex={true} mb={1}>
+                        <BaseComponent color="aux" expand="h" type="pill" />
+                    </Wrapper>
+                </Column>
 
-                <Tabs alH="center" col="4" color="danger" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
+                <Column col={6}>
+                    <Wrapper flex={true} height={75} mb={1}>
+                        <BaseComponent color="aux" expand="both" />
+                    </Wrapper>
 
-                <Tabs alH="center" col="4" color="warning" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
+                    <Wrapper flex={true} height={75} mb={1}>
+                        <BaseComponent color="aux" expand="both" type="block" />
+                    </Wrapper>
 
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="hot">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
+                    <Wrapper flex={true} height={75} mb={1}>
+                        <BaseComponent color="aux" expand="both" type="float" />
+                    </Wrapper>
 
-                <Tabs alH="center" col="4" color="cold" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="dark" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="light">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="aux" flex={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
+                    <Wrapper flex={true} height={75} mb={1}>
+                        <BaseComponent color="aux" expand="both" type="pill" />
+                    </Wrapper>
+                </Column>
+            </Row>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Content = () => (
-    <FabulaProvider>
-      <UtilsProvider>
-        <Div row>
-          <Div col="4">
-            <Tabs active="docs" mb={1} scope="scope1">
-              <Tab name="docs">Docs</Tab>
-              <Tab name="components">Components</Tab>
-              <Tab name="showcase">Showcase</Tab>
-            </Tabs>
-  
-            <TabContent active={true} name="docs" scope="scope1">
-              <Card padding>
-                <Text block={true} size="xl" weight="600">Docs</Text>
-                <Text>This content is related to docs</Text>
-              </Card>
-            </TabContent>
-  
-            <TabContent name="components" scope="scope1">
-              <Card padding>
-                <Text size="xl" weight="600">Components</Text>
-                <Text>This content is related to components</Text>
-              </Card>
-            </TabContent>
-  
-            <TabContent name="showcase" scope="scope1">
-              <Card padding>
-                <Text size="xl" weight="600">Showcase</Text>
-                <Text>This content is related to showcase</Text>
-              </Card>
-            </TabContent>
-          </Div>
-  
-          <Div col="4">
-            <Tabs active="docs" color="primary" faded={true} mb={1} scope="scope2">
-              <Tab name="docs">Docs</Tab>
-              <Tab name="components">Components</Tab>
-              <Tab name="showcase">Showcase</Tab>
-            </Tabs>
-  
-            <TabContent active={true} name="docs" scope="scope2">
-              <Card padding>
-                <Text size="xl" weight="600">Docs</Text>
-                <Text>This content is related to docs</Text>
-              </Card>
-            </TabContent>
-  
-            <TabContent name="components" scope="scope2">
-              <Card padding>
-                <Text size="xl" weight="600">Components</Text>
-                <Text>This content is related to components</Text>
-              </Card>
-            </TabContent>
-  
-            <TabContent name="showcase" scope="scope2">
-              <Card padding>
-                <Text size="xl" weight="600">Showcase</Text>
-                <Text>This content is related to showcase</Text>
-              </Card>
-            </TabContent>
-          </Div>
-  
-          <Div col="4">
-            <Tabs active="docs" color="primary" mb={1} scope="scope3">
-              <Tab name="docs">Docs</Tab>
-              <Tab name="components">Components</Tab>
-              <Tab name="showcase">Showcase</Tab>
-            </Tabs>
-  
-            <TabContent active={true} name="docs" scope="scope3">
-              <Card padding>
-                <Text size="xl" weight="600">Docs</Text>
-                <Text>This content is related to docs</Text>
-              </Card>
-            </TabContent>
-  
-            <TabContent name="components" scope="scope3">
-              <Card padding>
-                <Text size="xl" weight="600">Components</Text>
-                <Text>This content is related to components</Text>
-              </Card>
-            </TabContent>
-  
-            <TabContent name="showcase" scope="scope3">
-              <Card padding>
-                <Text size="xl" weight="600">Showcase</Text>
-                <Text>This content is related to showcase</Text>
-              </Card>
-            </TabContent>
-          </Div>
-        </Div>
-      </UtilsProvider>
-    </FabulaProvider>
-  )
-
-export const Expand = () => (
+export const PropFaded = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Tabs expand={true} mb={1}>
-                <Tab active={true} name="docs">Docs</Tab>
-                <Tab name="components">Components</Tab>
-                <Tab name="showcase">Showcase</Tab>
-            </Tabs>
-
-            <Tabs expand={true} mb={1} type="block">
-                <Tab active={true} name="docs">Docs</Tab>
-                <Tab name="components">Components</Tab>
-                <Tab name="showcase">Showcase</Tab>
-            </Tabs>
-
-            <Tabs expand={true} mb={1} type="float">
-                <Tab active={true} name="docs">Docs</Tab>
-                <Tab name="components">Components</Tab>
-                <Tab name="showcase">Showcase</Tab>
-            </Tabs>
-
-            <Tabs expand={true} mb={1} type="pill">
-                <Tab active={true} name="docs">Docs</Tab>
-                <Tab name="components">Components</Tab>
-                <Tab name="showcase">Showcase</Tab>
-            </Tabs>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="primary" expand="v" faded={true} grow={1} />
+                <BaseComponent alignment="center" color="primary" expand="v" faded={true} grow={1} type="block" />
+                <BaseComponent alignment="center" color="primary" expand="v" faded={true} grow={1} type="float" />
+                <BaseComponent alignment="center" color="primary" expand="v" faded={true} grow={1} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="lavender" expand="v" faded={true} grow={1} />
+                <BaseComponent alignment="center" color="lavender" expand="v" faded={true} grow={1} type="block" />
+                <BaseComponent alignment="center" color="lavender" expand="v" faded={true} grow={1} type="float" />
+                <BaseComponent alignment="center" color="lavender" expand="v" faded={true} grow={1} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="hot" expand="v" faded={true} grow={1} />
+                <BaseComponent alignment="center" color="hot" expand="v" faded={true} grow={1} type="block" />
+                <BaseComponent alignment="center" color="hot" expand="v" faded={true} grow={1} type="float" />
+                <BaseComponent alignment="center" color="hot" expand="v" faded={true} grow={1} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="aux" expand="v" faded={true} grow={1} />
+                <BaseComponent alignment="center" color="aux" expand="v" faded={true} grow={1} type="block" />
+                <BaseComponent alignment="center" color="aux" expand="v" faded={true} grow={1} type="float" />
+                <BaseComponent alignment="center" color="aux" expand="v" faded={true} grow={1} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="dark" expand="v" faded={true} grow={1} />
+                <BaseComponent alignment="center" color="dark" expand="v" faded={true} grow={1} type="block" />
+                <BaseComponent alignment="center" color="dark" expand="v" faded={true} grow={1} type="float" />
+                <BaseComponent alignment="center" color="dark" expand="v" faded={true} grow={1} type="pill" />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Faded = () => (
+export const PropInvert = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="primary" flex={true} faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="secondary" flex={true} faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="success" faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="danger" flex={true} faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="warning" flex={true} faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="hot" faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="cold" flex={true} faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="dark" flex={true} faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="light" faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="aux" flex={true} faded={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="primary" expand="v" grow={1} invert={true} />
+                <BaseComponent alignment="center" color="primary" expand="v" grow={1} invert={true} type="block" />
+                <BaseComponent alignment="center" color="primary" expand="v" grow={1} invert={true} type="float" />
+                <BaseComponent alignment="center" color="primary" expand="v" grow={1} invert={true} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="lavender" expand="v" grow={1} invert={true} />
+                <BaseComponent alignment="center" color="lavender" expand="v" grow={1} invert={true} type="block" />
+                <BaseComponent alignment="center" color="lavender" expand="v" grow={1} invert={true} type="float" />
+                <BaseComponent alignment="center" color="lavender" expand="v" grow={1} invert={true} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="hot" expand="v" grow={1} invert={true} />
+                <BaseComponent alignment="center" color="hot" expand="v" grow={1} invert={true} type="block" />
+                <BaseComponent alignment="center" color="hot" expand="v" grow={1} invert={true} type="float" />
+                <BaseComponent alignment="center" color="hot" expand="v" grow={1} invert={true} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="aux" expand="v" grow={1} invert={true} />
+                <BaseComponent alignment="center" color="aux" expand="v" grow={1} invert={true} type="block" />
+                <BaseComponent alignment="center" color="aux" expand="v" grow={1} invert={true} type="float" />
+                <BaseComponent alignment="center" color="aux" expand="v" grow={1} invert={true} type="pill" />
+            </Wrapper>
+            <Wrapper flex={true} height={50} mb={1}>
+                <BaseComponent alignment="center" color="dark" expand="v" grow={1} invert={true} />
+                <BaseComponent alignment="center" color="dark" expand="v" grow={1} invert={true} type="block" />
+                <BaseComponent alignment="center" color="dark" expand="v" grow={1} invert={true} type="float" />
+                <BaseComponent alignment="center" color="dark" expand="v" grow={1} invert={true} type="pill" />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Float = () => (
+export const PropLayout = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="primary" flex={true} type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="secondary" flex={true} type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="success" type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="danger" flex={true} type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="warning" flex={true} type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="hot" type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="cold" flex={true} type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="dark" flex={true} type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="light" type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="aux" flex={true} type="float">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
+            <Container>
+                <Wrapper al="center" flex={true}>
+                    <BaseComponent mr={1} />
+                    <BaseComponent layout="v" />
+                </Wrapper>
+            </Container>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Icons = () => (
+export const PropStacked = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4">
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
+            <Row mb={1}>
+                <Column col={4}>
+                    <Card ov="hidden">
+                        <BaseComponent layout="h" stacked={true} type="block" />
+                    </Card>
+                </Column>
+                <Column col={4}>
+                    <Card ov="hidden">
+                        <BaseComponent layout="h" stacked={true} type="float" />
+                    </Card>
+                </Column>
+                <Column col={4}>
+                    <Card ov="hidden">
+                        <BaseComponent layout="h" stacked={true} type="pill" />
+                    </Card>
+                </Column>
+            </Row>
 
-                <Tabs alH="center" col="4" color="primary" flex={true}>
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="secondary" flex={true}>
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="success">
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="danger" flex={true}>
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="warning" flex={true}>
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="hot">
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="cold" flex={true}>
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="dark" flex={true}>
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="light">
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="aux" flex={true}>
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-            </Div>
+            <Row>
+                <Column col={4}>
+                    <Card ov="hidden">
+                        <BaseComponent color="primary" layout="h" stacked={true} type="block" />
+                    </Card>
+                </Column>
+                <Column col={4}>
+                    <Card ov="hidden">
+                        <BaseComponent color="primary" layout="h" stacked={true} type="float" />
+                    </Card>
+                </Column>
+                <Column col={4}>
+                    <Card ov="hidden">
+                        <BaseComponent color="primary" layout="h" stacked={true} type="pill" />
+                    </Card>
+                </Column>
+            </Row>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Invert = () => (
+export const PropType = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
+            <Container>
+                <Row mb={1}>
+                    <Column col={8}>
+                        <BaseComponent color="aux" expand={true} />
+                    </Column>
+                    <Column col={4}>
+                        <BaseComponent color="aux" expand={true} />
+                    </Column>
+                </Row>
 
-                <Tabs alH="center" col="4" color="primary" flex={true} invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
+                <Row mb={1}>
+                    <Column col={8}>
+                        <BaseComponent color="aux" expand={true} type="block" />
+                    </Column>
+                    <Column col={4}>
+                        <BaseComponent color="aux" expand={true} type="block" />
+                    </Column>
+                </Row>
 
-                <Tabs alH="center" col="4" color="secondary" flex={true} invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
+                <Row mb={1}>
+                    <Column col={8}>
+                        <BaseComponent color="aux" expand={true} type="float" />
+                    </Column>
+                    <Column col={4}>
+                        <BaseComponent color="aux" expand={true} type="float" />
+                    </Column>
+                </Row>
 
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="success" invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="danger" flex={true} invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="warning" flex={true} invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="hot" invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="cold" flex={true} invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="dark" flex={true} invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="light" invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="aux" flex={true} invert={true}>
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
+                <Row mb={1}>
+                    <Column col={8}>
+                        <BaseComponent color="aux" expand={true} type="pill" />
+                    </Column>
+                    <Column col={4}>
+                        <BaseComponent color="aux" expand={true} type="pill" />
+                    </Column>
+                </Row>
+            </Container>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Layout = () => (
+export const HandleContent = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} layout="horizontal" col="4">
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
+            <Container>
+                <Wrapper>
+                    <Tabs active="docs" mb={1} scope="scope1">
+                        <Tab name="docs">Docs</Tab>
+                        <Tab name="components">Components</Tab>
+                        <Tab name="showcase">Showcase</Tab>
+                    </Tabs>
 
-                <Tabs alH="center" flex={true} layout="vertical" col="4">
-                    <Tab active={true} name="docs">
-                        <Icon name="file-text" />
-                        <span>Docs</span>
-                    </Tab>
-                    <Tab name="components">
-                        <Icon name="tool" />
-                        <span>Components</span>
-                    </Tab>
-                    <Tab name="showcase">
-                        <Icon name="camera" />
-                        <span>Showcase</span>
-                    </Tab>
-                </Tabs>
-            </Div>
+                    <TabContent active={true} name="docs" scope="scope1">
+                        <Card padding>
+                            <Text size="xl" weight="600">Docs</Text>
+                            <Text>This content is related to docs</Text>
+                        </Card>
+                    </TabContent>
+
+                    <TabContent name="components" scope="scope1">
+                        <Card padding>
+                            <Text size="xl" weight="600">Components</Text>
+                            <Text>This content is related to components</Text>
+                        </Card>
+                    </TabContent>
+
+                    <TabContent name="showcase" scope="scope1">
+                        <Card padding>
+                            <Text size="xl" weight="600">Showcase</Text>
+                            <Text>This content is related to showcase</Text>
+                        </Card>
+                    </TabContent>
+                </Wrapper>
+            </Container>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Pill = () => (
+// Utilities
+export const UtilMargin = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
+            <Wrapper al="center" flex={true} mb={1}>
+                <BaseComponent mr={.5} />
+                <BaseComponent mx={.5} />
+                <BaseComponent ml={.5} />
+            </Wrapper>
 
-                <Tabs alH="center" col="4" color="primary" flex={true} type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <BaseComponent mb={.5} />
+                <BaseComponent my={.5} />
+                <BaseComponent mt={.5} />
+            </Wrapper>
 
-                <Tabs alH="center" col="4" color="secondary" flex={true} type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="success" type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="danger" flex={true} type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="warning" flex={true} type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="hot" type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="cold" flex={true} type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="dark" flex={true} type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
-
-            <Div mb={1} row>
-                <Tabs alH="center" flex={true} col="4" color="light" type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-
-                <Tabs alH="center" col="4" color="aux" flex={true} type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </Div>
+            <Wrapper al="center" direction="column" flex={true}>
+                <BaseComponent />
+                <Wrapper al="center" flex={true}>
+                    <BaseComponent />
+                    <BaseComponent m={1} />
+                    <BaseComponent />
+                </Wrapper>
+                <BaseComponent />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Stacked = () => (
+export const UtilPadding = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Div mb={1} row>
-                <Card col="4" ov="hidden">
-                    <Tabs stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
+            <BaseComponent mb={1} p={2} />
+            <BaseComponent mb={1} pb={2} />
+            <BaseComponent mb={1} pl={2} />
+            <BaseComponent mb={1} pr={2} />
+            <BaseComponent mb={1} pt={2} />
+            <BaseComponent mb={1} px={2} />
+            <BaseComponent mb={1} py={2} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
 
-                <Card col="4" ov="hidden">
-                    <Tabs color="primary" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-
-                <Card col="4" ov="hidden">
-                    <Tabs color="secondary" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-            </Div>
-
-            <Div mb={1} row>
-                <Card col="4" ov="hidden">
-                    <Tabs color="success" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-
-                <Card col="4" ov="hidden">
-                    <Tabs color="danger" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-
-                <Card col="4" ov="hidden">
-                    <Tabs color="warning" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-            </Div>
-
-            <Div mb={1} row>
-                <Card col="4" ov="hidden">
-                    <Tabs color="hot" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-
-                <Card col="4" ov="hidden">
-                    <Tabs color="cold" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-
-                <Card col="4" ov="hidden">
-                    <Tabs color="dark" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-            </Div>
-
-            <Div mb={1} row>
-                <Card col="4" ov="hidden">
-                    <Tabs color="light" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-
-                <Card col="4" ov="hidden">
-                    <Tabs color="aux" stacked={true} type="float">
-                        <Tab active={true} name="docs">Docs</Tab>
-                        <Tab name="components">Components</Tab>
-                        <Tab name="showcase">Showcase</Tab>
-                    </Tabs>
-                </Card>
-            </Div>
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent hidden={true} />
+            <BaseComponent visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

@@ -1,30 +1,36 @@
 import React, { useRef } from 'react';
-import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import NavbarStyles from '@fabula/core/styles/components/navbar/navbar';
 
 const Navbar = props => {
-    const { children } = props;
-    const elRef = useRef(null);
+    const { children, elRef, ...rest } = props;
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={NavbarStyles}
             wrapper="fab-navbar">
-            <div ref={elRef}>{children}</div>
+            <div data-fab-component="navbar" ref={elRef || ref} {...restProps}>{children}</div>
         </Component>
     );
 }
 
 Navbar.defaultProps = {
     color: '',
+    hasProperty: {
+        expand: true
+    },
     height: null
 }
 

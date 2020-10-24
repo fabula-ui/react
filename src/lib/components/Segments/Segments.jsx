@@ -1,45 +1,47 @@
-import React, { Children, cloneElement, useEffect, useRef, useState } from 'react';
-import { css } from 'emotion';
+import React, {
+  Children,
+  cloneElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
+
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
 
 // Styles
 import SegmentsStyles from '@fabula/core/styles/components/segments/segments';
 
 const Segments = props => {
   const {
+    active,
     activeColor,
-    activeFillColor,
     activeTextColor,
     children,
     clear,
     color,
+    elRef,
     faded,
     inactiveColor,
-    inactiveFillColor,
     inactiveTextColor,
     invert,
+    onChange,
     outline,
     rounded,
-    scope
+    scope,
+    ...rest
   } = props;
-  const [active, setActive] = useState(props.active);
-  const elRef = useRef(null);
+  const [activeSegment, setActiveSegment] = useState(active);
+  const ref = useRef(null);
+  const restProps = getComponentProps(rest);
 
-  // Hooks
-  useEffect(() => {
-    if (props.active) { handleActive(props.active); }
-  }, [props.active]);
-
-  // Methods
-  const handleActive = segment => {
-    setActive(segment);
-    if (segment && scope) { toggleContent(segment); }
-  }
-
-  const toggleContent = segment => {
+  // Callbacks
+  const toggleContent = useCallback(segment => {
     const allOtherContent = document.querySelectorAll(`.fab-content[data-scope='${scope}']:not([data-name='${segment}'])`);
     const targetContent = document.querySelectorAll(`.fab-content[data-scope='${scope}'][data-name='${segment}']`);
 
@@ -58,20 +60,34 @@ const Segments = props => {
         target.setAttribute('data-active', 'true');
       }
     }
-  }
+  }, [scope]);
+
+  const handleActive = useCallback(segment => {
+    setActiveSegment(segment);
+    if (segment && scope) { toggleContent(segment); }
+    if (onChange) {
+      onChange({
+        scope,
+        segment
+      });
+    }
+  }, [onChange, scope, toggleContent]);
+
+  // Hooks
+  useEffect(() => {
+    if (active) { handleActive(active); }
+  }, [active, handleActive]);
 
   // Children with props
   const childrenWithProps = Children.map(children, child => cloneElement(child, {
     activeColor,
-    activeFillColor,
     activeTextColor,
-    activeSegment: active,
+    activeSegment,
     clear,
     color,
     faded,
     handleActive,
     inactiveColor,
-    inactiveFillColor,
     inactiveTextColor,
     invert,
     outline,
@@ -80,12 +96,12 @@ const Segments = props => {
 
   return (
     <Component
-      elRef={elRef}
+      elRef={elRef || ref}
       properties={props}
       styles={SegmentsStyles}
       wrapper="fab-segments-wrapper">
-      <div ref={elRef}>
-        <div className="fab-segments">
+      <div ref={elRef || ref} data-fab-wrapper="segments" {...restProps}>
+        <div className="fab-segments" data-fab-component="segments">
           {childrenWithProps}
         </div>
       </div>
@@ -96,13 +112,12 @@ const Segments = props => {
 Segments.defaultProps = {
   active: '',
   activeColor: '',
-  activeFillColor: '',
   activeTextColor: '',
+  border: true,
   clear: false,
   color: '',
   expand: false,
   faded: false,
-  inactiveFillColor: '',
   inactiveTextColor: '',
   invert: false,
   layout: 'horizontal',
@@ -116,13 +131,12 @@ Segments.defaultProps = {
 Segments.propTypes = {
   active: PropTypes.string,
   activeColor: PropTypes.string,
-  activeFillColor: PropTypes.string,
   activeTextColor: PropTypes.string,
+  border: PropTypes.bool,
   clear: PropTypes.bool,
   color: PropTypes.string,
   expand: PropTypes.bool,
   faded: PropTypes.bool,
-  inactiveFillColor: PropTypes.string,
   inactiveTextColor: PropTypes.string,
   invert: PropTypes.bool,
   layout: PropTypes.string,

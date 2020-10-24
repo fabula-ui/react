@@ -1,11 +1,10 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
 
 import {
   FabulaProvider,
-  FabulaUtils,
   Tag,
-  TagGroup
+  TagGroup,
+  UtilsProvider
 } from '../lib';
 
 export default {
@@ -13,94 +12,52 @@ export default {
   component: TagGroup,
 };
 
-export const Color = () => (
+const BaseComponent = props => (
+  <TagGroup {...props}>
+    <Tag>Tag 1</Tag>
+    <Tag>Tag 2</Tag>
+    <Tag color="#FFF">Tag 3</Tag>
+  </TagGroup>
+)
+
+export const Example = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <TagGroup mb={.5}>
+    <UtilsProvider>
+      <TagGroup>
         <Tag>Tag 1</Tag>
         <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
+        <Tag>Tag 3</Tag>
       </TagGroup>
-
-      <TagGroup color="primary" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-
-      <TagGroup color="secondary" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-
-      <TagGroup color="success" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-
-      <TagGroup color="danger" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-
-      <TagGroup color="warning" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-
-      <TagGroup color="hot" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-
-      <TagGroup color="cold" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-
-      <TagGroup color="dark" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-
-      <TagGroup color="light" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-
-      <TagGroup color="aux" mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag color="#FFF">Tag 3</Tag>
-      </TagGroup>
-    </FabulaUtils>
+    </UtilsProvider>
   </FabulaProvider>
 )
 
-export const Spacing = () => (
+export const PropColor = () => (
   <FabulaProvider>
-    <FabulaUtils>
-      <div flex>
-        <TagGroup color="primary" mr={2}>
-          <Tag>Tag 1</Tag>
-          <Tag>Tag 2</Tag>
-          <Tag>Tag 3</Tag>
-        </TagGroup>
+    <UtilsProvider>
+      <BaseComponent mb={.5} />
+      <BaseComponent color="lavender" mb={.5} />
+      <BaseComponent color="hot" mb={.5} />
+      <BaseComponent color="aux" mb={.5} />
+      <BaseComponent color="dark" mb={.5} />
+    </UtilsProvider>
+  </FabulaProvider>
+)
 
-        <TagGroup color="primary" spacing={1}>
-          <Tag>Tag 1</Tag>
-          <Tag>Tag 2</Tag>
-          <Tag>Tag 3</Tag>
-        </TagGroup>
-      </div>
-    </FabulaUtils>
+export const PropSpacing = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <TagGroup color="primary" mb={1}>
+        <Tag>Tag 1</Tag>
+        <Tag>Tag 2</Tag>
+        <Tag>Tag 3</Tag>
+      </TagGroup>
+
+      <TagGroup color="primary" spacing={1}>
+        <Tag>Tag 1</Tag>
+        <Tag>Tag 2</Tag>
+        <Tag>Tag 3</Tag>
+      </TagGroup>
+    </UtilsProvider>
   </FabulaProvider>
 )

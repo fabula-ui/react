@@ -2,16 +2,13 @@ import React from 'react';
 
 import {
     Button,
+    Column,
     FabulaProvider,
-    Navbar,
-    NavbarLogo,
     SearchInput,
-    Tab,
-    Tabs,
     Icon,
-    NavbarSection,
-    ButtonGroup,
-    FabulaUtils
+    Row,
+    UtilsProvider,
+    Wrapper
 } from '../lib';
 
 export default {
@@ -19,224 +16,274 @@ export default {
     component: SearchInput,
 };
 
-export const Examples = () => (
+// Example
+export const Example = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div row>
-                <SearchInput col="4" />
-                <SearchInput button={true} col="4" />
-                <SearchInput col="4" rounded={true}>
-                    <Button color="primary" circle={true}>
-                        <Icon name="search" />
-                    </Button>
-                </SearchInput>
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Row>
+                <Column col={4}>
+                    <SearchInput />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={true} />
+                </Column>
+                <Column col={4}>
+                    <SearchInput rounded={true}>
+                        <Button color="primary" circle={true}>
+                            <Icon name="search" />
+                        </Button>
+                    </SearchInput>
+                </Column>
+            </Row>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Autocomplete = () => (
+// Properties
+export const PropButton = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div row>
-                <SearchInput autocomplete={true} col="4" />
-                <SearchInput autocomplete={true} button={{ color: 'primary' }} col="4" />
-                <SearchInput autocomplete={true} button={{ color: 'primary', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Row>
+                <Column col={4}>
+                    <SearchInput button="Search" />
+                </Column>
+
+                <Column col={4}>
+                    <SearchInput button={{ label: 'Search' }} />
+                </Column>
+
+                <Column col={4}>
+                    <SearchInput rounded={true}>
+                        <Button circle={true} color="primary">
+                            <Icon name="search" />
+                        </Button>
+                    </SearchInput>
+                </Column>
+            </Row>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const ButtonColor = () => (
+export const PropGlow = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <SearchInput button={{ color: '' }} col="4" />
-                <SearchInput button={{ color: 'primary' }} col="4" />
-                <SearchInput button={{ color: 'secondary' }} col="4" />
-            </div>
+        <UtilsProvider>
+            <Row>
+                <Column col={4}>
+                    <SearchInput button="Search" glow={true} />
+                </Column>
 
-            <div mb="1" row>
-                <SearchInput button={{ color: 'success' }} col="4" />
-                <SearchInput button={{ color: 'danger' }} col="4" />
-                <SearchInput button={{ color: 'warning' }} col="4" />
-            </div>
+                <Column col={4}>
+                    <SearchInput button={{ label: 'Search' }} glow={true} />
+                </Column>
 
-            <div mb="1" row>
-                <SearchInput button={{ color: 'hot' }} col="4" />
-                <SearchInput button={{ color: 'cold' }} col="4" />
-                <SearchInput button={{ color: 'dark' }} col="4" />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'light' }} col="4" />
-                <SearchInput button={{ color: 'aux' }} col="4" />
-            </div>
-        </FabulaUtils>
+                <Column col={4}>
+                    <SearchInput rounded={true} glow={true}>
+                        <Button circle={true} color="primary">
+                            <Icon name="search" />
+                        </Button>
+                    </SearchInput>
+                </Column>
+            </Row>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const ButtonLabel = () => (
+export const PropRounded = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <SearchInput button={{ color: '', label: 'Go' }} col="4" />
-                <SearchInput button={{ color: 'primary', label: 'Go' }} col="4" />
-                <SearchInput button={{ color: 'secondary', label: 'Go' }} col="4" />
-            </div>
+        <UtilsProvider>
+            <Row mb={1}>
+                <Column col={6}>
+                    <SearchInput button={{ color: '', rounded: true }} rounded={true} />
+                </Column>
+                <Column col={6}>
+                    <SearchInput rounded={true}>
+                        <Button circle={true}>
+                            <Icon name="search" />
+                        </Button>
+                    </SearchInput>
+                </Column>
+            </Row>
 
-            <div mb="1" row>
-                <SearchInput button={{ color: 'success', label: 'Go' }} col="4" />
-                <SearchInput button={{ color: 'danger', label: 'Go' }} col="4" />
-                <SearchInput button={{ color: 'warning', label: 'Go' }} col="4" />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'hot', label: 'Go' }} col="4" />
-                <SearchInput button={{ color: 'cold', label: 'Go' }} col="4" />
-                <SearchInput button={{ color: 'dark', label: 'Go' }} col="4" />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'light', label: 'Go' }} col="4" />
-                <SearchInput button={{ color: 'aux', label: 'Go' }} col="4" />
-            </div>
-        </FabulaUtils>
+            <Row mb={1}>
+                <Column col={6}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} rounded={true} />
+                </Column>
+                <Column col={6}>
+                    <SearchInput rounded={true}>
+                        <Button color="primary" circle={true}>
+                            <Icon name="search" />
+                        </Button>
+                    </SearchInput>
+                </Column>
+            </Row>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const ButtonTypes = () => (
+export const PropSize = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div row>
-                <SearchInput col="4" />
-                <SearchInput button={true} col="4" />
-                <SearchInput col="4">
-                    <Button circle={true} color="primary">
-                        <Icon name="search" />
-                    </Button>
-                </SearchInput>
-            </div>
-        </FabulaUtils>
+        <UtilsProvider>
+            <Row mb={1}>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary' }} placeholder="2x Extra-large input field" size="xxl" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="2x Extra-large input field" rounded={true} size="xxl" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="2x Extra-large input field" rounded={true} size="xxl" variant="fill" />
+                </Column>
+            </Row>
+
+            <Row mb={1}>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary' }} placeholder="Extra-large input field" size="xl" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Extra-large input field" rounded={true} size="xl" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Extra-large input field" rounded={true} size="xl" variant="fill" />
+                </Column>
+            </Row>
+
+            <Row mb={1}>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary' }} placeholder="Large input field" size="lg" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Large input field" rounded={true} size="lg" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Large input field" rounded={true} size="lg" variant="fill" />
+                </Column>
+            </Row>
+
+            <Row mb={1}>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary' }} placeholder="Medium input field" size="md" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Medium input field" rounded={true} size="md" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Medium input field" rounded={true} size="md" variant="fill" />
+                </Column>
+            </Row>
+
+            <Row mb={1}>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary' }} placeholder="Small input field" size="sm" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Small input field" rounded={true} size="sm" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Small input field" rounded={true} size="sm" variant="fill" />
+                </Column>
+            </Row>
+
+            <Row>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary' }} placeholder="Extra-small input field" size="xs" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Extra-small input field" rounded={true} size="xs" />
+                </Column>
+                <Column col={4}>
+                    <SearchInput button={{ color: 'primary', rounded: true }} placeholder="Extra-small input field" rounded={true} size="xs" variant="fill" />
+                </Column>
+            </Row>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const InputColor = () => (
+export const PropVariant = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <SearchInput button={true} col="4" />
-                <SearchInput button={true} col="4" color="primary" />
-                <SearchInput button={{ color: 'secondary' }} col="4" color="secondary" />
-            </div>
+        <UtilsProvider>
+            <Row mb={1}>
+                <Column col={4}>
+                    <SearchInput button={true} variant="default" />
+                </Column>
 
-            <div mb="1" row>
-                <SearchInput button={{ color: 'success' }} col="4" color="success" />
-                <SearchInput button={{ color: 'danger' }} col="4" color="danger" />
-                <SearchInput button={{ color: 'warning' }} col="4" color="warning" />
-            </div>
+                <Column col={4}>
+                    <SearchInput button={true} variant="clear" />
+                </Column>
 
-            <div mb="1" row>
-                <SearchInput button={{ color: 'hot' }} col="4" color="hot" />
-                <SearchInput button={{ color: 'cold' }} col="4" color="cold" />
-                <SearchInput button={{ color: 'dark' }} col="4" color="dark" />
-            </div>
+                <Column col={4}>
+                    <SearchInput button={true} variant="fill" />
+                </Column>
+            </Row>
 
-            <div row>
-                <SearchInput button={{ color: 'light' }} col="4" color="light" />
-                <SearchInput button={{ color: 'aux' }} col="4" color="aux" />
-            </div>
-        </FabulaUtils>
+            <Row mb={1}>
+                <Column col={4}>
+                    <SearchInput button={{ rounded: true }} rounded={true} variant="default" />
+                </Column>
+
+                <Column col={4}>
+                    <SearchInput button={{ rounded: true }} rounded={true} variant="clear" />
+                </Column>
+
+                <Column col={4}>
+                    <SearchInput button={{ rounded: true }} rounded={true} variant="fill" />
+                </Column>
+            </Row>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Rounded = () => (
+// Utilities
+const UtilBaseComponent = props => (
+    <SearchInput icon={{ name: 'user' }} variant="fill" {...props} />
+)
+
+export const UtilMargin = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <SearchInput button={{ color: '', rounded: true }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'primary', rounded: true }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'secondary', rounded: true }} col="4" rounded={true} />
-            </div>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <UtilBaseComponent mr={.5} width={400} />
+                <UtilBaseComponent mx={.5} width={400} />
+                <UtilBaseComponent ml={.5} width={400} />
+            </Wrapper>
 
-            <div mb="1" row>
-                <SearchInput button={{ color: 'success', rounded: true }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'danger', rounded: true }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'warning', rounded: true }} col="4" rounded={true} />
-            </div>
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <UtilBaseComponent mb={.5} width={400} />
+                <UtilBaseComponent my={.5} width={400} />
+                <UtilBaseComponent mt={.5} width={400} />
+            </Wrapper>
 
-            <div mb="1" row>
-                <SearchInput button={{ color: 'hot', rounded: true }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'cold', rounded: true }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'dark', rounded: true }} col="4" rounded={true} />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'light', rounded: true }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'aux', rounded: true }} col="4" rounded={true} />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: '', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'primary', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'secondary', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'success', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'danger', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'warning', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'hot', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'cold', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'dark', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-            </div>
-
-            <div row>
-                <SearchInput button={{ color: 'light', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-                <SearchInput button={{ color: 'aux', circle: true, icon: { name: 'search' } }} col="4" rounded={true} />
-            </div>
-        </FabulaUtils>
+            <Wrapper al="center" direction="column" flex={true}>
+                <UtilBaseComponent width={400} />
+                <Wrapper al="center" flex={true}>
+                    <UtilBaseComponent width={400} />
+                    <UtilBaseComponent m={1} width={400} />
+                    <UtilBaseComponent width={400} />
+                </Wrapper>
+                <UtilBaseComponent width={400} />
+            </Wrapper>
+        </UtilsProvider>
     </FabulaProvider>
 )
 
-export const Size = () => (
+export const UtilPadding = () => (
     <FabulaProvider>
-        <FabulaUtils>
-            <div mb="1" row>
-                <SearchInput button={{ color: 'primary' }} col="4" placeholder="Extra-large input field" size="xl" />
-                <SearchInput button={{ color: 'primary' }} col="4" placeholder="Large input field" size="lg" />
-                <SearchInput button={{ color: 'primary' }} col="4" placeholder="Medium input field" />
-            </div>
+        <UtilsProvider>
+            <UtilBaseComponent mb={1} p={2} />
+            <UtilBaseComponent mb={1} pb={2} />
+            <UtilBaseComponent mb={1} pl={2} />
+            <UtilBaseComponent mb={1} pr={2} />
+            <UtilBaseComponent mb={1} pt={2} />
+            <UtilBaseComponent mb={1} px={2} />
+            <UtilBaseComponent mb={1} py={2} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
 
-            <div mb="1" row>
-                <SearchInput button={{ color: 'primary' }} col="4" placeholder="Small input field" size="sm" />
-                <SearchInput button={{ color: 'primary' }} col="4" placeholder="Extra-small input field" size="xs" />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'primary', rounded: true }} col="4" placeholder="Extra-large input field" rounded={true} size="xl" />
-                <SearchInput button={{ color: 'primary', rounded: true }} col="4" placeholder="Large input field" rounded={true} size="lg" />
-                <SearchInput button={{ color: 'primary', rounded: true }} col="4" placeholder="Medium input field" rounded={true} />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'primary', rounded: true }} col="4" placeholder="Small input field" rounded={true} size="sm" />
-                <SearchInput button={{ color: 'primary', rounded: true }} col="4" placeholder="Extra-small input field" rounded={true} size="xs" />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'primary', icon: { name: 'search' }, circle: true }} col="4" placeholder="Extra-large input field" rounded={true} size="xl" />
-                <SearchInput button={{ color: 'primary', icon: { name: 'search' }, circle: true }} col="4" placeholder="Large input field" rounded={true} size="lg" />
-                <SearchInput button={{ color: 'primary', icon: { name: 'search' }, circle: true }} col="4" placeholder="Medium input field" rounded={true} />
-            </div>
-
-            <div mb="1" row>
-                <SearchInput button={{ color: 'primary', icon: { name: 'search' }, circle: true }} col="4" placeholder="Small input field" rounded={true} size="sm" />
-                <SearchInput button={{ color: 'primary', icon: { name: 'search' }, circle: true }} col="4" placeholder="Extra-small input field" rounded={true} size="xs" />
-            </div>
-        </FabulaUtils>
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <UtilBaseComponent hidden={true} />
+            <UtilBaseComponent visible={true} />
+        </UtilsProvider>
     </FabulaProvider>
 )

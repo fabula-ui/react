@@ -1,17 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 
 import {
     Modal,
-    ModalBody,
-    ModalController,
-    ModalFooter,
-    ModalHeader,
     ModalProvider,
-    Text,
     UtilsProvider,
     FabulaProvider,
-    Button,
-    ButtonGroup,
 } from '../lib';
 
 // Examples
@@ -24,7 +17,7 @@ export default {
     component: Modal,
 };
 
-export const Examples = () => {
+export const Example = () => {
     return (
         <FabulaProvider>
             <UtilsProvider>
@@ -36,7 +29,7 @@ export const Examples = () => {
     )
 };
 
-export const Color = () => {
+export const PropColor = () => {
     return (
         <FabulaProvider>
             <UtilsProvider>
@@ -48,7 +41,7 @@ export const Color = () => {
     )
 };
 
-export const Size = () => {
+export const PropSize = () => {
     return (
         <FabulaProvider>
             <UtilsProvider>

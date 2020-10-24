@@ -1,25 +1,73 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import {
     Button,
     ToastController,
-    ButtonGroup
+    Wrapper
 } from '../../lib';
-import { useContext } from 'react';
 
 export const ToastExamples = props => {
-    const toastCtrl = useContext(ToastController);
+    const { createStack, showToast } = useContext(ToastController);
 
+    const handleStacks = useCallback(() => {
+        createStack({
+            name: 'bottomCenter',
+            placement: {
+                x: 'center',
+                y: 'bottom'
+            }
+        });
+        createStack({
+            name: 'bottomLeft',
+            placement: {
+                x: 'left',
+                y: 'bottom'
+            }
+        });
+        createStack({
+            name: 'bottomRight',
+            placement: {
+                x: 'right',
+                y: 'bottom'
+            }
+        });
+        createStack({
+            name: 'topCenter',
+            placement: {
+                x: 'center',
+                y: 'top'
+            }
+        });
+        createStack({
+            name: 'topLeft',
+            placement: {
+                x: 'left',
+                y: 'top'
+            }
+        });
+        createStack({
+            name: 'topRight',
+            placement: {
+                x: 'right',
+                y: 'top'
+            }
+        });
+    }, [createStack]);
+
+    // Hooks
     useEffect(() => {
-        createStacks();
-    }, []);
+        handleStacks();
+    }, [handleStacks]);
 
     const addToast = stack => {
-        toastCtrl.showToast({
+        showToast({
             color: 'primary',
             closeButton: {
                 color: 'primary',
                 invert: true,
                 label: 'Go there'
+            },
+            icon: {
+                name: 'compass'
             },
             hideDelay: 4000,
             message: 'Here is an example of a toast component working...',
@@ -27,66 +75,19 @@ export const ToastExamples = props => {
         });
     }
 
-    const createStacks = () => {
-        toastCtrl.createStacks([
-            {
-                name: 'bottomCenter',
-                placement: {
-                    x: 'center',
-                    y: 'bottom'
-                }
-            },
-            {
-                name: 'bottomLeft',
-                placement: {
-                    x: 'left',
-                    y: 'bottom'
-                }
-            },
-            {
-                name: 'bottomRight',
-                placement: {
-                    x: 'right',
-                    y: 'bottom'
-                }
-            },
-            {
-                name: 'topCenter',
-                placement: {
-                    x: 'center',
-                    y: 'top'
-                }
-            },
-            {
-                name: 'topLeft',
-                placement: {
-                    x: 'left',
-                    y: 'top'
-                }
-            },
-            {
-                name: 'topRight',
-                placement: {
-                    x: 'right',
-                    y: 'top'
-                }
-            }
-        ]);
-    }
-
     return (
-        <>
-            <ButtonGroup>
-                <Button border={true} clear={true} color="primary" onClick={() => addToast('topLeft')}>Top Left</Button>
-                <Button border={true} clear={true} color="primary" onClick={() => addToast('topCenter')}>Top Center</Button>
+        <Wrapper al="center" direction="column" flex={true}>
+            <Wrapper mb={1}>
+                <Button border={true} clear={true} color="primary" mr={1} onClick={() => addToast('topLeft')}>Top Left</Button>
+                <Button border={true} clear={true} color="primary" mr={1} onClick={() => addToast('topCenter')}>Top Center</Button>
                 <Button border={true} clear={true} color="primary" onClick={() => addToast('topRight')}>Top Right</Button>
-            </ButtonGroup>
+            </Wrapper>
 
-            <ButtonGroup>
-                <Button border={true} clear={true} color="primary" onClick={() => addToast('bottomLeft')}>Bottom Left</Button>
-                <Button border={true} clear={true} color="primary" onClick={() => addToast('bottomCenter')}>Bottom Center</Button>
+            <Wrapper>
+                <Button border={true} clear={true} color="primary" mr={1} onClick={() => addToast('bottomLeft')}>Bottom Left</Button>
+                <Button border={true} clear={true} color="primary" mr={1} onClick={() => addToast('bottomCenter')}>Bottom Center</Button>
                 <Button border={true} clear={true} color="primary" onClick={() => addToast('bottomRight')}>Bottom Right</Button>
-            </ButtonGroup>
-        </>
+            </Wrapper>
+        </Wrapper>
     )
 }

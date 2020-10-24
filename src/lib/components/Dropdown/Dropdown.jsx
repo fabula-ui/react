@@ -4,29 +4,33 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import DropdownStyles from '@fabula/core/styles/components/dropdown/dropdown';
 
 const Dropdown = props => {
-    const { alignment, children, direction, expand, onClose, onOpen, onToggle } = props;
+    const { alignment, children, direction, elRef, expand, onClose, onOpen, onToggle, ...rest } = props;
     const [open, setOpen] = useState(props.open);
-    const elRef = useRef(null);
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     // Methods
-    const toggle = () => {
+    const toggle = useCallback(() => {
+        setOpen(!open);
+
         if (onClose && open) { onClose() }
         if (onOpen && !open) { onOpen() }
         if (onToggle) { onToggle(!open) }
-
-        setOpen(!open);
-    }
+    }, [onClose, onOpen, onToggle, open, setOpen]);
 
     // Callbacks
     const handleClick = useCallback(e => {
-        if (elRef.current && !elRef.current.contains(e.target) && open) {
+        if ((elRef || ref).current && !(elRef || ref).current.contains(e.target) && open) {
             toggle();
         }
-    }, [toggle, elRef]);
+    }, [toggle, elRef, ref, open]);
 
     // Hooks
     useEffect(() => {
@@ -42,12 +46,17 @@ const Dropdown = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={DropdownStyles}
-            wrapper="fab-dropdown-wrapper">
-            <div ref={elRef}>
-                <div className="fab-dropdown" data-open={open}>{childrenWithProps}</div>
+            wrapper="fab-dropdown">
+            <div
+                className="fab-dropdown"
+                data-open={open}
+                data-fab-component="dropdown"
+                ref={elRef || ref}
+                {...restProps}>
+                {childrenWithProps}
             </div>
         </Component>
     )
@@ -57,6 +66,7 @@ Dropdown.defaultProps = {
     alignment: 'left',
     direction: 'down',
     expand: false,
+    inline: true,
     open: false
 }
 

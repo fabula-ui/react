@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import ListStyles from '@fabula/core/styles/components/list/list';
 
 const List = props => {
-    const { children, divider, color, padding, striped } = props;
-    const elRef = useRef(null);
+    const { children, divider, color, elRef, padding, striped, ...rest } = props;
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
             return cloneElement(child, { divider, padding, parentColor: color, striped });
@@ -20,12 +24,12 @@ const List = props => {
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={ListStyles}
             wrapper="fab-list-wrapper">
-            <div ref={elRef}>
-                <div className="fab-list">
+            <div ref={elRef || ref} data-fab-wrapper="list" {...restProps}>
+                <div className="fab-list" data-fab-component="list">
                     {childrenWithProps}
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useLayoutEffect, useState } from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
@@ -20,7 +20,7 @@ const ToastStack = props => {
     const [toasts, setToasts] = useState(<></>);
 
     // Callbacks
-    const toastsCallback = useCallback(() => {
+    const handleToasts = useCallback(() => {
         let toasts;
 
         if (stacks[name]?.elements) {
@@ -28,12 +28,12 @@ const ToastStack = props => {
 
             setToasts(toasts);
         }
-    }, [stacks, stacks[name]]);
+    }, [name, stacks]);
 
     // Hooks
-    useEffect(() => {
-        toastsCallback();
-    }, [stacks, stacks[name]]);
+    useLayoutEffect(() => {
+        handleToasts();
+    }, [handleToasts, name, stacks]);
 
     return (
         <div className={`fab-toast-stack ${css(ToastStackStyles({ framework: 'react', props, utils }))}`} data-placement-x={placement.x} data-placement-y={placement.y}>
@@ -52,10 +52,7 @@ ToastStack.defaultProps = {
 
 ToastStack.propTypes = {
     name: PropTypes.string,
-    placement: {
-        x: PropTypes.string,
-        y: PropTypes.string
-    }
+    placement: PropTypes.any
 }
 
 export default ToastStack;

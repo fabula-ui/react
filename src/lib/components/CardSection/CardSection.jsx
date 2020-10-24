@@ -3,23 +3,30 @@ import React, { useRef } from 'react';
 // Components
 import Component from '../Component/Component';
 
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
+
 // Styles
 import CardSectionStyles from '@fabula/core/styles/components/card-section/card-section';
 
 const CardSection = props => {
-    const { children, layout } = props;
-    const elRef = useRef(null);
+    const { children, elRef, layout, ...rest } = props;
+    const ref = useRef(null);
+    const restProps = getComponentProps(rest);
 
     return (
         <Component
-            elRef={elRef}
+            elRef={elRef || ref}
             properties={props}
             styles={CardSectionStyles}
-            wrapper="fab-card-section-wrapper">
-            <div data-fab-wrapper="cardSection" data-layout={layout} ref={elRef}>
-                <div className="fab-card-section" data-fab-component="cardSection">
-                    {children}
-                </div>
+            wrapper="fab-card-section">
+            <div
+                className="fab-card-section"
+                data-layout={layout}
+                data-fab-component="cardSection"
+                ref={elRef || ref}
+                {...restProps}>
+                {children}
             </div>
         </Component>
     )

@@ -15,7 +15,7 @@ import FileInputStyles from '@fabula/core/styles/components/file-input/file-inpu
 import InputStyles from '@fabula/core/styles/components/input/input';
 
 const FileInput = props => {
-    const { className, icon, onChange } = props;
+    const { className, onChange } = props;
     const [fileListIsOpen, setFileListIsOpen] = useState(false);
     const [files, setFiles] = useState([]);
     const [focus, setFocus] = useState(false);
@@ -128,16 +128,16 @@ const FileList = props => {
     const [items, setItems] = useState(<></>);
 
     // Callbacks
-    const itemsCallback = useCallback(() => {
+    const handleItems = useCallback(() => {
         const items = files.map((file, i) => <FileListItem file={file} key={i} onRemove={() => onRemove(i)} />);
 
         setItems(items);
-    }, [files]);
+    }, [files, onRemove]);
 
     // Hooks
     useEffect(() => {
-        itemsCallback();
-    }, [files]);
+        handleItems();
+    }, [files, handleItems]);
 
     return (
         <DropdownMenu clickToClose={true} open={open}>
@@ -174,15 +174,22 @@ const FileTag = props => {
 
 const FileStage = props => {
     const { files } = props;
-    const items = files.map((file, i) => <FileTag file={file} key={i} />)
+    const [items, setItems] = useState(<></>);
 
-    const renderFiles = () => {
-        return files.map((file, i) => <FileTag file={file} key={i} />)
-    }
+    // Callbacks
+    const handleItems = useCallback(files => {
+        const items = files.map((file, i) => <FileTag file={file} key={i} />);
+        setItems(items);
+    }, []);
+
+    // Hooks
+    useEffect(() => {
+        handleItems(files);
+    }, [files, handleItems]);
 
     return (
         <div className="fab-file-input__stage">
-            {renderFiles()}
+            {items}
         </div>
     )
 }

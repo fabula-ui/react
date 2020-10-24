@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect } from 'react';
+import { useCallback, useContext, useLayoutEffect } from 'react';
 import { css } from 'emotion';
 
 // Context
@@ -10,13 +10,8 @@ const Component = props => {
     const responsiveContext = useContext(ResponsiveProviderContext);
     const utilsContext = useContext(UtilsProviderContext);
 
-    // Hooks
-    useLayoutEffect(() => {
-        if (elRef?.current) { handleStyles(); }
-    }, [elRef, properties]);
-
-    // Methods
-    const handleStyles = () => {
+    // Callbacks
+    const handleStyles = useCallback(() => {
         let responsiveStyles;
         let utilsStyles;
 
@@ -51,12 +46,18 @@ const Component = props => {
                 elRef.current.classList.add(css(utilsStyles));
             }
 
-            if (responsiveContext?.added && styles) {                
-                responsiveStyles = require('@fabula/core/styles/responsive/responsive').default({ framework: 'react', props: properties, styles });
+            if (responsiveContext?.added) {                
+                responsiveStyles = require('@fabula/core/styles/responsive/responsive').default({ framework: 'react', props: properties, styles, utils: utilsContext?.added });
                 elRef.current.classList.add(css(responsiveStyles));
             }
+            
         }
-    }
+    }, [classes, elRef, otherStyles, properties, responsiveContext, styles, utilsContext, wrapper]);
+
+    // Hooks
+    useLayoutEffect(() => {
+        if (elRef?.current) { handleStyles(); }
+    }, [elRef, handleStyles, properties]);
 
     return children;
 }

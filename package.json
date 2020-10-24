@@ -12,6 +12,7 @@
     "url": "https://github.com/fabula-ui/react.git"
   },
   "dependencies": {
+    "@fabula/core": "~0.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -89,5 +90,8 @@
   },
   "peerDependencies": {
     "react": "^16.13.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

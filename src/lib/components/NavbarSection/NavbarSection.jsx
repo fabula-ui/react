@@ -11,7 +11,7 @@ import getComponentProps from '../../utils/getComponentProps';
 import NavbarSectionStyles from '@fabula/core/styles/components/navbar-section/navbar-section';
 
 const NavbarSection = props => {
-    const { children, elRef, ...rest } = props;
+    const { children, elRef, mobile, ...rest } = props;
     const ref = useRef(null);
     const restProps = getComponentProps(rest);
 
@@ -21,19 +21,21 @@ const NavbarSection = props => {
             properties={props}
             styles={NavbarSectionStyles}
             wrapper="fab-navbar-section">
-            <div ref={elRef || ref} {...restProps}>{children}</div>
+            <div ref={elRef || ref} data-mobile={mobile} data-fab-component="navbarSection" {...restProps}>{children}</div>
         </Component>
     )
 }
 
 NavbarSection.defaultProps = {
     alignment: '',
-    expand: false
+    expand: false,
+    mobile: false
 }
 
 NavbarSection.propTypes = {
     alignment: PropTypes.string,
-    expand: PropTypes.bool
+    expand: PropTypes.bool,
+    mobile: PropTypes.bool
 }
 
 export default NavbarSection;

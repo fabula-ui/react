@@ -32,6 +32,7 @@ import ModalHeader from './components/ModalHeader/ModalHeader';
 import ModalSection from './components/ModalSection/ModalSection';
 import Navbar from './components/Navbar/Navbar';
 import NavbarLogo from './components/NavbarLogo/NavbarLogo';
+import NavbarMenu from './components/NavbarMenu/NavbarMenu';
 import NavbarSection from './components/NavbarSection/NavbarSection';
 import NavbarTabs from './components/NavbarTabs/NavbarTabs';
 import Row from './components/Row/Row';
@@ -103,6 +104,7 @@ export {
     ModalSection,
     Navbar,
     NavbarLogo,
+    NavbarMenu,
     NavbarSection,
     NavbarTabs,
     Row,

@@ -1,16 +1,21 @@
-import React, { useRef, useState } from 'react';
+import React, { Children, cloneElement, isValidElement, useRef, useState } from 'react';
 
 // Components
 import Button from '../Button/Button';
 import Component from '../Component/Component';
 import Drawer from '../Drawer/Drawer';
 import Icon from '../Icon/Icon';
+import List from '../List/List';
+import Tabs from '../Tabs/Tabs';
+
+// Utils
+import getComponentProps from '../../utils/getComponentProps';
 
 // Styles
 import NavbarMenuStyles from '@fabula/core/styles/components/navbar-menu/navbar-menu';
 
 const NavbarMenu = props => {
-    const { children, mobile } = props;
+    const { mobile } = props;
 
     if (mobile) {
         return <MobileMenu {...props} />
@@ -20,8 +25,18 @@ const NavbarMenu = props => {
 }
 
 const Menu = props => {
-    const { children, elRef } = props;
+    const { children, elRef, ...rest } = props;
     const ref = useRef();
+    const restProps = getComponentProps(rest, 'utils');
+
+    // Children with props
+    const childrenWithProps = Children.map(children, child => {
+        if (isValidElement(child)) {
+            return cloneElement(child, { mobile: false });
+        } else {
+            return child;
+        }
+    });
 
     return (
         <Component
@@ -29,17 +44,29 @@ const Menu = props => {
             properties={props}
             styles={NavbarMenuStyles}
             wrapper="fab-navbar-menu">
-            <div data-mobile={false} data-fab-component="navbarMenu" ref={elRef || ref}>
-                {children}
+            <div data-mobile={false} data-fab-wrapper="navbarMenu" ref={elRef || ref}>
+                <Tabs {...restProps}>
+                    {childrenWithProps}
+                </Tabs>
             </div>
         </Component>
     )
 }
 
 const MobileMenu = props => {
-    const { children, elRef } = props;
+    const { children, elRef, ...rest } = props;
     const [open, setOpen] = useState(false);
     const ref = useRef();
+    const restProps = getComponentProps(rest, 'utils');
+
+    // Children with props
+    const childrenWithProps = Children.map(children, child => {
+        if (isValidElement(child)) {
+            return cloneElement(child, { mobile: true, setOpen });
+        } else {
+            return child;
+        }
+    });
 
     const handleDrawer = () => {
         setOpen(!open);
@@ -56,7 +83,11 @@ const MobileMenu = props => {
                     <Icon name="menu" />
                 </Button>
             </div>
-            <Drawer open={open}>{children}</Drawer>
+            <Drawer onChange={setOpen} open={open} {...restProps}>
+                <List padding={true} {...restProps}>
+                    {childrenWithProps}
+                </List>
+            </Drawer>
         </Component>
 
     )

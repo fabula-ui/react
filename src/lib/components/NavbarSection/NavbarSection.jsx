@@ -29,13 +29,11 @@ const NavbarSection = props => {
 NavbarSection.defaultProps = {
     alignment: '',
     expand: false,
-    mobile: false
 }
 
 NavbarSection.propTypes = {
     alignment: PropTypes.string,
-    expand: PropTypes.bool,
-    mobile: PropTypes.bool
+    expand: PropTypes.bool
 }
 
 export default NavbarSection;

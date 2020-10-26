@@ -11,7 +11,7 @@ import getComponentProps from '../../utils/getComponentProps';
 import ListItemStyles from '@fabula/core/styles/components/list-item/list-item';
 
 const ListItem = props => {
-    const { button, children, divider, elRef, href, onClick, parentOnClick, striped, target, ...rest } = props;
+    const { button, children, compact, divider, elRef, href, onClick, parentOnClick, striped, target, ...rest } = props;
     const ref = useRef(null);
     const restProps = getComponentProps(rest);
 
@@ -28,19 +28,19 @@ const ListItem = props => {
             styles={ListItemStyles}
             wrapper="fab-list-item">
             {((!!button || !!onClick || !!parentOnClick) && !href) &&
-                <button data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
+                <button data-compact={compact} data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
                     {children}
                 </button>
             }
 
             {!!href &&
-                <a data-divider={divider} data-striped={striped} href={href} target={target} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
+                <a data-compact={compact} data-divider={divider} data-striped={striped} href={href} target={target} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
                     {children}
                 </a>
             }
 
             {(!button && !onClick && !parentOnClick && !href) &&
-                <div data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
+                <div data-compact={compact} data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
                     {children}
                 </div>
             }

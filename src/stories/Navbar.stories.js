@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import {
     Button,
-    Container,
-    Divider,
+    Dropdown,
+    DropdownToggle,
     FabulaProvider,
+    ListHeader,
     Navbar,
     NavbarMenu,
+    NavbarMenuItem,
     NavbarLogo,
-    NavbarTabs,
-    Tab,
-    Tabs,
     Text,
     Icon,
     NavbarSection,
@@ -24,49 +23,47 @@ export default {
 };
 
 const NavbarBase = props => {
-    const { color, signInProps, signUpProps, socialProps, tabsProps, ...rest } = props;
+    const { signInProps, signUpProps, socialProps } = props;
     const logo = props.logo || 'fabula-logo.svg';
 
     return (
-        <Navbar color="light">
-            {/* Teste */}
-            <NavbarMenu mobile={true} mr={1}>
-                <Text>Item 1</Text>
-                <Divider />
-                {/* <NavbarItem active={true} name="docs">Docs</NavbarItem>
-                <NavbarItem name="components">Components</NavbarItem>
-                <NavbarItem name="showcase">Showcase</NavbarItem> */}
-            </NavbarMenu>
+        <Fragment>
+            <Navbar color="light">
+                <NavbarMenu closeButton={{ color: 'primary' }} color="dark" mobile={true} mr={1}>
+                    <ListHeader>Header</ListHeader>
+                    <NavbarMenuItem button={false}>
+                        <Dropdown expand={true}>
+                            <DropdownToggle align="left" color="dark" flex={true} glow={true} lighten={true} border={true}>
+                                <Text grow={1}>English</Text>
+                            </DropdownToggle>
+                        </Dropdown>
+                    </NavbarMenuItem>
+                    <NavbarMenuItem button={true}>Docs</NavbarMenuItem>
+                    <NavbarMenuItem button={true}>Components</NavbarMenuItem>
+                    <NavbarMenuItem button={true}>Showcase</NavbarMenuItem>
+                </NavbarMenu>
 
-            <NavbarLogo src={logo} />
+                <NavbarLogo src={logo} />
 
-            <NavbarMenu al="center" grow={1} mobile={false}>
-                <Tabs activeColor="primary" color="light" expand="v" type="pill">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </NavbarMenu>
+                <NavbarMenu activeColor="primary" alH="center" color="light" grow={1} mobile={false} type="pill">
+                    <NavbarMenuItem active={true} name="docs">Docs</NavbarMenuItem>
+                    <NavbarMenuItem name="components">Components</NavbarMenuItem>
+                    <NavbarMenuItem name="showcase">Showcase</NavbarMenuItem>
+                </NavbarMenu>
 
-            {/* <NavbarSection al="center" grow={1}>
-                <Tabs expand="v">
-                    <Tab active={true} name="docs">Docs</Tab>
-                    <Tab name="components">Components</Tab>
-                    <Tab name="showcase">Showcase</Tab>
-                </Tabs>
-            </NavbarSection> */}
+                <NavbarSection alV="center" mobile={false} placement="right">
+                    <Button clear={true} compact={true} glow={false} {...socialProps}>
+                        <Icon name="github" />
+                    </Button>
+                    <Button clear={true} compact={true} glow={false} mr={1} {...socialProps}>
+                        <Icon name="twitter" />
+                    </Button>
+                    <Button color="primary" {...signInProps}>Sign In</Button>
+                    <Button clear={true} color="primary" {...signUpProps}>Sign Up</Button>
+                </NavbarSection>
+            </Navbar>
+        </Fragment>
 
-            <NavbarSection alV="center" mobile={false} placement="right">
-                <Button clear={true} compact={true} glow={false} {...socialProps}>
-                    <Icon name="github" />
-                </Button>
-                <Button clear={true} compact={true} glow={false} mr={1} {...socialProps}>
-                    <Icon name="twitter" />
-                </Button>
-                <Button color="primary" {...signInProps}>Sign In</Button>
-                <Button clear={true} color="primary" {...signUpProps}>Sign Up</Button>
-            </NavbarSection>
-        </Navbar>
         // <Navbar color={color} {...rest}>
         //     <NavbarLogo src={logo} />
 

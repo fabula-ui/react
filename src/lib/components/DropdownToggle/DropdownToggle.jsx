@@ -30,6 +30,7 @@ const DropdownToggle = (props) => {
 };
 
 DropdownToggle.defaultProps = {
+	arrow: true,
 	direction: '',
 	icon: '',
 	label: '',
@@ -37,6 +38,7 @@ DropdownToggle.defaultProps = {
 };
 
 DropdownToggle.propTypes = {
+	arrow: PropTypes.bool,
 	direction: PropTypes.string,
 	icon: PropTypes.string,
 	label: PropTypes.string,

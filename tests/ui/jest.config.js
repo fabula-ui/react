@@ -1,5 +1,5 @@
 module.exports = {
     preset: 'jest-puppeteer',
-    testRegex: './*\\.ui\\.js$',
+    testRegex: './*\\.fui\\.js$',
     setupFilesAfterEnv: ['./setupTests.js']
 };

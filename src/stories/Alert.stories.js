@@ -14,7 +14,7 @@ export default {
 
 // Base component
 const BaseComponent = props => (
-    <Alert icon="bell" text="This is an example of an alert" title="Alert Title" {...props} />
+    <Alert icon={{ name: 'bell' }} text="This is an example of an alert" title="Alert Title" {...props} />
 )
 
 // Example
@@ -105,8 +105,8 @@ export const PropGlow = () => (
 export const PropIcon = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <BaseComponent icon="database" mb={1} />
-            <BaseComponent icon={{ color: 'primary', name: 'calendar' }} mb={1} />
+            <BaseComponent icon={{ name: 'database' }} mb={1} />
+            <BaseComponent icon={{ color: 'primary', name: 'calendar' }} />
         </UtilsProvider>
     </FabulaProvider>
 )

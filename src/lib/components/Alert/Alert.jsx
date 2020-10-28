@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Components
 import CloseButton from '../CloseButton/CloseButton';
 import Component from '../Component/Component';
-import InnerIcon from '../InnerIcon/InnerIcon';
+import Icon from '../Icon/Icon';
 
 // Methods
 import getTransitionDuration from '@fabula/core/styles/methods/misc/getTransitionDuration';
@@ -104,8 +104,8 @@ const Alert = props => {
                     data-fab-component="alert"
                     ref={elRef || ref}
                     {...restProps}>
-                    {!!icon && !typeIcon && <InnerIcon icon={icon} parentProps={props} />}
-                    {!!typeIcon && <InnerIcon icon={typeIcon} parentProps={props} />}
+                    {!!icon && !typeIcon && <Icon {...icon} parentProps={props} />}
+                    {!!typeIcon && <Icon {...typeIcon} parentProps={props} />}
                     <div className="fab-alert__stage">
                         {!!title &&
                             <div className="fab-alert__title">{title}</div>
@@ -115,7 +115,6 @@ const Alert = props => {
                         }
                         {children}
                     </div>
-
                     {!!closeButton && <CloseButton circle={true} onClick={closeAlert} parentColor={color} size="sm" />}
                 </div>
             </Component>

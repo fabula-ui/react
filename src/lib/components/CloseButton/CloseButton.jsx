@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { css } from 'emotion';
 
 // Components
 import Component from '../Component/Component';
@@ -9,7 +8,7 @@ import Icon from '../Icon/Icon';
 import CloseButtonStyles from '@fabula/core/styles/components/close-button/close-button';
 
 const CloseButton = props => {
-    const { className, elRef, onClick } = props;
+    const { elRef, onClick } = props;
     const ref = useRef();
     return (
         <Component

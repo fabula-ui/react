@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
-import InnerIcon from '../InnerIcon/InnerIcon';
+import Icon from '../Icon/Icon';
 
 // Methods
 import getInitials from '@fabula/core/styles/methods/misc/getInitials';
@@ -38,7 +38,7 @@ const Avatar = props => {
             wrapper="fab-avatar-wrapper">
             <div data-fab-wrapper="avatar" data-rounded={rounded} ref={elRef || ref} {...restProps}>
                 <div className="fab-avatar" data-color={color} data-fab-component="avatar" data-rounded={rounded} data-size={size}>
-                    {!showInitials && !!icon && <InnerIcon icon={icon} parentProps={props} />}
+                    {!showInitials && !!icon && <Icon {...icon} />}
                     {showInitials && <span className="fab-avatar__initials">{getInitials(showInitials)}</span>}
                     {image && <div className="fab-avatar__image" style={{ backgroundImage: `url(${image})` }}></div>}
                 </div>
@@ -57,7 +57,9 @@ Avatar.defaultProps = {
         }
     },
     darken: false,
-    icon: 'image',
+    icon: {
+        name: 'image'
+    },
     image: '',
     inline: true,
     lighten: false,
@@ -69,7 +71,7 @@ Avatar.defaultProps = {
 Avatar.propTypes = {
     badge: PropTypes.any,
     darken: PropTypes.bool,
-    icon: PropTypes.string,
+    icon: PropTypes.any,
     image: PropTypes.string,
     lighten: PropTypes.bool,
     rounded: PropTypes.bool,

@@ -122,8 +122,8 @@ export const PropIcon = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Avatar mr="1" />
-            <Avatar icon="camera" mr="1" />
-            <Avatar icon="video" />
+            <Avatar icon={{ name: 'camera' }} mr="1" />
+            <Avatar icon={{ name: 'video' }} />
         </UtilsProvider>
     </FabulaProvider>
 )

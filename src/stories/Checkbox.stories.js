@@ -16,7 +16,7 @@ export default {
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Checkbox label="Checkbox Label" onChange={() => alert('Changed')} />
+            <Checkbox label="Checkbox Label" />
         </UtilsProvider>
     </FabulaProvider>
 )

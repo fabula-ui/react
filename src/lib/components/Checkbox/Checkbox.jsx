@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
+import Icon from '../Icon/Icon';
 
 // Utils
 import getComponentProps from '../../utils/getComponentProps';
@@ -21,7 +22,6 @@ const Checkbox = props => {
     const handleChange = e => {
         const tempChecked = e ? e.target.checked : !checked;
         const indeterminate = e ? e.target.indeterminate : false;
-        console.log('e', e);
 
         if (!disabled && !readOnly) {
             setChecked(tempChecked);
@@ -54,7 +54,9 @@ const Checkbox = props => {
                     data-indeterminate={isIndeterminate}
                     data-read-only={readOnly}
                     data-fab-component="checkbox">
-                    <div className="fab-checkbox__square" onClick={() => handleChange()} />
+                    <div className="fab-checkbox__square" onClick={() => handleChange()}>
+                        <Icon name={isIndeterminate ? 'minus' : 'check'} />
+                    </div>
                     <label className="fab-checkbox__label">
                         <input
                             checked={checked}

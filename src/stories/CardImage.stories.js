@@ -133,6 +133,20 @@ export const PropFaded = () => (
 export const PropHeight = () => (
   <FabulaProvider>
     <UtilsProvider>
+      <Row mb={1}>
+        <Column col={3}>
+          <BaseComponent />
+        </Column>
+        <Column col={3}>
+          <BaseComponent height="240" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent height="160" />
+        </Column>
+        <Column col={3}>
+          <BaseComponent height="80" />
+        </Column>
+      </Row>
       <Row>
         <Column col={3}>
           <BaseComponent src="https://placehold.it/800x300" />

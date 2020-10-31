@@ -9,8 +9,8 @@ import Icon from '../Icon/Icon';
 // Styles
 import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
 
-const DropdownToggle = (props) => {
-	const { children, className, direction, elRef, onClick, open, toggle, ...rest } = props;
+const DropdownToggle = props => {
+	const { arrow, children, className, direction, elRef, onClick, open, toggle, ...rest } = props;
 	const ref = useRef(null);
 
 	const handleClick = () => {
@@ -26,9 +26,11 @@ const DropdownToggle = (props) => {
 			<div data-direction={direction} data-open={open} ref={elRef || ref}>
 				<Button onClick={handleClick} {...rest}>
 					{!!children && <span className="fab-dropdown-toggle__label">{children}</span>}
-					<span className="fab-dropdown-toggle__chevron">
-						<Icon name="chevron-down" />
-					</span>
+					{arrow &&
+						<span className="fab-dropdown-toggle__chevron">
+							<Icon name="chevron-down" />
+						</span>
+					}
 				</Button>
 			</div>
 		</Component>
@@ -38,7 +40,6 @@ const DropdownToggle = (props) => {
 DropdownToggle.defaultProps = {
 	arrow: true,
 	direction: '',
-	icon: '',
 	label: '',
 	open: false
 };
@@ -46,7 +47,6 @@ DropdownToggle.defaultProps = {
 DropdownToggle.propTypes = {
 	arrow: PropTypes.bool,
 	direction: PropTypes.string,
-	icon: PropTypes.string,
 	label: PropTypes.string,
 	open: PropTypes.bool
 };

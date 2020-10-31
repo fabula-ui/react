@@ -24,7 +24,7 @@ export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Dropdown>
-                <DropdownToggle arrow={true} color="primary">
+                <DropdownToggle color="primary">
                     Dropdown Toggle
                 </DropdownToggle>
                 <DropdownMenu>

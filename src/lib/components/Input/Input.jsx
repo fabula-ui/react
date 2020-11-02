@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // Components
 import Component from '../Component/Component';
-import InnerIcon from '../InnerIcon/InnerIcon';
+import Icon from '../Icon/Icon';
 
 // Utils
 import getComponentProps from '../../utils/getComponentProps';
@@ -67,8 +67,8 @@ const Input = props => {
                     data-fab-component="input">
                     {(!!icon || !!iconStart) &&
                         <div className="fab-input__icon" data-placement="start">
-                            {!!icon && <InnerIcon icon={icon} parentProps={props} />}
-                            {!!iconStart && <InnerIcon icon={iconStart} parentProps={props} />}
+                            {!!icon && <Icon {...icon} />}
+                            {!!iconStart && <Icon {...iconStart} />}
                         </div>
                     }
 
@@ -100,13 +100,13 @@ const Input = props => {
 
                     {(!!iconEnd && !passwordToggle) &&
                         <div className="fab-input__icon" data-placement="end">
-                            <InnerIcon icon={iconEnd} parentProps={props} />
+                            <Icon {...iconEnd} />
                         </div>
                     }
 
                     {passwordToggle &&
                         <button className="fab-input__password-toggle" onClick={toggleType} data-toggled={inputType === 'text'}>
-                            <span className="fab-input__icon" />
+                            <Icon name={inputType === 'text' ? 'eye-off' : 'eye'} />
                         </button>
                     }
 

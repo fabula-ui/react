@@ -35,12 +35,12 @@ const BaseComponent = props => (
         </TagGroup>
 
         <TagGroup>
-            <Tag {...props}><button>Button</button></Tag>
-            <Tag color="primary" {...props}><button>Button</button></Tag>
-            <Tag color="lavender" {...props}><button>Button</button></Tag>
-            <Tag color="hot" {...props}><button>Button</button></Tag>
-            <Tag color="aux" {...props}><button>Button</button></Tag>
-            <Tag color="dark" {...props}><button>Button</button></Tag>
+            <Tag button={true} {...props}>Button</Tag>
+            <Tag button={true} color="primary" {...props}>Button</Tag>
+            <Tag button={true} color="lavender" {...props}>Button</Tag>
+            <Tag button={true} color="hot" {...props}>Button</Tag>
+            <Tag button={true} color="aux" {...props}>Button</Tag>
+            <Tag button={true} color="dark" {...props}>Button</Tag>
         </TagGroup>
     </Fragment>
 )
@@ -128,45 +128,21 @@ export const PropSize = () => (
             </TagGroup>
 
             <TagGroup mb={1}>
-                <Tag color="primary" size="xs">
-                    <button>Extra-small</button>
-                </Tag>
-                <Tag color="primary" size="sm">
-                    <button>Small</button>
-                </Tag>
-                <Tag color="primary" size="md">
-                    <button>Medium</button>
-                </Tag>
-                <Tag color="primary" size="lg">
-                    <button>Large</button>
-                </Tag>
-                <Tag color="primary" size="xl">
-                    <button>Extra-large</button>
-                </Tag>
-                <Tag color="primary" size="xxl">
-                    <button>2x Extra-large</button>
-                </Tag>
+                <Tag button={true} color="primary" size="xs">Extra-small</Tag>
+                <Tag button={true} color="primary" size="sm">Small</Tag>
+                <Tag button={true} color="primary" size="md">Medium</Tag>
+                <Tag button={true} color="primary" size="lg">Large</Tag>
+                <Tag button={true} color="primary" size="xl">Extra-large</Tag>
+                <Tag button={true} color="primary" size="xxl">2x Extra-large</Tag>
             </TagGroup>
 
             <TagGroup mb={1}>
-                <Tag color="primary" size="xs">
-                    <a href="https://www.fabulaui.com">Extra-small</a>
-                </Tag>
-                <Tag color="primary" size="sm">
-                    <a href="https://www.fabulaui.com">Small</a>
-                </Tag>
-                <Tag color="primary" size="md">
-                    <a href="https://www.fabulaui.com">Medium</a>
-                </Tag>
-                <Tag color="primary" size="lg">
-                    <a href="https://www.fabulaui.com">Large</a>
-                </Tag>
-                <Tag color="primary" size="xl">
-                    <a href="https://www.fabulaui.com">Extra-large</a>
-                </Tag>
-                <Tag color="primary" size="xxl">
-                    <a href="https://www.fabulaui.com">2x Extra-large</a>
-                </Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" size="xs">Extra-small</Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" size="sm">Small</Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" size="md">Medium</Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" size="lg">Large</Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" size="xl">Extra-large</Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" size="xxl">2x Extra-large</Tag>
             </TagGroup>
 
             <TagGroup mb={1}>

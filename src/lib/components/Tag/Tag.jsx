@@ -19,10 +19,10 @@ const Tag = props => {
         label,
         link,
         placement,
-        ...rest
+        rel,
+        target
     } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     return (
         <Component
@@ -32,17 +32,17 @@ const Tag = props => {
             wrapper="fab-tag-wrapper">
             <div data-placement-x={placement && placement.x} data-placement-y={placement && placement.y} ref={elRef || ref} data-fab-wrapper="tag">
                 {!button && !href && !link &&
-                    <div className="fab-tag" data-fab-component="component" {...restProps}>
+                    <div className="fab-tag" data-fab-component="component">
                         {label || children}
                     </div>
                 }
                 {!!button &&
-                    <button className="fab-tag" data-fab-component="component" {...restProps}>
+                    <button className="fab-tag" data-fab-component="component">
                         {label || children}
                     </button>
                 }
                 {(!!href || !!link) &&
-                    <a className="fab-tag" href={href} data-fab-component="component" {...restProps}>
+                    <a className="fab-tag" href={href} rel={rel} target={target} data-fab-component="component">
                         {label || children}
                     </a>
                 }
@@ -56,6 +56,7 @@ Tag.defaultProps = {
     clear: false,
     faded: false,
     glow: false,
+    href: '',
     inline: true,
     invert: false,
     link: '',
@@ -63,8 +64,10 @@ Tag.defaultProps = {
         x: 'right',
         y: 'bottom'
     },
+    rel: '',
     rounded: false,
-    size: 'md'
+    size: 'md',
+    target: '_blank'
 }
 
 Tag.propTypes = {
@@ -73,10 +76,13 @@ Tag.propTypes = {
     faded: PropTypes.bool,
     glow: PropTypes.bool,
     invert: PropTypes.bool,
+    href: PropTypes.string,
     link: PropTypes.string,
     placement: PropTypes.any,
+    rel: PropTypes.string,
     rounded: PropTypes.bool,
-    size: PropTypes.string
+    size: PropTypes.string,
+    target: PropTypes.string
 }
 
 export default Tag;

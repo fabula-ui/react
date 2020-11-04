@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import TagStyles from '@fabula/core/styles/components/tag/tag';
 

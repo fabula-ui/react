@@ -31,8 +31,10 @@ const Button = props => {
         label,
         lighten,
         outline,
+        rel,
         rounded,
         size,
+        target,
         wide,
         ...rest
     } = props;
@@ -70,6 +72,8 @@ const Button = props => {
                         data-rounded={rounded}
                         data-fab-component="button"
                         href={href}
+                        rel={rel}
+                        target={target}
                         {...restProps}
                         ref={elRef || ref}>
                         {label || children}

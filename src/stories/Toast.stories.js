@@ -22,32 +22,56 @@ const BaseComponent = ({ color, hideButton, iconColor, iconName, ...rest }) => (
 )
 
 // Stories
+export const Example = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Container>
+                <Wrapper mb={1}>
+                    <BaseComponent color="primary" />
+                </Wrapper>
+            </Container>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+export const PropButton = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Container>
+                <BaseComponent button={{
+                    color: 'primary',
+                    label: 'Go there'
+                }} />
+            </Container>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
 export const PropClear = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Container>
                 <Wrapper mb={1}>
-                    <BaseComponent clear={true} />
+                    <BaseComponent clear={true} hideButton={{ border: false, clear: true, compact: true }} />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent clear={true} color="primary" />
+                    <BaseComponent clear={true} color="primary" hideButton={{ border: false, clear: true, compact: true }} />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent clear={true} color="lavender" />
+                    <BaseComponent clear={true} color="lavender" hideButton={{ border: false, clear: true, compact: true }} />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent clear={true} color="hot" />
+                    <BaseComponent clear={true} color="hot" hideButton={{ border: false, clear: true, compact: true }} />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent clear={true} color="aux" />
+                    <BaseComponent clear={true} color="aux" hideButton={{ border: false, clear: true, compact: true }} />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent clear={true} color="dark" />
+                    <BaseComponent clear={true} color="dark" hideButton={{ border: false, clear: true, compact: true }} />
                 </Wrapper>
             </Container>
         </UtilsProvider>
@@ -180,10 +204,12 @@ export const PropLink = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Container>
-                <BaseComponent link={{
+                <BaseComponent button={{
+                    color: 'primary',
+                    compact: true,
                     label: 'Go there',
-                    target: '_blank',
-                    url: 'https://www.github.com/fabula-ui'
+                    href: 'https://www.github.com/fabula-ui',
+                    target: '_blank'
                 }} />
             </Container>
         </UtilsProvider>
@@ -195,27 +221,27 @@ export const PropOutline = () => (
         <UtilsProvider>
             <Container>
                 <Wrapper mb={1}>
-                    <BaseComponent outline={true} />
+                    <BaseComponent hideButton={{ invert: false, outline: true }} outline={true} />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent outline={true} color="primary" />
+                    <BaseComponent hideButton={{ invert: false, outline: true }} outline={true} color="primary" />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent outline={true} color="lavender" />
+                    <BaseComponent hideButton={{ invert: false, outline: true }} outline={true} color="lavender" />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent outline={true} color="hot" />
+                    <BaseComponent hideButton={{ invert: false, outline: true }} outline={true} color="hot" />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent outline={true} color="aux" />
+                    <BaseComponent hideButton={{ invert: false, outline: true }} outline={true} color="aux" />
                 </Wrapper>
 
                 <Wrapper mb={1}>
-                    <BaseComponent outline={true} color="dark" />
+                    <BaseComponent hideButton={{ invert: false, outline: true }} outline={true} color="dark" />
                 </Wrapper>
             </Container>
         </UtilsProvider>

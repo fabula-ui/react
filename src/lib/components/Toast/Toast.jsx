@@ -17,7 +17,6 @@ const Toast = props => {
         hideDelay,
         icon,
         inline,
-        link,
         onHide,
         onShow,
         message,
@@ -27,9 +26,6 @@ const Toast = props => {
     const [hidden, setHidden] = useState(false);
     const [hiding, setHiding] = useState(false);
     const ref = useRef(null);
-
-    // Dynamic requires
-    const Link = link ? require('../Link/Link').default : null;
 
     // Callbacks
     const handleHide = useCallback(() => {
@@ -90,11 +86,10 @@ const Toast = props => {
                         {!!icon && <Icon {...icon} />}
                         {!!message && <span className="fab-toast__message">{message}</span>}
                         {children}
-                        {(!!button || !!hideButton || !!link) &&
+                        {(!!button || !!hideButton) &&
                             <div className="fab-toast__close-button">
-                                {!!hideButton && !link && !button && <Button size="sm" {...hideButton} data-close-button onClick={hideToast} />}
+                                {!!hideButton && !button && <Button size="sm" {...hideButton} data-close-button onClick={hideToast} />}
                                 {!!button && <Button size="sm" {...button} />}
-                                {!!link && !button && !link.button && <Link {...link} />}
                             </div>
                         }
                     </div>
@@ -107,26 +102,26 @@ const Toast = props => {
 }
 
 Toast.defaultProps = {
+    button: null,
     clear: false,
     color: '',
     faded: false,
     glow: false,
     hideButton: null,
     hideDelay: 2000,
-    link: {},
     message: '',
     outline: false,
     stacked: false
 }
 
 Toast.propTypes = {
+    button: PropTypes.any,
     clear: PropTypes.bool,
     color: PropTypes.string,
     faded: PropTypes.bool,
     glow: PropTypes.bool,
     hideButton: PropTypes.any,
     hideDelay: PropTypes.any,
-    link: PropTypes.any,
     message: PropTypes.string,
     outline: PropTypes.bool,
     stacked: PropTypes.bool

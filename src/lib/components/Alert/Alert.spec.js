@@ -3,6 +3,7 @@ import { render, fireEvent, getByTestId } from '@testing-library/react';
 
 // Component
 import Alert from './Alert';
+import { act } from 'react-dom/test-utils';
 
 describe('Alert Component', () => {
     it('Should create', () => {
@@ -11,46 +12,27 @@ describe('Alert Component', () => {
         expect(container).toBeTruthy();
     });
 
-    it('Should have an icon as an object', () => {
-        const { container } = render(<Alert icon={{name: 'icon'}} />);
+    it('Should have an icon', () => {
+        const { container } = render(<Alert icon={{ name: 'icon' }} />);
         const element = container.querySelector('.fab-icon');
 
-        expect(element).toHaveAttribute('data-name', 'icon');
+        expect(element).toBeTruthy();
     });
 
-    it('Should have an icon as a string', () => {
-        const { container } = render(<Alert icon="icon" />);
-        const element = container.querySelector('.fab-icon');
-
-        expect(element).toHaveAttribute('data-name', 'icon');
-    });
-
-    it('Should have a text as an object', () => {
-        const { container } = render(<Alert text={{content: 'This is a text'}} />);
+    it('Should have a text', () => {
+        const text = 'This is a text';
+        const { container } = render(<Alert text={text} />);
         const element = container.querySelector('.fab-alert__text');
 
-        expect(element.textContent).toBe('This is a text');
+        expect(element.textContent).toBe(text);
     });
 
-    it('Should have a text as a string', () => {
-        const { container } = render(<Alert text="This is a text" />);
-        const element = container.querySelector('.fab-alert__text');
-
-        expect(element.textContent).toBe('This is a text');
-    });
-
-    it('Should have a title as an object', () => {
-        const { container } = render(<Alert title={{content: 'This is a title'}} />);
+    it('Should have a title', () => {
+        const title = 'This is a title';
+        const { container } = render(<Alert title={title} />);
         const element = container.querySelector('.fab-alert__title');
 
-        expect(element.textContent).toBe('This is a title');
-    });
-
-    it('Should have a title as a string', () => {
-        const { container } = render(<Alert title="This is a title" />);
-        const element = container.querySelector('.fab-alert__title');
-
-        expect(element.textContent).toBe('This is a title');
+        expect(element.textContent).toBe(title);
     });
 
     it('Should have a close button', () => {
@@ -65,11 +47,13 @@ describe('Alert Component', () => {
         const closeFn = () => { output = 'called' };
         const { container } = render(<Alert closeButton={true} onClose={closeFn} />);
 
-        fireEvent.click(container.querySelector('.fab-close-button'), new MouseEvent('click', {
-            bubbles: true,
-            cancelable: true,
-        }));
+        act(() => {
+            fireEvent.click(container.querySelector('.fab-close-button'), new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+            }));
 
-        expect(output).toBe('called');
+            expect(output).toBe('called');
+        });
     });
 });

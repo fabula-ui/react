@@ -9,9 +9,6 @@ import Icon from '../Icon/Icon';
 // Methods
 import getTransitionDuration from '@fabula/core/styles/methods/misc/getTransitionDuration';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import AlertStyles from '@fabula/core/styles/components/alert/alert';
 
@@ -26,14 +23,12 @@ const Alert = props => {
         text,
         visible,
         title,
-        type,
-        ...rest
+        type
     } = props;
     const [isClosing, setIsClosing] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [typeIcon, setTypeIcon] = useState(null);
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     // Callbacks
     const handleType = useCallback((type) => {
@@ -102,17 +97,12 @@ const Alert = props => {
                     data-title={!!title}
                     data-visible={isVisible}
                     data-fab-component="alert"
-                    ref={elRef || ref}
-                    {...restProps}>
-                    {!!icon && !typeIcon && <Icon {...icon} parentProps={props} />}
-                    {!!typeIcon && <Icon {...typeIcon} parentProps={props} />}
+                    ref={elRef || ref}>
+                    {!!icon && !typeIcon && <Icon {...icon} />}
+                    {!!typeIcon && <Icon {...typeIcon} />}
                     <div className="fab-alert__stage">
-                        {!!title &&
-                            <div className="fab-alert__title">{title}</div>
-                        }
-                        {!!text &&
-                            <div className="fab-alert__text">{text}</div>
-                        }
+                        {!!title && <div className="fab-alert__title">{title}</div>}
+                        {!!text && <div className="fab-alert__text">{text}</div>}
                         {children}
                     </div>
                     {!!closeButton && <CloseButton circle={true} onClick={closeAlert} parentColor={color} size="sm" />}

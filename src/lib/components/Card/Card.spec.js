@@ -13,12 +13,19 @@ describe('Card Component', () => {
         expect(container).toBeTruthy();
     });
 
-    it('Should pass layout prop to children', () => {
+    it('Should have a defined structure', () => {
+        const { container } = render(<Card />);
+        const cardElement = container.querySelector('.fab-card');
+
+        expect(cardElement).toBeTruthy();
+    });
+
+    it('Should have card components as children', () => {
         const { container } = render(<Card layout="h"><CardImage /><CardSection /></Card>);
         const cardImageElement = container.querySelector('.fab-card-image');
         const cardSectionElement = container.querySelector('.fab-card-section');
 
-        expect(cardImageElement.getAttribute('data-layout')).toBe('h');
-        expect(cardSectionElement.getAttribute('data-layout')).toBe('h');
+        expect(cardImageElement).toBeTruthy();
+        expect(cardSectionElement).toBeTruthy();
     });
 });

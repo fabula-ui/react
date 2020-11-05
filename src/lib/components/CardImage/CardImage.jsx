@@ -5,16 +5,12 @@ import PropTypes from 'prop-types';
 import Component from '../Component/Component';
 import Icon from '../Icon/Icon';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import CardImageStyles from '@fabula/core/styles/components/card-image/card-image';
 
 const CardImage = props => {
-    const { alt, children, elRef, icon, src, layout, ...rest } = props;
+    const { alt, children, elRef, icon, src, layout } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     return (
         <Component
@@ -22,7 +18,7 @@ const CardImage = props => {
             properties={props}
             styles={CardImageStyles}
             wrapper="fab-card-image">
-            <div data-layout={layout} data-fab-component="cardImage" ref={elRef || ref} {...restProps}>
+            <div data-layout={layout} data-fab-component="cardImage" ref={elRef || ref}>
                 <Icon {...icon} />
                 {!!src && <img alt={alt} src={src} />}
                 {children}
@@ -47,7 +43,7 @@ CardImage.propTypes = {
     color: PropTypes.string,
     cover: PropTypes.bool,
     height: PropTypes.any,
-    icon: PropTypes.string,
+    icon: PropTypes.any,
     layout: PropTypes.string,
     src: PropTypes.string,
     width: PropTypes.any

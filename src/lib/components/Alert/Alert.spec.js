@@ -12,11 +12,13 @@ describe('Alert Component', () => {
         expect(container).toBeTruthy();
     });
 
-    it('Should have an icon', () => {
-        const { container } = render(<Alert icon={{ name: 'icon' }} />);
-        const element = container.querySelector('.fab-icon');
+    it('Should have a defined structure', () => {
+        const { container } = render(<Alert />);
+        const alertElement = container.querySelector('.fab-alert');
+        const stageElement = container.querySelector('.fab-alert__stage');
 
-        expect(element).toBeTruthy();
+        expect(alertElement).toBeTruthy();
+        expect(stageElement).toBeTruthy();
     });
 
     it('Should have a text', () => {
@@ -35,6 +37,30 @@ describe('Alert Component', () => {
         expect(element.textContent).toBe(title);
     });
 
+    it('Should have an icon', () => {
+        const { container } = render(<Alert icon={{ name: 'icon' }} />);
+        const element = container.querySelector('.fab-icon');
+
+        expect(element).toBeTruthy();
+    });
+
+    it('Should have an icon if there is a type', () => {
+        const { container } = render(<Alert type="success" />);
+        const element = container.querySelector('.fab-icon');
+
+        expect(element).toBeTruthy();
+    });
+
+    // it('Should have border', () => {
+    //     const borderfulComponent = render(<Alert />);
+    //     const borderlessComponent = render(<Alert border={false} />);
+    //     const borderfulAlert = borderfulComponent.container.querySelector('.fab-alert');
+    //     const borderlessAlert = borderlessComponent.container.querySelector('.fab-alert');
+
+    //     expect(getComputedStyle(borderfulAlert).borderColor).not.toBe('transparent');
+    //     expect(getComputedStyle(borderlessAlert).borderColor).toBe('transparent');
+    // });
+
     it('Should have a close button', () => {
         const { container } = render(<Alert closeButton={true} />);
         const element = container.querySelector('.fab-close-button');
@@ -42,18 +68,23 @@ describe('Alert Component', () => {
         expect(element).toBeTruthy();
     });
 
-    it('Should call onClose', () => {
+    it('Should call onClose', async done => {
         let output = '';
-        const closeFn = () => { output = 'called' };
-        const { container } = render(<Alert closeButton={true} onClose={closeFn} />);
+        let component;
+        let closeFn = () => { output = 'called' };
 
-        act(() => {
-            fireEvent.click(container.querySelector('.fab-close-button'), new MouseEvent('click', {
+        await act(async () => {
+            component = await render(<Alert closeButton={true} onClose={closeFn} />);
+
+            fireEvent.click(component.container.querySelector('.fab-close-button'), new MouseEvent('click', {
                 bubbles: true,
                 cancelable: true,
             }));
-
-            expect(output).toBe('called');
         });
+
+        setTimeout(() => {
+            expect(output).toBe('called');
+            done();
+        }, 1000);
     });
 });

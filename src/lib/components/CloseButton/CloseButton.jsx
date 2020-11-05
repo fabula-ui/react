@@ -10,6 +10,7 @@ import CloseButtonStyles from '@fabula/core/styles/components/close-button/close
 const CloseButton = props => {
     const { elRef, onClick } = props;
     const ref = useRef();
+
     return (
         <Component
             elRef={elRef || ref}
@@ -20,7 +21,6 @@ const CloseButton = props => {
                 <Icon name="x" />
             </button>
         </Component>
-
     )
 }
 

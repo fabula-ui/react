@@ -10,4 +10,19 @@ describe('Card Image Component', () => {
 
         expect(container).toBeTruthy();
     });
+
+    it('Should have a defined structure', () => {
+        const { container } = render(<CardImage />);
+        const cardImageElement = container.querySelector('.fab-card-image');
+
+        expect(cardImageElement).toBeTruthy();
+    });
+
+    it('Should have an image', () => {
+        const { container } = render(<CardImage src="image" />);
+        const imageElement = container.querySelector('img');
+
+        expect(imageElement).toBeTruthy();
+        expect(imageElement.getAttribute('src')).toBe('image');
+    });
 });

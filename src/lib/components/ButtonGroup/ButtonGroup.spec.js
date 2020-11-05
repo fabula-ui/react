@@ -12,10 +12,19 @@ describe('Button Group Component', () => {
         expect(container).toBeTruthy();
     });
 
-    it('Should have button as children', () => {
-        const { container } = render(<ButtonGroup><Button>Label</Button></ButtonGroup>);
-        const buttonElement = container.querySelector('.fab-button');
+    it('Should have a defined structure', () => {
+        const { container } = render(<ButtonGroup />);
+        const buttonGroupElement = container.querySelector('.fab-button-group');
+        const wrapperElement = container.querySelector('.fab-button-group-wrapper');
+        
+        expect(buttonGroupElement).toBeTruthy();
+        expect(wrapperElement).toBeTruthy();
+    });
 
-        expect(buttonElement).toBeTruthy();
+    it('Should have buttons as children', () => {
+        const { container } = render(<ButtonGroup><Button /><Button /><Button /></ButtonGroup>);
+        const buttonElements = container.querySelectorAll('.fab-button');
+
+        expect(buttonElements.length).toBe(3);
     });
 });

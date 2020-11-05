@@ -5,19 +5,15 @@ import PropTypes from 'prop-types';
 import Component from '../Component/Component';
 import Icon from '../Icon/Icon';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';
 
 const Checkbox = props => {
-    const { children, disabled, elRef, label, onChange, onCheck, onUncheck, readOnly, ...rest } = props;
+    const { children, disabled, elRef, label, onChange, onCheck, onUncheck, readOnly } = props;
     const [checked, setChecked] = useState(props.checked || false);
     const [focus, setFocus] = useState(false);
     const [isIndeterminate, setIndeterminate] = useState(props.indeterminate || false);
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     const handleChange = e => {
         const tempChecked = e ? e.target.checked : !checked;
@@ -31,7 +27,7 @@ const Checkbox = props => {
     }
 
     const handleEvents = checked => {
-        if (onChange) { onChange(); }
+        if (onChange) { onChange(checked); }
         if (!!checked && onCheck) { onCheck(); }
         if (!checked && onUncheck) { onUncheck(); }
     }
@@ -44,8 +40,7 @@ const Checkbox = props => {
             wrapper="fab-checkbox-wrapper">
             <div
                 data-fab-wrapper="checkbox"
-                ref={elRef || ref}
-                {...restProps}>
+                ref={elRef || ref}>
                 <div
                     className="fab-checkbox"
                     data-checked={checked}

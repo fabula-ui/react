@@ -4,16 +4,12 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import CardStyles from '@fabula/core/styles/components/card/card';
 
 const Card = props => {
-    const { children, elRef, layout, ...rest } = props;
+    const { children, elRef, layout } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     // Children with props
     const childrenWithProps = Children.map(children, child => {
@@ -33,8 +29,7 @@ const Card = props => {
             <div
                 className="fab-card"
                 data-fab-component="card"
-                ref={elRef || ref}
-                {...restProps}>
+                ref={elRef || ref}>
                 {childrenWithProps}
             </div>
         </Component>

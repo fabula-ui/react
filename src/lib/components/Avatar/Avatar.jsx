@@ -8,27 +8,21 @@ import Icon from '../Icon/Icon';
 // Methods
 import getInitials from '@fabula/core/styles/methods/misc/getInitials';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import AvatarStyles from '@fabula/core/styles/components/avatar/avatar';
 
 const Avatar = props => {
     const {
-        badge,
         children,
         color,
         elRef,
         icon,
-        image,
         rounded,
         showInitials,
-        size,
-        ...rest
+        src,
+        size
     } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     return (
         <Component
@@ -36,26 +30,19 @@ const Avatar = props => {
             properties={props}
             styles={AvatarStyles}
             wrapper="fab-avatar-wrapper">
-            <div data-fab-wrapper="avatar" data-rounded={rounded} ref={elRef || ref} {...restProps}>
+            <div data-fab-wrapper="avatar" data-rounded={rounded} ref={elRef || ref}>
                 <div className="fab-avatar" data-color={color} data-fab-component="avatar" data-rounded={rounded} data-size={size}>
                     {!showInitials && !!icon && <Icon {...icon} />}
                     {showInitials && <span className="fab-avatar__initials">{getInitials(showInitials)}</span>}
-                    {image && <div className="fab-avatar__image" style={{ backgroundImage: `url(${image})` }}></div>}
+                    {src && <div className="fab-avatar__image" style={{ backgroundImage: `url(${src})` }}></div>}
                 </div>
                 {children}
-                {badge.label && <div className="fab-avatar__badge">{badge.label}</div>}
             </div>
         </Component>
     )
 }
 
 Avatar.defaultProps = {
-    badge: {
-        placement: {
-            x: 'right',
-            y: 'bottom'
-        }
-    },
     darken: false,
     icon: {
         name: 'image'
@@ -65,18 +52,19 @@ Avatar.defaultProps = {
     lighten: false,
     rounded: false,
     showInitials: '',
-    size: 'md'
+    size: 'md',
+    src: ''
 }
 
 Avatar.propTypes = {
-    badge: PropTypes.any,
     darken: PropTypes.bool,
     icon: PropTypes.any,
     image: PropTypes.string,
     lighten: PropTypes.bool,
     rounded: PropTypes.bool,
     showInitials: PropTypes.string,
-    size: PropTypes.string
+    size: PropTypes.string,
+    src: PropTypes.string
 }
 
 export default Avatar;

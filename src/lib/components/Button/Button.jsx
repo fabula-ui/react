@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import ButtonStyles from '@fabula/core/styles/components/button/button';
 
@@ -15,31 +12,18 @@ const Button = props => {
         border,
         children,
         circle,
-        className,
-        clear,
         color,
-        compact,
-        darken,
         disabled,
         elRef,
         expand,
-        faded,
-        glow,
-        gradient,
         href,
-        invert,
         label,
-        lighten,
         outline,
         rel,
         rounded,
-        size,
         target,
-        wide,
-        ...rest
     } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     return (
         <Component elRef={elRef || ref} properties={props} styles={ButtonStyles} wrapper="fab-button">
@@ -54,7 +38,6 @@ const Button = props => {
                         data-rounded={rounded}
                         data-fab-component="button"
                         disabled={disabled}
-                        {...restProps}
                         ref={elRef || ref}>
                         {label || children}
                     </button>
@@ -74,7 +57,6 @@ const Button = props => {
                         href={href}
                         rel={rel}
                         target={target}
-                        {...restProps}
                         ref={elRef || ref}>
                         {label || children}
                     </a>

@@ -3,16 +3,12 @@ import React, { useRef } from 'react';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import ColumnStyles from '@fabula/core/styles/components/column/column';
 
 const Column = props => {
-    const { children, elRef, ...rest } = props;
+    const { children, elRef } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     return (
         <Component
@@ -22,8 +18,7 @@ const Column = props => {
             wrapper="fab-column">
             <div
                 className="fab-column"
-                ref={elRef || ref}
-                {...restProps}>
+                ref={elRef || ref}>
                 {children}
             </div>
         </Component>

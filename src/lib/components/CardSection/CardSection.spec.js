@@ -10,4 +10,17 @@ describe('Card Section Component', () => {
 
         expect(container).toBeTruthy();
     });
+
+    it('Should have a defined structure', () => {
+        const { container } = render(<CardSection />);
+        const cardSectionElement = container.querySelector('.fab-card-section');
+
+        expect(cardSectionElement).toBeTruthy();
+    });
+
+    it('Should have inner content as children', () => {
+        const { container } = render(<CardSection>Content</CardSection>);
+
+        expect(container.textContent).toBe('Content');
+    });
 });

@@ -18,12 +18,10 @@ describe('Dropdown Toggle Component', () => {
         expect(toggleElement.textContent).toBe('Label');
     });
 
-    it('Should have an icon', () => {
-        const { container } = render(<DropdownToggle icon="map-pin" label="Label" />);
-        const toggleElement = container.querySelector('.fab-dropdown-toggle');
-        const iconElement = toggleElement.querySelector('.fab-dropdown-toggle__icon');
+    it('Should have inner content as label', () => {
+        const { container } = render(<DropdownToggle>Content</DropdownToggle>);
 
-        expect(iconElement).toBeTruthy();
+        expect(container.textContent).toBe('Content');
     });
 
     it('Should set color', () => {

@@ -18,15 +18,22 @@ const Button = props => {
         expand,
         href,
         label,
+        onClick,
         outline,
         rel,
         rounded,
         target,
+        ...rest
     } = props;
     const ref = useRef(null);
 
     return (
-        <Component elRef={elRef || ref} properties={props} styles={ButtonStyles} wrapper="fab-button">
+        <Component
+            elRef={elRef || ref}
+            properties={props}
+            rest={rest}
+            styles={ButtonStyles}
+            wrapper="fab-button">
             {
                 !href && (
                     <button className="fab-button"
@@ -38,6 +45,7 @@ const Button = props => {
                         data-rounded={rounded}
                         data-fab-component="button"
                         disabled={disabled}
+                        onClick={onClick}
                         ref={elRef || ref}>
                         {label || children}
                     </button>

@@ -21,7 +21,7 @@ export default {
 // Base component
 const BaseComponent = props => (
   <Card glow={true}>
-    <CardImage height="120" {...props} />
+    <CardImage height="120" onClick={() => console.log('Clicked')} {...props} />
     <CardSection padding>
       <Text block size="lg"><strong>Card Title</strong></Text>
       <Text aux block size="sm">Card subtitle</Text>

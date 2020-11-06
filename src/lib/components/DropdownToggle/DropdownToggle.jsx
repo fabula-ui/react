@@ -19,12 +19,13 @@ const DropdownToggle = props => {
 	};
 
 	return (
-		<Component elRef={elRef || ref}
+		<Component
+			elRef={elRef || ref}
 			properties={props}
 			styles={DropdownToggleStyles}
 			wrapper="fab-dropdown-toggle">
 			<div data-direction={direction} data-open={open} ref={elRef || ref}>
-				<Button onClick={handleClick} {...rest}>
+				<Button {...rest} onClick={handleClick}>
 					{!!children && <span className="fab-dropdown-toggle__label">{children}</span>}
 					{arrow &&
 						<span className="fab-dropdown-toggle__chevron">

@@ -9,7 +9,7 @@ import Icon from '../Icon/Icon';
 import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';
 
 const Checkbox = props => {
-    const { children, disabled, elRef, label, onChange, onCheck, onUncheck, readOnly } = props;
+    const { children, disabled, elRef, label, onChange, onCheck, onUncheck, readOnly, ...rest } = props;
     const [checked, setChecked] = useState(props.checked || false);
     const [focus, setFocus] = useState(false);
     const [isIndeterminate, setIndeterminate] = useState(props.indeterminate || false);
@@ -36,6 +36,7 @@ const Checkbox = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={CheckboxStyles}
             wrapper="fab-checkbox-wrapper">
             <div

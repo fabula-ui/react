@@ -7,13 +7,14 @@ import Component from '../Component/Component';
 import ColumnStyles from '@fabula/core/styles/components/column/column';
 
 const Column = props => {
-    const { children, elRef } = props;
+    const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={ColumnStyles}
             wrapper="fab-column">
             <div

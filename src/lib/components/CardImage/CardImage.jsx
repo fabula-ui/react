@@ -9,13 +9,14 @@ import Icon from '../Icon/Icon';
 import CardImageStyles from '@fabula/core/styles/components/card-image/card-image';
 
 const CardImage = props => {
-    const { alt, children, elRef, icon, src, layout } = props;
+    const { alt, children, elRef, icon, src, layout, ...rest } = props;
     const ref = useRef(null);
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={CardImageStyles}
             wrapper="fab-card-image">
             <div data-layout={layout} data-fab-component="cardImage" ref={elRef || ref}>

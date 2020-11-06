@@ -8,7 +8,7 @@ import Component from '../Component/Component';
 import CardStyles from '@fabula/core/styles/components/card/card';
 
 const Card = props => {
-    const { children, elRef, layout } = props;
+    const { children, elRef, layout, ...rest } = props;
     const ref = useRef(null);
 
     // Children with props
@@ -24,6 +24,7 @@ const Card = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={CardStyles}
             wrapper="fab-card">
             <div

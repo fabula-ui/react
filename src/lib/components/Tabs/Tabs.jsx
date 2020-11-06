@@ -35,7 +35,6 @@ const Tabs = props => {
     } = props;
     const [activeTab, setActiveTab] = useState(active);
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     // Callbacks
     const toggleContent = useCallback(segment => {
@@ -101,9 +100,10 @@ const Tabs = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={TabsStyles}
             wrapper="fab-tabs-wrapper">
-            <div ref={elRef || ref} data-fab-wrapper="tabs" {...restProps}>
+            <div ref={elRef || ref} data-fab-wrapper="tabs">
                 <div className="fab-tabs" data-fab-component="tabs">
                     {childrenWithProps}
                 </div>

@@ -3,9 +3,6 @@ import React, { useRef } from 'react';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import LinkStyles from '@fabula/core/styles/components/link/link';
 
@@ -17,21 +14,22 @@ const Link = props => {
         elRef,
         href,
         label,
+        rel,
         underline,
         url,
         target,
         ...rest
     } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={LinkStyles}
             wrapper="fab-link">
-            <a href={href || url} target={target} ref={elRef || ref} data-fab-component="link" {...restProps}>
+            <a href={href || url} rel={rel} target={target} ref={elRef || ref} data-fab-component="link">
                 {label || children}
             </a>
         </Component>
@@ -40,6 +38,7 @@ const Link = props => {
 
 Link.defaultProps = {
     inline: true,
+    rel: '',
     size: 'md',
     underline: true
 }

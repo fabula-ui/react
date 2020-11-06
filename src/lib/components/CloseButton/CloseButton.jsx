@@ -8,13 +8,14 @@ import Icon from '../Icon/Icon';
 import CloseButtonStyles from '@fabula/core/styles/components/close-button/close-button';
 
 const CloseButton = props => {
-    const { elRef, onClick } = props;
+    const { elRef, onClick, ...rest } = props;
     const ref = useRef();
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={CloseButtonStyles}
             wrapper="fab-close-button">
             <button onClick={onClick} ref={elRef || ref}>

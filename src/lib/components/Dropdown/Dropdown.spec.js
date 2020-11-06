@@ -36,14 +36,49 @@ describe('Dropdown Component', () => {
         expect(menuElement).toBeTruthy();
     });
 
-    it('Should pass props to children', () => {
+    it('Should have dropdown menu closed by default', () => {
         const { container } = render(<DropdownExample />);
         const menuElement = container.querySelector('.fab-dropdown-menu');
         const toggleElement = container.querySelector('.fab-dropdown-toggle');
 
-        expect(menuElement.getAttribute('data-direction')).toBe('down');
-        expect(menuElement.getAttribute('data-open')).toBeFalsy();
-        expect(toggleElement.getAttribute('data-direction')).toBe('down');
-        expect(toggleElement.getAttribute('data-open')).toBeFalsy();
+        expect(menuElement.getAttribute('data-open')).toBe('false');
+        expect(toggleElement.getAttribute('data-open')).toBe('false');
     });
+
+    // TODO: fix these tests
+    // it('Should open dropdown when clicking dropdown toggle', () => {
+    //     const { container } = render(<DropdownExample />);
+    //     const menuElement = container.querySelector('.fab-dropdown-menu');
+    //     const toggleElement = container.querySelector('.fab-dropdown-toggle');
+
+    //     fireEvent.click(toggleElement, new MouseEvent('click', {
+    //         bubbles: true,
+    //         cancelable: true,
+    //     }));
+
+    //     expect(menuElement.getAttribute('data-open')).toBe('true');
+    //     expect(toggleElement.getAttribute('data-open')).toBe('true');
+    // });
+
+    // it('Should close dropdown when clicking dropdown toggle', () => {
+    //     const { container } = render(<DropdownExample />);
+    //     const menuElement = container.querySelector('.fab-dropdown-menu');
+    //     const toggleElement = container.querySelector('.fab-dropdown-toggle');
+
+    //     fireEvent.click(toggleElement, new MouseEvent('click', {
+    //         bubbles: true,
+    //         cancelable: true,
+    //     }));
+
+    //     expect(menuElement.getAttribute('data-open')).toBe('true');
+    //     expect(toggleElement.getAttribute('data-open')).toBe('true');
+
+    //     fireEvent.click(toggleElement, new MouseEvent('click', {
+    //         bubbles: true,
+    //         cancelable: true,
+    //     }));
+
+    //     expect(menuElement.getAttribute('data-open')).toBe('false');
+    //     expect(toggleElement.getAttribute('data-open')).toBe('false');
+    // });
 });

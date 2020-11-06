@@ -3,22 +3,19 @@ import React, { createElement, useRef } from 'react';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import HeadingStyles from '@fabula/core/styles/components/heading/heading';
 
 const Heading = props => {
     const { children, elRef, level, ...rest } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
-    const HTag = () => createElement(`h${level}`, { ...restProps, ref: (elRef || ref), 'data-fab-component': 'heading' }, children);
+    const HTag = () => createElement(`h${level}`, { ref: (elRef || ref), 'data-fab-component': 'heading' }, children);
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={HeadingStyles}
             wrapper="fab-heading">
             <HTag>

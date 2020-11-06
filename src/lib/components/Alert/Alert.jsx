@@ -23,7 +23,8 @@ const Alert = props => {
         text,
         visible,
         title,
-        type
+        type,
+        ...rest
     } = props;
     const [isClosing, setIsClosing] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
@@ -89,6 +90,7 @@ const Alert = props => {
             <Component
                 elRef={elRef || ref}
                 properties={props}
+                rest={rest}
                 styles={AlertStyles}
                 wrapper="fab-alert">
                 <div

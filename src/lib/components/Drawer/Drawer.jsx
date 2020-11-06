@@ -8,16 +8,16 @@ import Icon from '../Icon/Icon';
 import DrawerStyles from '@fabula/core/styles/components/drawer/drawer';
 
 const Drawer = props => {
-    const { children, elRef, onChange } = props;
+    const { children, elRef, onChange, ...rest } = props;
     const [open, setOpen] = useState(props.open);
     const ref = useRef();
 
     useLayoutEffect(() => {
-        setOpen(props.open)
+        setOpen(props.open);
     }, [props.open]);
 
     const handleClose = () => {
-        onChange(!open);
+        if (onChange) { onChange(!open); }
         setOpen(!open);
     }
 
@@ -25,6 +25,7 @@ const Drawer = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={DrawerStyles}
             wrapper="fab-drawer-wrapper">
             <div data-open={open} ref={elRef || ref}>

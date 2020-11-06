@@ -4,24 +4,21 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import DividerStyles from '@fabula/core/styles/components/divider/divider';
 
 const Divider = props => {
     const { elRef, ...rest } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={DividerStyles}
             wrapper="fab-divider">
-            <div ref={elRef || ref} {...restProps} />
+            <div ref={elRef || ref} />
         </Component>
     )
 }

@@ -9,9 +9,6 @@ import Component from '../Component/Component';
 // Controller
 import ModalController from '../../controllers/ModalController';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import ModalHeaderStyles from '@fabula/core/styles/components/modal-header/modal-header';
 import ModalSectionStyles from '@fabula/core/styles/components/modal-section/modal-section';
@@ -21,7 +18,6 @@ const ModalHeader = props => {
     const { closeModal } = useContext(ModalController);
     const sectionCss = css(ModalSectionStyles({ framework: 'react', props }));
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     return (
         <Component
@@ -29,9 +25,10 @@ const ModalHeader = props => {
             elRef={elRef || ref}
             otherStyles={[sectionCss]}
             properties={props}
+            rest={rest}
             styles={ModalHeaderStyles}
             wrapper="fab-modal-header">
-            <div data-fab-component="modalHeader" ref={elRef || ref} {...restProps}>
+            <div data-fab-component="modalHeader" ref={elRef || ref}>
                 <div className="fab-modal-header__content">
                     {children}
                 </div>

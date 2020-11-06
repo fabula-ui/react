@@ -4,24 +4,21 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import NavbarStyles from '@fabula/core/styles/components/navbar/navbar';
 
 const Navbar = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={NavbarStyles}
             wrapper="fab-navbar">
-            <div data-fab-component="navbar" ref={elRef || ref} {...restProps}>{children}</div>
+            <div data-fab-component="navbar" ref={elRef || ref}>{children}</div>
         </Component>
     );
 }

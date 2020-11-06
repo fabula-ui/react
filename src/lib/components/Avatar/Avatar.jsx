@@ -20,7 +20,8 @@ const Avatar = props => {
         rounded,
         showInitials,
         src,
-        size
+        size,
+        ...rest
     } = props;
     const ref = useRef(null);
 
@@ -28,6 +29,7 @@ const Avatar = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={AvatarStyles}
             wrapper="fab-avatar-wrapper">
             <div data-fab-wrapper="avatar" data-rounded={rounded} ref={elRef || ref}>

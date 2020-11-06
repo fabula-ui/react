@@ -4,16 +4,12 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import ListItemStyles from '@fabula/core/styles/components/list-item/list-item';
 
 const ListItem = props => {
     const { button, children, compact, divider, elRef, href, onClick, parentOnClick, striped, target, ...rest } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     // Methods
     const handleClick = () => {
@@ -25,22 +21,23 @@ const ListItem = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={ListItemStyles}
             wrapper="fab-list-item">
             {((!!button || !!onClick || !!parentOnClick) && !href) &&
-                <button data-compact={compact} data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
+                <button data-compact={compact} data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem">
                     {children}
                 </button>
             }
 
             {!!href &&
-                <a data-compact={compact} data-divider={divider} data-striped={striped} href={href} target={target} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
+                <a data-compact={compact} data-divider={divider} data-striped={striped} href={href} target={target} ref={elRef || ref} data-fab-component="listItem">
                     {children}
                 </a>
             }
 
             {(!button && !onClick && !parentOnClick && !href) &&
-                <div data-compact={compact} data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem" {...restProps}>
+                <div data-compact={compact} data-divider={divider} data-striped={striped} onClick={handleClick} ref={elRef || ref} data-fab-component="listItem">
                     {children}
                 </div>
             }

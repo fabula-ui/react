@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Components
 import Button from '../Button/Button';
 import Component from '../Component/Component';
-import InnerIcon from '../InnerIcon/InnerIcon';
+import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
 
 // Utils
@@ -53,7 +53,7 @@ const SearchInput = props => {
                     {!!button &&
                         <Button color="primary" compact={true} onClick={handleSearch} {...button}>
                             {!button.label && !button.icon && 'Search'}
-                            {!!button.icon && <InnerIcon icon={button.icon} parentProps={button} />}
+                            {!!button.icon && <Icon {...button.icon} />}
                         </Button>
                     }
                     {!button && children}

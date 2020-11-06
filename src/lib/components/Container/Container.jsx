@@ -7,13 +7,14 @@ import Component from '../Component/Component';
 import ContainerStyles from '@fabula/core/styles/components/container/container';
 
 const Container = props => {
-    const { children, elRef } = props;
+    const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={ContainerStyles}
             wrapper="fab-container">
             <div

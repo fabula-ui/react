@@ -13,9 +13,6 @@ import PropTypes from 'prop-types';
 import Component from '../Component/Component';
 import DropdownItem from '../DropdownItem/DropdownItem';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
 
@@ -23,7 +20,6 @@ const DropdownMenu = props => {
     const { children, clickToClose, color, direction, elRef, items, onChange, onClickItem, size, toggle, ...rest } = props;
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child)) {
             return cloneElement(child, { color, clickToClose, open, parentOnClick: onClickItem, size, toggle, ...child.props })
@@ -61,14 +57,14 @@ const DropdownMenu = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={DropdownMenuStyles}
             wrapper="fab-dropdown-menu">
             <div
                 data-direction={direction}
                 data-open={open}
                 data-fab-component="dropdownMenu"
-                ref={elRef || ref}
-                {...restProps}>
+                ref={elRef || ref}>
                 {!!items && renderItems()}
                 {!items && childrenWithProps}
             </div>

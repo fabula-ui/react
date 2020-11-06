@@ -12,7 +12,8 @@ const Badge = props => {
         children,
         elRef,
         label,
-        placement
+        placement,
+        ...rest
     } = props;
     const ref = useRef(null);
 
@@ -20,6 +21,7 @@ const Badge = props => {
         <Component
             elRef={ref || elRef}
             properties={props}
+            rest={rest}
             styles={BadgeStyles}
             wrapper="fab-badge-wrapper">
             <div data-fab-wrapper="badge" ref={ref || elRef}>

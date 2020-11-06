@@ -5,9 +5,6 @@ import PropTypes from 'prop-types';
 import Component from '../Component/Component';
 import Icon from '../Icon/Icon';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import InputStyles from '@fabula/core/styles/components/input/input';
 
@@ -32,7 +29,6 @@ const Input = props => {
     const [focus, setFocus] = useState(false);
     const [inputType, setInputType] = useState(type || 'text');
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     const handleBlur = (e) => {
         setFocus(false);
@@ -56,6 +52,7 @@ const Input = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={InputStyles}
             wrapper="fab-input-wrapper">
             <div data-focus={focus} data-fab-wrapper="input" ref={elRef || ref}>
@@ -81,8 +78,7 @@ const Input = props => {
                             onFocus={handleFocus}
                             placeholder={placeholder}
                             ref={elRef}
-                            type={inputType}
-                            {...restProps} />
+                            type={inputType} />
                     }
 
                     {textarea &&
@@ -94,8 +90,7 @@ const Input = props => {
                             onFocus={handleFocus}
                             placeholder={placeholder}
                             ref={elRef}
-                            type={inputType}
-                            {...restProps} />
+                            type={inputType} />
                     }
 
                     {(!!iconEnd && !passwordToggle) &&
@@ -120,7 +115,6 @@ const Input = props => {
                         {typeof message === 'object' && <span>{message.text}</span>}
                         {typeof message === 'string' && <span>{message}</span>}
                     </div>
-
                 }
             </div>
         </Component>

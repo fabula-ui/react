@@ -8,9 +8,6 @@ import Icon from '../Icon/Icon';
 import List from '../List/List';
 import Tabs from '../Tabs/Tabs';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import NavbarMenuStyles from '@fabula/core/styles/components/navbar-menu/navbar-menu';
 
@@ -27,7 +24,6 @@ const NavbarMenu = props => {
 const Menu = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef();
-    const restProps = getComponentProps(rest, 'utils');
 
     // Children with props
     const childrenWithProps = Children.map(children, child => {
@@ -42,10 +38,11 @@ const Menu = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={NavbarMenuStyles}
             wrapper="fab-navbar-menu">
             <div data-mobile={false} data-fab-wrapper="navbarMenu" ref={elRef || ref}>
-                <Tabs {...restProps}>
+                <Tabs {...rest}>
                     {childrenWithProps}
                 </Tabs>
             </div>
@@ -57,7 +54,6 @@ const MobileMenu = props => {
     const { children, elRef, ...rest } = props;
     const [open, setOpen] = useState(false);
     const ref = useRef();
-    const restProps = getComponentProps(rest, 'utils');
 
     // Children with props
     const childrenWithProps = Children.map(children, child => {
@@ -76,6 +72,7 @@ const MobileMenu = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={NavbarMenuStyles}
             wrapper="fab-navbar-menu">
             <div data-mobile={true} data-fab-component="navbarMenu" ref={elRef || ref}>
@@ -83,13 +80,12 @@ const MobileMenu = props => {
                     <Icon name="menu" />
                 </Button>
             </div>
-            <Drawer onChange={setOpen} open={open} {...restProps}>
-                <List padding={true} {...restProps}>
+            <Drawer onChange={setOpen} open={open} {...rest}>
+                <List padding={true} {...rest}>
                     {childrenWithProps}
                 </List>
             </Drawer>
         </Component>
-
     )
 }
 

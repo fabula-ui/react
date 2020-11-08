@@ -38,7 +38,6 @@ const Segments = props => {
   } = props;
   const [activeSegment, setActiveSegment] = useState(active);
   const ref = useRef(null);
-  const restProps = getComponentProps(rest);
 
   // Callbacks
   const toggleContent = useCallback(segment => {
@@ -98,9 +97,10 @@ const Segments = props => {
     <Component
       elRef={elRef || ref}
       properties={props}
+      rest={rest}
       styles={SegmentsStyles}
       wrapper="fab-segments-wrapper">
-      <div ref={elRef || ref} data-fab-wrapper="segments" {...restProps}>
+      <div data-fab-wrapper="segments" ref={elRef || ref}>
         <div className="fab-segments" data-fab-component="segments">
           {childrenWithProps}
         </div>

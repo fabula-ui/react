@@ -32,7 +32,7 @@ const Drawer = props => {
                 <div className="fab-drawer">
                     {children}
                 </div>
-                <button className="fab-drawer__close-btn" onClick={handleClose}>
+                <button className="fab-drawer__close-button" onClick={handleClose}>
                     <Icon name="x" />
                 </button>
             </div>

@@ -4,36 +4,44 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import SegmentStyles from '@fabula/core/styles/components/segment/segment';
 
 const Segment = props => {
-    const { activeSegment, children, elRef, handleActive, href, link, name, target, ...rest } = props;
+    const {
+        activeSegment,
+        children,
+        elRef,
+        handleActive,
+        href,
+        link,
+        name,
+        onClick,
+        rel,
+        target,
+        ...rest
+    } = props;
     const [active, setActive] = useState(props.active);
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     useLayoutEffect(() => {
         if (activeSegment) { setActive(activeSegment === name); }
     }, [activeSegment, name]);
 
     const handleClick = () => {
-        handleActive(name);
+        if (handleActive) { handleActive(name); }
+        if (onClick) { onClick(); }
     }
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={SegmentStyles}
             wrapper="fab-segment">
-            <div data-active={!!active} ref={elRef || ref} data-fab-component="segment">
-                {!href && !link && <button onClick={handleClick} {...restProps}>{children}</button>}
-                {(!!href || !!link) && <a href={href || link} target={target} {...restProps}>{children}</a>}
-            </div>
+            {!href && !link && <button onClick={handleClick} data-active={!!active} data-name={name} data-fab-component="segment" ref={elRef || ref}>{children}</button>}
+            {(!!href || !!link) && <a href={href || link} rel={rel} target={target} data-active={!!active} data-name={name} data-fab-component="segment" ref={elRef || ref}>{children}</a>}
         </Component>
     )
 }
@@ -53,6 +61,7 @@ Segment.defaultProps = {
     link: '',
     name: '',
     outline: false,
+    rel: '',
     rounded: false,
     scope: '',
     stacked: false,
@@ -76,6 +85,7 @@ Segment.propTypes = {
     link: PropTypes.string,
     name: PropTypes.string,
     outline: PropTypes.bool,
+    rel: PropTypes.string,
     rounded: PropTypes.bool,
     scope: PropTypes.string,
     stacked: PropTypes.bool,

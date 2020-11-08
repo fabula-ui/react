@@ -7,9 +7,6 @@ import Component from '../Component/Component';
 import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import SearchInputStyles from '@fabula/core/styles/components/search-input/search-input';
 
@@ -26,8 +23,6 @@ const SearchInput = props => {
     } = props;
     const ref = useRef(null);
     const searchRef = useRef(null);
-    const inputRestProps = getComponentProps(rest, 'utils');
-    const wrapperRestProps = getComponentProps(rest);
 
     const handleKeyDown = e => {
         if (e.keyCode === 13 && onSearch) {
@@ -48,8 +43,8 @@ const SearchInput = props => {
             properties={props}
             styles={SearchInputStyles}
             wrapper="fab-search-input">
-            <div ref={elRef || ref} data-fab-wrapper="searchInput" {...wrapperRestProps}>
-                <Input elRef={searchRef} iconStart={{ name: 'search' }} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...inputRestProps}>
+            <div ref={elRef || ref} data-fab-wrapper="searchInput">
+                <Input elRef={searchRef} iconStart={{ name: 'search' }} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...rest}>
                     {!!button &&
                         <Button color="primary" compact={true} onClick={handleSearch} {...button}>
                             {!button.label && !button.icon && 'Search'}

@@ -11,9 +11,6 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import SegmentsStyles from '@fabula/core/styles/components/segments/segments';
 

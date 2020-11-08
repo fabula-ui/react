@@ -20,7 +20,8 @@ const Toast = props => {
         onHide,
         onShow,
         message,
-        stacked
+        stacked,
+        ...rest
     } = props;
     const [height, setHeight] = useState();
     const [hidden, setHidden] = useState(false);
@@ -79,16 +80,17 @@ const Toast = props => {
             <Component
                 elRef={ref}
                 properties={{ ...props, height, stacked }}
+                rest={rest}
                 styles={ToastStyles}
                 wrapper="fab-toast-wrapper">
-                <div data-fab-wrapper="toast" data-hiding={hiding} data-stacked={stacked} ref={ref} style={{ height }}>
+                <div data-hiding={hiding} data-stacked={stacked} ref={ref} style={{ height }} data-fab-wrapper="toast">
                     <div className="fab-toast" data-fab-component="toast">
                         {!!icon && <Icon {...icon} />}
                         {!!message && <span className="fab-toast__message">{message}</span>}
                         {children}
                         {(!!button || !!hideButton) &&
-                            <div className="fab-toast__close-button">
-                                {!!hideButton && !button && <Button size="sm" {...hideButton} data-close-button onClick={hideToast} />}
+                            <div className="fab-toast__button">
+                                {!!hideButton && !button && <Button size="sm" {...hideButton} onClick={hideToast} />}
                                 {!!button && <Button size="sm" {...button} />}
                             </div>
                         }

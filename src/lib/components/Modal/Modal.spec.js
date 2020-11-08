@@ -9,7 +9,6 @@ import ModalHeader from '../ModalHeader/ModalHeader';
 // Provider
 import ModalProvider from '../../providers/ModalProvider';
 import ModalController from '../../controllers/ModalController';
-import { act } from 'react-dom/test-utils';
 import ModalBody from '../ModalBody/ModalBody';
 import ModalFooter from '../ModalFooter/ModalFooter';
 

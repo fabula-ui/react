@@ -3,7 +3,6 @@ import React, { Fragment } from 'react';
 import {
     FabulaProvider,
     Tag,
-    TagGroup,
     UtilsProvider,
     Wrapper
 } from '../lib';
@@ -16,32 +15,32 @@ export default {
 // Base component
 const BaseComponent = props => (
     <Fragment>
-        <TagGroup mb={1}>
-            <Tag {...props}>Normal</Tag>
-            <Tag color="primary" {...props}>Normal</Tag>
-            <Tag color="lavender" {...props}>Normal</Tag>
-            <Tag color="hot" {...props}>Normal</Tag>
-            <Tag color="aux" {...props}>Normal</Tag>
+        <Wrapper mb={1}>
+            <Tag mr={.5} {...props}>Normal</Tag>
+            <Tag color="primary" mr={.5} {...props}>Normal</Tag>
+            <Tag color="lavender" mr={.5} {...props}>Normal</Tag>
+            <Tag color="hot" mr={.5} {...props}>Normal</Tag>
+            <Tag color="aux" mr={.5} {...props}>Normal</Tag>
             <Tag color="dark" {...props}>Normal</Tag>
-        </TagGroup>
+        </Wrapper>
 
-        <TagGroup mb={1}>
-            <Tag href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
-            <Tag color="primary" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
-            <Tag color="lavender" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
-            <Tag color="hot" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
-            <Tag color="aux" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+        <Wrapper mb={1}>
+            <Tag href="https://www.github.com/fabula-ui" mr={.5} rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+            <Tag color="primary" href="https://www.github.com/fabula-ui" mr={.5} rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+            <Tag color="lavender" href="https://www.github.com/fabula-ui" mr={.5} rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+            <Tag color="hot" href="https://www.github.com/fabula-ui" mr={.5} rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
+            <Tag color="aux" href="https://www.github.com/fabula-ui" mr={.5} rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
             <Tag color="dark" href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank" {...props}>Anchor</Tag>
-        </TagGroup>
+        </Wrapper>
 
-        <TagGroup>
-            <Tag button={true} {...props}>Button</Tag>
-            <Tag button={true} color="primary" {...props}>Button</Tag>
-            <Tag button={true} color="lavender" {...props}>Button</Tag>
-            <Tag button={true} color="hot" {...props}>Button</Tag>
-            <Tag button={true} color="aux" {...props}>Button</Tag>
+        <Wrapper>
+            <Tag button={true} mr={.5} {...props}>Button</Tag>
+            <Tag button={true} color="primary" mr={.5} {...props}>Button</Tag>
+            <Tag button={true} color="lavender" mr={.5} {...props}>Button</Tag>
+            <Tag button={true} color="hot" mr={.5} {...props}>Button</Tag>
+            <Tag button={true} color="aux" mr={.5} {...props}>Button</Tag>
             <Tag button={true} color="dark" {...props}>Button</Tag>
-        </TagGroup>
+        </Wrapper>
     </Fragment>
 )
 
@@ -49,11 +48,11 @@ const BaseComponent = props => (
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <TagGroup>
-                <Tag>Normal</Tag>
-                <Tag href="https://www.github.com/fabula-ui" rel="noopener noreferrer" target="_blank">Anchor</Tag>
+            <Wrapper>
+                <Tag mr={.5}>Normal</Tag>
+                <Tag href="https://www.github.com/fabula-ui" mr={.5} rel="noopener noreferrer" target="_blank">Anchor</Tag>
                 <Tag button={true}>Button</Tag>
-            </TagGroup>
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
@@ -118,41 +117,41 @@ export const PropRounded = () => (
 export const PropSize = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <TagGroup mb="1">
-                <Tag color="primary" size="xs">Extra-small</Tag>
-                <Tag color="primary" size="sm">Small</Tag>
-                <Tag color="primary" size="md">Medium</Tag>
-                <Tag color="primary" size="lg">Large</Tag>
-                <Tag color="primary" size="xl">Extra-large</Tag>
+            <Wrapper mb="1">
+                <Tag color="primary" mr={.5} size="xs">Extra-small</Tag>
+                <Tag color="primary" mr={.5} size="sm">Small</Tag>
+                <Tag color="primary" mr={.5} size="md">Medium</Tag>
+                <Tag color="primary" mr={.5} size="lg">Large</Tag>
+                <Tag color="primary" mr={.5} size="xl">Extra-large</Tag>
                 <Tag color="primary" size="xxl">2x Extra-large</Tag>
-            </TagGroup>
+            </Wrapper>
 
-            <TagGroup mb={1}>
-                <Tag button={true} color="primary" size="xs">Extra-small</Tag>
-                <Tag button={true} color="primary" size="sm">Small</Tag>
-                <Tag button={true} color="primary" size="md">Medium</Tag>
-                <Tag button={true} color="primary" size="lg">Large</Tag>
-                <Tag button={true} color="primary" size="xl">Extra-large</Tag>
+            <Wrapper mb={1}>
+                <Tag button={true} color="primary" mr={.5} size="xs">Extra-small</Tag>
+                <Tag button={true} color="primary" mr={.5} size="sm">Small</Tag>
+                <Tag button={true} color="primary" mr={.5} size="md">Medium</Tag>
+                <Tag button={true} color="primary" mr={.5} size="lg">Large</Tag>
+                <Tag button={true} color="primary" mr={.5} size="xl">Extra-large</Tag>
                 <Tag button={true} color="primary" size="xxl">2x Extra-large</Tag>
-            </TagGroup>
+            </Wrapper>
 
-            <TagGroup mb={1}>
-                <Tag color="primary" href="https://www.fabulaui.com" size="xs">Extra-small</Tag>
-                <Tag color="primary" href="https://www.fabulaui.com" size="sm">Small</Tag>
-                <Tag color="primary" href="https://www.fabulaui.com" size="md">Medium</Tag>
-                <Tag color="primary" href="https://www.fabulaui.com" size="lg">Large</Tag>
-                <Tag color="primary" href="https://www.fabulaui.com" size="xl">Extra-large</Tag>
+            <Wrapper mb={1}>
+                <Tag color="primary" href="https://www.fabulaui.com" mr={.5} size="xs">Extra-small</Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" mr={.5} size="sm">Small</Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" mr={.5} size="md">Medium</Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" mr={.5} size="lg">Large</Tag>
+                <Tag color="primary" href="https://www.fabulaui.com" mr={.5} size="xl">Extra-large</Tag>
                 <Tag color="primary" href="https://www.fabulaui.com" size="xxl">2x Extra-large</Tag>
-            </TagGroup>
+            </Wrapper>
 
-            <TagGroup mb={1}>
-                <Tag color="primary" rounded={true} size="xs">Extra-small</Tag>
-                <Tag color="primary" rounded={true} size="sm">Small</Tag>
-                <Tag color="primary" rounded={true} size="md">Medium</Tag>
-                <Tag color="primary" rounded={true} size="lg">Large</Tag>
-                <Tag color="primary" rounded={true} size="xl">Extra-large</Tag>
+            <Wrapper mb={1}>
+                <Tag color="primary" mr={.5} rounded={true} size="xs">Extra-small</Tag>
+                <Tag color="primary" mr={.5} rounded={true} size="sm">Small</Tag>
+                <Tag color="primary" mr={.5} rounded={true} size="md">Medium</Tag>
+                <Tag color="primary" mr={.5} rounded={true} size="lg">Large</Tag>
+                <Tag color="primary" mr={.5} rounded={true} size="xl">Extra-large</Tag>
                 <Tag color="primary" rounded={true} size="xxl">2x Extra-large</Tag>
-            </TagGroup>
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )

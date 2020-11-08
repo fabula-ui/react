@@ -61,16 +61,12 @@ import ToastController from './controllers/ToastController';
 
 // Providers
 import FabulaProvider from './providers/FabulaProvider';
-import FabulaUtils from './providers/FabulaUtils';
 import ModalProvider from './providers/ModalProvider';
 import ResponsiveProvider from './providers/ResponsiveProvider';
 import ThemeProvider from './providers/ThemeProvider';
 import ToastProvider from './providers/ToastProvider';
 import TooltipProvider from './providers/TooltipProvider';
 import UtilsProvider from './providers/UtilsProvider';
-
-// Services
-import ToastService from './services/ToastService';
 
 export {
     // Components
@@ -136,14 +132,10 @@ export {
 
     // Providers
     FabulaProvider,
-    FabulaUtils,
     ModalProvider,
     ResponsiveProvider,
     ThemeProvider,
     ToastProvider,
     TooltipProvider,
     UtilsProvider,
-
-    // Services
-    ToastService,
 };

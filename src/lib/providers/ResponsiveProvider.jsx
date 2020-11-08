@@ -5,7 +5,6 @@ const ResponsiveProviderContext = createContext(null);
 
 const ResponsiveProvider = props => {
     const { children } = props;
-
     const initialState = {
         added: true
     };

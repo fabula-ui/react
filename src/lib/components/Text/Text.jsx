@@ -3,9 +3,6 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import TextStyles from '@fabula/core/styles/components/text/text';
 
@@ -13,7 +10,6 @@ const Text = props => {
     const { aux, bold, children, color, content, elRef, medium, semibold, strong, weight, ...rest } = props;
     const ref = useRef(null);
     const [fontWeight, setFontWeight] = useState(null);
-    const restProps = getComponentProps(rest);
 
     useLayoutEffect(() => {
         if (!weight) {
@@ -29,11 +25,11 @@ const Text = props => {
         <Component
             elRef={elRef || ref}
             properties={{...props, weight: fontWeight}}
+            rest={rest}
             styles={TextStyles}
             wrapper="fab-text">
-            <div data-aux={!!aux} data-color={color} ref={elRef || ref} {...restProps}>
-                {!content && children}
-                {!!content && content}
+            <div data-aux={!!aux} data-color={color} ref={elRef || ref}>
+                {content || children}
             </div>
         </Component>
     )

@@ -4,16 +4,12 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import TagGroupStyles from '@fabula/core/styles/components/tag-group/tag-group';
 
 const TagGroup = props => {
     const { children, color, elRef, ...rest } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
     const childrenWithProps = Children.map(children, child => {
         if (isValidElement(child) && !child.props.color) {
             return cloneElement(child, { color });
@@ -26,6 +22,7 @@ const TagGroup = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={TagGroupStyles}
             wrapper="fab-tag-group-wrapper">
             <div ref={elRef || ref} {...restProps}>

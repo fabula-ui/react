@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { createElement, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
@@ -15,35 +15,44 @@ const Tag = props => {
         href,
         label,
         link,
+        onClick,
         placement,
         rel,
         target
     } = props;
     const ref = useRef(null);
+    let Element;
+    let tag;
+
+    if (href || link) {
+        tag = 'a';
+    } else if (!!button || onClick) {
+        tag = 'button';
+    } else {
+        tag = 'div';
+    }
+
+    Element = () => createElement(
+        tag,
+        {
+            'data-fab-component': 'tag',
+            'data-placement-x': placement && placement.x,
+            'data-placement-y': placement && placement.y,
+            onClick,
+            ref: elRef || ref,
+            rel,
+            target
+        },
+        label || children
+    );
 
     return (
         <Component
             elRef={elRef || ref}
             properties={props}
             styles={TagStyles}
-            wrapper="fab-tag-wrapper">
-            <div data-placement-x={placement && placement.x} data-placement-y={placement && placement.y} ref={elRef || ref} data-fab-wrapper="tag">
-                {!button && !href && !link &&
-                    <div className="fab-tag" data-fab-component="component">
-                        {label || children}
-                    </div>
-                }
-                {!!button &&
-                    <button className="fab-tag" data-fab-component="component">
-                        {label || children}
-                    </button>
-                }
-                {(!!href || !!link) &&
-                    <a className="fab-tag" href={href} rel={rel} target={target} data-fab-component="component">
-                        {label || children}
-                    </a>
-                }
-            </div>
+            wrapper="fab-tag">
+            <Element />
         </Component>
     )
 }

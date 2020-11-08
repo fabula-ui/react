@@ -44,7 +44,7 @@ const Tooltip = props => {
 
     // Hooks
     useLayoutEffect(() => {
-        handleTooltip(activeTooltip);
+        if (activeTooltip) { handleTooltip(activeTooltip); }
     }, [activeTooltip, handleTooltip]);
 
     return (
@@ -53,8 +53,8 @@ const Tooltip = props => {
             properties={componentProps}
             styles={TooltipStyles}
             wrapper="fab-tooltip">
-            <div data-placement={activeTooltip.placement} data-ready={ready} style={style} ref={elRef}>
-                <span className="fab-tooltip__label">{activeTooltip.label}</span>
+            <div data-placement={activeTooltip?.placement} data-ready={ready} style={style} ref={elRef}>
+                <span className="fab-tooltip__label">{activeTooltip?.label}</span>
             </div>
         </Component>
     )

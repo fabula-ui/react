@@ -23,7 +23,7 @@ const ToastStack = props => {
     const handleToasts = useCallback(() => {
         let toasts;
 
-        if (stacks[name]?.elements) {
+        if (stacks && stacks[name]?.elements) {
             toasts = stacks[name].elements.map((toast, i) => <Toast key={i} stacked={true} {...toast} />);
 
             setToasts(toasts);

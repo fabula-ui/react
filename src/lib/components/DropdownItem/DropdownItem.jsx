@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 // Components
 import Component from '../Component/Component';
 
-// Utils
-import getComponentProps from '../../utils/getComponentProps';
-
 // Styles
 import DropdownItemStyles from '@fabula/core/styles/components/dropdown-item/dropdown-item';
 
@@ -26,7 +23,6 @@ const DropdownItem = props => {
         ...rest
     } = props;
     const ref = useRef(null);
-    const restProps = getComponentProps(rest);
 
     const handleClick = () => {
         if ((button || clickToClose || onClick || parentOnClick) && toggle) { toggle(); }
@@ -38,6 +34,7 @@ const DropdownItem = props => {
         <Component
             elRef={elRef || ref}
             properties={props}
+            rest={rest}
             styles={DropdownItemStyles}
             wrapper="fab-dropdown-item">
             {(!!button || !!clickToClose || !!onClick || !!parentOnClick) && !href &&

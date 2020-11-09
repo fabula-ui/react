@@ -97,7 +97,6 @@ const Alert = props => {
                     className="fab-alert"
                     data-closing={isClosing}
                     data-title={!!title}
-                    data-visible={isVisible}
                     data-fab-component="alert"
                     ref={elRef || ref}>
                     {!!icon && !typeIcon && <Icon {...icon} />}
@@ -107,7 +106,7 @@ const Alert = props => {
                         {!!text && <div className="fab-alert__text">{text}</div>}
                         {children}
                     </div>
-                    {!!closeButton && <CloseButton circle={true} onClick={closeAlert} parentColor={color} size="sm" />}
+                    {!!closeButton && <CloseButton onClick={closeAlert} parentColor={color} size="sm" />}
                 </div>
             </Component>
         )

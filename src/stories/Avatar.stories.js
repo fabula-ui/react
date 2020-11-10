@@ -71,8 +71,8 @@ export const Example = () => (
             </Wrapper>
 
             <Wrapper>
-                <Avatar image="https://images-na.ssl-images-amazon.com/images/M/MV5BOTk1MzgzOTg5OV5BMl5BanBnXkFtZTcwNDQ4NjMxOA@@._V1_UY256_CR1,0,172,256_AL_.jpg" mr="1" />
-                <Avatar color="primary" image="https://images-na.ssl-images-amazon.com/images/M/MV5BOTk1MzgzOTg5OV5BMl5BanBnXkFtZTcwNDQ4NjMxOA@@._V1_UY256_CR1,0,172,256_AL_.jpg" mr="1" rounded={true} />
+                <Avatar mr="1" src="https://images-na.ssl-images-amazon.com/images/M/MV5BOTk1MzgzOTg5OV5BMl5BanBnXkFtZTcwNDQ4NjMxOA@@._V1_UY256_CR1,0,172,256_AL_.jpg" />
+                <Avatar color="primary" mr="1" rounded={true} src="https://images-na.ssl-images-amazon.com/images/M/MV5BOTk1MzgzOTg5OV5BMl5BanBnXkFtZTcwNDQ4NjMxOA@@._V1_UY256_CR1,0,172,256_AL_.jpg"  />
             </Wrapper>
         </UtilsProvider>
     </FabulaProvider>

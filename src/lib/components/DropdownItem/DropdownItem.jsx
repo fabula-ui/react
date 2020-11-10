@@ -38,7 +38,7 @@ const DropdownItem = props => {
             styles={DropdownItemStyles}
             wrapper="fab-dropdown-item">
             {(!!button || !!clickToClose || !!onClick || !!parentOnClick) && !href &&
-                <button data-fab-component="dropdownItem" onClick={handleClick} ref={elRef || ref} {...restProps}>
+                <button data-fab-component="dropdownItem" onClick={handleClick} ref={elRef || ref}>
                     {label || children}
                 </button>
             }
@@ -48,7 +48,7 @@ const DropdownItem = props => {
                 </div>
             }
             {href &&
-                <a data-fab-component="dropdownItem" href={href} ref={elRef || ref} {...restProps}>
+                <a data-fab-component="dropdownItem" href={href} ref={elRef || ref}>
                     {label || children}
                 </a>
             }

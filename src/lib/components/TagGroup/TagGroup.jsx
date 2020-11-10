@@ -25,7 +25,7 @@ const TagGroup = props => {
             rest={rest}
             styles={TagGroupStyles}
             wrapper="fab-tag-group-wrapper">
-            <div ref={elRef || ref} {...restProps}>
+            <div ref={elRef || ref}>
                 <div className="fab-tag-group">
                     {childrenWithProps}
                 </div>

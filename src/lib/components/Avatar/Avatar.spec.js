@@ -38,16 +38,11 @@ describe('Avatar Component', () => {
 
     it('Should show initials', () => {
         const { container } = render(<Avatar showInitials="Show Initials" />);
+        const iconElement = container.querySelector('.fab-icon');
         const initialsElement = container.querySelector('.fab-avatar__initials');
 
-        expect(initialsElement.textContent).toBe('SI');
-    });
-
-    it('Should hide icon when showing initials', () => {
-        const { container } = render(<Avatar showInitials="Show Initials" />);
-        const iconElement = container.querySelector('.fab-icon');
-
         expect(iconElement).toBeFalsy();
+        expect(initialsElement.textContent).toBe('SI');
     });
 
     it('Should accept external components - eg: badge', () => {

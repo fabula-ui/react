@@ -6,7 +6,7 @@ import Component from '../Component/Component';
 import Icon from '../Icon/Icon';
 
 // Methods
-import getInitials from '@fabula/core/styles/methods/misc/getInitials';
+import getInitials from '@fabula/core/methods/misc/getInitials';
 
 // Styles
 import AvatarStyles from '@fabula/core/styles/components/avatar/avatar';
@@ -32,8 +32,8 @@ const Avatar = props => {
             rest={rest}
             styles={AvatarStyles}
             wrapper="fab-avatar-wrapper">
-            <div data-fab-wrapper="avatar" data-rounded={rounded} ref={elRef || ref}>
-                <div className="fab-avatar" data-color={color} data-fab-component="avatar" data-rounded={rounded} data-size={size}>
+            <div data-rounded={rounded} data-fab-wrapper="avatar" ref={elRef || ref}>
+                <div className="fab-avatar" data-color={color} data-rounded={rounded} data-size={size} data-fab-component="avatar">
                     {!showInitials && !!icon && <Icon {...icon} />}
                     {showInitials && <span className="fab-avatar__initials">{getInitials(showInitials)}</span>}
                     {src && <div className="fab-avatar__image" style={{ backgroundImage: `url(${src})` }}></div>}
@@ -49,7 +49,6 @@ Avatar.defaultProps = {
     icon: {
         name: 'image'
     },
-    image: '',
     inline: true,
     lighten: false,
     rounded: false,

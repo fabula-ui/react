@@ -23,11 +23,9 @@ const Badge = props => {
             properties={props}
             rest={rest}
             styles={BadgeStyles}
-            wrapper="fab-badge-wrapper">
-            <div data-fab-wrapper="badge" ref={ref || elRef}>
-                <div className="fab-badge" data-has-placement={!!placement} data-fab-component="badge">
-                    {label || children}
-                </div>
+            wrapper="fab-badge">
+            <div data-has-placement={!!placement} data-fab-component="badge" ref={ref || elRef}>
+                {label || children}
             </div>
         </Component>
     )

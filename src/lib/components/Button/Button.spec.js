@@ -53,11 +53,13 @@ describe('Button Component', () => {
     });
 
     it('Should have an anchor', () => {
-        const { container } = render(<Button href="href" />);
+        const { container } = render(<Button href="href" rel="rel" target="target" />);
         const anchorElement = container.querySelector('a.fab-button');
         const buttonElement = container.querySelector('button.fab-button');
 
-        expect(anchorElement).toBeTruthy();
+        expect(anchorElement.getAttribute('href')).toBe('href');
+        expect(anchorElement.getAttribute('rel')).toBe('rel');
+        expect(anchorElement.getAttribute('target')).toBe('target');
         expect(buttonElement).toBeFalsy();
     });
 });

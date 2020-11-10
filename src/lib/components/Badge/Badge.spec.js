@@ -14,10 +14,8 @@ describe('Badge Component', () => {
     it('Should have a defined structure', () => {
         const { container } = render(<Badge />);
         const badgeElement = container.querySelector('.fab-badge');
-        const wrapperElement = container.querySelector('.fab-badge-wrapper');
 
         expect(badgeElement).toBeTruthy();
-        expect(wrapperElement).toBeTruthy();
     });
 
     it('Should have a label', () => {

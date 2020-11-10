@@ -17,11 +17,9 @@ const ButtonGroup = props => {
             properties={props}
             rest={rest}
             styles={ButtonGroupStyles}
-            wrapper="fab-button-group-wrapper">
-            <div data-fab-wrapper="buttonGroup" ref={elRef || ref}>
-                <div className="fab-button-group" data-fab-component="buttonGroup">
-                    {children}
-                </div>
+            wrapper="fab-button-group">
+            <div className="fab-button-group" data-fab-component="buttonGroup" ref={elRef || ref}>
+                {children}
             </div>
         </Component>
     )

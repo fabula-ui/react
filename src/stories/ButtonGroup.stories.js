@@ -66,62 +66,50 @@ export const PropColor = () => (
         <UtilsProvider>
             <Wrapper flex={true}>
                 <Wrapper mr={1}>
-                    <Wrapper mb={1}>
+                    <Wrapper flex={true} mb={1}>
                         <ButtonGroup mr={1}>
                             <Button>Button</Button>
                             <Button>Button</Button>
                             <Button>Button</Button>
+                        </ButtonGroup>
+                        <ButtonGroup mr={1}>
+                            <Button border={true}>Button</Button>
+                            <Button border={true}>Button</Button>
+                            <Button border={true}>Button</Button>
+                        </ButtonGroup>
+                    </Wrapper>
+
+                    <Wrapper flex={true} mb={1}>
+                        <ButtonGroup color="primary" mr={1}>
+                            <Button color="primary">Button</Button>
+                            <Button color="primary">Button</Button>
+                            <Button color="primary">Button</Button>
                         </ButtonGroup>
                         <ButtonGroup color="primary">
-                            <Button color="primary">Button</Button>
-                            <Button color="primary">Button</Button>
-                            <Button color="primary">Button</Button>
+                            <Button border={true} color="primary">Button</Button>
+                            <Button border={true} color="primary">Button</Button>
+                            <Button border={true} color="primary">Button</Button>
                         </ButtonGroup>
                     </Wrapper>
-                    <Wrapper mb={1}>
-                        <ButtonGroup color="lavender" mr={1}>
-                            <Button color="lavender">Button</Button>
-                            <Button color="lavender">Button</Button>
-                            <Button color="lavender">Button</Button>
-                        </ButtonGroup>
-                        <ButtonGroup color="hot">
-                            <Button color="hot">Button</Button>
-                            <Button color="hot">Button</Button>
-                            <Button color="hot">Button</Button>
-                        </ButtonGroup>
-                    </Wrapper>
-                    <Wrapper>
-                        <ButtonGroup color="aux" mr={1}>
-                            <Button color="aux">Button</Button>
-                            <Button color="aux">Button</Button>
-                            <Button color="aux">Button</Button>
-                        </ButtonGroup>
-                        <ButtonGroup color="dark">
-                            <Button color="dark">Button</Button>
-                            <Button color="dark">Button</Button>
-                            <Button color="dark">Button</Button>
-                        </ButtonGroup>
-                    </Wrapper>
-                </Wrapper>
 
-                <Wrapper>
-                    <Wrapper mb={1}>
-                        <ButtonGroup mr={1}>
-                            <Button border={true}>Button</Button>
-                            <Button border={true}>Button</Button>
-                            <Button border={true}>Button</Button>
+                    <Wrapper flex={true} mb={1}>
+                        <ButtonGroup color="lavender" mr={1}>
+                            <Button color="lavender">Button</Button>
+                            <Button color="lavender">Button</Button>
+                            <Button color="lavender">Button</Button>
                         </ButtonGroup>
-                        <ButtonGroup color="primary" mr={1}>
-                            <Button border={true} color="primary">Button</Button>
-                            <Button border={true} color="primary">Button</Button>
-                            <Button border={true} color="primary">Button</Button>
+                        <ButtonGroup color="lavender">
+                            <Button border={true} color="lavender">Button</Button>
+                            <Button border={true} color="lavender">Button</Button>
+                            <Button border={true} color="lavender">Button</Button>
                         </ButtonGroup>
                     </Wrapper>
-                    <Wrapper mb={1}>
-                        <ButtonGroup color="lavender" mr={1}>
-                            <Button border={true} color="lavender">Button</Button>
-                            <Button border={true} color="lavender">Button</Button>
-                            <Button border={true} color="lavender">Button</Button>
+
+                    <Wrapper flex={true} mb={1}>
+                        <ButtonGroup color="hot" mr={1}>
+                            <Button color="hot">Button</Button>
+                            <Button color="hot">Button</Button>
+                            <Button color="hot">Button</Button>
                         </ButtonGroup>
                         <ButtonGroup color="hot">
                             <Button border={true} color="hot">Button</Button>
@@ -129,11 +117,25 @@ export const PropColor = () => (
                             <Button border={true} color="hot">Button</Button>
                         </ButtonGroup>
                     </Wrapper>
-                    <Wrapper mb={1}>
+
+                    <Wrapper flex={true} mb={1}>
                         <ButtonGroup color="aux" mr={1}>
+                            <Button color="aux">Button</Button>
+                            <Button color="aux">Button</Button>
+                            <Button color="aux">Button</Button>
+                        </ButtonGroup>
+                        <ButtonGroup color="aux">
                             <Button border={true} color="aux">Button</Button>
                             <Button border={true} color="aux">Button</Button>
                             <Button border={true} color="aux">Button</Button>
+                        </ButtonGroup>
+                    </Wrapper>
+
+                    <Wrapper flex={true} mb={1}>
+                        <ButtonGroup color="dark" mr={1}>
+                            <Button color="dark">Button</Button>
+                            <Button color="dark">Button</Button>
+                            <Button color="dark">Button</Button>
                         </ButtonGroup>
                         <ButtonGroup color="dark">
                             <Button border={true} color="dark">Button</Button>

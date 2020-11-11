@@ -39,6 +39,13 @@ const BaseComponent = props => (
   </Card>
 )
 
+const SimpleBaseComponent = props => (
+  <Card padding={true} width={250} {...props}>
+    <Text strong={true}>Card Title</Text>
+    <Text aux={true} size="sm">Card subtitle</Text>
+  </Card>
+)
+
 const ListItemExample = ({ children, title, ...rest }) => (
   <ListItem flex={true} {...rest}>
     <Wrapper flex={true} flow="v" grow={1}>
@@ -238,25 +245,25 @@ export const UtilMargin = () => (
   <FabulaProvider>
       <UtilsProvider>
           <Wrapper al="center" flex={true} mb={1}>
-              <BaseComponent mr={.5} width={300} />
-              <BaseComponent mx={.5} width={300} />
-              <BaseComponent ml={.5} width={300} />
+              <SimpleBaseComponent mr={.5} />
+              <SimpleBaseComponent mx={.5}/>
+              <SimpleBaseComponent ml={.5} />
           </Wrapper>
 
           <Wrapper al="center" direction="column" flex={true} mb={1}>
-              <BaseComponent mb={.5} width={300} />
-              <BaseComponent my={.5} width={300} />
-              <BaseComponent mt={.5} width={300} />
+              <SimpleBaseComponent mb={.5} />
+              <SimpleBaseComponent my={.5} />
+              <SimpleBaseComponent mt={.5} />
           </Wrapper>
 
           <Wrapper al="center" direction="column" flex={true}>
-              <BaseComponent width={300} />
+              <SimpleBaseComponent />
               <Wrapper al="center" flex={true}>
-                  <BaseComponent width={300} />
-                  <BaseComponent m={1} width={300} />
-                  <BaseComponent width={300} />
+                  <SimpleBaseComponent />
+                  <SimpleBaseComponent m={1} />
+                  <SimpleBaseComponent />
               </Wrapper>
-              <BaseComponent width={300} />
+              <SimpleBaseComponent />
           </Wrapper>
       </UtilsProvider>
   </FabulaProvider>
@@ -265,8 +272,8 @@ export const UtilMargin = () => (
 export const UtilVisibility = () => (
   <FabulaProvider>
       <UtilsProvider>
-          <BaseComponent hidden={true} />
-          <BaseComponent visible={true} width={300} />
+          <SimpleBaseComponent hidden={true} />
+          <SimpleBaseComponent visible={true} />
       </UtilsProvider>
   </FabulaProvider>
 )

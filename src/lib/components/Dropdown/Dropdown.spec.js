@@ -46,21 +46,7 @@ describe('Dropdown Component', () => {
     });
 
     // TODO: fix these tests
-    // it('Should open dropdown when clicking dropdown toggle', () => {
-    //     const { container } = render(<DropdownExample />);
-    //     const menuElement = container.querySelector('.fab-dropdown-menu');
-    //     const toggleElement = container.querySelector('.fab-dropdown-toggle');
-
-    //     fireEvent.click(toggleElement, new MouseEvent('click', {
-    //         bubbles: true,
-    //         cancelable: true,
-    //     }));
-
-    //     expect(menuElement.getAttribute('data-open')).toBe('true');
-    //     expect(toggleElement.getAttribute('data-open')).toBe('true');
-    // });
-
-    // it('Should close dropdown when clicking dropdown toggle', () => {
+    // it('Should open and close dropdown when clicking dropdown toggle', () => {
     //     const { container } = render(<DropdownExample />);
     //     const menuElement = container.querySelector('.fab-dropdown-menu');
     //     const toggleElement = container.querySelector('.fab-dropdown-toggle');

@@ -10,7 +10,8 @@ import {
   Row,
   Tag,
   Text,
-  UtilsProvider
+  UtilsProvider,
+  Wrapper
 } from '../lib';
 
 export default {
@@ -23,7 +24,7 @@ const BaseComponent = props => (
   <Card glow={true}>
     <CardImage height="120" onClick={() => console.log('Clicked')} {...props} />
     <CardSection padding>
-      <Text block size="lg"><strong>Card Title</strong></Text>
+      <Text block size="lg" strong={true}>Card Title</Text>
       <Text aux block size="sm">Card subtitle</Text>
     </CardSection>
   </Card>
@@ -33,11 +34,9 @@ const BaseComponent = props => (
 export const Example = () => (
   <FabulaProvider>
     <UtilsProvider>
-      <Row>
-        <Column col={3}>
-          <BaseComponent />
-        </Column>
-      </Row>
+      <Wrapper width={300}>
+        <BaseComponent />
+      </Wrapper>
     </UtilsProvider>
   </FabulaProvider>
 )
@@ -212,6 +211,23 @@ export const PropLighten = () => (
   </FabulaProvider>
 )
 
+// Utilities
+export const UtilVisibility = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <Row>
+        <Column col={6}>
+          <BaseComponent hidden={true} />
+        </Column>
+        <Column col={6}>
+          <BaseComponent visible={true} />
+        </Column>
+      </Row>
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
+// External
 export const ExternalTag = () => (
   <FabulaProvider>
     <UtilsProvider>
@@ -220,7 +236,7 @@ export const ExternalTag = () => (
           <BaseComponent>
             <Tag color="primary" placement={{ x: 'left', y: 'top' }}>
               <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
+              <Text color="inherit" inline={true} strong>Online</Text>
             </Tag>
           </BaseComponent>
         </Column>
@@ -229,7 +245,7 @@ export const ExternalTag = () => (
           <BaseComponent>
             <Tag color="primary" placement={{ x: 'center', y: 'top' }}>
               <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
+              <Text color="inherit" inline={true} strong>Online</Text>
             </Tag>
           </BaseComponent>
         </Column>
@@ -238,7 +254,7 @@ export const ExternalTag = () => (
           <BaseComponent>
             <Tag color="primary" placement={{ x: 'right', y: 'top' }}>
               <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
+              <Text color="inherit" inline={true} strong>Online</Text>
             </Tag>
           </BaseComponent>
         </Column>
@@ -249,7 +265,7 @@ export const ExternalTag = () => (
           <BaseComponent>
             <Tag color="primary" placement={{ x: 'left', y: 'center' }}>
               <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
+              <Text color="inherit" inline={true} strong>Online</Text>
             </Tag>
           </BaseComponent>
         </Column>
@@ -258,7 +274,7 @@ export const ExternalTag = () => (
           <BaseComponent>
             <Tag color="primary" placement={{ x: 'center', y: 'center' }}>
               <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
+              <Text color="inherit" inline={true} strong>Online</Text>
             </Tag>
           </BaseComponent>
         </Column>
@@ -267,7 +283,7 @@ export const ExternalTag = () => (
           <BaseComponent>
             <Tag color="primary" placement={{ x: 'right', y: 'center' }}>
               <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
+              <Text color="inherit" inline={true} strong>Online</Text>
             </Tag>
           </BaseComponent>
         </Column>
@@ -278,7 +294,7 @@ export const ExternalTag = () => (
           <BaseComponent>
             <Tag color="primary" placement={{ x: 'left', y: 'bottom' }}>
               <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
+              <Text color="inherit" inline={true} strong>Online</Text>
             </Tag>
           </BaseComponent>
         </Column>
@@ -287,7 +303,7 @@ export const ExternalTag = () => (
           <BaseComponent>
             <Tag color="primary" placement={{ x: 'center', y: 'bottom' }}>
               <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
+              <Text color="inherit" inline={true} strong>Online</Text>
             </Tag>
           </BaseComponent>
         </Column>
@@ -296,25 +312,9 @@ export const ExternalTag = () => (
           <BaseComponent>
             <Tag color="primary" placement={{ x: 'right', y: 'bottom' }}>
               <Icon name="cloud" />
-              <Text color="inherit" strong>Online</Text>
+              <Text color="inherit" inline={true} strong>Online</Text>
             </Tag>
           </BaseComponent>
-        </Column>
-      </Row>
-    </UtilsProvider>
-  </FabulaProvider>
-)
-
-// Utilities
-export const UtilVisibility = () => (
-  <FabulaProvider>
-    <UtilsProvider>
-      <Row>
-        <Column col={4}>
-          <BaseComponent hidden={true} />
-        </Column>
-        <Column col={4}>
-          <BaseComponent visible={true} />
         </Column>
       </Row>
     </UtilsProvider>

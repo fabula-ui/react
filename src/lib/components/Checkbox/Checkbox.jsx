@@ -11,7 +11,6 @@ import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';
 const Checkbox = props => {
     const { children, disabled, elRef, label, onChange, onCheck, onUncheck, readOnly, ...rest } = props;
     const [checked, setChecked] = useState(props.checked || false);
-    const [focus, setFocus] = useState(false);
     const [isIndeterminate, setIndeterminate] = useState(props.indeterminate || false);
     const ref = useRef(null);
 
@@ -46,7 +45,6 @@ const Checkbox = props => {
                     className="fab-checkbox"
                     data-checked={checked}
                     data-disabled={disabled}
-                    data-focus={focus}
                     data-indeterminate={isIndeterminate}
                     data-read-only={readOnly}
                     data-fab-component="checkbox">
@@ -57,9 +55,7 @@ const Checkbox = props => {
                         <input
                             checked={checked}
                             disabled={disabled}
-                            onBlur={() => setFocus(false)}
                             onChange={handleChange}
-                            onFocus={() => setFocus(true)}
                             type="checkbox" />
                         {label || children}
                     </label>

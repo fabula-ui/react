@@ -68,6 +68,9 @@ import ToastProvider from './providers/ToastProvider';
 import TooltipProvider from './providers/TooltipProvider';
 import UtilsProvider from './providers/UtilsProvider';
 
+// Aliases
+const Col = Column;
+
 export {
     // Components
     Alert,
@@ -79,6 +82,7 @@ export {
     CardImage,
     CardSection,
     Checkbox,
+    Col,
     Column,
     Container,
     Drawer,

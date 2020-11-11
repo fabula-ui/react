@@ -41,7 +41,7 @@ const BaseComponent = props => (
 
 const SimpleBaseComponent = props => (
   <Card padding={true} width={250} {...props}>
-    <Text strong={true}>Card Title</Text>
+    <Text size="lg" strong={true}>Card Title</Text>
     <Text aux={true} size="sm">Card subtitle</Text>
   </Card>
 )

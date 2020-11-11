@@ -31,10 +31,10 @@ describe('Dropdown Item Component', () => {
         expect(itemElement.textContent).toBe('Label');
     });
 
-    it('Should have custom content', () => {
-        const { container } = render(<DropdownItem>Custom Content</DropdownItem>);
+    it('Should have children as label', () => {
+        const { container } = render(<DropdownItem>Label</DropdownItem>);
 
-        expect(container.textContent).toBe('Custom Content');
+        expect(container.textContent).toBe('Label');
     });
 
     it('Should set color', () => {
@@ -46,12 +46,14 @@ describe('Dropdown Item Component', () => {
     });
 
     it('Should be an anchor', () => {
-        const { container } = render(<DropdownItem href="href" label="Label"></DropdownItem>);
+        const { container } = render(<DropdownItem href="href" label="Label" rel="rel" target="target"></DropdownItem>);
         const anchorElement = container.querySelector('a.fab-dropdown-item');
         const buttonElement = container.querySelector('button.fab-dropdown-item');
         const divElement = container.querySelector('div.fab-dropdown-item');
 
-        expect(anchorElement).toBeTruthy();
+        expect(anchorElement.getAttribute('href')).toBe('href');
+        expect(anchorElement.getAttribute('rel')).toBe('rel');
+        expect(anchorElement.getAttribute('target')).toBe('target');
         expect(buttonElement).toBeFalsy();
         expect(divElement).toBeFalsy();
     });

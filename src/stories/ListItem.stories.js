@@ -32,11 +32,11 @@ const BaseComponent = ({ color, hidden, ...rest }) => {
                             List item subtitle
                         </Text>
                     </Wrapper>
-                    <TagGroup>
-                        <Tag color={color} invert={!!color} size="sm">Tag 1</Tag>
-                        <Tag color={color} invert={!!color} size="sm">Tag 2</Tag>
+                    <Wrapper>
+                        <Tag color={color} invert={!!color} mr={.5} size="sm">Tag 1</Tag>
+                        <Tag color={color} invert={!!color} mr={.5} size="sm">Tag 2</Tag>
                         <Tag color={color} invert={!!color} size="sm">Tag 3</Tag>
-                    </TagGroup>
+                    </Wrapper>
                 </ListItem>
             </List>
         </UtilsProvider>

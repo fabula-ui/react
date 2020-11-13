@@ -147,44 +147,6 @@ export const PropMessage = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Row mb={1}>
-                <Column col={6}>
-                    <Input icon={{ name: 'user' }} message="This is an input message" placeholder="Type something..." />
-                </Column>
-                <Column col={6}>
-                    <Input icon={{ name: 'user' }} message={{ text: 'This is an input message' }} placeholder="Type something..." variant="clear" />
-                </Column>
-            </Row>
-        </UtilsProvider>
-    </FabulaProvider>
-)
-
-export const PropMessageColor = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <Row mb={1}>
-                <Column col={4}>
-                    <Input icon={{ name: 'user' }} message="This is an input message" messageColor="primary" placeholder="Type something..." />
-                </Column>
-
-                <Column col={4}>
-                    <Input icon={{ name: 'user' }} message="This is an input message" messageColor="lavender" placeholder="Type something..." />
-                </Column>
-
-                <Column col={4}>
-                    <Input icon={{ name: 'user' }} message="This is an input message" messageColor="hot" placeholder="Type something..." />
-                </Column>
-            </Row>
-            <Row mb={1}>
-                <Column col={4}>
-                    <Input icon={{ name: 'user' }} message="This is an input message" messageColor="aux" placeholder="Type something..." />
-                </Column>
-
-                <Column col={4}>
-                    <Input icon={{ name: 'user' }} message="This is an input message" messageColor="dark" placeholder="Type something..." />
-                </Column>
-            </Row>
-
-            <Row mb={1}>
                 <Column col={4}>
                     <Input icon={{ name: 'user' }} message={{ color: 'primary', text: 'This is an input message' }} placeholder="Type something..." />
                 </Column>

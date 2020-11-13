@@ -42,6 +42,12 @@ describe('Heading Component', () => {
         expect(component.container.querySelector('h6')).toBeTruthy();
     });
 
+    it('Should have inner content as children', () => {
+        const { container } = render(<Heading>Content</Heading>);
+
+        expect(container.textContent).toBe('Content');
+    });
+
     it('Should set color', () => {
         const { container } = render(<Heading color="blue" />);
         const headingElement = container.querySelector('.fab-heading');

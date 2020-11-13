@@ -30,16 +30,14 @@ const Input = props => {
     const [inputType, setInputType] = useState(type || 'text');
     const ref = useRef(null);
 
-    const handleBlur = (e) => {
-        setFocus(false);
+    const handleFocus = focus => {
+        setFocus(focus);
 
-        if (onBlur) { onBlur(e); }
-    }
-
-    const handleFocus = e => {
-        setFocus(true);
-
-        if (onFocus) { onFocus(e); }
+        if (focus && onFocus) {
+            onFocus();
+        } else if (!focus && onBlur) {
+            onBlur();
+        }
     }
 
     const toggleType = () => {
@@ -72,10 +70,9 @@ const Input = props => {
                     {!textarea &&
                         <input
                             className="fab-input__field"
-                            data-fab-component="input"
                             disabled={disabled}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
+                            onBlur={() => handleFocus(false)}
+                            onFocus={() => handleFocus(true)}
                             placeholder={placeholder}
                             ref={elRef}
                             type={inputType} />
@@ -84,13 +81,12 @@ const Input = props => {
                     {textarea &&
                         <textarea
                             className="fab-input__field"
-                            data-fab-component="input"
                             disabled={disabled}
-                            onBlur={handleBlur}
-                            onFocus={handleFocus}
+                            onBlur={() => handleFocus(false)}
+                            onFocus={() => handleFocus(true)}
                             placeholder={placeholder}
                             ref={elRef}
-                            type={inputType} />
+                            type={inputType}/>
                     }
 
                     {(!!iconEnd && !passwordToggle) &&
@@ -110,10 +106,9 @@ const Input = props => {
                     </div>
                 </div>
 
-                {!!message &&
+                {!!message?.text &&
                     <div className="fab-input__message">
-                        {typeof message === 'object' && <span>{message.text}</span>}
-                        {typeof message === 'string' && <span>{message}</span>}
+                        <span>{message.text}</span>
                     </div>
                 }
             </div>
@@ -130,7 +125,10 @@ Input.defaultProps = {
     icon: null,
     iconEnd: null,
     iconStart: null,
-    message: null,
+    message: {
+        color: '',
+        text: ''
+    },
     messageColor: '',
     passwordToggle: false,
     placeholder: '',

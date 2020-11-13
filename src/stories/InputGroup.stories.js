@@ -36,7 +36,7 @@ export const Example = () => (
                     <DropdownToggle border={true} color="light" compact={true} glow={false}>Dropdown Toggle</DropdownToggle>
                     <DropdownMenu clickToClose={true} items={[{ label: 'Item 1' }, { label: 'Item 2' }, { label: 'Item 3' }]}></DropdownMenu>
                 </Dropdown>
-                <Input iconStart={{ color: 'primary', name: 'battery-charging' }} message="Example of an input message" placeholder="Type something..." />
+                <Input iconStart={{ color: 'primary', name: 'battery-charging' }} message={{ text: 'Example of an input message' }} placeholder="Type something..." />
                 <Button border={true} color="light">
                     <Text color="inherit" inline={true} mr={.5} weight={600}>Button</Text>
                     <Icon name="arrow-right" />

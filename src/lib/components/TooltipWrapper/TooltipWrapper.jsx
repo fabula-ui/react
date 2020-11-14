@@ -13,23 +13,25 @@ const TooltipWrapper = props => {
     const { handleTooltip } = useContext(TooltipController);
     const element = children?.props ? children : children[0].props;
 
-    const handleMouseOut = e => {
-        handleTooltip(null);
+    const handleMouseOut = () => {
+        if (handleTooltip) { handleTooltip(null); }
     }
 
     const handleMouseOver = e => {
         const element = e.target.getBoundingClientRect();
 
-        handleTooltip({
-            color,
-            height: e.target.offsetHeight,
-            label,
-            offset,
-            placement,
-            x: element.left,
-            width: e.target.offsetWidth,
-            y: element.top
-        });
+        if (handleTooltip) {
+            handleTooltip({
+                color,
+                height: e.target.offsetHeight,
+                label,
+                offset,
+                placement,
+                x: element.left,
+                width: e.target.offsetWidth,
+                y: element.top
+            });
+        }
     }
 
     const childrenWithProps = Children.map(children, child => {

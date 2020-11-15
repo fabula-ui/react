@@ -19,6 +19,7 @@ const Container = props => {
             wrapper="fab-container">
             <div
                 className="fab-container"
+                data-fab-component="container"
                 ref={elRef || ref}>
                 {children}
             </div>

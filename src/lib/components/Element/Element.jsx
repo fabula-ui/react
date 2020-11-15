@@ -17,7 +17,7 @@ const Element = props => {
             rest={rest}
             styles={ElementStyles}
             wrapper="fab-element">
-            <span ref={elRef || ref}>{children}</span>
+            <span data-fab-component="element" ref={elRef || ref}>{children}</span>
         </Component>
     )
 }

@@ -15,7 +15,6 @@ import {
   Row,
   UtilsProvider,
   Tag,
-  TagGroup,
   Text,
   Wrapper
 } from '../lib';
@@ -56,11 +55,11 @@ const ListItemExample = ({ children, title, ...rest }) => (
       <Text aux inline={true}>List item subtitle</Text>
     </Wrapper>
     <Wrapper alH="end" direction="column" flex={true}>
-      <TagGroup mb={.5}>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
+      <Wrapper mb={.5}>
+        <Tag mr={.5}>Tag 1</Tag>
+        <Tag mr={.5}>Tag 2</Tag>
         <Tag>Tag 3</Tag>
-      </TagGroup>
+      </Wrapper>
 
       <Text alV="center" aux={true} flex={true}>
         <Icon mr=".5" name="clock" />

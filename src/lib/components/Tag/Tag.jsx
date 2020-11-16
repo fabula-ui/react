@@ -14,7 +14,6 @@ const Tag = props => {
         elRef,
         href,
         label,
-        link,
         onClick,
         placement,
         rel,
@@ -24,7 +23,7 @@ const Tag = props => {
     let Element;
     let tag;
 
-    if (href || link) {
+    if (href) {
         tag = 'a';
     } else if (!!button || onClick) {
         tag = 'button';

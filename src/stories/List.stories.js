@@ -8,7 +8,6 @@ import {
     ListItem,
     Row,
     Tag,
-    TagGroup,
     Text,
     UtilsProvider,
     Wrapper

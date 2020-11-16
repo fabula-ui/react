@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 // Component
 import Toast from './Toast';
@@ -53,4 +53,6 @@ describe('Toast Component', () => {
 
         expect(buttonElement).toBeTruthy();
     });
+
+    // TODO: test show toast method
 });

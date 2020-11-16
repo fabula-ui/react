@@ -43,8 +43,8 @@ const SearchInput = props => {
             properties={props}
             styles={SearchInputStyles}
             wrapper="fab-search-input">
-            <div ref={elRef || ref} data-fab-wrapper="searchInput">
-                <Input elRef={searchRef} iconStart={{ name: 'search' }} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...rest}>
+            <div data-fab-wrapper="searchInput" ref={elRef || ref}>
+                <Input elRef={searchRef} iconStart={{ name: 'search' }} innerComponent={true} onKeyDown={handleKeyDown} placeholder={placeholder || 'Search...'} {...rest}>
                     {!!button &&
                         <Button color="primary" compact={true} onClick={handleSearch} {...button}>
                             {!button.label && !button.icon && 'Search'}

@@ -28,7 +28,7 @@ const Text = props => {
             rest={rest}
             styles={TextStyles}
             wrapper="fab-text">
-            <div data-aux={!!aux} data-color={color} ref={elRef || ref}>
+            <div data-aux={aux} data-color={color} ref={elRef || ref}>
                 {content || children}
             </div>
         </Component>

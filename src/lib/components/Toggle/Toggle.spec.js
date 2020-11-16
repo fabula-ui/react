@@ -22,6 +22,18 @@ describe('Toggle Component', () => {
         expect(wrapperElement.getAttribute('data-disabled')).toBe(null);
     });
 
+    it('Should have a label', () => {
+        const { container } = render(<Toggle label="Label" />);
+
+        expect(container.textContent).toBe('Label');
+    });
+
+    it('Should have inner content as children', () => {
+        const { container } = render(<Toggle>Content</Toggle>);
+
+        expect(container.textContent).toBe('Content');
+    });
+
     it('Should be disabled', () => {
         const { container } = render(<Toggle disabled={true} />);
         const wrapperElement = container.querySelector('.fab-toggle-wrapper');

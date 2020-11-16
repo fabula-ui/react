@@ -222,17 +222,17 @@ export const PropStacked = () => (
             <Row mb={1}>
                 <Column col={4}>
                     <Card ov="hidden">
-                        <BaseComponent layout="h" stacked={true} type="block" />
+                        <BaseComponent expand="h" layout="h" stacked={true} type="block" />
                     </Card>
                 </Column>
                 <Column col={4}>
                     <Card ov="hidden">
-                        <BaseComponent layout="h" stacked={true} type="float" />
+                        <BaseComponent expand="h" layout="h" stacked={true} type="float" />
                     </Card>
                 </Column>
                 <Column col={4}>
                     <Card ov="hidden">
-                        <BaseComponent layout="h" stacked={true} type="pill" />
+                        <BaseComponent expand="h" layout="h" stacked={true} type="pill" />
                     </Card>
                 </Column>
             </Row>
@@ -240,17 +240,17 @@ export const PropStacked = () => (
             <Row>
                 <Column col={4}>
                     <Card ov="hidden">
-                        <BaseComponent color="primary" layout="h" stacked={true} type="block" />
+                        <BaseComponent color="primary" expand="h" layout="h" stacked={true} type="block" />
                     </Card>
                 </Column>
                 <Column col={4}>
                     <Card ov="hidden">
-                        <BaseComponent color="primary" layout="h" stacked={true} type="float" />
+                        <BaseComponent color="primary" expand="h" layout="h" stacked={true} type="float" />
                     </Card>
                 </Column>
                 <Column col={4}>
                     <Card ov="hidden">
-                        <BaseComponent color="primary" layout="h" stacked={true} type="pill" />
+                        <BaseComponent color="primary" expand="h" layout="h" stacked={true} type="pill" />
                     </Card>
                 </Column>
             </Row>

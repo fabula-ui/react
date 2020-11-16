@@ -6,7 +6,6 @@ import {
     List,
     ListItem,
     Tag,
-    TagGroup,
     Text,
     UtilsProvider,
     Wrapper

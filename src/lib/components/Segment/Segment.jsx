@@ -14,7 +14,6 @@ const Segment = props => {
         elRef,
         handleActive,
         href,
-        link,
         name,
         onClick,
         rel,
@@ -40,8 +39,8 @@ const Segment = props => {
             rest={rest}
             styles={SegmentStyles}
             wrapper="fab-segment">
-            {!href && !link && <button onClick={handleClick} data-active={!!active} data-name={name} data-fab-component="segment" ref={elRef || ref}>{children}</button>}
-            {(!!href || !!link) && <a href={href || link} rel={rel} target={target} data-active={!!active} data-name={name} data-fab-component="segment" ref={elRef || ref}>{children}</a>}
+            {!href && <button onClick={handleClick} data-active={!!active} data-name={name} data-fab-component="segment" ref={elRef || ref}>{children}</button>}
+            {!!href && <a href={href} rel={rel} target={target} data-active={!!active} data-name={name} data-fab-component="segment" ref={elRef || ref}>{children}</a>}
         </Component>
     )
 }
@@ -58,7 +57,6 @@ Segment.defaultProps = {
     inactiveTextColor: '',
     invert: false,
     layout: '',
-    link: '',
     name: '',
     outline: false,
     rel: '',
@@ -82,7 +80,6 @@ Segment.propTypes = {
     inactiveTextColor: PropTypes.string,
     invert: PropTypes.bool,
     layout: PropTypes.string,
-    link: PropTypes.string,
     name: PropTypes.string,
     outline: PropTypes.bool,
     rel: PropTypes.string,

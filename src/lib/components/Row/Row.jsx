@@ -17,7 +17,7 @@ const Row = props => {
             rest={rest}
             styles={RowStyles}
             wrapper="fab-row">
-            <div className="fab-row" ref={elRef || ref}>
+            <div className="fab-row" data-fab-component="row" ref={elRef || ref}>
                 {children}
             </div>
         </Component>

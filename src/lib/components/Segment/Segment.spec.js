@@ -20,10 +20,12 @@ describe('Segment Component', () => {
     });
 
     it('Should be an anchor', () => {
-        const { container } = render(<Segment href="href" />);
+        const { container } = render(<Segment href="href" rel="rel" target="target" />);
         const anchorElement = container.querySelector('a');
 
-        expect(anchorElement).toBeTruthy();
+        expect(anchorElement.getAttribute('href')).toBe('href');
+        expect(anchorElement.getAttribute('rel')).toBe('rel');
+        expect(anchorElement.getAttribute('target')).toBe('target');
     });
 
     it('Should call onClick', () => {

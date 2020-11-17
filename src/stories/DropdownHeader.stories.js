@@ -26,9 +26,6 @@ export const Example = () => (
 				<DropdownMenu>
 					<DropdownHeader pl={1}>Dropdown Header</DropdownHeader>
 					<DropdownItem button={true}>Dropdown Item 1</DropdownItem>
-					<DropdownItem button={true}>Dropdown Item 2</DropdownItem>
-					<Divider />
-					<DropdownItem>Dropdown Item 3</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>
 		</UtilsProvider>
@@ -44,9 +41,6 @@ export const PropColor = () => (
 				<DropdownMenu>
 					<DropdownHeader color="primary">Dropdown Header</DropdownHeader>
 					<DropdownItem button={true}>Dropdown Item 1</DropdownItem>
-					<DropdownItem button={true}>Dropdown Item 2</DropdownItem>
-					<Divider />
-					<DropdownItem>Dropdown Item 3</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>
 		</UtilsProvider>
@@ -72,7 +66,7 @@ export const UtilMargin = () => (
 	<FabulaProvider>
 		<UtilsProvider>
 			<Wrapper mb={1}>
-				<UtilBaseComponent m={1} />
+				<UtilBaseComponent m={.5} />
 			</Wrapper>
 			<Wrapper mb={1}>
 				<UtilBaseComponent mb={.5} />

@@ -86,29 +86,37 @@ export const PropHref = () => (
 )
 
 // Utilities
+const UtilBaseComponent = props => (
+    <List color="aux" padding={true} width={400}>
+        <ListItem {...props}>List Item 1</ListItem>
+        <ListItem>List Item 2</ListItem>
+        <ListItem>List Item 3</ListItem>
+    </List>
+)
+
 export const UtilMargin = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Wrapper al="center" flex={true} mb={1}>
-                <BaseComponent mr={.5} width={400} />
-                <BaseComponent mx={.5} width={400} />
-                <BaseComponent ml={.5} width={400} />
+            <Wrapper mb={1}>
+                <UtilBaseComponent m={1} />
             </Wrapper>
-
-            <Wrapper al="center" direction="column" flex={true} mb={1}>
-                <BaseComponent mb={.5} width={400} />
-                <BaseComponent my={.5} width={400} />
-                <BaseComponent mt={.5} width={400} />
+            <Wrapper mb={1}>
+                <UtilBaseComponent mb={1} />
             </Wrapper>
-
-            <Wrapper al="center" direction="column" flex={true}>
-                <BaseComponent width={400} />
-                <Wrapper al="center" flex={true}>
-                    <BaseComponent width={400} />
-                    <BaseComponent m={1} width={400} />
-                    <BaseComponent width={400} />
-                </Wrapper>
-                <BaseComponent width={400} />
+            <Wrapper mb={1}>
+                <UtilBaseComponent ml={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent mr={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent mt={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent mx={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent my={1} />
             </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
@@ -117,13 +125,27 @@ export const UtilMargin = () => (
 export const UtilPadding = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <BaseComponent mb={1} p={2} />
-            <BaseComponent mb={1} pb={2} />
-            <BaseComponent mb={1} pl={2} />
-            <BaseComponent mb={1} pr={2} />
-            <BaseComponent mb={1} pt={2} />
-            <BaseComponent mb={1} px={2} />
-            <BaseComponent mb={1} py={2} />
+            <Wrapper mb={1}>
+                <UtilBaseComponent p={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent pb={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent pl={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent pr={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent pt={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent px={1} />
+            </Wrapper>
+            <Wrapper mb={1}>
+                <UtilBaseComponent py={1} />
+            </Wrapper>
         </UtilsProvider>
     </FabulaProvider>
 )
@@ -131,8 +153,10 @@ export const UtilPadding = () => (
 export const UtilVisibility = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <BaseComponent hidden={true} />
-            <BaseComponent visible={true} />
+            <Wrapper mb={1}>
+                <UtilBaseComponent hidden={true} />
+            </Wrapper>
+            <UtilBaseComponent visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

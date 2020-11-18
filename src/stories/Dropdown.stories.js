@@ -149,8 +149,8 @@ export const CustomContent = () => (
 								List Item 1
 							</Text>
 							<Tag color="success">
-								<Icon name="check" />
-								<Text strong={true}>Done</Text>
+								<Icon mr={.5} name="check" />
+								<Text inline={true} strong={true}>Done</Text>
 							</Tag>
 						</ListItem>
 
@@ -159,8 +159,8 @@ export const CustomContent = () => (
 								List Item 2
 							</Text>
 							<Tag color="danger">
-								<Icon name="alert-triangle" />
-								<Text strong={true}>Cancelled</Text>
+								<Icon mr={.5} name="alert-triangle" />
+								<Text inline={true} strong={true}>Cancelled</Text>
 							</Tag>
 						</ListItem>
 
@@ -169,8 +169,8 @@ export const CustomContent = () => (
 								List Item 3
 							</Text>
 							<Tag color="hot">
-								<Icon name="sun" />
-								<Text strong={true}>Hot</Text>
+								<Icon mr={.5} name="sun" />
+								<Text inline={true} strong={true}>Hot</Text>
 							</Tag>
 						</ListItem>
 
@@ -179,8 +179,8 @@ export const CustomContent = () => (
 								List Item 4
 							</Text>
 							<Tag color="warning">
-								<Icon name="clock" />
-								<Text strong={true}>Waiting</Text>
+								<Icon mr={.5} name="clock" />
+								<Text inline={true} strong={true}>Waiting</Text>
 							</Tag>
 						</ListItem>
 					</List>

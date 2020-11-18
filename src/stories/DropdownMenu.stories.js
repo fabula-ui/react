@@ -89,7 +89,7 @@ export const UtilMargin = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Wrapper mb={1}>
-                <UtilBaseComponent m={1} />
+                <UtilBaseComponent m={.5} />
             </Wrapper>
             <Wrapper mb={1}>
                 <UtilBaseComponent mb={.5} />

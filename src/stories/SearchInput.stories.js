@@ -265,20 +265,6 @@ export const UtilMargin = () => (
     </FabulaProvider>
 )
 
-export const UtilPadding = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <UtilBaseComponent mb={1} p={2} />
-            <UtilBaseComponent mb={1} pb={2} />
-            <UtilBaseComponent mb={1} pl={2} />
-            <UtilBaseComponent mb={1} pr={2} />
-            <UtilBaseComponent mb={1} pt={2} />
-            <UtilBaseComponent mb={1} px={2} />
-            <UtilBaseComponent mb={1} py={2} />
-        </UtilsProvider>
-    </FabulaProvider>
-)
-
 export const UtilVisibility = () => (
     <FabulaProvider>
         <UtilsProvider>

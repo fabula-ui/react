@@ -23,9 +23,11 @@ const Toggle = props => {
             rest={rest}
             styles={ToggleStyles}
             wrapper="fab-toggle-wrapper">
-            <div data-active={active} data-disabled={disabled} ref={elRef || ref}>
-                <button className="fab-toggle" onClick={handleClick}></button>
-                <div className="fab-toggle__label" onClick={handleClick}>{label || children}</div>
+            <div data-active={active} data-disabled={disabled} data-fab-wrapper="toggle" ref={elRef || ref}>
+                <div className="fab-toggle" data-fab-component="toggle">
+                    <button className="fab-toggle__switch" onClick={handleClick}></button>
+                    <div className="fab-toggle__label" onClick={handleClick}>{label || children}</div>
+                </div>
             </div>
         </Component>
     )

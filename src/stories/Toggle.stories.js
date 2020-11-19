@@ -141,3 +141,41 @@ export const PropSize = () => (
         </UtilsProvider>
     </FabulaProvider>
 )
+
+// Utilities
+export const UtilMargin = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Wrapper al="center" flex={true} mb={1}>
+                <Toggle mr={.5}>Toggle</Toggle>
+                <Toggle mx={.5}>Toggle</Toggle>
+                <Toggle ml={.5}>Toggle</Toggle>
+            </Wrapper>
+  
+            <Wrapper al="center" direction="column" flex={true} mb={1}>
+                <Toggle mb={.5}>Toggle</Toggle>
+                <Toggle my={.5}>Toggle</Toggle>
+                <Toggle mt={.5}>Toggle</Toggle>
+            </Wrapper>
+  
+            <Wrapper al="center" direction="column" flex={true}>
+                <Toggle>Toggle</Toggle>
+                <Wrapper al="center" flex={true}>
+                    <Toggle>Toggle</Toggle>
+                    <Toggle m={1}>Toggle</Toggle>
+                    <Toggle>Toggle</Toggle>
+                </Wrapper>
+                <Toggle>Toggle</Toggle>
+            </Wrapper>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+  
+export const UtilVisibility = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Toggle hidden={true}>Toggle</Toggle>
+            <Toggle visible={true}>Toggle</Toggle>
+        </UtilsProvider>
+    </FabulaProvider>
+)

@@ -340,44 +340,44 @@ export const HandleContent = () => (
 )
 
 // Utilities
+const UtilBaseComponent = props => (
+    <Tabs {...props}>
+        <Tab active={true} name="docs">
+            <span>Tab 1</span>
+        </Tab>
+        <Tab name="components">
+            <span>Tab 2</span>
+        </Tab>
+        <Tab name="showcase">
+            <span>Tab 3</span>
+        </Tab>
+    </Tabs>
+)
+
 export const UtilMargin = () => (
     <FabulaProvider>
         <UtilsProvider>
             <Wrapper al="center" flex={true} mb={1}>
-                <BaseComponent mr={.5} />
-                <BaseComponent mx={.5} />
-                <BaseComponent ml={.5} />
+                <UtilBaseComponent color="light" mr={.5} />
+                <UtilBaseComponent color="light" mx={.5} />
+                <UtilBaseComponent color="light" ml={.5} />
             </Wrapper>
 
             <Wrapper al="center" direction="column" flex={true} mb={1}>
-                <BaseComponent mb={.5} />
-                <BaseComponent my={.5} />
-                <BaseComponent mt={.5} />
+                <UtilBaseComponent color="light" mb={.5} />
+                <UtilBaseComponent color="light" my={.5} />
+                <UtilBaseComponent color="light" mt={.5} />
             </Wrapper>
 
             <Wrapper al="center" direction="column" flex={true}>
-                <BaseComponent />
+                <UtilBaseComponent color="light" />
                 <Wrapper al="center" flex={true}>
-                    <BaseComponent />
-                    <BaseComponent m={1} />
-                    <BaseComponent />
+                    <UtilBaseComponent color="light" />
+                    <UtilBaseComponent color="light" m={1} />
+                    <UtilBaseComponent color="light" />
                 </Wrapper>
-                <BaseComponent />
+                <UtilBaseComponent color="light" />
             </Wrapper>
-        </UtilsProvider>
-    </FabulaProvider>
-)
-
-export const UtilPadding = () => (
-    <FabulaProvider>
-        <UtilsProvider>
-            <BaseComponent mb={1} p={2} />
-            <BaseComponent mb={1} pb={2} />
-            <BaseComponent mb={1} pl={2} />
-            <BaseComponent mb={1} pr={2} />
-            <BaseComponent mb={1} pt={2} />
-            <BaseComponent mb={1} px={2} />
-            <BaseComponent mb={1} py={2} />
         </UtilsProvider>
     </FabulaProvider>
 )
@@ -385,8 +385,8 @@ export const UtilPadding = () => (
 export const UtilVisibility = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <BaseComponent hidden={true} />
-            <BaseComponent visible={true} />
+            <UtilBaseComponent hidden={true} />
+            <UtilBaseComponent visible={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

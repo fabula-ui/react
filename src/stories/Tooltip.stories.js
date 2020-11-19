@@ -92,6 +92,12 @@ export const Example = () => {
                             <Tooltip label="Tooltip">
                                 <Input placeholder="Input" width={300} />
                             </Tooltip>
+
+                            <Wrapper mt={20}>
+                                <Tooltip label="Tooltip">
+                                    <Button color="primary" expand={true}>Button</Button>
+                                </Tooltip>
+                            </Wrapper>
                         </Wrapper>
                     </TooltipProvider>
                 </Wrapper>

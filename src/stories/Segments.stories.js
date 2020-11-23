@@ -21,7 +21,7 @@ export default {
 
 // Base component
 const BaseComponent = props => (
-  <Segments active="docs" {...props}>
+  <Segments active="docs" onChange={e => console.log(e)} {...props}>
     <Segment name="docs">Docs</Segment>
     <Segment name="components">Components</Segment>
     <Segment name="showcase">Showcase</Segment>

@@ -22,7 +22,7 @@ export default {
 
 // Base Component
 const BaseComponent = props => (
-    <Tabs {...props}>
+    <Tabs {...props} onChange={e => console.log(e)}>
         <Tab active={true} name="docs">
             <Icon name="file-text" />
             <span>Tab 1</span>

@@ -61,13 +61,7 @@ const Segments = props => {
   const handleActive = useCallback(segment => {
     setActiveSegment(segment);
     if (segment && scope) { toggleContent(segment); }
-    if (onChange) {
-      onChange({
-        scope,
-        segment
-      });
-    }
-  }, [onChange, scope, toggleContent]);
+  }, [scope, toggleContent]);
 
   // Hooks
   useEffect(() => {
@@ -86,8 +80,10 @@ const Segments = props => {
     inactiveColor,
     inactiveTextColor,
     invert,
+    onChange,
     outline,
-    rounded
+    rounded,
+    scope
   }));
 
   return (

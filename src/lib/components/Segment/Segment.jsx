@@ -15,8 +15,10 @@ const Segment = props => {
         handleActive,
         href,
         name,
+        onChange,
         onClick,
         rel,
+        scope,
         target,
         ...rest
     } = props;
@@ -29,6 +31,12 @@ const Segment = props => {
 
     const handleClick = () => {
         if (handleActive) { handleActive(name); }
+        if (onChange) {
+            onChange({
+              scope,
+              segment: name
+            });
+          }
         if (onClick) { onClick(); }
     }
 

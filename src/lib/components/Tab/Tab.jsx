@@ -17,8 +17,10 @@ const Tab = props => {
         label,
         link,
         name,
+        onChange,
         onClick,
         rel,
+        scope,
         target,
         ...rest
     } = props;
@@ -33,6 +35,12 @@ const Tab = props => {
 
     const handleClick = () => {
         if (handleActive) { handleActive(name); }
+        if (onChange) {
+            onChange({
+                scope,
+                tab: name
+            });
+        }
         if (onClick) { onClick(); }
     }
 

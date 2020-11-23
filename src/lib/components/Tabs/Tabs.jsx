@@ -58,13 +58,7 @@ const Tabs = props => {
     const handleActive = useCallback(tab => {
         setActiveTab(tab);
         if (tab && scope) { toggleContent(tab); }
-        if (onChange) {
-            onChange({
-                scope,
-                tab
-            });
-        }
-    }, [onChange, scope, toggleContent]);
+    }, [scope, toggleContent]);
 
     // Hooks
     useEffect(() => {

@@ -10,7 +10,7 @@ import Icon from '../Icon/Icon';
 import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
 
 const DropdownToggle = props => {
-	const { arrow, children, className, direction, elRef, onClick, open, toggle, ...rest } = props;
+	const { arrow, children, className, direction, elRef, label, onClick, open, toggle, ...rest } = props;
 	const ref = useRef(null);
 
 	const handleClick = () => {
@@ -26,7 +26,7 @@ const DropdownToggle = props => {
 			wrapper="fab-dropdown-toggle">
 			<div data-direction={direction} data-open={open} ref={elRef || ref}>
 				<Button {...rest} onClick={handleClick}>
-					{!!children && <span className="fab-dropdown-toggle__label">{children}</span>}
+					{(!!children || !!label) && <span className="fab-dropdown-toggle__label">{label || children}</span>}
 					{arrow &&
 						<span className="fab-dropdown-toggle__chevron">
 							<Icon name="chevron-down" />

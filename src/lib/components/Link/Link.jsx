@@ -15,6 +15,7 @@ const Link = props => {
         href,
         label,
         rel,
+        size,
         underline,
         target,
         ...rest
@@ -28,7 +29,7 @@ const Link = props => {
             rest={rest}
             styles={LinkStyles}
             wrapper="fab-link">
-            <a href={href} rel={rel} target={target} ref={elRef || ref} data-fab-component="link">
+            <a data-size={size} href={href} rel={rel} target={target} ref={elRef || ref} data-fab-component="link">
                 {label || children}
             </a>
         </Component>
@@ -38,7 +39,6 @@ const Link = props => {
 Link.defaultProps = {
     inline: true,
     rel: '',
-    size: 'md',
     underline: true
 }
 

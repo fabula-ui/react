@@ -29,7 +29,7 @@ const BaseComponent = props => (
   <Card {...props}>
     <CardImage color={props.color} darken={!!props.color} height="120" />
     <CardSection color={props.color} padding>
-      <Text size="lg"><strong>Card Title</strong></Text>
+      <Text color={props.color ? 'inherit' : ''} size="lg"><strong>Card Title</strong></Text>
       <Text aux={true} color={!!props.color ? 'inherit' : ''} size="sm">Card subtitle</Text>
     </CardSection>
     <CardSection color={props.color} divider="top" padding={true}>

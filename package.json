@@ -1,10 +1,10 @@
 {
-  "name": "@fabula-ui/react",
+  "name": "@fabula/react",
   "version": "0.0.6",
   "main": "dist/index.js",
   "private": false,
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "files": [
     "dist",

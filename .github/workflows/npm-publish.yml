@@ -1,8 +1,9 @@
 name: "publish"
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+    - master
   
 jobs:
   release:
@@ -20,7 +21,3 @@ jobs:
         run: npm install
       - name: compile
         run: npm run compile
-      - name: publish
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

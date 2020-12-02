@@ -1,9 +1,8 @@
 name: "publish"
 
 on:
-  push:
-    branches:
-    - master
+  release:
+    types: [published]
   
 jobs:
   release:
@@ -21,3 +20,7 @@ jobs:
         uses: bahmutov/npm-install@v1
       - name: compile
         run: npm run compile
+      - name: publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

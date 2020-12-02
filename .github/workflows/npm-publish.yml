@@ -18,6 +18,7 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org
       - name: install
-        run: npm install
+        uses: bahmutov/npm-install@v1
+        run: npm t
       - name: compile
         run: npm run compile

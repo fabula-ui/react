@@ -19,6 +19,7 @@ const Column = props => {
             wrapper="fab-column">
             <div
                 className="fab-column"
+                data-fab-component="column"
                 ref={elRef || ref}>
                 {children}
             </div>

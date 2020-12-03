@@ -19,6 +19,8 @@ const DropdownItem = props => {
         onClick,
         parentColor,
         parentOnClick,
+        rel,
+        target,
         toggle,
         ...rest
     } = props;
@@ -48,7 +50,7 @@ const DropdownItem = props => {
                 </div>
             }
             {href &&
-                <a data-fab-component="dropdownItem" href={href} ref={elRef || ref}>
+                <a data-fab-component="dropdownItem" href={href} rel={rel} ref={elRef || ref} target={target}>
                     {label || children}
                 </a>
             }

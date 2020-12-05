@@ -21,7 +21,7 @@ export default {
 const BaseComponent = ({ color, darken, divider, faded, lighten }) => (
     <Card>
         <CardSection color={color} faded={faded} padding={true}>
-            <Text block size="lg" weight={700}>Card Title</Text>
+            <Text color="inherit" size="lg" weight={700}>Card Title</Text>
             <Text aux={true} color={color ? 'inherit' : ''} size="sm">Card subtitle</Text>
         </CardSection>
         <CardSection color={color} darken={darken} divider={divider ? 'top' : ''} lighten={lighten} padding={true}>
@@ -39,7 +39,7 @@ export const Example = () => (
             <Card width="400px">
                 <CardImage height={120} />
                 <CardSection padding={true}>
-                    <Text size="lg" weight={700}>Card Title</Text>
+                    <Text color="inherit" size="lg" weight={700}>Card Title</Text>
                     <Text aux={true} size="sm">Card subtitle</Text>
                 </CardSection>
                 <CardSection divider="top" padding={true}>

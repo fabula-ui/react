@@ -6,7 +6,7 @@
 
 > Fabula is currently in a beta version. It is not advised to be used in production yet.
 
-This is the repository for the core content of Fabula. It contains common styles, methods and tests that are used on the different framework versions of Fabula.
+This is the repository for the react version of Fabula.
 
 To view this readme in portuguese, [click here](https://github.com/fabula-ui/react/blob/master/.github/docs/pt/README.md).
 

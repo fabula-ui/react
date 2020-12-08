@@ -38,7 +38,7 @@ Para visualizar a documentação completa do Fabula, visite nosso [website](http
 
 Fabula é, e sempre vai ser, 100% open-source. Para ajudar o Fabula a crescer e se tornar cada vez mais fácil de usar, você pode reportar bugs quando você encontrar um, melhorar a documentação quando você achar que tem algo errado ou faltando ou você pode solicitar um novo recurso se você acha que falta algo no Fabula. Você pode aprender como contribuir [aqui](https://github.com/fabula-ui/core/blob/master/.github/docs/pt/CONTRIBUTING.md).
 
-Além disso, se você quer se engajar e trabalhar comigo no Fabula, manda uma mensagem agora mesmo no <a href="https://www.twitter.com/fabulaui" target="_blank">Twitter</a> ou envia um email <a href="mailto:fabulaui@gmail.com" target="_blank">email</a>. Eu vou adorar ouvir mais sobre você!
+Além disso, se você quer se engajar e trabalhar comigo no Fabula, manda uma mensagem agora mesmo no <a href="https://www.twitter.com/fabulaui" target="_blank">Twitter</a> ou nos envie um <a href="mailto:fabulaui@gmail.com" target="_blank">email</a>. Eu vou adorar ouvir mais sobre você!
 
 ### Reportando bugs
 

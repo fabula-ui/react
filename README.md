@@ -38,6 +38,8 @@ To view Fabula's full documentation, go to our [website](https://www.fabulaui.co
 
 Fabula is and always will be 100% open-source. To help make Fabula grow stronger and even easier to use you can report bugs whenever you catch one, improve the documentation when you feel something might be wrong or missing or you can request a new feature if you think Fabula misses something. You can learn how to contribute [here](https://github.com/fabula-ui/react/blob/master/.github/docs/en/contributing.md).
 
+Also, if you want to get engaged and work with me on Fabula, send a message right now on <a href="https://www.twitter.com/fabulaui" target="_blank">Twitter</a> or send an <a href="mailto:fabulaui@gmail.com" target="_blank">email</a>. I'd love to hear more from you!
+
 ### Reporting bugs
 
 Whenever you see something is wrong with Fabula and want to be helpful 💙, you can check our [guide](https://github.com/fabula-ui/react/blob/master/.github/reporting-bugs.md) and follow the instructions on how to report a bug.

@@ -247,12 +247,12 @@ export const PropRounded = () => (
 export const PropSize = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message="This input field is 2x extra large" placeholder="2x Extra-large input field" size="xxl" />
-            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message="This input field is extra large" placeholder="Extra-large input field" size="xl" />
-            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message="This input field is large" placeholder="Large input field" size="lg" />
-            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message="This input field is medium" placeholder="Medium input field" size="md" />
-            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message="This input field is small" placeholder="Medium input field" size="sm" />
-            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message="This input field is extra small" placeholder="Medium input field" size="xs" />
+            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message={{ text: 'This input field is 2x extra large' }} placeholder="2x Extra-large input field" size="xxl" />
+            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message={{ text: 'This input field is 2x extra large' }} placeholder="Extra-large input field" size="xl" />
+            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message={{ text: 'This input field is 2x extra large' }} placeholder="Large input field" size="lg" />
+            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message={{ text: 'This input field is 2x extra large' }} placeholder="Medium input field" size="md" />
+            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message={{ text: 'This input field is 2x extra large' }} placeholder="Medium input field" size="sm" />
+            <Input icon={{ name: 'user' }} iconEnd={{ name: 'x' }} mb={1} message={{ text: 'This input field is 2x extra large' }} placeholder="Medium input field" size="xs" />
         </UtilsProvider>
     </FabulaProvider>
 )

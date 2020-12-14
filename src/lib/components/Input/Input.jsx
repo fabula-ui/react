@@ -18,17 +18,23 @@ const Input = props => {
         iconStart,
         message,
         onBlur,
+        onChange,
         onFocus,
         placeholder,
         passwordToggle,
         textarea,
         type,
+        value,
         variant,
         ...rest
     } = props;
     const [focus, setFocus] = useState(false);
     const [inputType, setInputType] = useState(type || 'text');
     const ref = useRef(null);
+
+    const handleChange = e => {
+        if (onChange) { onChange(e) }
+    }
 
     const handleFocus = focus => {
         setFocus(focus);
@@ -72,10 +78,12 @@ const Input = props => {
                             className="fab-input__field"
                             disabled={disabled}
                             onBlur={() => handleFocus(false)}
+                            onChange={e => handleChange(e)}
                             onFocus={() => handleFocus(true)}
                             placeholder={placeholder}
                             ref={elRef}
-                            type={inputType} />
+                            type={inputType}
+                            value={value} />
                     }
 
                     {textarea &&
@@ -83,10 +91,12 @@ const Input = props => {
                             className="fab-input__field"
                             disabled={disabled}
                             onBlur={() => handleFocus(false)}
+                            onChange={e => handleChange(e)}
                             onFocus={() => handleFocus(true)}
                             placeholder={placeholder}
                             ref={elRef}
-                            type={inputType}/>
+                            type={inputType}
+                            value={value} />
                     }
 
                     {(!!iconEnd && !passwordToggle) &&

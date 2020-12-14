@@ -49,7 +49,8 @@ export const Example = () => {
                             onFocus={handleFocus}
                             onKeyDown={handleKeyDown}
                             onKeyUp={handleKeyUp}
-                            placeholder="Type something..." />
+                            placeholder="Type something..."
+                            value="This is an input value" />
                     </Column>
                     <Column col={4}>
                         <Input

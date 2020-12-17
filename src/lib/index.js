@@ -1,5 +1,5 @@
 // Components
-import Alert from './components/Alert/Alert';
+import { Alert } from './components/Alert/Alert';
 import Avatar from './components/Avatar/Avatar';
 import Badge from './components/Badge/Badge';
 import Button from './components/Button/Button';

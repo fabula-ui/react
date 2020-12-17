@@ -12,7 +12,7 @@ import getTransitionDuration from '@fabula/core/styles/methods/misc/getTransitio
 // Styles
 import { AlertStyles } from '@fabula/core/styles/components/alert/alert';
 
-const Alert = props => {
+export const Alert = props => {
     const {
         children,
         closeButton,
@@ -157,5 +157,3 @@ Alert.propTypes = {
     type: PropTypes.string,
     visible: PropTypes.bool
 }
-
-export default Alert;

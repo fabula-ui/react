@@ -10,7 +10,7 @@ import Icon from '../Icon/Icon';
 import getTransitionDuration from '@fabula/core/styles/methods/misc/getTransitionDuration';
 
 // Styles
-import AlertStyles from '@fabula/core/styles/components/alert/alert';
+import { AlertStyles } from '@fabula/core/styles/components/alert/alert';
 
 const Alert = props => {
     const {

@@ -21,10 +21,11 @@ const BaseComponent = props => (
 export const Example = () => (
     <FabulaProvider>
         <UtilsProvider>
-            <BaseComponent mb={1} type="success" />
+            <BaseComponent />
+            {/* <BaseComponent mb={1} type="success" />
             <BaseComponent mb={1} type="warning" />
             <BaseComponent mb={1} type="danger" />
-            <BaseComponent type="info" />
+            <BaseComponent type="info" /> */}
         </UtilsProvider>
     </FabulaProvider>
 )

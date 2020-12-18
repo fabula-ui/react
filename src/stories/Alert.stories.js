@@ -78,6 +78,19 @@ export const PropColor = () => (
     </FabulaProvider>
 )
 
+export const PropDarken = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent darken={true} mb={1} />
+            <BaseComponent color="primary" darken={true} mb={1} />
+            <BaseComponent color="lavender" darken={true} mb={1} />
+            <BaseComponent color="hot" darken={true} mb={1} />
+            <BaseComponent color="aux" darken={true} mb={1} />
+            <BaseComponent color="dark" darken={true} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
 export const PropFaded = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -121,6 +134,19 @@ export const PropInvert = () => (
             <BaseComponent color="hot" invert={true} mb={1} />
             <BaseComponent color="aux" invert={true} mb={1} />
             <BaseComponent color="dark" invert={true} />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
+export const PropLighten = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <BaseComponent lighten={true} mb={1} />
+            <BaseComponent color="primary" lighten={true} mb={1} />
+            <BaseComponent color="lavender" lighten={true} mb={1} />
+            <BaseComponent color="hot" lighten={true} mb={1} />
+            <BaseComponent color="aux" lighten={true} mb={1} />
+            <BaseComponent color="dark" lighten={true} />
         </UtilsProvider>
     </FabulaProvider>
 )

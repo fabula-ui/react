@@ -2,25 +2,22 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Color from 'color';
 import { mount, shallow } from 'enzyme';
-import { matchers } from '@emotion/jest';
 import { render, fireEvent } from '@testing-library/react';
 
 // Fabula
+import { getBgColor } from '@fabula/core/styles/methods/color/getBgColor';
 import getComponentVars from '@fabula/core/styles/methods/misc/getComponentVars';
-import getDividerColor from '@fabula/core/styles/methods/color/getDividerColor';
+import { getDividerColor } from '@fabula/core/styles/methods/color/getDividerColor';
 import getGlobalVars from '@fabula/core/styles/methods/misc/getGlobalVars';
-import getTextColor from '@fabula/core/styles/methods/color/getTextColor';
+import { getTextColor } from '@fabula/core/styles/methods/color/getTextColor';
 
 // Component
 import { Alert } from './Alert';
 import CloseButton from '../CloseButton/CloseButton';
-import Icon from '../Icon/Icon';
 
 // Providers
 import FabulaProvider from '../../providers/FabulaProvider';
-
-// Extend matchers
-expect.extend(matchers);
+import getBorderColor from '@fabula/core/styles/methods/color/getBorderColor';
 
 // Theme changes
 const theme = {
@@ -102,7 +99,7 @@ describe('Alert Component', () => {
         // Alert
         expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
         expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(globalVars.baseColor).hex());
-        expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color).hex());
+        expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color));
         expect(alertStyle.getPropertyValue('border-radius')).toBe(alertVars.borderRadius);
         expect(alertStyle.getPropertyValue('border-width')).toBe(alertVars.borderWidth);
         expect(alertStyle.getPropertyValue('border-width')).toBe(globalVars.borderWidth);
@@ -195,11 +192,9 @@ describe('Alert Component', () => {
     });
 
     describe('Props', () => {
-        it('Should set clear prop', () => {
+        it('Should set clear prop', async () => {
             let alertElement;
             let alertStyle;
-            let iconElement;
-            let iconStyle;
             let shallowWrappers = [];
             let wrappers = [];
             const globalVars = getGlobalVars();
@@ -207,18 +202,17 @@ describe('Alert Component', () => {
             const alertVars = getComponentVars('alert');
 
             // Default: no clear prop
-            shallowWrappers[0] = shallow(<Alert icon={{ name: 'cloud' }} />)
+            shallowWrappers[0] = shallow(<Alert icon={{ name: 'cloud' }} />);
+            shallowWrappers[0].update();
+
             wrappers[0] = mount(<Alert />);
 
             alertElement = wrappers[0].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
-            iconElement = mount(shallowWrappers[0].find(Icon).first().getElement());
-            iconStyle = getComputedStyle(iconElement.getDOMNode());
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill').hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
-            // expect(iconStyle.getPropertyValue('color')).toBe('inherit');
 
             // Clear: true
             wrappers[1] = mount(<Alert clear={true} />);
@@ -227,7 +221,7 @@ describe('Alert Component', () => {
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
             expect(alertStyle.getPropertyValue('background-color')).toBeFalsy();
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill').hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
 
             // Clear + theme color
@@ -237,8 +231,8 @@ describe('Alert Component', () => {
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
             expect(alertStyle.getPropertyValue('background-color')).toBeFalsy();
-            // expect(alertStyle.getPropertyValue('border-color')).toBe(getDividerColor(primaryColor, 'fill').hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(primaryColor).hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'clear'));
 
             // Clear + custom color
             wrappers[3] = mount(<Alert clear={true} color="blue" />);
@@ -252,52 +246,45 @@ describe('Alert Component', () => {
         });
 
         it('Should set closeButton prop', () => {
-            let alertElement;
-            let alertStyle;
             let closeButtonElement;
             let closeButtonStyle;
             let wrappers = [];
-            const globalVars = getGlobalVars();
-            const primaryColor = globalVars.colors.primary;
             const alertVars = getComponentVars('alert');
 
-            act(() => {
-                // Default: no color
-                wrappers[0] = shallow(<Alert closeButton={true} />);
-                wrappers[0].update();
+            wrappers[0] = shallow(<Alert closeButton={true} />);
 
-                closeButtonElement = mount(wrappers[0].find(CloseButton).getElement());
-                closeButtonStyle = getComputedStyle(closeButtonElement.getDOMNode());
+            closeButtonElement = mount(wrappers[0].find(CloseButton).dive().getElement());
+            closeButtonStyle = getComputedStyle(closeButtonElement.getDOMNode());
 
-                expect(closeButtonStyle.getPropertyValue('margin-left')).toBe(`calc(-${alertVars.paddingLeft} / 4)`);
-            });
+            // No color
+            expect(Color(closeButtonStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
 
+            // With color
+            wrappers[0] = shallow(<Alert color="primary" closeButton={true} />);
 
-            // expect(closeButtonStyle.getPropertyValue('margin-right')).toBe(`calc(-${alertVars.paddingRight} / 4)`);
-            // expect(closeButtonStyle.getPropertyValue('margin-top')).toBe(`calc(-${alertVars.paddingTop} / 4)`);
+            closeButtonElement = mount(wrappers[0].find(CloseButton).dive().getElement());
+            closeButtonStyle = getComputedStyle(closeButtonElement.getDOMNode());
+
+            expect(Color(closeButtonStyle.getPropertyValue('background-color')).hex()).not.toBe(Color(alertVars.color).hex());
         });
 
         it('Should set color prop', () => {
             let alertElement;
             let alertStyle;
-            let iconElement;
-            let iconStyle;
             let wrappers = [];
             const globalVars = getGlobalVars();
             const primaryColor = globalVars.colors.primary;
             const alertVars = getComponentVars('alert');
 
             // Default: no color
-            wrappers[0] = mount(<Alert icon={{ name: 'cloud' }} />);
+            wrappers[0] = mount(<Alert />);
 
             alertElement = wrappers[0].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
-            // iconElement = wrappers[0].find('.fab-icon');
-            // iconStyle = getComputedStyle(iconElement.getDOMNode());
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
-            // expect(Color(iconStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
 
             // Color + theme color
             wrappers[1] = mount(<Alert color="primary" icon={{ name: 'cloud' }} title="Title" />);
@@ -306,8 +293,8 @@ describe('Alert Component', () => {
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(primaryColor).hex());
-            expect(Color(alertStyle.getPropertyValue('color')).hex()).not.toBe(Color(alertVars.textColor).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'fill')).hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'fill'));
 
             // Color + custom color
             wrappers[2] = mount(<Alert color="blue" />);
@@ -316,8 +303,8 @@ describe('Alert Component', () => {
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color('blue').hex());
-            expect(Color(alertStyle.getPropertyValue('color')).hex()).not.toBe(Color(alertVars.textColor).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'fill')).hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'fill'));
 
             // Should not break when not using a real color
             wrappers[3] = mount(<Alert color="xsei" />);
@@ -327,8 +314,49 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).not.toBe(Color(alertVars.textColor).hex());
+        });
 
-            // TODO: find a way to add tests with icon
+        it('Should set faded prop', () => {
+            let alertElement;
+            let alertStyle;
+            let wrappers = [];
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            const alertVars = getComponentVars('alert');
+    
+            // Default: no color
+            wrappers[0] = mount(<Alert faded={true} />);
+    
+            alertElement = wrappers[0].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+    
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
+    
+            // Color + theme color
+            wrappers[1] = mount(<Alert color="primary" faded={true} />);
+    
+            alertElement = wrappers[1].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+    
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'faded'));
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(getTextColor(primaryColor, 'faded'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'faded'));
+            
+            // Color + custom color
+            wrappers[2] = mount(<Alert color="blue" faded={true} />);
+
+            alertElement = wrappers[2].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor('blue', 'faded'));
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(getTextColor('blue', 'faded'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'faded'));
+        });
+
+        it('Should set glow prop', () => {
+            const wrapper = mount(<Alert glow={true} />);
         });
     });
 

@@ -6,9 +6,11 @@ import { render, fireEvent } from '@testing-library/react';
 
 // Fabula
 import { getBgColor } from '@fabula/core/styles/methods/color/getBgColor';
-import getComponentVars from '@fabula/core/styles/methods/misc/getComponentVars';
+import { getBorderColor } from '@fabula/core/styles/methods/color/getBorderColor';
+import { getComponentVars } from '@fabula/core/styles/methods/misc/getComponentVars';
 import { getDividerColor } from '@fabula/core/styles/methods/color/getDividerColor';
-import getGlobalVars from '@fabula/core/styles/methods/misc/getGlobalVars';
+import { getGlobalVars } from '@fabula/core/styles/methods/misc/getGlobalVars';
+import { getGlowColor } from '@fabula/core/styles/methods/color/getGlowColor';
 import { getTextColor } from '@fabula/core/styles/methods/color/getTextColor';
 
 // Component
@@ -17,7 +19,6 @@ import CloseButton from '../CloseButton/CloseButton';
 
 // Providers
 import FabulaProvider from '../../providers/FabulaProvider';
-import getBorderColor from '@fabula/core/styles/methods/color/getBorderColor';
 
 // Theme changes
 const theme = {
@@ -323,27 +324,27 @@ describe('Alert Component', () => {
             const globalVars = getGlobalVars();
             const primaryColor = globalVars.colors.primary;
             const alertVars = getComponentVars('alert');
-    
+
             // Default: no color
             wrappers[0] = mount(<Alert faded={true} />);
-    
+
             alertElement = wrappers[0].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
-    
+
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
             expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
-    
+
             // Color + theme color
             wrappers[1] = mount(<Alert color="primary" faded={true} />);
-    
+
             alertElement = wrappers[1].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
-    
+
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'faded'));
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(getTextColor(primaryColor, 'faded'));
             expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'faded'));
-            
+
             // Color + custom color
             wrappers[2] = mount(<Alert color="blue" faded={true} />);
 
@@ -356,31 +357,194 @@ describe('Alert Component', () => {
         });
 
         it('Should set glow prop', () => {
-            const wrapper = mount(<Alert glow={true} />);
+            let alertElement;
+            let alertStyle;
+            let wrappers = [];
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            const alertVars = getComponentVars('alert');
+
+            // Default: no color
+            wrappers[0] = mount(<Alert glow={true} />);
+
+            alertElement = wrappers[0].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+
+            expect(alertStyle.getPropertyValue('box-shadow').split(' ')[0]).toBe(`${theme.components.alert.glowX}px`);
+            expect(alertStyle.getPropertyValue('box-shadow').split(' ')[1]).toBe(theme.components.alert.glowY);
+            expect(alertStyle.getPropertyValue('box-shadow').split(' ')[2]).toBe(theme.components.alert.glowRadius);
+            expect(alertStyle.getPropertyValue('box-shadow').split(' ')[3]).toBe(`${theme.components.alert.glowSpread}px`);
+            expect(Color(alertStyle.getPropertyValue('box-shadow').split(' ')[4]).hex()).toBe(Color(getGlowColor(alertVars.color, 'fill')).hex());
+
+            // Color + theme color
+            wrappers[1] = mount(<Alert color="primary" glow={true} />);
+
+            alertElement = wrappers[1].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+
+            expect(Color(alertStyle.getPropertyValue('box-shadow').split(' ')[4]).hex()).toBe(Color(getGlowColor(primaryColor, 'fill')).hex());
+
+            // Color + custom color
+            wrappers[2] = mount(<Alert color="blue" glow={true} />);
+
+            alertElement = wrappers[2].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+
+            expect(Color(alertStyle.getPropertyValue('box-shadow').split(' ')[4]).hex()).toBe(Color(getGlowColor('blue', 'fill')).hex());
         });
-    });
 
-    it('Should have a text', () => {
-        const text = 'This is a text';
-        const { container } = render(<Alert text={text} />);
-        const element = container.querySelector('.fab-alert__text');
+        it('Should set icon prop', () => {
+            const { container } = render(<Alert icon={{ name: 'icon' }} />);
+            const element = container.querySelector('.fab-icon');
 
-        expect(element.textContent).toBe(text);
-    });
+            expect(element).toBeTruthy();
+        });
 
-    it('Should have a title', () => {
-        const title = 'This is a title';
-        const { container } = render(<Alert title={title} />);
-        const element = container.querySelector('.fab-alert__title');
+        it('Should set invert prop', () => {
+            let alertElement;
+            let alertStyle;
+            let wrappers = [];
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            const alertVars = getComponentVars('alert');
 
-        expect(element.textContent).toBe(title);
-    });
+            // Default: no color
+            wrappers[0] = mount(<Alert invert={true} />);
 
-    it('Should have an icon', () => {
-        const { container } = render(<Alert icon={{ name: 'icon' }} />);
-        const element = container.querySelector('.fab-icon');
+            alertElement = wrappers[0].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
 
-        expect(element).toBeTruthy();
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
+
+            // Color + theme color
+            wrappers[1] = mount(<Alert color="primary" invert={true} />);
+
+            alertElement = wrappers[1].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(primaryColor, 'invert')).hex());
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(getTextColor(primaryColor, 'invert'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'invert'));
+
+            // Color + custom color
+            wrappers[2] = mount(<Alert color="blue" invert={true} />);
+
+            alertElement = wrappers[2].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'invert')).hex());
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'invert')).hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'invert'));
+        });
+
+        it('Should set marker prop', () => {
+            const wrapper = mount(<Alert marker="primary" />);
+            const alertElement = wrapper.find('.fab-alert');
+
+            // TODO: fix this
+        });
+
+        it('Should set outline prop', () => {
+            let alertElement;
+            let alertStyle;
+            let wrappers = [];
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            const alertVars = getComponentVars('alert');
+
+            // Default: no color
+            wrappers[0] = mount(<Alert outline={true} />);
+
+            alertElement = wrappers[0].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
+            // TODO: fix this test
+            // expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(alertVars.color, 'outline'));
+
+            // Color + theme color
+            wrappers[1] = mount(<Alert color="primary" outline={true} />);
+
+            alertElement = wrappers[1].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(primaryColor, 'outline')).hex());
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(getTextColor(primaryColor, 'outline'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(primaryColor, 'outline'));
+
+            // Color + custom color
+            wrappers[2] = mount(<Alert color="blue" outline={true} />);
+
+            alertElement = wrappers[2].find('.fab-alert');
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'outline')).hex());
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'outline')).hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor('blue', 'outline'));
+        });
+
+        it('Should set text', () => {
+            const text = 'This is a text';
+            const { container } = render(<Alert text={text} />);
+            const element = container.querySelector('.fab-alert__text');
+    
+            expect(element.textContent).toBe(text);
+        });
+
+        it('Should set text color', () => {
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            let textElement;
+            let textStyle;
+            let wrappers = [];
+
+            // Theme color
+            wrappers[0] = mount(<Alert text="Text" textColor="primary" />);
+            textElement = wrappers[0].find('.fab-alert__text');
+            textStyle = getComputedStyle(textElement.getDOMNode());
+            
+            expect(Color(textStyle.getPropertyValue('color')).hex()).toBe(Color(primaryColor).hex());
+
+            // Custom color
+            wrappers[0] = mount(<Alert text="Text" textColor="blue" />);
+            textElement = wrappers[0].find('.fab-alert__text');
+            textStyle = getComputedStyle(textElement.getDOMNode());
+            
+            expect(Color(textStyle.getPropertyValue('color')).hex()).toBe(Color('blue').hex());
+        });
+
+        it('Should set title', () => {
+            const title = 'This is a title';
+            const { container } = render(<Alert title={title} />);
+            const element = container.querySelector('.fab-alert__title');
+    
+            expect(element.textContent).toBe(title);
+        });
+
+        it('Should set title color', () => {
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            let titleElement;
+            let titleStyle;
+            let wrappers = [];
+
+            // Theme color
+            wrappers[0] = mount(<Alert title="Text" titleColor="primary" />);
+            titleElement = wrappers[0].find('.fab-alert__title');
+            titleStyle = getComputedStyle(titleElement.getDOMNode());
+            
+            expect(Color(titleStyle.getPropertyValue('color')).hex()).toBe(Color(primaryColor).hex());
+
+            // Custom color
+            wrappers[0] = mount(<Alert title="Text" titleColor="blue" />);
+            titleElement = wrappers[0].find('.fab-alert__title');
+            titleStyle = getComputedStyle(titleElement.getDOMNode());
+            
+            expect(Color(titleStyle.getPropertyValue('color')).hex()).toBe(Color('blue').hex());
+        });
     });
 
     it('Should have an icon if there is a type', () => {

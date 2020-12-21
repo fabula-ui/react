@@ -2,8 +2,8 @@ import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Component from '../Component/Component';
-import Icon from '../Icon/Icon';
+import { Component } from '../Component/Component';
+import { Icon } from '../Icon/Icon';
 
 // Styles
 import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';

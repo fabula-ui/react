@@ -9,7 +9,7 @@ import React, {
 import PropTypes from 'prop-types';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Styles
 import SegmentsStyles from '@fabula/core/styles/components/segments/segments';

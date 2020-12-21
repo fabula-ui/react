@@ -2,9 +2,9 @@ import React, { Children, cloneElement, isValidElement, useRef, useState } from 
 
 // Components
 import Button from '../Button/Button';
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 import Drawer from '../Drawer/Drawer';
-import Icon from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
 import List from '../List/List';
 import Tabs from '../Tabs/Tabs';
 

@@ -13,7 +13,7 @@ const events = [
     { event: 'onClick', name: 'click' }
 ]
 
-const Component = props => {
+export const Component = props => {
     const { children, classes, elRef, otherStyles, properties, rest, styles, wrapper } = props;
     const [started, setStarted] = useState(false);
     const responsiveContext = useContext(ResponsiveProviderContext);
@@ -81,5 +81,3 @@ const Component = props => {
 
     return children;
 }
-
-export default Component

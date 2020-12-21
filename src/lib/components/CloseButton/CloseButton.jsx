@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 
 // Components
-import Component from '../Component/Component';
-import Icon from '../Icon/Icon';
+import { Component } from '../Component/Component';
+import { Icon } from '../Icon/Icon';
 
 // Styles
-import CloseButtonStyles from '@fabula/core/styles/components/close-button/close-button';
+import { CloseButtonStyles } from '@fabula/core/styles/components/close-button/close-button';
 
-const CloseButton = props => {
+export const CloseButton = props => {
     const { elRef, onClick, ...rest } = props;
     const ref = useRef();
 
@@ -24,5 +24,3 @@ const CloseButton = props => {
         </Component>
     )
 }
-
-export default CloseButton;

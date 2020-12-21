@@ -3,7 +3,7 @@ import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Styles
 import ModalBodyStyles from '@fabula/core/styles/components/modal-body/modal-body';

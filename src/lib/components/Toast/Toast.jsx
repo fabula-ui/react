@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 // Components
 import Button from '../Button/Button';
-import Component from '../Component/Component';
-import Icon from '../Icon/Icon';
+import { Component } from '../Component/Component';
+import { Icon } from '../Icon/Icon';
 
 // Styles
 import ToastStyles from '@fabula/core/styles/components/toast/toast';

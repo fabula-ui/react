@@ -79,6 +79,19 @@ export const Example = () => (
 )
 
 // Properties
+export const PropBorder = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Avatar border={true} mr="1" />
+            <Avatar border={true} color="primary" mr="1" />
+            <Avatar border={true} color="lavender" mr="1" />
+            <Avatar border={true} color="hot" mr="1" />
+            <Avatar border={true} color="aux" mr="1" />
+            <Avatar border={true} color="dark" />
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
 export const PropColor = () => (
     <FabulaProvider>
         <UtilsProvider>
@@ -194,6 +207,15 @@ export const PropSize = () => (
                 <Avatar mr="1" rounded={true} size="md" />
                 <Avatar mr="1" rounded={true} size="sm" />
                 <Avatar mr="1" rounded={true} size="xs" />
+            </Wrapper>
+
+            <Wrapper mb="1">
+                <Avatar mr="1" size="30px" />
+                <Avatar mr="1" size="60px" />
+                <Avatar mr="1" size="90px" />
+                <Avatar mr="1" size="120px" />
+                <Avatar mr="1" size="150px" />
+                <Avatar mr="1" size="180px" />
             </Wrapper>
         </UtilsProvider>
     </FabulaProvider>

@@ -1,7 +1,7 @@
 // Components
 import { Alert } from './components/Alert/Alert';
-import Avatar from './components/Avatar/Avatar';
-import Badge from './components/Badge/Badge';
+import { Avatar } from './components/Avatar/Avatar';
+import { Badge } from './components/Badge/Badge';
 import Button from './components/Button/Button';
 import ButtonGroup from './components/ButtonGroup/ButtonGroup';
 import Card from './components/Card/Card';
@@ -20,7 +20,7 @@ import DropdownToggle from './components/DropdownToggle/DropdownToggle';
 import Element from './components/Element/Element';
 import FileInput from './components/FileInput/FileInput';
 import Heading from './components/Heading/Heading';
-import Icon from './components/Icon/Icon';
+import { Icon } from './components/Icon/Icon';
 import Input from './components/Input/Input';
 import InputGroup from './components/InputGroup/InputGroup';
 import Link from './components/Link/Link';
@@ -60,7 +60,7 @@ import ModalController from './controllers/ModalController';
 import ToastController from './controllers/ToastController';
 
 // Providers
-import FabulaProvider from './providers/FabulaProvider';
+import { FabulaProvider } from './providers/FabulaProvider';
 import ModalProvider from './providers/ModalProvider';
 import ResponsiveProvider from './providers/ResponsiveProvider';
 import ThemeProvider from './providers/ThemeProvider';

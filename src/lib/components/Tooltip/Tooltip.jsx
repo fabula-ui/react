@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useLayoutEffect, useRef, useState } from 'react';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Controllers
 import TooltipController from '../../controllers/TooltipController';

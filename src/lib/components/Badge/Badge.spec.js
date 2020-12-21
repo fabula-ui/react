@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 // Component
-import Badge from './Badge';
+import { Badge } from './Badge';
 
 describe('Badge Component', () => {
     it('Should create', () => {

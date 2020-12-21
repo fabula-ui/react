@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Styles
 import TabStyles from '@fabula/core/styles/components/tab/tab';

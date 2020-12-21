@@ -3,8 +3,8 @@ import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 // Components
-import CloseButton from '../CloseButton/CloseButton';
-import Component from '../Component/Component';
+import { CloseButton } from '../CloseButton/CloseButton';
+import { Component } from '../Component/Component';
 
 // Controller
 import ModalController from '../../controllers/ModalController';

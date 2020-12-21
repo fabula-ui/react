@@ -3,9 +3,9 @@ import React, { createContext } from 'react';
 // Providers
 import ThemeProvider from './ThemeProvider';
 
-const FabulaProviderContext = createContext({});
+export const FabulaProviderContext = createContext({});
 
-const FabulaProvider = props => {
+export const FabulaProvider = props => {
     const { children, theme } = props
     let initialState = {};
 
@@ -17,6 +17,3 @@ const FabulaProvider = props => {
         </FabulaProviderContext.Provider>
     )
 }
-
-export { FabulaProviderContext };
-export default FabulaProvider;

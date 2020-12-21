@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import CloseButton from '../CloseButton/CloseButton';
-import Component from '../Component/Component';
-import Icon from '../Icon/Icon';
+import { CloseButton } from '../CloseButton/CloseButton';
+import { Component } from '../Component/Component';
+import { Icon } from '../Icon/Icon';
 
 // Methods
-import getTransitionDuration from '@fabula/core/styles/methods/misc/getTransitionDuration';
+import { getTransitionDuration }  from '@fabula/core/styles/methods/misc/getTransitionDuration';
 
 // Styles
 import { AlertStyles } from '@fabula/core/styles/components/alert/alert';

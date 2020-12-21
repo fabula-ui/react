@@ -2,7 +2,7 @@ import React, { Children, cloneElement, useCallback, useEffect, useRef, useState
 import PropTypes from 'prop-types';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Styles
 import TabsStyles from '@fabula/core/styles/components/tabs/tabs';

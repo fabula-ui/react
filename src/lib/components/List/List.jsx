@@ -2,7 +2,7 @@ import React, { Children, cloneElement, isValidElement, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Styles
 import ListStyles from '@fabula/core/styles/components/list/list';

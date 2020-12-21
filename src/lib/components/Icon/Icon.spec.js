@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 // Component
-import Icon from './Icon';
+import { Icon } from './Icon';
 
 describe('Icon Component', () => {
     it('Should create', () => {

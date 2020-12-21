@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { css } from 'emotion';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 import Tag from '../Tag/Tag';
 
 // Styles

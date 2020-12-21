@@ -1,7 +1,7 @@
 import React, { createElement, useRef } from 'react';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Styles
 import HeadingStyles from '@fabula/core/styles/components/heading/heading';

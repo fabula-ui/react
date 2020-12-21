@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 // Component
-import CloseButton from './CloseButton';
+import { CloseButton } from './CloseButton';
 
 describe('CloseButton Component', () => {
     it('Should create', () => {

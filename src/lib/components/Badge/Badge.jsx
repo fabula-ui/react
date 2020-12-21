@@ -2,12 +2,12 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Styles
 import BadgeStyles from '@fabula/core/styles/components/badge/badge';
 
-const Badge = props => {
+export const Badge = props => {
     const {
         children,
         elRef,
@@ -69,5 +69,3 @@ Badge.propTypes = {
     rounded: PropTypes.bool,
     size: PropTypes.string
 }
-
-export default Badge;

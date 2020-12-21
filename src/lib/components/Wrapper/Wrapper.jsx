@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Styles
 import WrapperStyles from '@fabula/core/styles/components/wrapper/wrapper';

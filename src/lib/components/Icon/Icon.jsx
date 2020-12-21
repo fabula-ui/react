@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Styles
-import IconStyles from '@fabula/core/styles/components/icon/icon';
+import { IconStyles } from '@fabula/core/styles/components/icon/icon';
 
-const Icon = props => {
+export const Icon = props => {
     const { elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -21,5 +21,3 @@ const Icon = props => {
         </Component>
     )
 }
-
-export default Icon

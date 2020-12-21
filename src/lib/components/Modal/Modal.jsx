@@ -9,7 +9,7 @@ import React, {
 import PropTypes from 'prop-types';
 
 // Components
-import Component from '../Component/Component';
+import { Component } from '../Component/Component';
 
 // Controller
 import ModalController from '../../controllers/ModalController';

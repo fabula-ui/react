@@ -2,16 +2,16 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Component from '../Component/Component';
-import Icon from '../Icon/Icon';
+import { Component } from '../Component/Component';
+import { Icon } from '../Icon/Icon';
 
 // Methods
-import getInitials from '@fabula/core/methods/misc/getInitials';
+import { getInitials } from '@fabula/core/methods/misc/getInitials';
 
 // Styles
-import AvatarStyles from '@fabula/core/styles/components/avatar/avatar';
+import { AvatarStyles } from '@fabula/core/styles/components/avatar/avatar';
 
-const Avatar = props => {
+export const Avatar = props => {
     const {
         children,
         color,
@@ -67,5 +67,3 @@ Avatar.propTypes = {
     size: PropTypes.string,
     src: PropTypes.string
 }
-
-export default Avatar;

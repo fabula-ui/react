@@ -91,6 +91,37 @@ export const Example = () => (
 )
 
 // Properties
+export const PropBorder = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Button border={true} compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge border={true}>9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge border={true} color="primary">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge border={true} color="lavender">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge border={true} color="hot">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge border={true} color="aux">9</Badge>
+            </Button>
+            <Button border={true} compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge border={true} color="dark">9</Badge>
+            </Button>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
 export const PropClear = () => (
     <FabulaProvider>
         <UtilsProvider>

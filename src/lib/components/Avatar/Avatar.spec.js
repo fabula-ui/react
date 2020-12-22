@@ -11,6 +11,7 @@ import { getDividerColor } from '@fabula/core/styles/methods/color/getDividerCol
 import { getGlobalVars } from '@fabula/core/styles/methods/misc/getGlobalVars';
 import { getPlaceholderIconColor } from '@fabula/core/styles/methods/color/getPlaceholderIconColor';
 import { getTextColor } from '@fabula/core/styles/methods/color/getTextColor';
+import { UtilsProvider } from '../../providers/UtilsProvider';
 
 // Component
 import { Avatar } from './Avatar';
@@ -19,7 +20,7 @@ import { Icon } from '../Icon/Icon';
 
 // Common tests
 import { testUtils } from '../../../../tests/common/test-utils';
-import { UtilsProvider } from '../../providers/UtilsProvider';
+
 
 // Theme changes
 const theme = {

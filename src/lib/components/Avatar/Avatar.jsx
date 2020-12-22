@@ -32,8 +32,8 @@ export const Avatar = props => {
             rest={rest}
             styles={AvatarStyles}
             wrapper="fab-avatar-wrapper">
-            <div data-rounded={rounded} data-fab-wrapper="avatar" ref={elRef || ref}>
-                <div className="fab-avatar" data-color={color} data-rounded={rounded} data-size={size} data-fab-component="avatar">
+            <div data-fab-wrapper="avatar" ref={elRef || ref}>
+                <div className="fab-avatar" data-fab-component="avatar">
                     {!showInitials && !!icon && <Icon {...icon} />}
                     {showInitials && <span className="fab-avatar__initials">{getInitials(showInitials)}</span>}
                     {src && <div className="fab-avatar__image" style={{ backgroundImage: `url(${src})` }}></div>}
@@ -64,6 +64,6 @@ Avatar.propTypes = {
     lighten: PropTypes.bool,
     rounded: PropTypes.bool,
     showInitials: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.any,
     src: PropTypes.string
 }

@@ -66,7 +66,7 @@ import ResponsiveProvider from './providers/ResponsiveProvider';
 import ThemeProvider from './providers/ThemeProvider';
 import ToastProvider from './providers/ToastProvider';
 import TooltipProvider from './providers/TooltipProvider';
-import UtilsProvider from './providers/UtilsProvider';
+import { UtilsProvider } from './providers/UtilsProvider';
 
 // Aliases
 const Col = Column;

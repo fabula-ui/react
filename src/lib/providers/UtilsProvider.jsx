@@ -1,8 +1,8 @@
 import React, { createContext } from 'react';
 
-const UtilsProviderContext = createContext(null);
+export const UtilsProviderContext = createContext(null);
 
-const UtilsProvider = props => {
+export const UtilsProvider = props => {
     const { children } = props;
     const initialState = {
         added: true
@@ -14,6 +14,3 @@ const UtilsProvider = props => {
         </UtilsProviderContext.Provider>
     )
 }
-
-export { UtilsProviderContext };
-export default UtilsProvider;

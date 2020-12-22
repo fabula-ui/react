@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { css } from 'emotion';
 
 // Components
-import Avatar from '../Avatar/Avatar';
+import { Avatar } from '../Avatar/Avatar';
 import { Badge } from '../Badge/Badge';
 import Button from '../Button/Button';
 import DropdownItem from '../DropdownItem/DropdownItem';

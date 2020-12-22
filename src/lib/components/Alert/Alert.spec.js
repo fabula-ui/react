@@ -19,7 +19,7 @@ import { CloseButton } from '../CloseButton/CloseButton';
 
 // Providers
 import { FabulaProvider } from '../../providers/FabulaProvider';
-import UtilsProvider from '../../providers/UtilsProvider';
+import { UtilsProvider } from '../../providers/UtilsProvider';
 
 // Theme changes
 const theme = {
@@ -58,142 +58,144 @@ const AlertWithChanges = () => (
 )
 
 describe('Alert Component', () => {
-    it('Should create', () => {
-        const { container } = render(<Alert />);
-
-        expect(container).toBeTruthy();
-    });
-
-    it('Should have a pre-defined structure', () => {
-        const { container } = render(<Alert />);
-        const alertElement = container.querySelector('.fab-alert');
-        const stageElement = container.querySelector('.fab-alert__stage');
-
-        expect(alertElement).toBeTruthy();
-        expect(stageElement).toBeTruthy();
-
-        // Check data-fab-component attribute
-        expect(alertElement.getAttribute('data-fab-component')).toBe('alert');
-    });
-
-    it('Should have a default look', () => {
-        const wrapper = mount(<Alert text="Text" title="Title" />);
-        const wrapperWithIcon = mount(<Alert icon={{ name: 'cloud' }} text="Text" title="Title" />);
-        const wrapperWithoutText = mount(<Alert title="Title" />);
-
-        // Elements
-        const alertElement = wrapper.find('.fab-alert');
-        const stageElement = wrapper.find('.fab-alert__stage');
-        const stageWithIconElement = wrapperWithIcon.find('.fab-alert__stage');
-        const textElement = wrapper.find('.fab-alert__text');
-        const titleElement = wrapper.find('.fab-alert__title');
-        const titleWithoutTextElement = wrapperWithoutText.find('.fab-alert__title');
-
-        // Vars
-        const alertVars = getComponentVars('alert');
-        const globalVars = getGlobalVars();
-
-        // Styles
-        const alertStyle = getComputedStyle(alertElement.getDOMNode());
-        const stageStyle = getComputedStyle(stageElement.getDOMNode());
-        const stageWithIconStyle = getComputedStyle(stageWithIconElement.getDOMNode());
-        const textStyle = getComputedStyle(textElement.getDOMNode());
-        const titleStyle = getComputedStyle(titleElement.getDOMNode());
-        const titleWithoutTextStyle = getComputedStyle(titleWithoutTextElement.getDOMNode());
-
-        // Alert
-        expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
-        expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(globalVars.baseColor).hex());
-        expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color));
-        expect(alertStyle.getPropertyValue('border-radius')).toBe(alertVars.borderRadius);
-        expect(alertStyle.getPropertyValue('border-width')).toBe(alertVars.borderWidth);
-        expect(alertStyle.getPropertyValue('border-width')).toBe(globalVars.borderWidth);
-        expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(globalVars.textColor);
-        expect(alertStyle.getPropertyValue('display')).toBe('flex');
-        expect(alertStyle.getPropertyValue('font-family')).toBe(alertVars.fontFamily);
-        expect(alertStyle.getPropertyValue('font-size')).toBe(alertVars.fontSize);
-        expect(alertStyle.getPropertyValue('padding-bottom')).toBe(alertVars.paddingBottom);
-        expect(alertStyle.getPropertyValue('padding-left')).toBe(alertVars.paddingLeft);
-        expect(alertStyle.getPropertyValue('padding-right')).toBe(alertVars.paddingRight);
-        expect(alertStyle.getPropertyValue('padding-top')).toBe(alertVars.paddingTop);
-        expect(alertStyle.getPropertyValue('position')).toBe('relative');
-        expect(alertStyle.getPropertyValue('transition')).toBeDefined();
-
-        // Stage
-        expect(stageStyle.getPropertyValue('display')).toBe('flex');
-        expect(stageStyle.getPropertyValue('flex-direction')).toBe('column');
-        expect(stageStyle.getPropertyValue('flex-grow')).toBe('1');
-        expect(stageStyle.getPropertyValue('margin-left')).toBeFalsy();
-        expect(stageWithIconStyle.getPropertyValue('margin-left')).toBe(alertVars.spacingX);
-
-        // Text
-        expect(textStyle.getPropertyValue('font-family')).toBe('');
-        expect(textStyle.getPropertyValue('font-size')).toBe(alertVars.textFontSize);
-        expect(textStyle.getPropertyValue('font-weight')).toBe(`${alertVars.textFontWeight}`);
-        expect(textStyle.getPropertyValue('letter-spacing')).toBe(alertVars.letterSpacing);
-        expect(textStyle.getPropertyValue('letter-spacing')).toBe(globalVars.letterSpacing);
-
-        // Title
-        expect(titleStyle.getPropertyValue('font-family')).toBe('');
-        expect(titleStyle.getPropertyValue('font-size')).toBe(alertVars.titleFontSize);
-        expect(titleStyle.getPropertyValue('font-weight')).toBe(`${alertVars.titleFontWeight}`);
-        expect(titleStyle.getPropertyValue('letter-spacing')).toBe(alertVars.letterSpacing);
-        expect(titleStyle.getPropertyValue('letter-spacing')).toBe(globalVars.letterSpacing);
-        expect(titleStyle.getPropertyValue('line-height')).toBe('1');
-        expect(titleStyle.getPropertyValue('margin-bottom')).toBe(alertVars.spacingY);
-        expect(titleWithoutTextStyle.getPropertyValue('margin-bottom')).toBeFalsy();
-    });
-
-    it('Should change css according to new theme', () => {
-        const wrapper = mount(<AlertWithChanges />);
-
-        let alertElement;
-        let alertStyle;
-        let stageElement;
-        let stageStyle;
-        let textElement;
-        let textStyle;
-        let titleElement;
-        let titleStyle;
-
-        wrapper.update();
-
-        // Elements
-        alertElement = wrapper.find('.fab-alert');
-        stageElement = wrapper.find('.fab-alert__stage');
-        textElement = wrapper.find('.fab-alert__text');
-        titleElement = wrapper.find('.fab-alert__title');
-
-        // Styles
-        alertStyle = getComputedStyle(alertElement.getDOMNode());
-        stageStyle = getComputedStyle(stageElement.getDOMNode());
-        textStyle = getComputedStyle(textElement.getDOMNode());
-        titleStyle = getComputedStyle(titleElement.getDOMNode());
-
-        // Alert
-        expect(alertStyle.getPropertyValue('border-radius')).toBe(`${theme.components.alert.borderRadius}px`);
-        expect(alertStyle.getPropertyValue('border-width')).toBe(theme.components.alert.borderWidth);
-        expect(alertStyle.getPropertyValue('box-shadow').split(' ')[0]).toBe(`${theme.components.alert.glowX}px`);
-        expect(alertStyle.getPropertyValue('box-shadow').split(' ')[1]).toBe(theme.components.alert.glowY);
-        expect(alertStyle.getPropertyValue('box-shadow').split(' ')[2]).toBe(theme.components.alert.glowRadius);
-        expect(alertStyle.getPropertyValue('box-shadow').split(' ')[3]).toBe(`${theme.components.alert.glowSpread}px`);
-        expect(alertStyle.getPropertyValue('font-family')).toBe(theme.components.alert.fontFamily);
-        expect(alertStyle.getPropertyValue('padding-bottom')).toBe(theme.components.alert.paddingBottom);
-        expect(alertStyle.getPropertyValue('padding-left')).toBe(`${theme.components.alert.paddingLeft}rem`);
-        expect(alertStyle.getPropertyValue('padding-right')).toBe(theme.components.alert.paddingRight);
-        expect(alertStyle.getPropertyValue('padding-top')).toBe(`${theme.components.alert.paddingTop}px`);
-
-        // Stage
-        expect(stageStyle.getPropertyValue('margin-left')).toBe(`${theme.components.alert.spacingX}px`);
-
-        // Text
-        expect(textStyle.getPropertyValue('font-size')).toBe(theme.components.alert.textFontSize);
-        expect(textStyle.getPropertyValue('font-weight')).toBe(`${theme.components.alert.textFontWeight}`);
-
-        // Title
-        expect(titleStyle.getPropertyValue('font-size')).toBe(theme.components.alert.titleFontSize);
-        expect(titleStyle.getPropertyValue('font-weight')).toBe(`${theme.components.alert.titleFontWeight}`);
-        expect(titleStyle.getPropertyValue('margin-bottom')).toBe(`${theme.components.alert.spacingY}em`);
+    describe('Basic', () => {
+        it('Should create', () => {
+            const { container } = render(<Alert />);
+    
+            expect(container).toBeTruthy();
+        });
+    
+        it('Should have a pre-defined structure', () => {
+            const { container } = render(<Alert />);
+            const alertElement = container.querySelector('.fab-alert');
+            const stageElement = container.querySelector('.fab-alert__stage');
+    
+            expect(alertElement).toBeTruthy();
+            expect(stageElement).toBeTruthy();
+    
+            // Check data-fab-component attribute
+            expect(alertElement.getAttribute('data-fab-component')).toBe('alert');
+        });
+    
+        it('Should have a default look', () => {
+            const wrapper = mount(<Alert text="Text" title="Title" />);
+            const wrapperWithIcon = mount(<Alert icon={{ name: 'cloud' }} text="Text" title="Title" />);
+            const wrapperWithoutText = mount(<Alert title="Title" />);
+    
+            // Elements
+            const alertElement = wrapper.find('.fab-alert');
+            const stageElement = wrapper.find('.fab-alert__stage');
+            const stageWithIconElement = wrapperWithIcon.find('.fab-alert__stage');
+            const textElement = wrapper.find('.fab-alert__text');
+            const titleElement = wrapper.find('.fab-alert__title');
+            const titleWithoutTextElement = wrapperWithoutText.find('.fab-alert__title');
+    
+            // Vars
+            const alertVars = getComponentVars('alert');
+            const globalVars = getGlobalVars();
+    
+            // Styles
+            const alertStyle = getComputedStyle(alertElement.getDOMNode());
+            const stageStyle = getComputedStyle(stageElement.getDOMNode());
+            const stageWithIconStyle = getComputedStyle(stageWithIconElement.getDOMNode());
+            const textStyle = getComputedStyle(textElement.getDOMNode());
+            const titleStyle = getComputedStyle(titleElement.getDOMNode());
+            const titleWithoutTextStyle = getComputedStyle(titleWithoutTextElement.getDOMNode());
+    
+            // Alert
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(globalVars.baseColor).hex());
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color));
+            expect(alertStyle.getPropertyValue('border-radius')).toBe(alertVars.borderRadius);
+            expect(alertStyle.getPropertyValue('border-width')).toBe(alertVars.borderWidth);
+            expect(alertStyle.getPropertyValue('border-width')).toBe(globalVars.borderWidth);
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(globalVars.textColor);
+            expect(alertStyle.getPropertyValue('display')).toBe('flex');
+            expect(alertStyle.getPropertyValue('font-family')).toBe(alertVars.fontFamily);
+            expect(alertStyle.getPropertyValue('font-size')).toBe(alertVars.fontSize);
+            expect(alertStyle.getPropertyValue('padding-bottom')).toBe(alertVars.paddingBottom);
+            expect(alertStyle.getPropertyValue('padding-left')).toBe(alertVars.paddingLeft);
+            expect(alertStyle.getPropertyValue('padding-right')).toBe(alertVars.paddingRight);
+            expect(alertStyle.getPropertyValue('padding-top')).toBe(alertVars.paddingTop);
+            expect(alertStyle.getPropertyValue('position')).toBe('relative');
+            expect(alertStyle.getPropertyValue('transition')).toBeDefined();
+    
+            // Stage
+            expect(stageStyle.getPropertyValue('display')).toBe('flex');
+            expect(stageStyle.getPropertyValue('flex-direction')).toBe('column');
+            expect(stageStyle.getPropertyValue('flex-grow')).toBe('1');
+            expect(stageStyle.getPropertyValue('margin-left')).toBeFalsy();
+            expect(stageWithIconStyle.getPropertyValue('margin-left')).toBe(alertVars.spacingX);
+    
+            // Text
+            expect(textStyle.getPropertyValue('font-family')).toBe('');
+            expect(textStyle.getPropertyValue('font-size')).toBe(alertVars.textFontSize);
+            expect(textStyle.getPropertyValue('font-weight')).toBe(`${alertVars.textFontWeight}`);
+            expect(textStyle.getPropertyValue('letter-spacing')).toBe(alertVars.letterSpacing);
+            expect(textStyle.getPropertyValue('letter-spacing')).toBe(globalVars.letterSpacing);
+    
+            // Title
+            expect(titleStyle.getPropertyValue('font-family')).toBe('');
+            expect(titleStyle.getPropertyValue('font-size')).toBe(alertVars.titleFontSize);
+            expect(titleStyle.getPropertyValue('font-weight')).toBe(`${alertVars.titleFontWeight}`);
+            expect(titleStyle.getPropertyValue('letter-spacing')).toBe(alertVars.letterSpacing);
+            expect(titleStyle.getPropertyValue('letter-spacing')).toBe(globalVars.letterSpacing);
+            expect(titleStyle.getPropertyValue('line-height')).toBe('1');
+            expect(titleStyle.getPropertyValue('margin-bottom')).toBe(alertVars.spacingY);
+            expect(titleWithoutTextStyle.getPropertyValue('margin-bottom')).toBeFalsy();
+        });
+    
+        it('Should change css according to new theme', () => {
+            const wrapper = mount(<AlertWithChanges />);
+    
+            let alertElement;
+            let alertStyle;
+            let stageElement;
+            let stageStyle;
+            let textElement;
+            let textStyle;
+            let titleElement;
+            let titleStyle;
+    
+            wrapper.update();
+    
+            // Elements
+            alertElement = wrapper.find('.fab-alert');
+            stageElement = wrapper.find('.fab-alert__stage');
+            textElement = wrapper.find('.fab-alert__text');
+            titleElement = wrapper.find('.fab-alert__title');
+    
+            // Styles
+            alertStyle = getComputedStyle(alertElement.getDOMNode());
+            stageStyle = getComputedStyle(stageElement.getDOMNode());
+            textStyle = getComputedStyle(textElement.getDOMNode());
+            titleStyle = getComputedStyle(titleElement.getDOMNode());
+    
+            // Alert
+            expect(alertStyle.getPropertyValue('border-radius')).toBe(`${theme.components.alert.borderRadius}px`);
+            expect(alertStyle.getPropertyValue('border-width')).toBe(theme.components.alert.borderWidth);
+            expect(alertStyle.getPropertyValue('box-shadow').split(' ')[0]).toBe(`${theme.components.alert.glowX}px`);
+            expect(alertStyle.getPropertyValue('box-shadow').split(' ')[1]).toBe(theme.components.alert.glowY);
+            expect(alertStyle.getPropertyValue('box-shadow').split(' ')[2]).toBe(theme.components.alert.glowRadius);
+            expect(alertStyle.getPropertyValue('box-shadow').split(' ')[3]).toBe(`${theme.components.alert.glowSpread}px`);
+            expect(alertStyle.getPropertyValue('font-family')).toBe(theme.components.alert.fontFamily);
+            expect(alertStyle.getPropertyValue('padding-bottom')).toBe(theme.components.alert.paddingBottom);
+            expect(alertStyle.getPropertyValue('padding-left')).toBe(`${theme.components.alert.paddingLeft}rem`);
+            expect(alertStyle.getPropertyValue('padding-right')).toBe(theme.components.alert.paddingRight);
+            expect(alertStyle.getPropertyValue('padding-top')).toBe(`${theme.components.alert.paddingTop}px`);
+    
+            // Stage
+            expect(stageStyle.getPropertyValue('margin-left')).toBe(`${theme.components.alert.spacingX}px`);
+    
+            // Text
+            expect(textStyle.getPropertyValue('font-size')).toBe(theme.components.alert.textFontSize);
+            expect(textStyle.getPropertyValue('font-weight')).toBe(`${theme.components.alert.textFontWeight}`);
+    
+            // Title
+            expect(titleStyle.getPropertyValue('font-size')).toBe(theme.components.alert.titleFontSize);
+            expect(titleStyle.getPropertyValue('font-weight')).toBe(`${theme.components.alert.titleFontWeight}`);
+            expect(titleStyle.getPropertyValue('margin-bottom')).toBe(`${theme.components.alert.spacingY}em`);
+        });
     });
 
     describe('Props', () => {

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import BadgeStyles from '@fabula/core/styles/components/badge/badge';
+import { BadgeStyles } from '@fabula/core/styles/components/badge/badge';
 
 export const Badge = props => {
     const {

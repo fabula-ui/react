@@ -339,6 +339,33 @@ export const PropRounded = () => (
     </FabulaProvider>
 )
 
+export const PropSize = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Heading mb={1} mt={0}>
+                <Element mr={1}>Heading</Element>
+                <Badge color="aux" size="xs">Size xs</Badge>
+            </Heading>
+            <Heading mb={1} mt={0}>
+                <Element mr={1}>Heading</Element>
+                <Badge color="aux" size="sm">Size sm</Badge>
+            </Heading>
+            <Heading mb={1} mt={0}>
+                <Element mr={1}>Heading</Element>
+                <Badge color="aux" size="md">Size md</Badge>
+            </Heading>
+            <Heading mb={1} mt={0}>
+                <Element mr={1}>Heading</Element>
+                <Badge color="aux" size="lg">Size lg</Badge>
+            </Heading>
+            <Heading mb={1} mt={0}>
+                <Element mr={1}>Heading</Element>
+                <Badge color="aux" size="xl">Size xl</Badge>
+            </Heading>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
 // Utilities
 export const UtilMargin = () => (
     <FabulaProvider>

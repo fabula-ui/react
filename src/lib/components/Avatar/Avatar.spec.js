@@ -416,20 +416,10 @@ describe('Avatar Component', () => {
         });
     });
 
-    // it('Should set al prop', () => {
-    //     const wrapper = mount(<UtilsProvider>{cloneElement(<Avatar />, { al: 'center' })}</UtilsProvider>);
-    //     const element = wrapper.find('.fab-avatar');
-    //     const style = getComputedStyle(element.getDOMNode());
-
-    //     expect(style.getPropertyValue('align-items')).toBe('center');
-    //     expect(style.getPropertyValue('justify-content')).toBe('center');
-    // });
-
     // Utils
     testUtils({
         component: <Avatar />,
         componentClassName: '.fab-avatar',
-        provider: <UtilsProvider />,
-        wrapperClassName: '.fab-avatar-wrapper'
+        provider: <UtilsProvider />
     })
 });

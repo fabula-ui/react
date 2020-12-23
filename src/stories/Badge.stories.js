@@ -246,6 +246,37 @@ export const PropFaded = () => (
     </FabulaProvider>
 )
 
+export const PropGlow = () => (
+    <FabulaProvider>
+        <UtilsProvider>
+            <Button border={true} compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge glow={true}>9</Badge>
+            </Button>
+            <Button color="primary" compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge color="primary" glow={true}>9</Badge>
+            </Button>
+            <Button color="lavender" compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge color="lavender" glow={true}>9</Badge>
+            </Button>
+            <Button color="hot" compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge color="hot" glow={true}>9</Badge>
+            </Button>
+            <Button color="aux" compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge color="aux" glow={true}>9</Badge>
+            </Button>
+            <Button color="dark" compact={true} mr={1}>
+                <Element mr={.5}>Button</Element>
+                <Badge color="dark" glow={true}>9</Badge>
+            </Button>
+        </UtilsProvider>
+    </FabulaProvider>
+)
+
 export const PropInvert = () => (
     <FabulaProvider>
         <UtilsProvider>

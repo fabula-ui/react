@@ -476,7 +476,7 @@ describe('Badge Component', () => {
             expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(newThemeVars.color).hex());
             expect(badgeStyle.getPropertyValue('border-radius')).toBe(`${newThemeVars.borderRadius}px`);
             expect(badgeStyle.getPropertyValue('border-width')).toBe(newThemeVars.borderWidth);
-            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(newThemeVars.textColor).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(newThemeVars.color, 'fill')).hex());
             expect(badgeStyle.getPropertyValue('font-family')).toBe(newThemeVars.fontFamily);
             expect(badgeStyle.getPropertyValue('font-size')).toBe(`calc(${newThemeVars.fontSize} * 1)`);
             expect(badgeStyle.getPropertyValue('font-weight')).toBe(`${newThemeVars.fontWeight}`);

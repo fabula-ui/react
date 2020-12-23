@@ -4,7 +4,10 @@ import { render } from '@testing-library/react';
 
 // Fabula
 import { FabulaProvider } from '../../providers/FabulaProvider';
+import { getBgColor } from '@fabula/core/styles/methods/color/getBgColor';
 import { getComponentVars } from '@fabula/core/styles/methods/misc/getComponentVars';
+import { getDividerColor } from '@fabula/core/styles/methods/color/getDividerColor';
+import { getGlobalVars } from '@fabula/core/styles/methods/misc/getGlobalVars';
 import { UtilsProvider } from '../../providers/UtilsProvider';
 
 // Component
@@ -12,6 +15,7 @@ import { Badge } from './Badge';
 
 // Common tests
 import { testUtils } from '../../../../tests/common/test-utils';
+import { getTextColor } from '@fabula/core/styles/methods/color/getTextColor';
 
 // Theme changes
 const theme = {
@@ -92,6 +96,235 @@ describe('Badge Component', () => {
             const { container } = render(<Badge>Label</Badge>);
     
             expect(container.textContent).toBe('Label');
+        });
+    });
+
+    describe('Props', () => {
+        it('Should set border prop', () => {
+            const badgeVars = getComponentVars('badge');
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            let badgeElement;
+            let badgeStyle;
+            let component;
+
+            // Border true + no color
+            component = render(<Badge border={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+
+            expect(Color(badgeStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(badgeVars.color, 'fill'));
+
+            // Border true + primary color
+            component = render(<Badge border={true} color="primary" />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+
+            expect(Color(badgeStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'fill'));
+
+            // Border true + custom color
+            component = render(<Badge border={true} color="blue" />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+
+            expect(Color(badgeStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'fill'));
+
+            // No border
+            component = render(<Badge border={false} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+
+            expect(badgeStyle.getPropertyValue('border-color')).toBe('transparent');
+        });
+
+        it('Should set clear prop', async () => {
+            const badgeVars = getComponentVars('badge');
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            let badgeElement;
+            let badgeStyle;
+            let wrapper;
+        
+            // Default: no clear prop
+            wrapper = render(<Badge />);
+        
+            badgeElement = wrapper.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(badgeVars.color).hex());
+            expect(badgeStyle.getPropertyValue('border-color')).toBe('transparent');
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(badgeVars.textColor).hex());
+        
+            // Clear: true
+            wrapper = render(<Badge clear={true} />);
+        
+            badgeElement = wrapper.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(badgeStyle.getPropertyValue('background-color')).toBe('transparent');
+            expect(badgeStyle.getPropertyValue('border-color')).toBe('transparent');
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(badgeVars.textColor).hex());
+        
+            // Clear + theme color
+            wrapper = render(<Badge clear={true} color="primary" />);
+        
+            badgeElement = wrapper.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(badgeStyle.getPropertyValue('background-color')).toBe('transparent');
+            expect(badgeStyle.getPropertyValue('border-color')).toBe('transparent');
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(primaryColor).hex());
+        
+            // Clear + custom color
+            wrapper = render(<Badge clear={true} color="blue" />);
+        
+            badgeElement = wrapper.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(badgeStyle.getPropertyValue('background-color')).toBe('transparent');
+            expect(badgeStyle.getPropertyValue('border-color')).toBe('transparent');
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color('blue').hex());
+        });
+
+        it('Should set color prop', () => {
+            const badgeVars = getComponentVars('badge');
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            let badgeElement;
+            let badgeStyle;
+            let component;
+        
+            // Default: no color
+            component = render(<Badge />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(badgeVars.color, 'fill')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(badgeVars.textColor);
+        
+            // Color + theme color
+            component = render(<Badge color="primary" />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'fill'));
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'fill')).hex());
+        
+            // Color + custom color
+            component = render(<Badge color="blue" />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'fill')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'fill')).hex());
+        
+            // Should not break when not using a real color
+            component = render(<Badge color="xsei" />);
+        
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(badgeVars.color, 'fill')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(getTextColor(badgeVars.color, 'fill'));
+        });
+
+        it('Should set darken prop', () => {
+            const badgeVars = getComponentVars('badge');
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            let badgeElement;
+            let badgeStyle;
+            let component;
+
+            // Default: no color
+            component = render(<Badge darken={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(badgeVars.color, 'fill')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(badgeVars.textColor);
+        
+            // Darken + theme color
+            component = render(<Badge color="primary" darken={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'darken'));
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'darken')).hex());
+        
+            // Darken + custom color
+            component = render(<Badge color="blue" darken={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'darken')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'darken')).hex());
+        });
+
+        it('Should set faded prop', () => {
+            const badgeVars = getComponentVars('badge');
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            let badgeElement;
+            let badgeStyle;
+            let component;
+
+            // Default: no color
+            component = render(<Badge faded={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(badgeVars.color, 'fill')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(badgeVars.textColor);
+        
+            // Darken + theme color
+            component = render(<Badge color="primary" faded={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'faded'));
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'faded')).hex());
+        
+            // Darken + custom color
+            component = render(<Badge color="blue" faded={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'faded')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'faded')).hex());
+        });
+
+        it('Should set invert prop', () => {
+            const badgeVars = getComponentVars('badge');
+            const globalVars = getGlobalVars();
+            const primaryColor = globalVars.colors.primary;
+            let badgeElement;
+            let badgeStyle;
+            let component;
+
+            // Default: no color
+            component = render(<Badge invert={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(badgeVars.color, 'fill')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(badgeVars.textColor);
+        
+            // Darken + theme color
+            component = render(<Badge color="primary" invert={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(primaryColor, 'invert')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'invert')).hex());
+        
+            // Darken + custom color
+            component = render(<Badge color="blue" invert={true} />);
+            badgeElement = component.container.querySelector('.fab-badge');
+            badgeStyle = getComputedStyle(badgeElement);
+        
+            expect(Color(badgeStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'invert')).hex());
+            expect(Color(badgeStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'invert')).hex());
         });
     });
 

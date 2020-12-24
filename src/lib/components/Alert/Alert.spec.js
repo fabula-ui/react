@@ -21,6 +21,9 @@ import { CloseButton } from '../CloseButton/CloseButton';
 import { FabulaProvider } from '../../providers/FabulaProvider';
 import { UtilsProvider } from '../../providers/UtilsProvider';
 
+// Common tests
+import { testUtils } from '../../../../tests/common/test-utils';
+
 // Theme changes
 const theme = {
     components: {
@@ -62,27 +65,27 @@ describe('Alert Component', () => {
     describe('Basic', () => {
         it('Should create', () => {
             const { container } = render(<Alert />);
-    
+
             expect(container).toBeTruthy();
         });
-    
+
         it('Should have a pre-defined structure', () => {
             const { container } = render(<Alert />);
             const alertElement = container.querySelector('.fab-alert');
             const stageElement = container.querySelector('.fab-alert__stage');
-    
+
             expect(alertElement).toBeTruthy();
             expect(stageElement).toBeTruthy();
-    
+
             // Check data-fab-component attribute
             expect(alertElement.getAttribute('data-fab-component')).toBe('alert');
         });
-    
+
         it('Should have a default look', () => {
             const wrapper = mount(<Alert text="Text" title="Title" />);
             const wrapperWithIcon = mount(<Alert icon={{ name: 'cloud' }} text="Text" title="Title" />);
             const wrapperWithoutText = mount(<Alert title="Title" />);
-    
+
             // Elements
             const alertElement = wrapper.find('.fab-alert');
             const stageElement = wrapper.find('.fab-alert__stage');
@@ -90,11 +93,11 @@ describe('Alert Component', () => {
             const textElement = wrapper.find('.fab-alert__text');
             const titleElement = wrapper.find('.fab-alert__title');
             const titleWithoutTextElement = wrapperWithoutText.find('.fab-alert__title');
-    
+
             // Vars
             const alertVars = getComponentVars('alert');
             const globalVars = getGlobalVars();
-    
+
             // Styles
             const alertStyle = getComputedStyle(alertElement.getDOMNode());
             const stageStyle = getComputedStyle(stageElement.getDOMNode());
@@ -102,7 +105,7 @@ describe('Alert Component', () => {
             const textStyle = getComputedStyle(textElement.getDOMNode());
             const titleStyle = getComputedStyle(titleElement.getDOMNode());
             const titleWithoutTextStyle = getComputedStyle(titleWithoutTextElement.getDOMNode());
-    
+
             // Alert
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(globalVars.baseColor).hex());
@@ -120,21 +123,21 @@ describe('Alert Component', () => {
             expect(alertStyle.getPropertyValue('padding-top')).toBe(alertVars.paddingTop);
             expect(alertStyle.getPropertyValue('position')).toBe('relative');
             expect(alertStyle.getPropertyValue('transition')).toBeDefined();
-    
+
             // Stage
             expect(stageStyle.getPropertyValue('display')).toBe('flex');
             expect(stageStyle.getPropertyValue('flex-direction')).toBe('column');
             expect(stageStyle.getPropertyValue('flex-grow')).toBe('1');
             expect(stageStyle.getPropertyValue('margin-left')).toBeFalsy();
             expect(stageWithIconStyle.getPropertyValue('margin-left')).toBe(alertVars.spacingX);
-    
+
             // Text
             expect(textStyle.getPropertyValue('font-family')).toBe('');
             expect(textStyle.getPropertyValue('font-size')).toBe(alertVars.textFontSize);
             expect(textStyle.getPropertyValue('font-weight')).toBe(`${alertVars.textFontWeight}`);
             expect(textStyle.getPropertyValue('letter-spacing')).toBe(alertVars.letterSpacing);
             expect(textStyle.getPropertyValue('letter-spacing')).toBe(globalVars.letterSpacing);
-    
+
             // Title
             expect(titleStyle.getPropertyValue('font-family')).toBe('');
             expect(titleStyle.getPropertyValue('font-size')).toBe(alertVars.titleFontSize);
@@ -170,16 +173,16 @@ describe('Alert Component', () => {
             alertElement = wrapper.find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'fill'));
-        
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(primaryColor, 'fill'));
+
             // Border true + blue color
             wrapper = mount(<Alert border={true} color="blue" />);
 
             alertElement = wrapper.find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'fill'));
-        
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor('blue', 'fill'));
+
             // No border
             wrapper = mount(<Alert border={false} />);
 
@@ -217,8 +220,8 @@ describe('Alert Component', () => {
             alertElement = wrappers[1].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
-            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
+            expect(alertStyle.getPropertyValue('background-color')).toBe('transparent');
+            expect(alertStyle.getPropertyValue('border-color')).toBe('transparent');
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
 
             // Clear + theme color
@@ -228,8 +231,7 @@ describe('Alert Component', () => {
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
             expect(alertStyle.getPropertyValue('background-color')).toBe('transparent');
-            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(primaryColor).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'clear'));
+            expect(alertStyle.getPropertyValue('border-color')).toBe('transparent');
 
             // Clear + custom color
             wrappers[3] = mount(<Alert clear={true} color="blue" />);
@@ -291,7 +293,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(primaryColor).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'fill')).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'fill'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(primaryColor, 'fill'));
 
             // Color + custom color
             wrappers[2] = mount(<Alert color="blue" />);
@@ -301,7 +303,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color('blue').hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'fill')).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'fill'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor('blue', 'fill'));
 
             // Should not break when not using a real color
             wrappers[3] = mount(<Alert color="xsei" />);
@@ -327,9 +329,9 @@ describe('Alert Component', () => {
             alertElement = wrappers[0].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
-            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(alertVars.color, 'darken')).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'darken'));
 
             // Color + theme color
             wrappers[1] = mount(<Alert color="primary" darken={true} />);
@@ -339,7 +341,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'darken'));
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'darken')).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'darken'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(primaryColor, 'darken'));
 
             // Color + custom color
             wrappers[2] = mount(<Alert color="blue" darken={true} />);
@@ -349,7 +351,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor('blue', 'darken'));
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'darken')).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'darken'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor('blue', 'darken'));
         });
 
         it('Should set faded prop', () => {
@@ -366,9 +368,9 @@ describe('Alert Component', () => {
             alertElement = wrappers[0].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
-            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(alertVars.color, 'faded')).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'faded'));
 
             // Color + theme color
             wrappers[1] = mount(<Alert color="primary" faded={true} />);
@@ -378,7 +380,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'faded'));
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(getTextColor(primaryColor, 'faded'));
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'faded'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(primaryColor, 'faded'));
 
             // Color + custom color
             wrappers[2] = mount(<Alert color="blue" faded={true} />);
@@ -388,7 +390,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor('blue', 'faded'));
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(getTextColor('blue', 'faded'));
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'faded'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor('blue', 'faded'));
         });
 
         it('Should set glow prop', () => {
@@ -449,9 +451,9 @@ describe('Alert Component', () => {
             alertElement = wrappers[0].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
-            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
-            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(alertVars.color, 'invert')).hex());
+            expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(getTextColor(alertVars.color, 'invert'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'invert'));
 
             // Color + theme color
             wrappers[1] = mount(<Alert color="primary" invert={true} />);
@@ -461,7 +463,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(primaryColor, 'invert')).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(getTextColor(primaryColor, 'invert'));
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'invert'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(primaryColor, 'invert'));
 
             // Color + custom color
             wrappers[2] = mount(<Alert color="blue" invert={true} />);
@@ -471,7 +473,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'invert')).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'invert')).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'invert'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor('blue', 'invert'));
         });
 
         it('Should set lighten prop', () => {
@@ -488,9 +490,9 @@ describe('Alert Component', () => {
             alertElement = wrappers[0].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
-            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
+            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor(alertVars.color, 'lighten')).hex());
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'fill'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(alertVars.color, 'faded'));
 
             // Color + theme color
             wrappers[1] = mount(<Alert color="primary" lighten={true} />);
@@ -500,7 +502,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'lighten'));
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'lighten')).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(primaryColor, 'lighten'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(primaryColor, 'lighten'));
 
             // Color + custom color
             wrappers[2] = mount(<Alert color="blue" lighten={true} />);
@@ -510,7 +512,7 @@ describe('Alert Component', () => {
 
             expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor('blue', 'lighten'));
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'lighten')).hex());
-            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor('blue', 'lighten'));
+            expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor('blue', 'lighten'));
         });
 
         it('Should set marker prop', () => {
@@ -534,9 +536,8 @@ describe('Alert Component', () => {
             alertElement = wrappers[0].find('.fab-alert');
             alertStyle = getComputedStyle(alertElement.getDOMNode());
 
-            expect(Color(alertStyle.getPropertyValue('background-color')).hex()).toBe(Color(alertVars.color).hex());
+            expect(alertStyle.getPropertyValue('background-color')).toBe('transparent');
             expect(Color(alertStyle.getPropertyValue('color')).hex()).toBe(Color(alertVars.textColor).hex());
-            // TODO: fix this test
             // expect(Color(alertStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(alertVars.color, 'outline'));
 
             // Color + theme color
@@ -683,802 +684,38 @@ describe('Alert Component', () => {
         });
     });
 
-    describe('Utils', () => {
-        describe('Alignment util', () => {
-            it('Should set al prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert al="center" /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
+    describe('Events', () => {
+        it('Should call onClose', async done => {
+            const mockCallBack = jest.fn();
+            let component;
 
-                expect(alertStyle.getPropertyValue('align-items')).toBe('center');
-                expect(alertStyle.getPropertyValue('justify-content')).toBe('center');
+            await act(async () => {
+                component = await render(<Alert closeButton={true} onClose={mockCallBack} />);
+
+                fireEvent.click(component.container.querySelector('.fab-close-button'), new MouseEvent('click', {
+                    bubbles: true,
+                    cancelable: true,
+                }));
             });
 
-            it('Should set alH prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // Default - flex row
-                wrappers[0] = mount(<UtilsProvider><Alert alH="center" /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('justify-content')).toBe('center');
-
-                // Default - flex column
-                wrappers[0] = mount(<UtilsProvider><Alert alH="center" direction="column" /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('align-items')).toBe('center');
-            });
-
-            it('Should set alV prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // Default - flex row
-                wrappers[0] = mount(<UtilsProvider><Alert alV="center" /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('align-items')).toBe('center');
-
-                // Default - flex column
-                wrappers[1] = mount(<UtilsProvider><Alert alV="center" direction="column" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('justify-content')).toBe('center');
-            });
-        });
-
-        describe('Display util', () => {
-            it('Should set d prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert d="inline-block" /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('display')).toBe('inline-block');
-            });
-        });
-
-        describe('Flex util', () => {
-            it('Should set basis prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert basis="50%" /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-basis')).toBe('50%');
-            });
-
-            it('Should set direction prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert direction="column" flex={true} /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-direction')).toBe('column');
-            });
-
-            it('Should set flex prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // Boolean
-                wrappers[0] = mount(<UtilsProvider><Alert flex={true} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('display')).toBe('flex');
-
-                // String
-                wrappers[1] = mount(<UtilsProvider><Alert flex="1 0 auto" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex')).toBe('1 0 auto');
-            });
-
-            it('Should set flow prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // Horizontal
-                wrappers[0] = mount(<UtilsProvider><Alert flex={true} flow="horizontal" /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-direction')).toBe('row');
-
-                // H
-                wrappers[0] = mount(<UtilsProvider><Alert flex={true} flow="h" /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-direction')).toBe('row');
-
-                // Vertical
-                wrappers[1] = mount(<UtilsProvider><Alert flex={true} flow="vertical" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-direction')).toBe('column');
-
-                // V
-                wrappers[1] = mount(<UtilsProvider><Alert flex={true} flow="v" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-direction')).toBe('column');
-            });
-
-            it('Should set grow prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert grow="1" /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-grow')).toBe('1');
-            });
-
-            it('Should set shrink prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert shrink="1" /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-shrink')).toBe('1');
-            });
-
-            it('Should set wrap prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // False
-                wrappers[0] = mount(<UtilsProvider><Alert wrap={false} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-wrap')).toBe('');
-
-                // True
-                wrappers[0] = mount(<UtilsProvider><Alert wrap={true} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('flex-wrap')).toBe('wrap');
-            });
-        });
-
-        describe('Margin util', () => {
-            it('Should set m prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert m={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert m="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert m={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin')).toBe('0px');
-            });
-
-            it('Should set mb prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert mb={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-bottom')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert mb="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-bottom')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert mb={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-bottom')).toBe('0px');
-            });
-
-            it('Should set ml prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert ml={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-left')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert ml="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-left')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert ml={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-left')).toBe('0px');
-            });
-
-            it('Should set mr prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert mr={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-right')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert mr="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-right')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert mr={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-right')).toBe('0px');
-            });
-
-            it('Should set mt prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert mt={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-top')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert mt="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-top')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert mt={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-top')).toBe('0px');
-            });
-
-            it('Should set mx prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert mx={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-left')).toBe('1rem');
-                expect(alertStyle.getPropertyValue('margin-right')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert mx="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-left')).toBe('15px');
-                expect(alertStyle.getPropertyValue('margin-right')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert mx={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-left')).toBe('0px');
-                expect(alertStyle.getPropertyValue('margin-right')).toBe('0px');
-            });
-
-            it('Should set my prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert my={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-bottom')).toBe('1rem');
-                expect(alertStyle.getPropertyValue('margin-top')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert my="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-bottom')).toBe('15px');
-                expect(alertStyle.getPropertyValue('margin-top')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert my={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('margin-bottom')).toBe('0px');
-                expect(alertStyle.getPropertyValue('margin-top')).toBe('0px');
-            });
-        });
-
-        describe('Overflow util', () => {
-            it('Should set ov prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert ov="hidden" /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('overflow')).toBe('hidden');
-            });
-
-            it('Should set ovX prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert ovX="hidden" /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('overflow-x')).toBe('hidden');
-            });
-
-            it('Should set ovY prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert ovY="hidden" /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('overflow-y')).toBe('hidden');
-            });
-        });
-
-        describe('Padding util', () => {
-            it('Should set p prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert p={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert p="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert p={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding')).toBe('0px');
-            });
-
-            it('Should set pb prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert pb={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-bottom')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert pb="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-bottom')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert pb={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-bottom')).toBe('0px');
-            });
-
-            it('Should set pl prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert pl={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-left')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert pl="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-left')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert pl={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-left')).toBe('0px');
-            });
-
-            it('Should set pr prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert pr={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-right')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert pr="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-right')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert pr={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-right')).toBe('0px');
-            });
-
-            it('Should set pt prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert pt={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-top')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert pt="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-top')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert pt={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-top')).toBe('0px');
-            });
-
-            it('Should set px prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert px={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-left')).toBe('1rem');
-                expect(alertStyle.getPropertyValue('padding-right')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert px="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-left')).toBe('15px');
-                expect(alertStyle.getPropertyValue('padding-right')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert px={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-left')).toBe('0px');
-                expect(alertStyle.getPropertyValue('padding-right')).toBe('0px');
-            });
-
-            it('Should set py prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert py={1} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-bottom')).toBe('1rem');
-                expect(alertStyle.getPropertyValue('padding-top')).toBe('1rem');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert py="15px" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-bottom')).toBe('15px');
-                expect(alertStyle.getPropertyValue('padding-top')).toBe('15px');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert py={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('padding-bottom')).toBe('0px');
-                expect(alertStyle.getPropertyValue('padding-top')).toBe('0px');
-            });
-        });
-
-        describe('Size util', () => {
-            it('Should set height prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert height={30} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('height')).toBe('30px');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert height="2rem" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('height')).toBe('2rem');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert height={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('height')).toBe('0px');
-            });
-
-            it('Should set max height prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert maxHeight={30} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('max-height')).toBe('30px');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert maxHeight="2rem" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('max-height')).toBe('2rem');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert maxHeight={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('max-height')).toBe('0');
-            });
-
-            it('Should set max width prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert maxWidth={30} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('max-width')).toBe('30px');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert maxWidth="2rem" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('max-width')).toBe('2rem');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert maxWidth={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('max-width')).toBe('0');
-            });
-
-            it('Should set min height prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert minHeight={30} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('min-height')).toBe('30px');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert minHeight="2rem" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('min-height')).toBe('2rem');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert minHeight={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('min-height')).toBe('0');
-            });
-
-            it('Should set min width prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert minWidth={30} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('min-width')).toBe('30px');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert minWidth="2rem" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('min-width')).toBe('2rem');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert minWidth={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('min-width')).toBe('0');
-            });
-
-            it('Should set width prop', () => {
-                let alertElement;
-                let alertStyle;
-                let wrappers = [];
-
-                // No unit
-                wrappers[0] = mount(<UtilsProvider><Alert width={30} /></UtilsProvider>);
-                alertElement = wrappers[0].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('width')).toBe('30px');
-
-                // With unit
-                wrappers[1] = mount(<UtilsProvider><Alert width="2rem" /></UtilsProvider>);
-                alertElement = wrappers[1].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('width')).toBe('2rem');
-
-                // 0
-                wrappers[2] = mount(<UtilsProvider><Alert width={0} /></UtilsProvider>);
-                alertElement = wrappers[2].find('.fab-alert');
-                alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('width')).toBe('0px');
-            });
-        });
-
-        describe('Visibility util', () => {
-            it('Should set hidden prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert hidden={true} /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('display')).toBe('none');
-            });
-
-            it('Should set visible prop', () => {
-                const wrapper = mount(<UtilsProvider><Alert visible={true} /></UtilsProvider>);
-                const alertElement = wrapper.find('.fab-alert');
-                const alertStyle = getComputedStyle(alertElement.getDOMNode());
-
-                expect(alertStyle.getPropertyValue('display')).toBe('flex');
-            });
+            setTimeout(() => {
+                expect(mockCallBack.mock.calls.length).toEqual(1);
+                done();
+            }, 1000);
         });
     });
 
-    it('Should call onClose', async done => {
-        const mockCallBack = jest.fn();
-        let component;
-
-        await act(async () => {
-            component = await render(<Alert closeButton={true} onClose={mockCallBack} />);
-
-            fireEvent.click(component.container.querySelector('.fab-close-button'), new MouseEvent('click', {
-                bubbles: true,
-                cancelable: true,
-            }));
-        });
-
-        setTimeout(() => {
-            expect(mockCallBack.mock.calls.length).toEqual(1);
-            done();
-        }, 1000);
-    });
+    // Utils
+    testUtils({
+        component: <Alert />,
+        componentClassName: '.fab-alert',
+        provider: <UtilsProvider />
+    })
 
     describe('Customization', () => {
         it('Should change css according to new theme', () => {
             const wrapper = mount(<AlertWithChanges />);
-    
+
             let alertElement;
             let alertStyle;
             let stageElement;
@@ -1487,21 +724,21 @@ describe('Alert Component', () => {
             let textStyle;
             let titleElement;
             let titleStyle;
-    
+
             wrapper.update();
-    
+
             // Elements
             alertElement = wrapper.find('.fab-alert');
             stageElement = wrapper.find('.fab-alert__stage');
             textElement = wrapper.find('.fab-alert__text');
             titleElement = wrapper.find('.fab-alert__title');
-    
+
             // Styles
             alertStyle = getComputedStyle(alertElement.getDOMNode());
             stageStyle = getComputedStyle(stageElement.getDOMNode());
             textStyle = getComputedStyle(textElement.getDOMNode());
             titleStyle = getComputedStyle(titleElement.getDOMNode());
-    
+
             // Alert
             expect(alertStyle.getPropertyValue('background-color')).toBe(theme.components.alert.color);
             expect(alertStyle.getPropertyValue('border-radius')).toBe(`${theme.components.alert.borderRadius}px`);
@@ -1515,14 +752,14 @@ describe('Alert Component', () => {
             expect(alertStyle.getPropertyValue('padding-left')).toBe(`${theme.components.alert.paddingLeft}rem`);
             expect(alertStyle.getPropertyValue('padding-right')).toBe(theme.components.alert.paddingRight);
             expect(alertStyle.getPropertyValue('padding-top')).toBe(`${theme.components.alert.paddingTop}px`);
-    
+
             // Stage
             expect(stageStyle.getPropertyValue('margin-left')).toBe(`${theme.components.alert.spacingX}px`);
-    
+
             // Text
             expect(textStyle.getPropertyValue('font-size')).toBe(theme.components.alert.textFontSize);
             expect(textStyle.getPropertyValue('font-weight')).toBe(`${theme.components.alert.textFontWeight}`);
-    
+
             // Title
             expect(titleStyle.getPropertyValue('font-size')).toBe(theme.components.alert.titleFontSize);
             expect(titleStyle.getPropertyValue('font-weight')).toBe(`${theme.components.alert.titleFontWeight}`);

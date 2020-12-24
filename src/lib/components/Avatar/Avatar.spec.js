@@ -12,16 +12,17 @@ import { getDividerColor } from '@fabula/core/styles/methods/color/getDividerCol
 import { getGlobalVars } from '@fabula/core/styles/methods/misc/getGlobalVars';
 import { getPlaceholderIconColor } from '@fabula/core/styles/methods/color/getPlaceholderIconColor';
 import { getTextColor } from '@fabula/core/styles/methods/color/getTextColor';
-import { UtilsProvider } from '../../providers/UtilsProvider';
 
 // Component
 import { Avatar } from './Avatar';
 import { Badge } from '../Badge/Badge';
 import { Icon } from '../Icon/Icon';
 
+// Providers
+import { UtilsProvider } from '../../providers/UtilsProvider';
+
 // Common tests
 import { testUtils } from '../../../../tests/common/test-utils';
-
 
 // Theme changes
 const theme = {
@@ -85,38 +86,10 @@ describe('Avatar Component', () => {
             expect(iconElement.prop('name')).toBe('image');
         });
 
-        it('Should change css according to new theme', () => {
-            const newThemeVars = theme.components.avatar;
-            let avatarElement;
-            let avatarStyle;
-            let initialsElement;
-            let initialsStyle;
-            let component = render(<AvatarWithChanges />);
-
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-
-            expect(avatarStyle.getPropertyValue('border-radius')).toBe(`${newThemeVars.borderRadius}px`);
-            expect(avatarStyle.getPropertyValue('border-width')).toBe(newThemeVars.borderWidth);
-            expect(avatarStyle.getPropertyValue('font-size')).toBe(`calc(${newThemeVars.iconSize}em * 1)`);
-            expect(avatarStyle.getPropertyValue('height')).toBe(`${newThemeVars.size}px`);
-            expect(avatarStyle.getPropertyValue('width')).toBe(`${newThemeVars.size}px`);
-
-            component = render(<AvatarWithChanges showInitials="Initials" />);
-
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(initialsStyle.getPropertyValue('font-family')).toBe(newThemeVars.initialsFontFamily);
-            expect(initialsStyle.getPropertyValue('font-size')).toBe(`calc(${newThemeVars.initialsFontSize}em * 1)`);
-            expect(initialsStyle.getPropertyValue('font-weight')).toBe(`${newThemeVars.initialsFontWeight}`);
-            expect(initialsStyle.getPropertyValue('letter-spacing')).toBe(newThemeVars.letterSpacing);
-        });
-
         it('Should have an image', () => {
             const { container } = render(<Avatar src="image" />);
             const imageElement = container.querySelector('.fab-avatar__image');
-    
+
             expect(imageElement).toBeTruthy();
             expect(getComputedStyle(imageElement).backgroundImage).toBe(`url(image)`);
         });
@@ -124,7 +97,7 @@ describe('Avatar Component', () => {
         it('Should accept external components - eg: badge', () => {
             const { container } = render(<Avatar><Badge>1</Badge></Avatar>);
             const badgeElement = container.querySelector('.fab-badge');
-    
+
             expect(badgeElement).toBeTruthy();
         });
     });
@@ -375,8 +348,8 @@ describe('Avatar Component', () => {
             let avatarElement = component.container.querySelector('.fab-avatar');
             let avatarStyle = getComputedStyle(avatarElement);
 
-            expect(avatarStyle.getPropertyValue('border-radius')).toBe(`${avatarVars.borderRadius}px`);
-        
+            expect(avatarStyle.getPropertyValue('border-radius')).toBe(`${avatarVars.borderRadius}`);
+
             // Rounded true
             component = render(<Avatar rounded={true} />);
             avatarElement = component.container.querySelector('.fab-avatar');
@@ -408,13 +381,33 @@ describe('Avatar Component', () => {
 
         it('Should set size prop', () => {
             const avatarVars = getComponentVars('avatar');
-            let wrapper = mount(<Avatar />);
-            let avatarElement = wrapper.find('.fab-avatar').getDOMNode();
-            let avatarStyle = getComputedStyle(avatarElement);
+            let avatarElement;
+            let avatarStyle;
+            let component;
+            let wrapper;
 
-            // Default size: md
-            expect(avatarStyle.getPropertyValue('height')).toBe(`${avatarVars.size}px`)
+            // Default: md
+            component = render(<Avatar />);
+            avatarElement = component.container.querySelector('.fab-avatar');
+            avatarStyle = getComputedStyle(avatarElement);
+            wrapper = mount(<Avatar />);
+
+            expect(avatarStyle.getPropertyValue('height')).toBe(avatarVars.size)
             expect(wrapper.prop('size')).toBe('md');
+
+            for (let i = 0; i < Object.keys(avatarVars.sizeMultipliers).length; i++) {
+                const size = Object.keys(avatarVars.sizeMultipliers)[i];
+                const multiplier = avatarVars.sizeMultipliers[size];
+
+                component = render(<Avatar size={size} />);
+                avatarElement = component.container.querySelector('.fab-avatar');
+                avatarStyle = getComputedStyle(avatarElement);
+                wrapper = mount(<Avatar size={size} />);
+
+                // TODO: fix this
+                // expect(avatarStyle.getPropertyValue('height')).toBe(`calc(${avatarVars.size} * ${multiplier})`)
+                expect(wrapper.prop('size')).toBe(size);
+            }
         });
     });
 
@@ -424,4 +417,35 @@ describe('Avatar Component', () => {
         componentClassName: '.fab-avatar',
         provider: <UtilsProvider />
     })
+
+    // Customization
+    describe('Customization', () => {
+        it('Should change css according to new theme', () => {
+            const newThemeVars = theme.components.avatar;
+            let avatarElement;
+            let avatarStyle;
+            let initialsElement;
+            let initialsStyle;
+            let component = render(<AvatarWithChanges />);
+
+            avatarElement = component.container.querySelector('.fab-avatar');
+            avatarStyle = getComputedStyle(avatarElement);
+
+            expect(avatarStyle.getPropertyValue('border-radius')).toBe(`${newThemeVars.borderRadius}px`);
+            expect(avatarStyle.getPropertyValue('border-width')).toBe(newThemeVars.borderWidth);
+            expect(avatarStyle.getPropertyValue('font-size')).toBe(`calc(${newThemeVars.iconSize}em * 1)`);
+            expect(avatarStyle.getPropertyValue('height')).toBe(`${newThemeVars.size}px`);
+            expect(avatarStyle.getPropertyValue('width')).toBe(`${newThemeVars.size}px`);
+
+            component = render(<AvatarWithChanges showInitials="Initials" />);
+
+            initialsElement = component.container.querySelector('.fab-avatar__initials');
+            initialsStyle = getComputedStyle(initialsElement);
+
+            expect(initialsStyle.getPropertyValue('font-family')).toBe(newThemeVars.initialsFontFamily);
+            expect(initialsStyle.getPropertyValue('font-size')).toBe(`calc(${newThemeVars.initialsFontSize}em * 1)`);
+            expect(initialsStyle.getPropertyValue('font-weight')).toBe(`${newThemeVars.initialsFontWeight}`);
+            expect(initialsStyle.getPropertyValue('letter-spacing')).toBe(newThemeVars.letterSpacing);
+        });
+    });
 });

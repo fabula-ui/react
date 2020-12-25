@@ -327,6 +327,29 @@ export const PropInvert = () => (
   </FabulaProvider>
 )
 
+export const PropLighten = () => (
+  <FabulaProvider>
+    <UtilsProvider>
+      <Wrapper mb={1}>
+        <Button lighten={true} mr={1}>Button</Button>
+        <Button color="primary" lighten={true} mr={1}>Button</Button>
+        <Button color="lavender" lighten={true} mr={1}>Button</Button>
+        <Button color="hot" lighten={true} mr={1}>Button</Button>
+        <Button color="aux" lighten={true} mr={1}>Button</Button>
+        <Button color="dark" lighten={true}>Button</Button>
+      </Wrapper>
+      <Wrapper>
+        <Button border={true} lighten={true} mr={1}>Button</Button>
+        <Button border={true} color="primary" lighten={true} mr={1}>Button</Button>
+        <Button border={true} color="lavender" lighten={true} mr={1}>Button</Button>
+        <Button border={true} color="hot" lighten={true} mr={1}>Button</Button>
+        <Button border={true} color="aux" lighten={true} mr={1}>Button</Button>
+        <Button border={true} color="dark" lighten={true}>Button</Button>
+      </Wrapper>
+    </UtilsProvider>
+  </FabulaProvider>
+)
+
 export const PropOutline = () => (
   <FabulaProvider>
     <UtilsProvider>

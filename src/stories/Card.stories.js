@@ -242,37 +242,37 @@ export const PropLayout = () => (
 // Utilities
 export const UtilMargin = () => (
   <FabulaProvider>
-      <UtilsProvider>
-          <Wrapper al="center" flex={true} mb={1}>
-              <SimpleBaseComponent mr={.5} />
-              <SimpleBaseComponent mx={.5}/>
-              <SimpleBaseComponent ml={.5} />
-          </Wrapper>
+    <UtilsProvider>
+      <Wrapper al="center" flex={true} mb={1}>
+        <SimpleBaseComponent mr={.5} />
+        <SimpleBaseComponent mx={.5} />
+        <SimpleBaseComponent ml={.5} />
+      </Wrapper>
 
-          <Wrapper al="center" direction="column" flex={true} mb={1}>
-              <SimpleBaseComponent mb={.5} />
-              <SimpleBaseComponent my={.5} />
-              <SimpleBaseComponent mt={.5} />
-          </Wrapper>
+      <Wrapper al="center" direction="column" flex={true} mb={1}>
+        <SimpleBaseComponent mb={.5} />
+        <SimpleBaseComponent my={.5} />
+        <SimpleBaseComponent mt={.5} />
+      </Wrapper>
 
-          <Wrapper al="center" direction="column" flex={true}>
-              <SimpleBaseComponent />
-              <Wrapper al="center" flex={true}>
-                  <SimpleBaseComponent />
-                  <SimpleBaseComponent m={1} />
-                  <SimpleBaseComponent />
-              </Wrapper>
-              <SimpleBaseComponent />
-          </Wrapper>
-      </UtilsProvider>
+      <Wrapper al="center" direction="column" flex={true}>
+        <SimpleBaseComponent />
+        <Wrapper al="center" flex={true}>
+          <SimpleBaseComponent />
+          <SimpleBaseComponent m={1} />
+          <SimpleBaseComponent />
+        </Wrapper>
+        <SimpleBaseComponent />
+      </Wrapper>
+    </UtilsProvider>
   </FabulaProvider>
 )
 
 export const UtilVisibility = () => (
   <FabulaProvider>
-      <UtilsProvider>
-          <SimpleBaseComponent hidden={true} />
-          <SimpleBaseComponent visible={true} />
-      </UtilsProvider>
+    <UtilsProvider>
+      <SimpleBaseComponent hidden={true} />
+      <SimpleBaseComponent visible={true} />
+    </UtilsProvider>
   </FabulaProvider>
 )

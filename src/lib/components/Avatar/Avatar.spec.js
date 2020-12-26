@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import Color from 'color';
 import { render } from '@testing-library/react';
 import { mount, shallow } from 'enzyme';
 
 // Fabula
 import { FabulaProvider } from '../../providers/FabulaProvider';
-import { getBgColor } from '@fabula/core/styles/methods/color/getBgColor';
-import { getBorderColor } from '@fabula/core/styles/methods/color/getBorderColor';
+import { getComponentColors } from '@fabula/core/styles/methods/misc/getComponentColors';
 import { getComponentVars } from '@fabula/core/styles/methods/misc/getComponentVars';
-import { getDividerColor } from '@fabula/core/styles/methods/color/getDividerColor';
 import { getGlobalVars } from '@fabula/core/styles/methods/misc/getGlobalVars';
 import { getPlaceholderIconColor } from '@fabula/core/styles/methods/color/getPlaceholderIconColor';
-import { getTextColor } from '@fabula/core/styles/methods/color/getTextColor';
 
 // Component
 import { Avatar } from './Avatar';
@@ -30,6 +27,7 @@ const theme = {
         avatar: {
             borderRadius: 5,
             borderWidth: '1rem',
+            color: 'red',
             iconSize: 5,
             initialsFontFamily: 'Roboto',
             initialsFontSize: 5,
@@ -46,6 +44,70 @@ const AvatarWithChanges = props => (
     </FabulaProvider>
 )
 
+const testColorUtil = prop => {
+    it(`Should set ${prop} prop`, () => {
+        const props = { showInitials: 'Initials' };
+        let colors = [];
+        let element;
+        let initialsElement;
+        let initialsStyle;
+        let style;
+        let wrappers = [];
+
+        // Default: no color
+        props[prop] = true;
+
+        wrappers[0] = mount(cloneElement(<Avatar />, props));
+        colors[0] = getComponentColors('avatar', wrappers[0].props());
+
+        element = wrappers[0].find('.fab-avatar').getDOMNode();
+        initialsElement = wrappers[0].find('.fab-avatar__initials').getDOMNode();
+        initialsStyle = getComputedStyle(initialsElement);
+        style = getComputedStyle(element);
+
+        expect(wrappers[0].props().color).toBeFalsy();
+        expect(wrappers[0].props()[prop]).toBeTruthy();
+        expect(Color(style.getPropertyValue('background-color')).hex()).toBe(colors[0].bgColor);
+        expect(Color(style.getPropertyValue('color')).hex()).toBe(colors[0].placeholderIconColor);
+        expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(colors[0].textColor);
+
+        // Color + theme color
+        props.color = 'primary';
+        props[prop] = true;
+
+        wrappers[1] = mount(cloneElement(<Avatar />, props));
+        colors[1] = getComponentColors('avatar', wrappers[1].props());
+
+        element = wrappers[1].find('.fab-avatar').getDOMNode();
+        initialsElement = wrappers[1].find('.fab-avatar__initials').getDOMNode();
+        initialsStyle = getComputedStyle(initialsElement);
+        style = getComputedStyle(element);
+
+        expect(wrappers[1].props().color).toBe('primary');
+        expect(wrappers[1].props()[prop]).toBeTruthy();
+        expect(Color(style.getPropertyValue('background-color')).hex()).toBe(colors[1].bgColor);
+        expect(Color(style.getPropertyValue('color')).hex()).toBe(colors[1].placeholderIconColor);
+        expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(colors[1].textColor);
+
+        // Color + custom color
+        props.color = 'blue';
+        props[prop] = true;
+
+        wrappers[2] = mount(cloneElement(<Avatar />, props));
+        colors[2] = getComponentColors('avatar', wrappers[2].props());
+
+        element = wrappers[2].find('.fab-avatar').getDOMNode();
+        initialsElement = wrappers[2].find('.fab-avatar__initials').getDOMNode();
+        initialsStyle = getComputedStyle(initialsElement);
+        style = getComputedStyle(element);
+
+        expect(wrappers[2].props().color).toBe('blue');
+        expect(wrappers[2].props()[prop]).toBeTruthy();
+        expect(Color(style.getPropertyValue('background-color')).hex()).toBe(colors[2].bgColor);
+        expect(Color(style.getPropertyValue('color')).hex()).toBe(colors[2].placeholderIconColor);
+        expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(colors[2].textColor);
+    });
+}
 
 describe('Avatar Component', () => {
     describe('Basic', () => {
@@ -104,39 +166,53 @@ describe('Avatar Component', () => {
 
     describe('Props', () => {
         it('Should set border prop', () => {
-            const avatarVars = getComponentVars('avatar');
-            const globalVars = getGlobalVars();
-            const primaryColor = globalVars.colors.primary;
             let avatarElement;
             let avatarStyle;
-            let component;
+            let colors;
+            let wrapper;
 
             // Border true + no color
-            component = render(<Avatar border={true} />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
+            wrapper = mount(<Avatar border={true} />);
+            colors = getComponentColors('avatar', wrapper.props());
 
-            expect(Color(avatarStyle.getPropertyValue('border-color')).hex()).toBe(getDividerColor(avatarVars.color, 'fill'));
+            avatarElement = wrapper.find('.fab-avatar');
+            avatarStyle = getComputedStyle(avatarElement.getDOMNode());
+
+            expect(wrapper.props().border).toBeTruthy();
+            expect(wrapper.props().color).toBeFalsy();
+            expect(Color(avatarStyle.getPropertyValue('border-color')).hex()).toBe(colors.borderColor);
 
             // Border true + primary color
-            component = render(<Avatar border={true} color="primary" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
+            wrapper = mount(<Avatar border={true} color="primary" />);
+            colors = getComponentColors('avatar', wrapper.props());
 
-            expect(Color(avatarStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor(primaryColor, 'fill'));
+            avatarElement = wrapper.find('.fab-avatar');
+            avatarStyle = getComputedStyle(avatarElement.getDOMNode());
+
+            expect(wrapper.props().border).toBeTruthy();
+            expect(wrapper.props().color).toBe('primary');
+            expect(Color(avatarStyle.getPropertyValue('border-color')).hex()).toBe(colors.borderColor);
 
             // Border true + custom color
-            component = render(<Avatar border={true} color="blue" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
+            wrapper = mount(<Avatar border={true} color="blue" />);
+            colors = getComponentColors('avatar', wrapper.props());
 
-            expect(Color(avatarStyle.getPropertyValue('border-color')).hex()).toBe(getBorderColor('blue', 'fill'));
+            avatarElement = wrapper.find('.fab-avatar');
+            avatarStyle = getComputedStyle(avatarElement.getDOMNode());
+
+            expect(wrapper.props().border).toBeTruthy();
+            expect(wrapper.props().color).toBe('blue');
+            expect(Color(avatarStyle.getPropertyValue('border-color')).hex()).toBe(colors.borderColor);
 
             // No border
-            component = render(<Avatar border={false} />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
+            wrapper = mount(<Avatar border={false} />);
+            colors = getComponentColors('avatar', wrapper.props());
 
+            avatarElement = wrapper.find('.fab-avatar');
+            avatarStyle = getComputedStyle(avatarElement.getDOMNode());
+
+            expect(wrapper.props().border).toBeFalsy();
+            expect(wrapper.props().color).toBeFalsy();
             expect(avatarStyle.getPropertyValue('border-color')).toBe('transparent');
         });
 
@@ -146,143 +222,74 @@ describe('Avatar Component', () => {
             const primaryColor = globalVars.colors.primary;
             let avatarElement;
             let avatarStyle;
+            let colors;
             let initialsElement;
             let initialsStyle;
-            let component;
+            let wrapper;
 
             // Default: no color
-            component = render(<Avatar showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
+            wrapper = mount(<Avatar showInitials="Initials" />);
+            colors = getComponentColors('avatar', wrapper.props());
+
+            avatarElement = wrapper.find('.fab-avatar').getDOMNode();
             avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
+            initialsElement = wrapper.find('.fab-avatar__initials').getDOMNode();
             initialsStyle = getComputedStyle(initialsElement);
 
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(avatarVars.color, 'fill'));
+            expect(wrapper.props().color).toBeFalsy();
+            expect(wrapper.props().showInitials).toBe('Initials');
+            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(colors.bgColor);
             expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(getPlaceholderIconColor(avatarVars.color, 'fill'));
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(getTextColor(avatarVars.color, 'fill'));
+            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(colors.textColor);
 
             // Color + theme color
-            component = render(<Avatar color="primary" showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
+            wrapper = mount(<Avatar color="primary" showInitials="Initials" />);
+            colors = getComponentColors('avatar', wrapper.props());
+
+            avatarElement = wrapper.find('.fab-avatar').getDOMNode();
             avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
+            initialsElement = wrapper.find('.fab-avatar__initials').getDOMNode();
             initialsStyle = getComputedStyle(initialsElement);
 
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'fill'));
+            expect(wrapper.props().color).toBe('primary');
+            expect(wrapper.props().showInitials).toBe('Initials');
+            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(colors.bgColor);
             expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(getPlaceholderIconColor(primaryColor, 'fill'));
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'fill')).hex());
+            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(colors.textColor);
 
             // Color + custom color
-            component = render(<Avatar color="blue" showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
+            wrapper = mount(<Avatar color="blue" showInitials="Initials" />);
+            colors = getComponentColors('avatar', wrapper.props());
+
+            avatarElement = wrapper.find('.fab-avatar').getDOMNode();
             avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
+            initialsElement = wrapper.find('.fab-avatar__initials').getDOMNode();
             initialsStyle = getComputedStyle(initialsElement);
 
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'fill')).hex());
+            expect(wrapper.props().color).toBe('blue');
+            expect(wrapper.props().showInitials).toBe('Initials');
+            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(colors.bgColor);
             expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(Color(getPlaceholderIconColor('blue', 'fill')).hex());
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'fill')).hex());
+            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(colors.textColor);
 
             // Should not break when not using a real color
-            component = render(<Avatar color="xsei" showInitials="Initials" />);
+            wrapper = mount(<Avatar color="xsei" showInitials="Initials" />);
+            colors = getComponentColors('avatar', wrapper.props());
 
-            avatarElement = component.container.querySelector('.fab-avatar');
+            avatarElement = wrapper.find('.fab-avatar').getDOMNode();
             avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
+            initialsElement = wrapper.find('.fab-avatar__initials').getDOMNode();
             initialsStyle = getComputedStyle(initialsElement);
 
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(avatarVars.color, 'fill'));
+            expect(wrapper.props().color).toBe('xsei');
+            expect(wrapper.props().showInitials).toBe('Initials');
+            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(colors.bgColor);
             expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(getPlaceholderIconColor(avatarVars.color, 'fill'));
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(getTextColor(avatarVars.color, 'fill'));
+            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(colors.textColor);
         });
 
-        it('Should set darken prop', () => {
-            const avatarVars = getComponentVars('avatar');
-            const globalVars = getGlobalVars();
-            const primaryColor = globalVars.colors.primary;
-            let avatarElement;
-            let avatarStyle;
-            let initialsElement;
-            let initialsStyle;
-            let component;
-
-            // Default: no color
-            component = render(<Avatar darken={true} showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(avatarVars.color, 'darken'));
-            expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(getPlaceholderIconColor(avatarVars.color, 'darken'));
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(avatarVars.color, 'darken')).hex());
-
-            // Color + theme color
-            component = render(<Avatar color="primary" darken={true} showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'darken'));
-            expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(getPlaceholderIconColor(primaryColor, 'darken'));
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'darken')).hex());
-
-            // Color + custom color
-            component = render(<Avatar color="blue" darken={true} showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'darken')).hex());
-            expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(Color(getPlaceholderIconColor('blue', 'darken')).hex());
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'darken')).hex());
-        });
-
-        it('Should set faded prop', () => {
-            const avatarVars = getComponentVars('avatar');
-            const globalVars = getGlobalVars();
-            const primaryColor = globalVars.colors.primary;
-            let avatarElement;
-            let avatarStyle;
-            let initialsElement;
-            let initialsStyle;
-            let component;
-
-            // Default: no color
-            component = render(<Avatar faded={true} showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(avatarVars.color, 'faded'));
-            expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(getPlaceholderIconColor(avatarVars.color, 'faded'));
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(getTextColor(avatarVars.color, 'faded'));
-
-            // Color + theme color
-            component = render(<Avatar color="primary" faded={true} showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'faded'));
-            expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(getPlaceholderIconColor(primaryColor, 'faded'));
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'faded')).hex());
-
-            // Color + custom color
-            component = render(<Avatar color="blue" faded={true} showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'faded')).hex());
-            expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(Color(getPlaceholderIconColor('blue', 'faded')).hex());
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'faded')).hex());
-        });
+        testColorUtil('darken');
+        testColorUtil('faded');
 
         it('Should set icon prop', () => {
             let wrapper = shallow(<Avatar />);
@@ -296,49 +303,7 @@ describe('Avatar Component', () => {
             expect(iconElement.prop('name')).toBe('photo');
         });
 
-        it('Should set lighten prop', () => {
-            const avatarVars = getComponentVars('avatar');
-            const globalVars = getGlobalVars();
-            const primaryColor = globalVars.colors.primary;
-            let avatarElement;
-            let avatarStyle;
-            let initialsElement;
-            let initialsStyle;
-            let component;
-
-            // Default: no color
-            component = render(<Avatar lighten={true} showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(avatarVars.color, 'lighten'));
-            expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(getPlaceholderIconColor(avatarVars.color, 'lighten'));
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(getTextColor(avatarVars.color, 'lighten'));
-
-            // Color + theme color
-            component = render(<Avatar color="primary" lighten={true} showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(getBgColor(primaryColor, 'lighten'));
-            expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(getPlaceholderIconColor(primaryColor, 'lighten'));
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor(primaryColor, 'lighten')).hex());
-
-            // Color + custom color
-            component = render(<Avatar color="blue" lighten={true} showInitials="Initials" />);
-            avatarElement = component.container.querySelector('.fab-avatar');
-            avatarStyle = getComputedStyle(avatarElement);
-            initialsElement = component.container.querySelector('.fab-avatar__initials');
-            initialsStyle = getComputedStyle(initialsElement);
-
-            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(Color(getBgColor('blue', 'lighten')).hex());
-            expect(Color(avatarStyle.getPropertyValue('color')).hex()).toBe(Color(getPlaceholderIconColor('blue', 'lighten')).hex());
-            expect(Color(initialsStyle.getPropertyValue('color')).hex()).toBe(Color(getTextColor('blue', 'lighten')).hex());
-        });
+        testColorUtil('lighten');
 
         it('Should set rounded prop', () => {
             const avatarVars = getComponentVars('avatar');
@@ -431,6 +396,7 @@ describe('Avatar Component', () => {
             avatarElement = component.container.querySelector('.fab-avatar');
             avatarStyle = getComputedStyle(avatarElement);
 
+            expect(Color(avatarStyle.getPropertyValue('background-color')).hex()).toBe(Color(newThemeVars.color).hex());
             expect(avatarStyle.getPropertyValue('border-radius')).toBe(`${newThemeVars.borderRadius}px`);
             expect(avatarStyle.getPropertyValue('border-width')).toBe(newThemeVars.borderWidth);
             expect(avatarStyle.getPropertyValue('font-size')).toBe(`calc(${newThemeVars.iconSize}em * 1)`);

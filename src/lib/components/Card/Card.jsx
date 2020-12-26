@@ -38,6 +38,7 @@ const Card = props => {
 }
 
 Card.defaultProps = {
+    border: true,
     color: '',
     glow: false,
     layout: 'v',
@@ -45,6 +46,7 @@ Card.defaultProps = {
 }
 
 Card.propTypes = {
+    border: PropTypes.bool,
     color: PropTypes.string,
     glow: PropTypes.bool,
     layout: PropTypes.string,

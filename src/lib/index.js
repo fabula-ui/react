@@ -2,7 +2,7 @@
 import { Alert } from './components/Alert/Alert';
 import { Avatar } from './components/Avatar/Avatar';
 import { Badge } from './components/Badge/Badge';
-import Button from './components/Button/Button';
+import { Button } from './components/Button/Button';
 import ButtonGroup from './components/ButtonGroup/ButtonGroup';
 import Card from './components/Card/Card';
 import CardImage from './components/CardImage/CardImage';

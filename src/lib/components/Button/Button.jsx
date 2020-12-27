@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import ButtonStyles from '@fabula/core/styles/components/button/button';
+import { ButtonStyles } from '@fabula/core/styles/components/button/button';
 
-const Button = props => {
+export const Button = props => {
     const {
         border,
         children,
@@ -109,5 +109,3 @@ Button.propTypes = {
     size: PropTypes.string,
     wide: PropTypes.bool
 };
-
-export default Button;

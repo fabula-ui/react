@@ -78,7 +78,7 @@ export const Example = () => (
           <Card>
             <CardImage height={200} />
             <CardSection divider="top" padding>
-              <Text size="lg">
+              <Text flex={true} size="lg">
                 <Text inline={true} mr=".5" strong={true}>Card Title</Text>
                 <Badge color="primary">New</Badge>
               </Text>

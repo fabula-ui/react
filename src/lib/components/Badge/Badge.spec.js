@@ -345,6 +345,7 @@ describe('Badge Component', () => {
         provider: <UtilsProvider />
     })
 
+    // Customization
     describe('Customization', () => {
         it('Should change css according to new theme', () => {
             const newThemeVars = theme.components.badge;

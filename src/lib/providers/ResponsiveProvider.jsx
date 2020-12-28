@@ -1,9 +1,9 @@
 import React, { createContext } from 'react';
 
 // Context
-const ResponsiveProviderContext = createContext(null);
+export const ResponsiveProviderContext = createContext(null);
 
-const ResponsiveProvider = props => {
+export const ResponsiveProvider = props => {
     const { children } = props;
     const initialState = {
         added: true
@@ -15,6 +15,3 @@ const ResponsiveProvider = props => {
         </ResponsiveProviderContext.Provider>
     )
 }
-
-export default ResponsiveProvider;
-export { ResponsiveProviderContext };

@@ -62,7 +62,7 @@ import ToastController from './controllers/ToastController';
 // Providers
 import { FabulaProvider } from './providers/FabulaProvider';
 import ModalProvider from './providers/ModalProvider';
-import ResponsiveProvider from './providers/ResponsiveProvider';
+import { ResponsiveProvider } from './providers/ResponsiveProvider';
 import ThemeProvider from './providers/ThemeProvider';
 import ToastProvider from './providers/ToastProvider';
 import TooltipProvider from './providers/TooltipProvider';

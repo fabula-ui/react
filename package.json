@@ -1,6 +1,6 @@
 {
   "name": "@fabula/react",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "private": false,
   "publishConfig": {
@@ -101,6 +101,7 @@
     }
   },
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

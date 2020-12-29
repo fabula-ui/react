@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 // Components
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import TooltipWrapper from './TooltipWrapper';
 import Tooltip from '../Tooltip/Tooltip';
 

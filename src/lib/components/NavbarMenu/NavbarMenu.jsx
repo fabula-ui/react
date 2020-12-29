@@ -1,7 +1,7 @@
 import React, { Children, cloneElement, isValidElement, useRef, useState } from 'react';
 
 // Components
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import { Component } from '../Component/Component';
 import Drawer from '../Drawer/Drawer';
 import { Icon } from '../Icon/Icon';

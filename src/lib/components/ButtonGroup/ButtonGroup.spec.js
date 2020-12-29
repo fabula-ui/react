@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 // Component
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import ButtonGroup from './ButtonGroup';
 
 describe('Button Group Component', () => {
@@ -16,7 +16,7 @@ describe('Button Group Component', () => {
         const { container } = render(<ButtonGroup />);
         const buttonGroupElement = container.querySelector('.fab-button-group');
         const wrapperElement = container.querySelector('.fab-button-group-wrapper');
-        
+
         expect(buttonGroupElement).toBeTruthy();
         expect(wrapperElement).toBeTruthy();
     });

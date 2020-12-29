@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 // Component
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import Input from './Input';
 
 describe('Input Component', () => {

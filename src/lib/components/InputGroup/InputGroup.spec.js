@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 // Component
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import Input from '../Input/Input';
 import InputGroup from './InputGroup';
 
@@ -26,7 +26,7 @@ describe('Input Group Component', () => {
         const { container } = render(<InputGroup><Button /><Input /></InputGroup>);
         const buttonElement = container.querySelector('.fab-button');
         const inputElement = container.querySelector('.fab-input');
-        
+
         expect(buttonElement).toBeTruthy();
         expect(inputElement).toBeTruthy();
     });

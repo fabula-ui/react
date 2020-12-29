@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import { Component } from '../Component/Component';
 import { Icon } from '../Icon/Icon';
 

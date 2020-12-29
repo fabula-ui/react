@@ -1,14 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
-import logo from './logo.svg';
 import './App.css';
 
 import {
-  Avatar,
-  FabulaProvider,
   FileInput,
   Tag,
-  ToastService
 } from './lib';
 
 function App() {

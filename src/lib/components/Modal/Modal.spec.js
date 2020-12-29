@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 // Component
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import Modal from './Modal';
 import ModalHeader from '../ModalHeader/ModalHeader';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 // Component
-import Button from '../Button/Button';
+import { Button } from '../Button/Button';
 import NavbarMenu from './NavbarMenu';
 
 describe('NavbarMenu Component', () => {
@@ -48,7 +48,7 @@ describe('NavbarMenu Component', () => {
             bubbles: true,
             cancelable: true,
         }));
-        
+
         expect(drawerElement.getAttribute('data-open')).toBe('true');
 
         fireEvent.click(closeButtonElement, new MouseEvent('click', {

@@ -4,9 +4,9 @@ import React, { useRef } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import CardSectionStyles from '@fabula/core/styles/components/card-section/card-section';
+import { CardSectionStyles } from '@fabula/core/styles/components/card-section/card-section';
 
-const CardSection = props => {
+export const CardSection = props => {
     const { children, elRef, layout, ...rest } = props;
     const ref = useRef(null);
 
@@ -27,5 +27,3 @@ const CardSection = props => {
         </Component>
     )
 }
-
-export default CardSection;

@@ -7,9 +7,9 @@ import { Component } from '../Component/Component';
 import { Icon } from '../Icon/Icon';
 
 // Styles
-import DropdownToggleStyles from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
+import { DropdownToggleStyles } from '@fabula/core/styles/components/dropdown-toggle/dropdown-toggle';
 
-const DropdownToggle = props => {
+export const DropdownToggle = props => {
 	const { arrow, children, className, direction, elRef, label, onClick, open, toggle, ...rest } = props;
 	const ref = useRef(null);
 
@@ -51,5 +51,3 @@ DropdownToggle.propTypes = {
 	label: PropTypes.string,
 	open: PropTypes.bool
 };
-
-export default DropdownToggle;

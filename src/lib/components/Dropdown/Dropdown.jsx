@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import DropdownStyles from '@fabula/core/styles/components/dropdown/dropdown';
+import { DropdownStyles } from '@fabula/core/styles/components/dropdown/dropdown';
 
-const Dropdown = props => {
+export const Dropdown = props => {
     const { alignment, children, direction, elRef, expand, onClose, onOpen, onToggle, ...rest } = props;
     const [open, setOpen] = useState(props.open);
     const ref = useRef(null);
@@ -75,5 +75,3 @@ Dropdown.propTypes = {
     onOpen: PropTypes.func,
     onToggle: PropTypes.func
 }
-
-export default Dropdown;

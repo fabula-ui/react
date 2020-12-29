@@ -6,9 +6,9 @@ import { Component } from '../Component/Component';
 import { Icon } from '../Icon/Icon';
 
 // Styles
-import CheckboxStyles from '@fabula/core/styles/components/checkbox/checkbox';
+import { CheckboxStyles } from '@fabula/core/styles/components/checkbox/checkbox';
 
-const Checkbox = props => {
+export const Checkbox = props => {
     const { children, disabled, elRef, label, onChange, onCheck, onUncheck, readOnly, ...rest } = props;
     const [checked, setChecked] = useState(props.checked || false);
     const [isIndeterminate, setIndeterminate] = useState(props.indeterminate || false);
@@ -90,5 +90,3 @@ Checkbox.propTypes = {
     rounded: PropTypes.bool,
     size: PropTypes.string
 }
-
-export default Checkbox;

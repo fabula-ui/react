@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import ButtonGroupStyles from '@fabula/core/styles/components/button-group/button-group';
+import { ButtonGroupStyles } from '@fabula/core/styles/components/button-group/button-group';
 
-const ButtonGroup = props => {
+export const ButtonGroup = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -39,5 +39,3 @@ ButtonGroup.propTypes = {
     dividerColor: PropTypes.string,
     layout: PropTypes.string,
 }
-
-export default ButtonGroup;

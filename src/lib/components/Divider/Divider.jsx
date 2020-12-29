@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import DividerStyles from '@fabula/core/styles/components/divider/divider';
+import { DividerStyles } from '@fabula/core/styles/components/divider/divider';
 
-const Divider = props => {
+export const Divider = props => {
     const { elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -32,5 +32,3 @@ Divider.propTypes = {
     label: PropTypes.string,
     textColor: PropTypes.string
 }
-
-export default Divider;

@@ -4,9 +4,9 @@ import React, { useRef } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import ColumnStyles from '@fabula/core/styles/components/column/column';
+import { ColumnStyles } from '@fabula/core/styles/components/column/column';
 
-const Column = props => {
+export const Column = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -26,5 +26,3 @@ const Column = props => {
         </Component>
     )
 }
-
-export default Column

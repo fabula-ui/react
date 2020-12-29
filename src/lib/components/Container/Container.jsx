@@ -4,9 +4,9 @@ import React, { useRef } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import ContainerStyles from '@fabula/core/styles/components/container/container';
+import { ContainerStyles } from '@fabula/core/styles/components/container/container';
 
-const Container = props => {
+export const Container = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -26,5 +26,3 @@ const Container = props => {
         </Component>
     )
 }
-
-export default Container

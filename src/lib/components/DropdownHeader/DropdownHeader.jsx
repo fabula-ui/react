@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import DropdownHeaderStyles from '@fabula/core/styles/components/dropdown-header/dropdown-header';
+import { DropdownHeaderStyles } from '@fabula/core/styles/components/dropdown-header/dropdown-header';
 
-const DropdownHeader = props => {
+export const DropdownHeader = props => {
     const { children, elRef, label, ...rest } = props;
     const ref = useRef(null);
 
@@ -36,5 +36,3 @@ DropdownHeader.propTypes = {
     label: PropTypes.string,
     textColor: PropTypes.string
 }
-
-export default DropdownHeader;

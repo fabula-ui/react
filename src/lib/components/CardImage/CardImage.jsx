@@ -6,9 +6,9 @@ import { Component } from '../Component/Component';
 import { Icon } from '../Icon/Icon';
 
 // Styles
-import CardImageStyles from '@fabula/core/styles/components/card-image/card-image';
+import { CardImageStyles } from '@fabula/core/styles/components/card-image/card-image';
 
-const CardImage = props => {
+export const CardImage = props => {
     const { alt, children, elRef, icon, src, layout, ...rest } = props;
     const ref = useRef(null);
 
@@ -49,5 +49,3 @@ CardImage.propTypes = {
     src: PropTypes.string,
     width: PropTypes.any
 }
-
-export default CardImage;

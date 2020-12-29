@@ -11,12 +11,12 @@ import PropTypes from 'prop-types';
 
 // Components
 import { Component } from '../Component/Component';
-import DropdownItem from '../DropdownItem/DropdownItem';
+import { DropdownItem } from '../DropdownItem/DropdownItem';
 
 // Styles
-import DropdownMenuStyles from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
+import { DropdownMenuStyles } from '@fabula/core/styles/components/dropdown-menu/dropdown-menu';
 
-const DropdownMenu = props => {
+export const DropdownMenu = props => {
     const { children, clickToClose, color, direction, elRef, items, onChange, onClickItem, size, toggle, ...rest } = props;
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
@@ -87,5 +87,3 @@ DropdownMenu.propTypes = {
     padding: PropTypes.bool,
     size: PropTypes.string,
 }
-
-export default DropdownMenu;

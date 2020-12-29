@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import CardStyles from '@fabula/core/styles/components/card/card';
+import { CardStyles } from '@fabula/core/styles/components/card/card';
 
-const Card = props => {
+export const Card = props => {
     const { children, elRef, layout, ...rest } = props;
     const ref = useRef(null);
 
@@ -52,5 +52,3 @@ Card.propTypes = {
     layout: PropTypes.string,
     padding: PropTypes.any
 }
-
-export default Card;

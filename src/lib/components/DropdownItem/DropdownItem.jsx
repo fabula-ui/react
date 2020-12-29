@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import DropdownItemStyles from '@fabula/core/styles/components/dropdown-item/dropdown-item';
+import { DropdownItemStyles } from '@fabula/core/styles/components/dropdown-item/dropdown-item';
 
-const DropdownItem = props => {
+export const DropdownItem = props => {
     const {
         button,
         children,
@@ -74,5 +74,3 @@ DropdownItem.propTypes = {
     parentColor: PropTypes.string,
     size: PropTypes.string
 }
-
-export default DropdownItem;

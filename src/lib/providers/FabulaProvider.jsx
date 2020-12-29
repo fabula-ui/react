@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 
 // Providers
-import ThemeProvider from './ThemeProvider';
+import { ThemeProvider } from './ThemeProvider';
 
 export const FabulaProviderContext = createContext({});
 
@@ -11,9 +11,9 @@ export const FabulaProvider = props => {
 
     return (
         <FabulaProviderContext.Provider value={initialState}>
-            <ThemeProvider theme={theme}>
+            {<ThemeProvider theme={theme}>
                 {children}
-            </ThemeProvider>
+            </ThemeProvider>}
         </FabulaProviderContext.Provider>
     )
 }

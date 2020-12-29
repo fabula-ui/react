@@ -2,11 +2,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import './App.css';
 
-import {
-  FileInput,
-  Tag,
-} from './lib';
-
 function App() {
   return (
     <>
@@ -20,12 +15,6 @@ function App() {
         <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,900" rel="stylesheet" />
         <style>{`html { font-size: 15px; }`}</style>
       </Helmet>
-      <div style={{ padding: 20 }}>
-        <FileInput expand={true} multiple={true} />
-        <Tag>
-          <span>Tag</span>
-        </Tag>
-      </div>
     </>
   );
 }

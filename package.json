@@ -1,7 +1,9 @@
 {
   "name": "@fabula/react",
   "version": "0.2.0",
-  "main": "dist/index.js",
+  "main": "dist/bundle.cjs.js",
+  "module": "dist/bundle.esm.js",
+  "source": "src/lib/index.js",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -16,6 +18,7 @@
   },
   "dependencies": {
     "@fabula/core": "^0.1",
+    "@rollup/plugin-babel": "^5.2.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -23,11 +26,17 @@
     "enzyme": "^3.11.0",
     "jest-enzyme": "^7.1.2",
     "prop-types": "^15.7.2",
+    "rollup": "^2.35.1",
+    "rollup-plugin-extensions": "^0.1.0",
+    "rollup-plugin-jsx": "^1.0.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "svg-inline-loader": "^0.8.2"
   },
   "scripts": {
     "clean": "rimraf dist",
-    "compile": "yarn run clean && cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
+    "compile": "yarn run clean && rollup -c",
+    "compile:old": "yarn run clean && cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,stories.js,__snapshots__",
     "prepare": "install-peers",
     "start": "start-storybook -p 9009 -s public",
     "build": "react-scripts build",
@@ -103,5 +112,6 @@
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  }
+  },
+  "sideEffects": false
 }

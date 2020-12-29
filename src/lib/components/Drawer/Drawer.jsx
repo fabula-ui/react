@@ -5,9 +5,9 @@ import { Component } from '../Component/Component';
 import { Icon } from '../Icon/Icon';
 
 // Styles
-import DrawerStyles from '@fabula/core/styles/components/drawer/drawer';
+import { DrawerStyles } from '@fabula/core/styles/components/drawer/drawer';
 
-const Drawer = props => {
+export const Drawer = props => {
     const { children, elRef, onChange, ...rest } = props;
     const [open, setOpen] = useState(props.open);
     const ref = useRef();
@@ -39,5 +39,3 @@ const Drawer = props => {
         </Component>
     )
 }
-
-export default Drawer

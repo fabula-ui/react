@@ -4,12 +4,12 @@ import React, { useCallback, useContext, useLayoutEffect, useRef, useState } fro
 import { Component } from '../Component/Component';
 
 // Controllers
-import TooltipController from '../../controllers/TooltipController';
+import { TooltipController } from '../../controllers/TooltipController';
 
 // Styles
-import TooltipStyles from '@fabula/core/styles/components/tooltip/tooltip';
+import { TooltipStyles } from '@fabula/core/styles/components/tooltip/tooltip';
 
-const Tooltip = props => {
+export const Tooltip = props => {
     const { activeTooltip } = useContext(TooltipController);
     const componentProps = { ...props, height: null, width: null };
     const [ready, setReady] = useState(false);
@@ -59,5 +59,3 @@ const Tooltip = props => {
         </Component>
     )
 }
-
-export default Tooltip;

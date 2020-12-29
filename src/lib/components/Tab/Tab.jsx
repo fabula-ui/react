@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import TabStyles from '@fabula/core/styles/components/tab/tab';
+import { TabStyles } from '@fabula/core/styles/components/tab/tab';
 
-const Tab = props => {
+export const Tab = props => {
     const {
         activeTab,
         children,
@@ -105,5 +105,3 @@ Tab.propTypes = {
     target: PropTypes.string,
     type: PropTypes.string,
 }
-
-export default Tab;

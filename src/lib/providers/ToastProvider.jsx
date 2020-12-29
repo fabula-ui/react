@@ -1,10 +1,10 @@
 import React, { useCallback, useReducer } from 'react';
 
 // Controller
-import ToastController from '../controllers/ToastController';
+import { ToastController } from '../controllers/ToastController';
 
 // Portals
-import ToastPortal from '../portals/ToastPortal';
+import { ToastPortal } from '../portals/ToastPortal';
 
 const reducer = (state, action) => {
     let targetStack;
@@ -32,7 +32,7 @@ const reducer = (state, action) => {
     }
 }
 
-const ToastProvider = props => {
+export const ToastProvider = props => {
     const { children } = props;
     const [stacks, dispatch] = useReducer(reducer, {
         default: {
@@ -73,5 +73,3 @@ const ToastProvider = props => {
         </ToastController.Provider>
     )
 }
-
-export default ToastProvider;

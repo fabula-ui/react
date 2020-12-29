@@ -12,9 +12,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import SegmentsStyles from '@fabula/core/styles/components/segments/segments';
+import { SegmentsStyles } from '@fabula/core/styles/components/segments/segments';
 
-const Segments = props => {
+export const Segments = props => {
   const {
     active,
     activeColor,
@@ -139,5 +139,3 @@ Segments.propTypes = {
   stacked: PropTypes.bool,
   type: PropTypes.string,
 }
-
-export default Segments;

@@ -83,7 +83,7 @@ const utilProps = [
     'wrap'
 ]
 
-const getComponentProps = (props, context) => {
+export const getComponentProps = (props, context) => {
     const componentProps = { ...props };
     let targetProps;
 
@@ -105,5 +105,3 @@ const getComponentProps = (props, context) => {
 
     return componentProps;
 }
-
-export default getComponentProps;

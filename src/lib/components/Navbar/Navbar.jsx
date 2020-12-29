@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import NavbarStyles from '@fabula/core/styles/components/navbar/navbar';
+import { NavbarStyles } from '@fabula/core/styles/components/navbar/navbar';
 
-const Navbar = props => {
+export const Navbar = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -35,5 +35,3 @@ Navbar.propTypes = {
     color: PropTypes.string,
     height: PropTypes.any
 }
-
-export default Navbar;

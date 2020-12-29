@@ -1,12 +1,12 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 
 // Controller
-import ToastController from '../controllers/ToastController';
+import { ToastController } from '../controllers/ToastController';
 
 // Components
-import ToastStack from '../components/ToastStack/ToastStack';
+import { ToastStack } from '../components/ToastStack/ToastStack';
 
-const ToastPortal = () => {
+export const ToastPortal = () => {
     const { stacks } = useContext(ToastController);
     const [stacksEl, setStacksEl] = useState(<></>);
 
@@ -29,5 +29,3 @@ const ToastPortal = () => {
 
     return stacksEl;
 }
-
-export default ToastPortal;

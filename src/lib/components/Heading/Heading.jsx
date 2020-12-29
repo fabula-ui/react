@@ -4,9 +4,9 @@ import React, { createElement, useRef } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import HeadingStyles from '@fabula/core/styles/components/heading/heading';
+import { HeadingStyles } from '@fabula/core/styles/components/heading/heading';
 
-const Heading = props => {
+export const Heading = props => {
     const { children, elRef, level, ...rest } = props;
     const ref = useRef(null);
     const HTag = () => createElement(`h${level}`, { ref: (elRef || ref), 'data-fab-component': 'heading' }, children);
@@ -28,5 +28,3 @@ const Heading = props => {
 Heading.defaultProps = {
     level: 1
 }
-
-export default Heading;

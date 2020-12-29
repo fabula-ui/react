@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import { Button } from '../Button/Button';
 import { Component } from '../Component/Component';
 import { Icon } from '../Icon/Icon';
-import Input from '../Input/Input';
+import { Input } from '../Input/Input';
 
 // Styles
-import SearchInputStyles from '@fabula/core/styles/components/search-input/search-input';
+import { SearchInputStyles } from '@fabula/core/styles/components/search-input/search-input';
 
-const SearchInput = props => {
+export const SearchInput = props => {
     const {
         button,
         children,
@@ -67,5 +67,3 @@ SearchInput.propTypes = {
     button: PropTypes.any,
     placeholder: PropTypes.string
 }
-
-export default SearchInput;

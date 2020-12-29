@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from 'react';
 
 // Controller
-import ModalController from '../controllers/ModalController';
+import { ModalController } from '../controllers/ModalController';
 
 // Portals
-import ModalPortal from '../portals/ModalPortal';
+import { ModalPortal } from '../portals/ModalPortal';
 
-const ModalProvider = props => {
+export const ModalProvider = props => {
     const { children } = props;
     const [activeModal, setActiveModal] = useState(<></>);
     const [modalIsClosing, setModalIsClosing] = useState(false);
@@ -41,5 +41,3 @@ const ModalProvider = props => {
         </ModalController.Provider>
     )
 }
-
-export default ModalProvider;

@@ -7,13 +7,13 @@ import { CloseButton } from '../CloseButton/CloseButton';
 import { Component } from '../Component/Component';
 
 // Controller
-import ModalController from '../../controllers/ModalController';
+import { ModalController } from '../../controllers/ModalController';
 
 // Styles
-import ModalHeaderStyles from '@fabula/core/styles/components/modal-header/modal-header';
-import ModalSectionStyles from '@fabula/core/styles/components/modal-section/modal-section';
+import { ModalHeaderStyles } from '@fabula/core/styles/components/modal-header/modal-header';
+import { ModalSectionStyles } from '@fabula/core/styles/components/modal-section/modal-section';
 
-const ModalHeader = props => {
+export const ModalHeader = props => {
     const { color, children, elRef, parentColor, ...rest } = props;
     const { closeModal } = useContext(ModalController);
     const sectionCss = css(ModalSectionStyles({ framework: 'react', props }));
@@ -45,5 +45,3 @@ ModalHeader.defaultProps = {
 ModalHeader.propTypes = {
     padding: PropTypes.bool
 }
-
-export default ModalHeader

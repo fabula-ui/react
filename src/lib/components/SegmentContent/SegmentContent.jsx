@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // Components
-import Content from '../Content/Content';
+import { Content } from '../Content/Content';
 
-const SegmentContent = props => {
+export const SegmentContent = props => {
     const { children } = props;
 
     return (
@@ -25,5 +25,3 @@ SegmentContent.propTypes = {
     name: PropTypes.string,
     scope: PropTypes.string
 }
-
-export default SegmentContent;

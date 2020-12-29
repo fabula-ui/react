@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import ModalSectionStyles from '@fabula/core/styles/components/modal-section/modal-section';
+import { ModalSectionStyles } from '@fabula/core/styles/components/modal-section/modal-section';
 
-const ModalSection = props => {
+export const ModalSection = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -32,5 +32,3 @@ ModalSection.defaultProps = {
 ModalSection.propTypes = {
     padding: PropTypes.bool
 }
-
-export default ModalSection

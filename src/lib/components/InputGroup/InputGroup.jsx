@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import InputGroupStyles from '@fabula/core/styles/components/input-group/input-group';
+import { InputGroupStyles } from '@fabula/core/styles/components/input-group/input-group';
 
-const InputGroup = props => {
+export const InputGroup = props => {
     const { children, elRef, size, ...rest } = props;
     const ref = useRef(null);
     const childrenWithProps = Children.map(children, child => cloneElement(child, { size }));
@@ -35,5 +35,3 @@ InputGroup.defaultProps = {
 InputGroup.propTypes = {
     layout: PropTypes.string
 }
-
-export default InputGroup;

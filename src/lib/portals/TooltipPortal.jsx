@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 
 // Components
-import Tooltip from '../components/Tooltip/Tooltip';
+import { Tooltip } from '../components/Tooltip/Tooltip';
 
 // Controllers
-import TooltipController from '../controllers/TooltipController';
+import { TooltipController } from '../controllers/TooltipController';
 
-const TooltipPortal = () => {
+export const TooltipPortal = () => {
     const { activeTooltip } = useContext(TooltipController);
 
     return (
@@ -15,5 +15,3 @@ const TooltipPortal = () => {
         </div>
     )
 }
-
-export default TooltipPortal;

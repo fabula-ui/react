@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Components
-import Content from '../Content/Content';
+import { Content } from '../Content/Content';
 
-const TabContent = props => {
+export const TabContent = props => {
     const { children } = props;
 
     return (
@@ -12,5 +12,3 @@ const TabContent = props => {
         </Content>
     )
 }
-
-export default TabContent;

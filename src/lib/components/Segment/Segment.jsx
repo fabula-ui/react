@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import SegmentStyles from '@fabula/core/styles/components/segment/segment';
+import { SegmentStyles } from '@fabula/core/styles/components/segment/segment';
 
-const Segment = props => {
+export const Segment = props => {
     const {
         activeSegment,
         children,
@@ -33,10 +33,10 @@ const Segment = props => {
         if (handleActive) { handleActive(name); }
         if (onChange) {
             onChange({
-              scope,
-              segment: name
+                scope,
+                segment: name
             });
-          }
+        }
         if (onClick) { onClick(); }
     }
 
@@ -97,5 +97,3 @@ Segment.propTypes = {
     target: PropTypes.string,
     type: PropTypes.string,
 }
-
-export default Segment;

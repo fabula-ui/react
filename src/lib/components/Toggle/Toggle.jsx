@@ -4,9 +4,9 @@ import React, { useRef, useState } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import ToggleStyles from '@fabula/core/styles/components/toggle/toggle';
+import { ToggleStyles } from '@fabula/core/styles/components/toggle/toggle';
 
-const Toggle = props => {
+export const Toggle = props => {
     const { children, disabled, elRef, label, onToggle, ...rest } = props;
     const [active, setActive] = useState(props.active);
     const ref = useRef(null);
@@ -36,5 +36,3 @@ const Toggle = props => {
 Toggle.defaultProps = {
     rounded: true
 };
-
-export default Toggle;

@@ -4,9 +4,9 @@ import React, { useRef } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import RowStyles from '@fabula/core/styles/components/row/row';
+import { RowStyles } from '@fabula/core/styles/components/row/row';
 
-const Row = props => {
+export const Row = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -23,5 +23,3 @@ const Row = props => {
         </Component>
     )
 }
-
-export default Row

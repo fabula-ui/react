@@ -4,9 +4,9 @@ import React, { useRef } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import WrapperStyles from '@fabula/core/styles/components/wrapper/wrapper';
+import { WrapperStyles } from '@fabula/core/styles/components/wrapper/wrapper';
 
-const Wrapper = props => {
+export const Wrapper = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -21,5 +21,3 @@ const Wrapper = props => {
         </Component>
     )
 }
-
-export default Wrapper

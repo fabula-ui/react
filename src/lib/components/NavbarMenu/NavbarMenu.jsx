@@ -3,15 +3,15 @@ import React, { Children, cloneElement, isValidElement, useRef, useState } from 
 // Components
 import { Button } from '../Button/Button';
 import { Component } from '../Component/Component';
-import Drawer from '../Drawer/Drawer';
+import { Drawer } from '../Drawer/Drawer';
 import { Icon } from '../Icon/Icon';
-import List from '../List/List';
-import Tabs from '../Tabs/Tabs';
+import { List } from '../List/List';
+import { Tabs } from '../Tabs/Tabs';
 
 // Styles
-import NavbarMenuStyles from '@fabula/core/styles/components/navbar-menu/navbar-menu';
+import { NavbarMenuStyles } from '@fabula/core/styles/components/navbar-menu/navbar-menu';
 
-const NavbarMenu = props => {
+export const NavbarMenu = props => {
     const { mobile } = props;
 
     if (mobile) {
@@ -88,5 +88,3 @@ const MobileMenu = props => {
         </Component>
     )
 }
-
-export default NavbarMenu

@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import NavbarSectionStyles from '@fabula/core/styles/components/navbar-section/navbar-section';
+import { NavbarSectionStyles } from '@fabula/core/styles/components/navbar-section/navbar-section';
 
-const NavbarSection = props => {
+export const NavbarSection = props => {
     const { children, elRef, mobile, ...rest } = props;
     const ref = useRef(null);
 
@@ -32,5 +32,3 @@ NavbarSection.propTypes = {
     alignment: PropTypes.string,
     expand: PropTypes.bool
 }
-
-export default NavbarSection;

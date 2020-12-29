@@ -1,10 +1,10 @@
 import React, { useReducer } from 'react';
 
 // Controller
-import TooltipController from '../controllers/TooltipController';
+import { TooltipController } from '../controllers/TooltipController';
 
 // Portals
-import TooltipPortal from '../portals/TooltipPortal';
+import { TooltipPortal } from '../portals/TooltipPortal';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -15,7 +15,7 @@ const reducer = (state, action) => {
     }
 }
 
-const TooltipProvider = props => {
+export const TooltipProvider = props => {
     const { children } = props;
     const [activeTooltip, dispatch] = useReducer(reducer, null);
 
@@ -38,5 +38,3 @@ const TooltipProvider = props => {
         </TooltipController.Provider>
     )
 }
-
-export default TooltipProvider

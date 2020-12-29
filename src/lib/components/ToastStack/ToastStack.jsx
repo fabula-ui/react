@@ -3,17 +3,17 @@ import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 // Components
-import Toast from '../Toast/Toast';
+import { Toast } from '../Toast/Toast';
 
-import ToastController from '../../controllers/ToastController';
+import { ToastController } from '../../controllers/ToastController';
 
 // Context
 import { FabulaProviderContext } from '../../providers/FabulaProvider';
 
 // Styles
-import ToastStackStyles from '@fabula/core/styles/components/toast-stack/toast-stack';
+import { ToastStackStyles } from '@fabula/core/styles/components/toast-stack/toast-stack';
 
-const ToastStack = props => {
+export const ToastStack = props => {
     const { name, placement } = props;
     const { utils } = useContext(FabulaProviderContext);
     const { stacks } = useContext(ToastController);
@@ -54,5 +54,3 @@ ToastStack.propTypes = {
     name: PropTypes.string,
     placement: PropTypes.any
 }
-
-export default ToastStack;

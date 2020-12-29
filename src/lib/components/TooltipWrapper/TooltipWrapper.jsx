@@ -6,9 +6,9 @@ import {
 } from 'react';
 
 // Controllers
-import TooltipController from '../../controllers/TooltipController';
+import { TooltipController } from '../../controllers/TooltipController';
 
-const TooltipWrapper = props => {
+export const TooltipWrapper = props => {
     const { children, color, label, offset, placement } = props;
     const { handleTooltip } = useContext(TooltipController);
     const element = children?.props ? children : children[0].props;
@@ -53,5 +53,3 @@ TooltipWrapper.defaultProps = {
     label: '',
     placement: 'top'
 }
-
-export default TooltipWrapper;

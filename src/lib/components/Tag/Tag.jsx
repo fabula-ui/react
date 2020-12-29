@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import TagStyles from '@fabula/core/styles/components/tag/tag';
+import { TagStyles } from '@fabula/core/styles/components/tag/tag';
 
-const Tag = props => {
+export const Tag = props => {
     const {
         button,
         children,
@@ -89,5 +89,3 @@ Tag.propTypes = {
     size: PropTypes.string,
     target: PropTypes.string
 }
-
-export default Tag;

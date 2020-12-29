@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import ModalSectionStyles from '@fabula/core/styles/components/modal-section/modal-section';
+import { ModalSectionStyles } from '@fabula/core/styles/components/modal-section/modal-section';
 
-const ModalFooter = props => {
+export const ModalFooter = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -31,5 +31,3 @@ ModalFooter.defaultProps = {
 ModalFooter.propTypes = {
     padding: PropTypes.bool
 }
-
-export default ModalFooter

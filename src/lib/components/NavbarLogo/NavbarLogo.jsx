@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import NavbarLogoStyles from '@fabula/core/styles/components/navbar-logo/navbar-logo';
+import { NavbarLogoStyles } from '@fabula/core/styles/components/navbar-logo/navbar-logo';
 
-const NavbarLogo = props => {
+export const NavbarLogo = props => {
     const { alt, elRef, children, src, ...rest } = props;
     const ref = useRef(null);
 
@@ -35,5 +35,3 @@ NavbarLogo.propTypes = {
     alt: PropTypes.string,
     src: PropTypes.string
 }
-
-export default NavbarLogo

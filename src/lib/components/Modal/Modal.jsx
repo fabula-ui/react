@@ -12,12 +12,12 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Controller
-import ModalController from '../../controllers/ModalController';
+import { ModalController } from '../../controllers/ModalController';
 
 // Styles
-import ModalStyles from '@fabula/core/styles/components/modal/modal';
+import { ModalStyles } from '@fabula/core/styles/components/modal/modal';
 
-const Modal = props => {
+export const Modal = props => {
     const { children, color, elRef, onClose, onOpen } = props;
     const { closeModal, modalIsClosing, modalIsOpen } = useContext(ModalController);
     const childrenWithProps = Children.map(children, child => cloneElement(child, { closeModal, parentColor: color }));
@@ -65,5 +65,3 @@ Modal.propTypes = {
     open: PropTypes.bool,
     size: PropTypes.string
 }
-
-export default Modal

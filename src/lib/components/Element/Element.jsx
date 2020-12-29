@@ -4,9 +4,9 @@ import React, { useRef } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import ElementStyles from '@fabula/core/styles/components/element/element';
+import { ElementStyles } from '@fabula/core/styles/components/element/element';
 
-const Element = props => {
+export const Element = props => {
     const { children, elRef, ...rest } = props;
     const ref = useRef(null);
 
@@ -21,5 +21,3 @@ const Element = props => {
         </Component>
     )
 }
-
-export default Element

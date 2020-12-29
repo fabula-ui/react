@@ -4,9 +4,9 @@ import React, { useRef } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import LinkStyles from '@fabula/core/styles/components/link/link';
+import { LinkStyles } from '@fabula/core/styles/components/link/link';
 
-const Link = props => {
+export const Link = props => {
     const {
         aux,
         children,
@@ -41,5 +41,3 @@ Link.defaultProps = {
     rel: '',
     underline: true
 }
-
-export default Link;

@@ -4,9 +4,9 @@ import React, { useRef } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import ContentStyles from '@fabula/core/styles/components/content/content';
+import { ContentStyles } from '@fabula/core/styles/components/content/content';
 
-const Content = props => {
+export const Content = props => {
     const { active, children, contentClassName, elRef, name, scope, ...rest } = props;
     const ref = useRef(null);
 
@@ -28,5 +28,3 @@ const Content = props => {
         </Component>
     )
 }
-
-export default Content;

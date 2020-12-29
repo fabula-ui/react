@@ -6,9 +6,9 @@ import { Component } from '../Component/Component';
 import { Icon } from '../Icon/Icon';
 
 // Styles
-import InputStyles from '@fabula/core/styles/components/input/input';
+import { InputStyles } from '@fabula/core/styles/components/input/input';
 
-const Input = props => {
+export const Input = props => {
     const {
         children,
         disabled,
@@ -86,7 +86,7 @@ const Input = props => {
                             onFocus={() => handleFocus(true)}
                             placeholder={placeholder}
                             ref={elRef}
-                            type={inputType}/>
+                            type={inputType} />
                     }
 
                     {(!!iconEnd && !passwordToggle) &&
@@ -158,5 +158,3 @@ Input.propTypes = {
     textarea: PropTypes.bool,
     type: PropTypes.string
 };
-
-export default Input;

@@ -7,9 +7,9 @@ import { Component } from '../Component/Component';
 import { Icon } from '../Icon/Icon';
 
 // Styles
-import ToastStyles from '@fabula/core/styles/components/toast/toast';
+import { ToastStyles } from '@fabula/core/styles/components/toast/toast';
 
-const Toast = props => {
+export const Toast = props => {
     const {
         button,
         children,
@@ -128,5 +128,3 @@ Toast.propTypes = {
     outline: PropTypes.bool,
     stacked: PropTypes.bool
 }
-
-export default Toast;

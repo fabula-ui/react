@@ -4,9 +4,9 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import { Component } from '../Component/Component';
 
 // Styles
-import TextStyles from '@fabula/core/styles/components/text/text';
+import { TextStyles } from '@fabula/core/styles/components/text/text';
 
-const Text = props => {
+export const Text = props => {
     const { aux, bold, children, color, content, elRef, medium, semibold, size, strong, weight, ...rest } = props;
     const ref = useRef(null);
     const [fontWeight, setFontWeight] = useState(null);
@@ -24,7 +24,7 @@ const Text = props => {
     return (
         <Component
             elRef={elRef || ref}
-            properties={{...props, weight: fontWeight}}
+            properties={{ ...props, weight: fontWeight }}
             rest={rest}
             styles={TextStyles}
             wrapper="fab-text">
@@ -38,5 +38,3 @@ const Text = props => {
 Text.defaultProps = {
     wrap: true
 }
-
-export default Text;

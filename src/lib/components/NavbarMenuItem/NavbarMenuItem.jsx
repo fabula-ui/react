@@ -1,10 +1,10 @@
 import React from 'react';
 
 // Components
-import ListItem from '../ListItem/ListItem';
-import Tab from '../Tab/Tab';
+import { ListItem } from '../ListItem/ListItem';
+import { Tab } from '../Tab/Tab';
 
-const NavbarMenuItem = props => {
+export const NavbarMenuItem = props => {
     const { button, onClick, mobile, setOpen } = props;
 
     const handleClick = e => {
@@ -18,5 +18,3 @@ const NavbarMenuItem = props => {
         return <Tab {...props} />
     }
 }
-
-export default NavbarMenuItem

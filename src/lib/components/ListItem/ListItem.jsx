@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import { Component } from '../Component/Component';
 
 // Styles
-import ListItemStyles from '@fabula/core/styles/components/list-item/list-item';
+import { ListItemStyles } from '@fabula/core/styles/components/list-item/list-item';
 
-const ListItem = props => {
+export const ListItem = props => {
     const { button, children, compact, divider, elRef, href, onClick, parentOnClick, striped, target, ...rest } = props;
     const ref = useRef(null);
 
@@ -67,5 +67,3 @@ ListItem.propTypes = {
     striped: PropTypes.bool,
     target: PropTypes.string,
 }
-
-export default ListItem;

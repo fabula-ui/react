@@ -46,10 +46,10 @@ export const Example = () => (
                     <Button color="primary">Button</Button>
                     <Button color="primary">Button</Button>
                 </ButtonGroup>
-                <ButtonGroup color="primary">
-                    <Button color="primary">Button</Button>
+                <ButtonGroup color="warning" outline={true}>
+                    <Button color="warning" outline={true}>Button</Button>
                     <Dropdown alignment="right">
-                        <DropdownToggle color="primary" compact={true} />
+                        <DropdownToggle color="warning" compact={true} outline={true} />
                         <DropdownMenu>
                             <DropdownItem>Dropdown Item</DropdownItem>
                         </DropdownMenu>

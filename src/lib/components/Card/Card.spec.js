@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from '@testing-library/react';
 
 // Component
-import Card from './Card';
-import CardImage from '../CardImage/CardImage';
-import CardSection from '../CardSection/CardSection';
+import { Card } from './Card';
+import { CardImage } from '../CardImage/CardImage';
+import { CardSection } from '../CardSection/CardSection';
 
 describe('Card Component', () => {
     it('Should create', () => {

@@ -9,6 +9,7 @@ import { fireEvent, render } from '@testing-library/react';
 import { FabulaProvider } from '../../providers/FabulaProvider';
 import { getComponentColors } from '@fabula/core/styles/methods/misc/getComponentColors';
 import { getComponentVars } from '@fabula/core/styles/methods/misc/getComponentVars';
+import { getGlobalVars } from '@fabula/core/styles/methods/misc/getGlobalVars';
 import { getTextColor } from '@fabula/core/styles/methods/color/getTextColor';
 import { ResponsiveProvider } from '../../providers/ResponsiveProvider';
 import { UtilsProvider } from '../../providers/UtilsProvider';
@@ -17,8 +18,8 @@ import { UtilsProvider } from '../../providers/UtilsProvider';
 import { Button } from './Button';
 
 // Common tests
+import { testResponsive } from '../../../../tests/common/test-responsive';
 import { testUtils } from '../../../../tests/common/test-utils';
-import { getGlobalVars } from '@fabula/core/styles/methods/misc/getGlobalVars';
 
 expect.extend(matchers);
 
@@ -147,13 +148,29 @@ const ButtonWithChanges = () => (
 const ResponsiveButton = () => (
     <FabulaProvider>
         <ResponsiveProvider>
-            <Button on={{
-                xxs: responsive.xxs,
-                xs: responsive.xs,
-                sm: responsive.sm,
-                md: responsive.md,
-                lg: responsive.lg,
-            }} />
+            <Button
+                down={{
+                    xxs: responsive.xxs,
+                    xs: responsive.xs,
+                    sm: responsive.sm,
+                    md: responsive.md,
+                    lg: responsive.lg,
+                }}
+                on={{
+                    xxs: responsive.xxs,
+                    xs: responsive.xs,
+                    sm: responsive.sm,
+                    md: responsive.md,
+                    lg: responsive.lg,
+                }}
+                up={{
+                    xxs: responsive.xxs,
+                    xs: responsive.xs,
+                    sm: responsive.sm,
+                    md: responsive.md,
+                    lg: responsive.lg,
+                }}
+            />
         </ResponsiveProvider>
     </FabulaProvider>
 )
@@ -480,9 +497,10 @@ describe('Button Component', () => {
 
     // Responsive
     describe('Responsive', () => {
-        it('Should change props - on', () => {
+        it('Should change props', () => {
             const { fontSize, glowRadius, glowSpread, glowX, glowY, sizeMultipliers } = getComponentVars('button');
             const { breakpoints } = getGlobalVars();
+            const options = ['down', 'on', 'up'];
             let element;
             let wrapper;
 
@@ -490,35 +508,73 @@ describe('Button Component', () => {
             wrapper = mount(<ResponsiveButton />);
             element = wrapper.find('.fab-button').getDOMNode();
 
-            for (let i = 0; i < Object.keys(breakpoints).length; i++) {
-                const current = Object.keys(breakpoints)[i];
-                const max = breakpoints[current];
-                const multiplier = sizeMultipliers[current];
-                const next = Object.keys(breakpoints)[i + 1];
-                const min = (i < Object.keys(breakpoints).length - 1) ? breakpoints[next] : null;
-                const media = min ? `(min-width: ${min}) and (max-width: ${max})` : `(max-width: ${max})`;
-                let colors;
+            for (let i = 0; i < options.length; i++) {
+                const option = options[i];
 
-                if (responsive[current]) {
-                    colors = getComponentColors('button', responsive[current]);
+                for (let j = 0; j < Object.keys(breakpoints).length; j++) {
+                    const current = Object.keys(breakpoints)[j];
+                    const max = breakpoints[current];
+                    const multiplier = sizeMultipliers[current];
+                    const next = Object.keys(breakpoints)[j + 1];
+                    const min = (j < Object.keys(breakpoints).length - 1) ? breakpoints[next] : null;
+                    let colors;
+                    let media;
 
-                    expect(element).not.toHaveStyleRule('background', Color(responsive[current].color).hex());
-                    expect(element).not.toHaveStyleRule('border-color');
-                    expect(element).not.toHaveStyleRule('border-radius');
-                    expect(element).not.toHaveStyleRule('box-shadow');
-                    expect(element).toHaveStyleRule('font-size', `calc(${fontSize} * 1)`);
-                    expect(element).not.toHaveStyleRule('width');
+                    if (option === 'down') {
+                        media = `(max-width: ${max})`;
+                    } else if (option === 'on') {
+                        media = min ? `(min-width: ${min}) and (max-width: ${max})` : `(max-width: ${max})`;
+                    } else if (option === 'up') {
+                        media = `(min-width: ${max})`;
+                    }
 
-                    expect(element).toHaveStyleRule('background', Color(responsive[current].color).hex(), { media });
-                    expect(element).toHaveStyleRule('border', `solid 1px transparent`, { media });
-                    expect(element).toHaveStyleRule('border-color', colors.borderColor, { media });
-                    expect(element).toHaveStyleRule('border-radius', '999px', { media });
-                    expect(element).toHaveStyleRule('box-shadow', `${glowX} ${glowY} ${glowRadius} ${glowSpread} ${removeSpaces(colors.glowColor)}`, { media });
-                    expect(element).toHaveStyleRule('font-size', `calc(${fontSize} * ${multiplier})`, { media });
-                    expect(element).toHaveStyleRule('width', '100%', { media });
+                    if (responsive[current]) {
+                        colors = getComponentColors('button', responsive[current]);
+
+                        expect(element).not.toHaveStyleRule('background', Color(responsive[current].color).hex());
+                        expect(element).not.toHaveStyleRule('border-color');
+                        expect(element).not.toHaveStyleRule('border-radius');
+                        expect(element).not.toHaveStyleRule('box-shadow');
+                        expect(element).toHaveStyleRule('font-size', `calc(${fontSize} * 1)`);
+                        expect(element).not.toHaveStyleRule('width');
+
+                        expect(element).toHaveStyleRule('background', Color(responsive[current].color).hex(), { media });
+                        expect(element).toHaveStyleRule('border', `solid 1px transparent`, { media });
+                        expect(element).toHaveStyleRule('border-color', colors.borderColor, { media });
+                        expect(element).toHaveStyleRule('border-radius', '999px', { media });
+                        expect(element).toHaveStyleRule('box-shadow', `${glowX} ${glowY} ${glowRadius} ${glowSpread} ${removeSpaces(colors.glowColor)}`, { media });
+                        expect(element).toHaveStyleRule('font-size', `calc(${fontSize} * ${multiplier})`, { media });
+                        expect(element).toHaveStyleRule('width', '100%', { media });
+                    }
                 }
             }
         });
+    });
+
+    describe('New Responsive', () => {
+        testResponsive(responsive, (current, media) => {
+            const { fontSize, glowRadius, glowSpread, glowX, glowY, sizeMultipliers } = getComponentVars('button');
+            const multiplier = sizeMultipliers[current];
+            const wrapper = mount(<ResponsiveButton />);
+            const element = wrapper.find('.fab-button').getDOMNode();
+            const colors = getComponentColors('button', responsive[current]);
+
+            expect(element).not.toHaveStyleRule('background', Color(responsive[current].color).hex());
+            expect(element).not.toHaveStyleRule('border-color');
+            expect(element).not.toHaveStyleRule('border-radius');
+            expect(element).not.toHaveStyleRule('box-shadow');
+            expect(element).toHaveStyleRule('font-size', `calc(${fontSize} * 1)`);
+            expect(element).not.toHaveStyleRule('width');
+
+            expect(element).toHaveStyleRule('background', Color(responsive[current].color).hex(), { media });
+            expect(element).toHaveStyleRule('border', `solid 1px transparent`, { media });
+            expect(element).toHaveStyleRule('border-color', colors.borderColor, { media });
+            expect(element).toHaveStyleRule('border-radius', '999px', { media });
+            expect(element).toHaveStyleRule('box-shadow', `${glowX} ${glowY} ${glowRadius} ${glowSpread} ${removeSpaces(colors.glowColor)}`, { media });
+            expect(element).toHaveStyleRule('font-size', `calc(${fontSize} * ${multiplier})`, { media });
+            expect(element).toHaveStyleRule('width', '100%', { media });
+        });
+
     });
 
     describe('Customization', () => {

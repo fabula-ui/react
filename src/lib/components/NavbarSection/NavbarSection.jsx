@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
 
 // Components
 import { Component } from '../Component/Component';
@@ -26,9 +25,4 @@ export const NavbarSection = props => {
 NavbarSection.defaultProps = {
     alignment: '',
     expand: false,
-}
-
-NavbarSection.propTypes = {
-    alignment: PropTypes.string,
-    expand: PropTypes.bool
 }

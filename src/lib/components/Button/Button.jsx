@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
 
 // Components
 import { Component } from '../Component/Component';
@@ -90,22 +89,4 @@ Button.defaultProps = {
     rounded: false,
     size: 'md',
     wide: false
-};
-
-Button.propTypes = {
-    align: PropTypes.string,
-    clear: PropTypes.bool,
-    color: PropTypes.string,
-    compact: PropTypes.bool,
-    darken: PropTypes.bool,
-    expand: PropTypes.bool,
-    faded: PropTypes.bool,
-    glow: PropTypes.bool,
-    gradient: PropTypes.bool,
-    invert: PropTypes.bool,
-    lighten: PropTypes.bool,
-    outline: PropTypes.bool,
-    rounded: PropTypes.bool,
-    size: PropTypes.string,
-    wide: PropTypes.bool
 };

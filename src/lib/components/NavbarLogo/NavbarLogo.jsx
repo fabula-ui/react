@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
 
 // Components
 import { Component } from '../Component/Component';
@@ -29,9 +28,4 @@ export const NavbarLogo = props => {
 NavbarLogo.defaultProps = {
     alt: '',
     src: ''
-}
-
-NavbarLogo.propTypes = {
-    alt: PropTypes.string,
-    src: PropTypes.string
 }
